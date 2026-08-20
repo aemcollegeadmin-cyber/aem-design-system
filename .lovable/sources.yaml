@@ -1,0 +1,6 @@
+components:
+  - file: src/design-system/aem/index.ts
+    operation: ts-named-exports
+tokens:
+  - file: src/design-system/aem/styles/theme.css
+    operation: css-variables
