@@ -1,4 +1,3 @@
-<<<<<<< placeholder
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Moon, Sun } from "lucide-react";
