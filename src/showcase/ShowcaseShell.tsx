@@ -37,7 +37,7 @@ export function ShowcaseShell({ children }: { children: React.ReactNode }) {
               А
             </span>
             <div className="flex flex-col leading-tight">
-              <Text variant="body" className="font-semibold">
+              <Text variant="paragraph" className="font-semibold">
                 Той самий коледж
               </Text>
               <Text variant="caption" className="text-ink-muted">
