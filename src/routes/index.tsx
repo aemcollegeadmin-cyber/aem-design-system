@@ -46,16 +46,18 @@ function OverviewPage() {
           домашніх завдань і перевірки робіт. Інтерфейсні тексти українською.
         </Text>
         <div className="flex flex-wrap gap-3">
-          <Button asChild={false} variant="primary">
-            <Link to="/components" className="text-surface no-underline">
-              Каталог компонентів
-            </Link>
-          </Button>
-          <Button variant="secondary" asChild={false}>
-            <Link to="/colors" className="text-ink no-underline">
-              Кольори
-            </Link>
-          </Button>
+          <Link
+            to="/components"
+            className="inline-flex h-11 items-center rounded-pill bg-ink px-5 text-body text-surface no-underline hover:bg-ink/90"
+          >
+            Каталог компонентів
+          </Link>
+          <Link
+            to="/colors"
+            className="inline-flex h-11 items-center rounded-pill bg-surface-muted px-5 text-body text-ink no-underline hover:bg-border-subtle"
+          >
+            Кольори
+          </Link>
         </div>
       </section>
 
