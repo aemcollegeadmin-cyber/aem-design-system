@@ -1,221 +1,111 @@
-import { createFileRoute } from "@tanstack/react-router";
-import { useState } from "react";
-import { MessageCircle, Upload, X } from "lucide-react";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ShowcaseShell, Section, Specimen } from "@/showcase/ShowcaseShell";
 import {
-  AppHeader,
-  Avatar,
   Badge,
-  Button,
   Callout,
-  Card,
-  ChatBubble,
-  ChatInput,
   CourseCard,
-  IconButton,
   LessonRow,
   ModuleCard,
-  ProgressBar,
-  StatusIcon,
-  SubmissionRow,
-  Tabs,
+  StatCard,
   Text,
-  Textarea,
   UserChip,
 } from "@/design-system/aem";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "AEM College UI Kit — Tokens & Components" },
+      { title: "Дизайн-система AEM College — огляд" },
       {
         name: "description",
         content:
-          "Starter design tokens and React components drafted from the AEM College learning platform UI kit.",
+          "Токени та компоненти навчальної платформи «Той самий коледж!»: спокійна графіка, персикові та лаймові акценти.",
       },
-      { property: "og:title", content: "AEM College UI Kit — Tokens & Components" },
+      { property: "og:title", content: "Дизайн-система AEM College — огляд" },
       {
         property: "og:description",
         content:
-          "Starter design tokens and React components drafted from the AEM College learning platform UI kit.",
+          "Токени та компоненти навчальної платформи «Той самий коледж!»: спокійна графіка, персикові та лаймові акценти.",
       },
     ],
   }),
-  component: Showcase,
+  component: OverviewPage,
 });
 
-function Section({ title, children }: { title: string; children: React.ReactNode }) {
+function OverviewPage() {
   return (
-    <section className="flex flex-col gap-4">
-      <Text variant="h4" as="h2">
-        {title}
-      </Text>
-      <Card variant="surface" padding="lg" radius="panel" className="flex flex-col gap-4">
-        {children}
-      </Card>
-    </section>
-  );
-}
-
-const swatches = [
-  { name: "ink", className: "bg-ink" },
-  { name: "surface", className: "bg-surface border border-border-subtle" },
-  { name: "surface-muted", className: "bg-surface-muted" },
-  { name: "accent-peach", className: "bg-accent-peach" },
-  { name: "accent-lime", className: "bg-accent-lime" },
-  { name: "accent-peach-fg", className: "bg-accent-peach-fg" },
-  { name: "accent-lime-fg", className: "bg-accent-lime-fg" },
-];
-
-function Showcase() {
-  const [tab, setTab] = useState("info");
-
-  return (
-    <main className="mx-auto flex max-w-5xl flex-col gap-10 px-6 py-12">
-      <header className="flex flex-col gap-2">
-        <Text variant="h1">AEM College design system</Text>
-        <Text variant="paragraph">
-          Starter tokens and components drafted from the shared UI kit. Refine anything from here.
+    <ShowcaseShell>
+      <section className="flex flex-col gap-6 rounded-panel bg-surface p-8 shadow-card">
+        <Badge variant="lime">версія 0.2 · чернетка</Badge>
+        <Text variant="h1" className="max-w-2xl">
+          Спокійний інтерфейс навчання: чорнило на світлому полотні, персик для очікування, лайм для
+          завершеного.
         </Text>
-      </header>
-
-      <Section title="Colors">
+        <Text className="max-w-2xl text-ink-soft">
+          Дизайн-система «Той самий коледж!» — це набір токенів і компонентів для курсів, уроків,
+          домашніх завдань і перевірки робіт. Інтерфейсні тексти українською.
+        </Text>
         <div className="flex flex-wrap gap-3">
-          {swatches.map((s) => (
-            <div key={s.name} className="flex flex-col gap-1">
-              <div className={`size-16 rounded-field ${s.className}`} />
-              <span className="text-caption text-ink-muted">{s.name}</span>
-            </div>
-          ))}
+          <Link
+            to="/components"
+            className="inline-flex h-11 items-center rounded-pill bg-ink px-5 text-body text-surface no-underline hover:bg-ink/90"
+          >
+            Каталог компонентів
+          </Link>
+          <Link
+            to="/colors"
+            className="inline-flex h-11 items-center rounded-pill bg-surface-muted px-5 text-body text-ink no-underline hover:bg-border-subtle"
+          >
+            Кольори
+          </Link>
+        </div>
+      </section>
+
+      <Section title="Принципи" description="Три правила, які визначають вигляд платформи.">
+        <div className="grid gap-4 sm:grid-cols-3">
+          <StatCard label="Радіуси" value="Мʼякі" hint="картки, панелі, pill-кнопки" />
+          <StatCard label="Персик" value="Очікує" tone="peach" hint="робота на перевірці" />
+          <StatCard label="Лайм" value="Готово" tone="lime" hint="прийнято, пройдено" />
         </div>
       </Section>
 
-      <Section title="Typography">
-        <Text variant="h1">H1 Заголовок</Text>
-        <Text variant="h2">H2 Заголовок</Text>
-        <Text variant="h4">H4 Заголовок</Text>
-        <Text variant="paragraph">Paragraph — основний текст інтерфейсу.</Text>
-        <Text variant="link" href="#">
-          Link
-        </Text>
-      </Section>
-
-      <Section title="Buttons & badges">
-        <div className="flex flex-wrap items-center gap-3">
-          <Button>
-            <Upload className="size-4" /> Здати домашнє завдання
-          </Button>
-          <Button variant="secondary">
-            <MessageCircle className="size-4" /> Відкрити чат із ментором
-          </Button>
-          <Button variant="lime">Прийняти</Button>
-          <Button variant="ghost" size="sm">
-            Перевірка завдань
-          </Button>
-          <IconButton label="Закрити">
-            <X className="size-4" />
-          </IconButton>
-        </div>
-        <div className="flex flex-wrap items-center gap-2">
-          <Badge variant="peach">На перевірці</Badge>
-          <Badge variant="lime">Прийнято</Badge>
-          <Badge>4 уроки</Badge>
-          <Badge variant="solid">Новий</Badge>
+      <Section title="Як це виглядає в продукті" description="Реальна композиція з компонентів системи.">
+        <div className="flex flex-col gap-6 lg:flex-row">
+          <CourseCard
+            title="Веб-дизайн з нуля"
+            description="6 модулів · 32 уроки"
+            progress={64}
+            mentors={
+              <>
+                <UserChip name="Олена Ковальчук" />
+                <UserChip name="Ігор Мельник" />
+              </>
+            }
+          />
+          <div className="flex min-w-0 flex-1 flex-col gap-4">
+            <ModuleCard
+              title="Модуль 2. Верстка"
+              description="Практика на реальних макетах"
+              progress={50}
+              meta={<Badge variant="peach">2 з 4</Badge>}
+            >
+              <LessonRow title="Урок 1. Flexbox" description="18 хвилин" status="completed" />
+              <LessonRow title="Урок 2. Grid" description="24 хвилини" />
+              <LessonRow title="Урок 3. Адаптивність" description="Відкриється 14 березня" status="locked" />
+            </ModuleCard>
+            <Callout>Домашнє завдання до уроку 1 на перевірці у куратора</Callout>
+          </div>
         </div>
       </Section>
 
-      <Section title="Tabs, progress & status">
-        <Tabs
-          className="bg-surface-muted self-start"
-          value={tab}
-          onValueChange={setTab}
-          items={[
-            { value: "info", label: "Інформація" },
-            { value: "task", label: "Домашнє завдання" },
-          ]}
-        />
-        <ProgressBar value={28} />
-        <ProgressBar value={100} label="Пройдено 100%" />
-        <div className="flex gap-3">
-          <StatusIcon status="available" />
-          <StatusIcon status="completed" />
-          <StatusIcon status="locked" />
-        </div>
+      <Section title="Що далі" description="Система готується до впровадження в LMS.">
+        <Specimen label="статус впровадження">
+          <div className="flex flex-col gap-2">
+            <Text variant="caption">Токени, темна тема та shadcn-експорт — готові.</Text>
+            <Text variant="caption">Форми, оверлеї, таблиці та навігація — готові.</Text>
+            <Text variant="caption">Наступний крок — рев’ю системи, потім впровадження в LMS.</Text>
+          </div>
+        </Specimen>
       </Section>
-
-      <Section title="Callouts & fields">
-        <Callout variant="pending">
-          Щоб продовжити навчання, тобі потрібно отримати підтвердження від ментора.
-        </Callout>
-        <Callout variant="done">Ти пройшов цей урок 12 січня 2026.</Callout>
-        <Textarea placeholder="Відправ всі потрібні деталі для перевірки" />
-      </Section>
-
-      <Section title="Identity">
-        <div className="flex flex-wrap items-center gap-4">
-          <Avatar name="Артур" size="sm" />
-          <Avatar name="Артур" size="md" />
-          <Avatar name="Артур" size="lg" variant="surface" />
-          <UserChip name="Артур" />
-          <UserChip variant="row" name="Артур" email="rais@gmail.com" />
-        </div>
-      </Section>
-
-      <Section title="Lessons & modules">
-        <LessonRow title="Назва уроку" description="Опис уроку" status="available" onOpen={() => {}} />
-        <LessonRow title="Назва уроку" description="Опис уроку" status="completed" />
-        <LessonRow title="Назва уроку" description="Опис уроку" status="locked" />
-        <ModuleCard
-          title="1. Введення в UX/UI дизайн"
-          description="Короткий опис модулю"
-          progress={28}
-          meta={<Badge>4 уроки</Badge>}
-        >
-          <LessonRow title="Назва уроку" description="Опис уроку" status="completed" />
-          <LessonRow title="Назва уроку" description="Опис уроку" status="available" />
-          <LessonRow title="Назва уроку" description="Опис уроку" status="locked" />
-        </ModuleCard>
-      </Section>
-
-      <Section title="Course & review queue">
-        <CourseCard
-          title="Інтерфейсник"
-          description="Увійди в 5% дизайнерів, яких завжди наймають стартапи по всьому світу."
-          progress={28}
-          mentors={
-            <>
-              <UserChip name="Артур" />
-              <UserChip name="Аліна" />
-            </>
-          }
-        />
-        <SubmissionRow
-          title="Введення в UX/UI дизайн"
-          subtitle="Назва курсу / Назва модулю"
-          status="review"
-          timestamp="2 години тому"
-        />
-        <SubmissionRow
-          title="Введення в UX/UI дизайн"
-          subtitle="Назва курсу / Назва модулю"
-          status="accepted"
-          timestamp="2 години тому"
-        />
-      </Section>
-
-      <Section title="Header & chat">
-        <AppHeader
-          user={<UserChip variant="row" name="Артур" email="rais@gmail.com" />}
-          brand="aem college"
-          actions={<Button size="sm" variant="secondary">Перевірка завдань</Button>}
-        />
-        <ChatBubble author="Артур" time="15:28">
-          Давай приберемо підзаголовок, щоб тут була лише назва самого курсу.
-        </ChatBubble>
-        <ChatBubble author="Аліна" time="15:28" variant="outgoing">
-          Й зробити це відображення для всіх — модератора, студента та ментора.
-        </ChatBubble>
-        <ChatInput />
-      </Section>
-    </main>
+    </ShowcaseShell>
   );
 }

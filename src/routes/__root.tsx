@@ -7,6 +7,7 @@ import {
 } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 
+import { Toaster, TooltipProvider } from "@/design-system/aem";
 import appCss from "../styles.css?url";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
@@ -62,8 +63,11 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
-      <Outlet />
+      <TooltipProvider>
+        {/* Required: nested routes render here. Removing <Outlet /> breaks all child routes. */}
+        <Outlet />
+        <Toaster />
+      </TooltipProvider>
     </QueryClientProvider>
   );
 }
