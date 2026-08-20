@@ -71,4 +71,12 @@ export { EmptyState, type EmptyStateProps } from "./components/EmptyState";
 export { Separator, type SeparatorProps } from "./components/Separator";
 export { AccordionRoot, AccordionItem, type AccordionItemProps } from "./components/Accordion";
 
+/* Navigation & layout */
+export { Breadcrumbs, type BreadcrumbsProps, type BreadcrumbItem } from "./components/Breadcrumbs";
+export { NavItem, type NavItemProps } from "./components/NavItem";
+export { Sidebar, type SidebarProps } from "./components/Sidebar";
+export { PageHeader, type PageHeaderProps } from "./components/PageHeader";
+export { StatCard, type StatCardProps } from "./components/StatCard";
+export { Toolbar, type ToolbarProps } from "./components/Toolbar";
+
 export { cn } from "./lib/cn";
