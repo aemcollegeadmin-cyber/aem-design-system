@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "@tanstack/react-router";
 import { Moon, Sun } from "lucide-react";
-import { IconButton, Text, TooltipProvider, cn } from "@/design-system/aem";
+import { IconButton, Text, cn } from "@/design-system/aem";
 
 const pages = [
   { to: "/", label: "Огляд" },
@@ -29,7 +29,6 @@ function ThemeToggle() {
 
 export function ShowcaseShell({ children }: { children: React.ReactNode }) {
   return (
-    <TooltipProvider>
       <div className="min-h-screen bg-surface-muted">
         <header className="sticky top-0 z-30 flex flex-wrap items-center justify-between gap-4 bg-surface px-6 py-4 shadow-card">
           <div className="flex items-center gap-3">
@@ -62,7 +61,6 @@ export function ShowcaseShell({ children }: { children: React.ReactNode }) {
         </header>
         <main className="mx-auto flex max-w-6xl flex-col gap-10 px-6 py-10">{children}</main>
       </div>
-    </TooltipProvider>
   );
 }
 
