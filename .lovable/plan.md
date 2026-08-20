@@ -1,34 +1,33 @@
-# Adopting the AEM system in "Той самий коледж!"
+# Finish the AEM design system, then adopt it
 
-I inspected the LMS snapshot. It is a Vite + React 18 app on **Tailwind v3** with the
-full **shadcn/ui** set (48 primitives), 18 pages, HSL semantic tokens in `src/index.css`
-(blue `--primary`, green `--accent`), 86 raw color literals in pages, and 11 files
-touching `dark:`.
+Order of work: complete the system here, review and fix it, and only after that touch
+"Той самий коледж!". The LMS scan below is used only to size what the system must cover —
+no LMS code changes in this plan.
 
-This library today ships 19 bespoke components and a **Tailwind v4 `@theme`** file.
-Attaching it as-is would not restyle the LMS: none of its shadcn components read our
-tokens, and our theme file cannot compile in a v3 project.
+What the LMS tells us it needs: Vite + React 18 on **Tailwind v3**, the full **shadcn/ui**
+set (48 primitives), 18 pages, shadcn-shaped HSL tokens in `src/index.css`, 86 raw color
+literals, 11 files touching `dark:`.
 
-Three gaps to close, in order.
+Current system: 19 bespoke components, a Tailwind v4 `@theme` file, light-only, no form or
+overlay primitives.
 
-## 1. A token layer the LMS can actually consume
+## Phase 1 — Complete the tokens
 
-The highest-impact piece. Add a second token entry that expresses the same AEM palette as
-**shadcn-shaped HSL variables** (`--background`, `--card`, `--primary`, `--muted`,
-`--border`, `--radius`, plus `--warning` / `--success` mapped to peach / lime and the
-sidebar block the LMS already uses). Dropping that file into the LMS restyles all 48
-shadcn primitives and most of the 18 pages at once, with no component rewrites.
+- Fill the gaps in `src/design-system/aem/styles/theme.css`: a semantic state set
+  (success / warning / danger / info foregrounds and surfaces), border and ring tokens, a
+  focus token, and a z / motion (duration + easing) set.
+- Add a **dark theme** as a `@custom-variant`-driven block so every token has a dark value.
+- Add a **shadcn-compatible token export** (`styles/theme-shadcn-v3.css`): the same palette
+  expressed as HSL triplets under the shadcn variable names (`--background`, `--card`,
+  `--primary`, `--muted`, `--border`, `--radius`, `--warning` → peach, `--success` → lime,
+  plus the sidebar block). This is what makes the system usable in a Tailwind v3 shadcn app
+  later, and it is authored as part of finishing the system, not as migration work.
+- Document radius mapping: our field/card/panel/pill scale against a single `--radius`.
 
-Also needed here:
-- Radius mapping: the LMS has a single `--radius`; our scale is field/card/panel/pill.
-- A **dark theme** — AEM tokens are light-only today, and the LMS references `dark:`.
-- Keep the v4 `@theme` file as the canonical entry for new projects; the v3 file is the
-  compatibility export.
+## Phase 2 — Complete the component set
 
-## 2. Components the LMS needs that the system lacks
-
-The system covers learning surfaces (lessons, modules, submissions, chat) but not the app
-chrome and forms the LMS is built from. To add, grouped by wave:
+The system covers learning surfaces (lessons, modules, submissions, chat) but not app
+chrome or forms. Built in self-continuing waves, each wave verified in the showcase:
 
 - **Forms**: Input, Label, Field (label + hint + error), Select, Checkbox, Radio, Switch,
   PasswordInput, SearchInput.
@@ -40,17 +39,38 @@ chrome and forms the LMS is built from. To add, grouped by wave:
   `AppLayout` / `TopNavbar` and a dark sidebar our tokens do not describe.
 - **Progress**: CircularProgress (the LMS has its own).
 
-Each gets variant props, `className` + ref forwarding, a barrel export, and
-`usage` / `examples` / `antipatterns` in the catalog.
+Each gets variant / size props with fixed options, `className` + ref forwarding, a barrel
+export, and `usage` / `examples` / `antipatterns` in the catalog.
 
-## 3. Publishing and adoption mechanics
+## Phase 3 — Showcase, docs and metadata
 
-- Document in `system.md` that peach = awaiting review, lime = accepted, and how those map
-  to `--warning` / `--success` in the LMS.
-- Add `.dsignore` so showcase routes never ship to consumers.
-- Publish a version, attach it in the LMS, then migrate page by page — `CoursesPage`,
-  `CourseDetailPage`, `LessonPage`, then the admin pages — replacing the 86 raw color
-  literals with tokens as we go.
+- Rebuild the showcase as a small site behind shared nav: Overview, Colors, Typography,
+  Iconography, Components (component sidebar + search), with a light/dark toggle so both
+  themes are verified.
+- Every component section: live instance, all variants and states side by side
+  (default / hover / focus-visible / disabled / loading / error), a copyable snippet, and
+  one realistic composition.
+- `.lovable/system.md`: accent semantics (peach = awaiting review, lime = accepted), the
+  dark-theme rules, and how to consume each theme export.
+- Add `.dsignore` so showcase-only files never reach consumers; keep `sources.yaml` and
+  `meta.yaml` accurate.
+
+## Phase 4 — Review and fix
+
+- Audit every component against the contract: no raw color / radius / type / shadow
+  literals, no styling via inline `style`, variant props not booleans, semantic elements,
+  visible focus, ref + `className` forwarding, barrel entry present.
+- Check every token is actually used and every component renders correctly in both themes,
+  at narrow and wide viewports, in the browser.
+- Typecheck and lint clean; fix everything the audit surfaces.
+
+## Phase 5 — Adopt in "Той самий коледж!" (only after Phase 4 is signed off)
+
+- Publish a version of the system and attach it in the LMS.
+- Swap the LMS `:root` tokens for the shadcn-compatible export — this restyles all 48
+  shadcn primitives at once.
+- Then migrate page by page: `CoursesPage`, `CourseDetailPage`, `LessonPage`, then admin
+  pages, replacing the 86 raw color literals with tokens.
 
 ## Technical notes
 
@@ -59,9 +79,4 @@ Each gets variant props, `className` + ref forwarding, a barrel export, and
   (`tailwind.config.ts` + `@layer base`). The v3 token file is hand-authored CSS with HSL
   triplets so it drops into the LMS `:root` block unchanged.
 - Attach copies `src/**`, so both theme files live under `src/design-system/aem/styles/`.
-- No LMS code changes from this project — that migration happens there after a publish.
-
-## Scope check
-
-This is the library-side work. Tell me whether to start with step 1 only (tokens + dark
-theme, the fastest visible win in the LMS) or run straight through the component waves.
+- No LMS code changes until Phase 5, which happens in that project after a publish.
