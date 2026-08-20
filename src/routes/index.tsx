@@ -2,7 +2,6 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { ShowcaseShell, Section, Specimen } from "@/showcase/ShowcaseShell";
 import {
   Badge,
-  Button,
   Callout,
   CourseCard,
   LessonRow,
