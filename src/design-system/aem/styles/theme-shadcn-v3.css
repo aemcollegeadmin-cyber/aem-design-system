@@ -1,0 +1,107 @@
+/* AEM College design system — shadcn / Tailwind v3 compatibility export.
+ *
+ * Use this file INSTEAD of theme.css when the consuming app is a Tailwind v3
+ * shadcn/ui project: paste the two blocks below into the app's `index.css`
+ * `@layer base` (replacing its existing `:root` / `.dark` token blocks). Every
+ * shadcn primitive then renders in the AEM palette with no component changes.
+ *
+ * Values are HSL triplets (shadcn's `hsl(var(--token))` convention) of the very
+ * same palette declared in theme.css. Keep the two files in sync.
+ *
+ * Accent semantics stay intact: --warning is AEM peach (awaiting review) and
+ * --success is AEM lime (accepted / completed).
+ */
+
+:root {
+  --background: 0 0% 95%; /* aem surface-muted — the page canvas */
+  --foreground: 0 0% 10%; /* aem ink */
+
+  --card: 0 0% 100%; /* aem surface */
+  --card-foreground: 0 0% 10%;
+
+  --popover: 0 0% 100%;
+  --popover-foreground: 0 0% 10%;
+
+  --primary: 0 0% 10%; /* aem ink — primary actions are near-black pills */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 0 0% 95%;
+  --secondary-foreground: 0 0% 10%;
+
+  --muted: 0 0% 95%;
+  --muted-foreground: 0 0% 60%; /* aem ink-muted */
+
+  --accent: 88 72% 79%; /* aem lime */
+  --accent-foreground: 89 100% 15%;
+
+  --destructive: 9 82% 26%;
+  --destructive-foreground: 7 100% 90%;
+
+  --warning: 34 100% 79%; /* aem peach — awaiting review */
+  --warning-foreground: 25 100% 20%;
+  --success: 88 72% 79%; /* aem lime — accepted */
+  --success-foreground: 89 100% 15%;
+  --info: 220 100% 93%;
+  --info-foreground: 217 74% 27%;
+
+  --border: 0 0% 90%; /* aem border-subtle */
+  --input: 0 0% 90%;
+  --ring: 0 0% 10%; /* aem focus */
+
+  --radius: 1rem; /* aem radius-card; field = 0.75rem, panel = 1.25rem */
+
+  --sidebar-background: 0 0% 10%;
+  --sidebar-foreground: 0 0% 71%;
+  --sidebar-primary: 88 72% 79%;
+  --sidebar-primary-foreground: 89 100% 15%;
+  --sidebar-accent: 0 0% 18%;
+  --sidebar-accent-foreground: 0 0% 96%;
+  --sidebar-border: 0 0% 18%;
+  --sidebar-ring: 88 72% 79%;
+}
+
+.dark {
+  --background: 0 0% 8%;
+  --foreground: 0 0% 96%;
+
+  --card: 0 0% 12%;
+  --card-foreground: 0 0% 96%;
+
+  --popover: 0 0% 12%;
+  --popover-foreground: 0 0% 96%;
+
+  --primary: 0 0% 96%;
+  --primary-foreground: 0 0% 10%;
+
+  --secondary: 0 0% 18%;
+  --secondary-foreground: 0 0% 96%;
+
+  --muted: 0 0% 18%;
+  --muted-foreground: 0 0% 49%;
+
+  --accent: 89 49% 22%;
+  --accent-foreground: 86 74% 85%;
+
+  --destructive: 9 64% 22%;
+  --destructive-foreground: 7 100% 90%;
+
+  --warning: 33 66% 25%;
+  --warning-foreground: 34 100% 84%;
+  --success: 89 49% 22%;
+  --success-foreground: 86 74% 85%;
+  --info: 217 52% 23%;
+  --info-foreground: 220 100% 93%;
+
+  --border: 0 0% 18%;
+  --input: 0 0% 18%;
+  --ring: 0 0% 96%;
+
+  --sidebar-background: 0 0% 8%;
+  --sidebar-foreground: 0 0% 71%;
+  --sidebar-primary: 89 49% 22%;
+  --sidebar-primary-foreground: 86 74% 85%;
+  --sidebar-accent: 0 0% 18%;
+  --sidebar-accent-foreground: 0 0% 96%;
+  --sidebar-border: 0 0% 18%;
+  --sidebar-ring: 89 49% 22%;
+}
