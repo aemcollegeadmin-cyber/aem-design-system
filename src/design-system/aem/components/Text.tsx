@@ -24,6 +24,8 @@ const defaultTag: Record<TextVariant, React.ElementType> = {
 export interface TextProps extends React.HTMLAttributes<HTMLElement> {
   variant?: TextVariant;
   as?: React.ElementType;
+  /** Only used when the rendered element is an anchor (variant="link"). */
+  href?: string;
 }
 
 /** Typography primitive covering the kit's H1/H2/H4/Paragraph/Link styles. */
