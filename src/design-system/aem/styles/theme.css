@@ -1,21 +1,100 @@
-/* AEM College design system — canonical theme entry.
-   Import this file once in the consuming app. */
+/* AEM College design system — canonical theme entry (Tailwind v4).
+   Import this file once in the consuming app.
+   For a Tailwind v3 / shadcn consumer, use ./theme-shadcn-v3.css instead. */
 @import "tailwindcss";
 
-@theme {
-  /* Color */
-  --color-ink: #1a1a1a;
-  --color-ink-soft: #5c5c5c;
-  --color-ink-muted: #9a9a9a;
-  --color-surface: #ffffff;
-  --color-surface-muted: #f1f1f1;
-  --color-border-subtle: #e6e6e6;
-  --color-accent-peach: #ffd193;
-  --color-accent-peach-fg: #662b00;
-  --color-accent-lime: #cbf0a2;
-  --color-accent-lime-fg: #284d00;
+@custom-variant dark (&:where(.dark, .dark *));
 
-  /* Radius */
+:root {
+  /* Ink / surface */
+  --aem-ink: #1a1a1a;
+  --aem-ink-soft: #5c5c5c;
+  --aem-ink-muted: #9a9a9a;
+  --aem-surface: #ffffff;
+  --aem-surface-muted: #f1f1f1;
+  --aem-border-subtle: #e6e6e6;
+  --aem-border-strong: #d2d2d2;
+  --aem-focus: #1a1a1a;
+
+  /* Accents */
+  --aem-accent-peach: #ffd193;
+  --aem-accent-peach-fg: #662b00;
+  --aem-accent-lime: #cbf0a2;
+  --aem-accent-lime-fg: #284d00;
+
+  /* Semantic states */
+  --aem-success: #cbf0a2;
+  --aem-success-fg: #284d00;
+  --aem-warning: #ffd193;
+  --aem-warning-fg: #662b00;
+  --aem-danger: #ffd2cc;
+  --aem-danger-fg: #7a1c0c;
+  --aem-info: #d9e6ff;
+  --aem-info-fg: #123a7a;
+
+  --aem-shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.04);
+  --aem-shadow-overlay: 0 12px 40px rgb(0 0 0 / 0.16);
+}
+
+.dark {
+  --aem-ink: #f4f4f4;
+  --aem-ink-soft: #b4b4b4;
+  --aem-ink-muted: #7d7d7d;
+  --aem-surface: #1e1e1e;
+  --aem-surface-muted: #141414;
+  --aem-border-subtle: #2e2e2e;
+  --aem-border-strong: #3d3d3d;
+  --aem-focus: #f4f4f4;
+
+  --aem-accent-peach: #6b4416;
+  --aem-accent-peach-fg: #ffdcae;
+  --aem-accent-lime: #38521c;
+  --aem-accent-lime-fg: #dcf5bb;
+
+  --aem-success: #38521c;
+  --aem-success-fg: #dcf5bb;
+  --aem-warning: #6b4416;
+  --aem-warning-fg: #ffdcae;
+  --aem-danger: #5c1f14;
+  --aem-danger-fg: #ffd2cc;
+  --aem-info: #1c3358;
+  --aem-info-fg: #d9e6ff;
+
+  --aem-shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.32);
+  --aem-shadow-overlay: 0 12px 40px rgb(0 0 0 / 0.6);
+}
+
+@theme inline {
+  /* Color */
+  --color-ink: var(--aem-ink);
+  --color-ink-soft: var(--aem-ink-soft);
+  --color-ink-muted: var(--aem-ink-muted);
+  --color-surface: var(--aem-surface);
+  --color-surface-muted: var(--aem-surface-muted);
+  --color-border-subtle: var(--aem-border-subtle);
+  --color-border-strong: var(--aem-border-strong);
+  --color-focus: var(--aem-focus);
+  --color-accent-peach: var(--aem-accent-peach);
+  --color-accent-peach-fg: var(--aem-accent-peach-fg);
+  --color-accent-lime: var(--aem-accent-lime);
+  --color-accent-lime-fg: var(--aem-accent-lime-fg);
+  --color-success: var(--aem-success);
+  --color-success-fg: var(--aem-success-fg);
+  --color-warning: var(--aem-warning);
+  --color-warning-fg: var(--aem-warning-fg);
+  --color-danger: var(--aem-danger);
+  --color-danger-fg: var(--aem-danger-fg);
+  --color-info: var(--aem-info);
+  --color-info-fg: var(--aem-info-fg);
+
+  /* Shadow */
+  --shadow-card: var(--aem-shadow-card);
+  --shadow-overlay: var(--aem-shadow-overlay);
+}
+
+@theme {
+  /* Radius. A single-`--radius` consumer maps it to --radius-card (1rem);
+     field = radius - 0.25rem, panel = radius + 0.25rem, pill = fully round. */
   --radius-field: 0.75rem;
   --radius-card: 1rem;
   --radius-panel: 1.25rem;
@@ -34,21 +113,22 @@
   --text-caption: 0.8125rem;
   --text-caption--line-height: 1.45;
 
-  /* Shadow */
-  --shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.04);
-
   /* Spacing scale step (Tailwind default 0.25rem base) */
   --spacing: 0.25rem;
+
+  /* Motion */
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
 }
 
 html {
   font-family: var(--font-sans);
-  color: var(--color-ink);
-  background-color: var(--color-surface-muted);
+  color: var(--aem-ink);
+  background-color: var(--aem-surface-muted);
   -webkit-font-smoothing: antialiased;
 }
 
 *:focus-visible {
-  outline: 2px solid var(--color-ink);
+  outline: 2px solid var(--aem-focus);
   outline-offset: 2px;
 }
