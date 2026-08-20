@@ -62,7 +62,6 @@ import {
   Tabs,
   Text,
   Textarea,
-  Toaster,
   Toolbar,
   Tooltip,
   TooltipRoot,
@@ -750,7 +749,6 @@ function ComponentsPage() {
 
   return (
     <ShowcaseShell>
-      <Toaster />
       <div className="flex flex-col gap-8 lg:flex-row lg:items-start">
         <aside className="flex w-full flex-col gap-3 rounded-panel bg-surface p-4 shadow-card lg:sticky lg:top-24 lg:w-64">
           <SearchInput
