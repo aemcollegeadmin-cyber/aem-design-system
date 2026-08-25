@@ -1,0 +1,1403 @@
+{
+  "meta": {
+    "name": "aem-design-system",
+    "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
+    "version": "1.0.0",
+    "framework": "react",
+    "css_framework": "tailwind",
+    "starter_template": "custom_design_system",
+    "theme_files": [
+      "src/design-system/aem/styles/theme.css"
+    ],
+    "source_type": "local",
+    "source_manifest": {
+      "#enrichment": "473e6f3bf15dadb4d62f22fe119e7c8aad64536a41797e4a0cd8c7a07f2bebde",
+      ".dsignore": "2c7d76468c15bc0f1499420154f01ae3",
+      ".gitignore": "6059213806e442947666752f3db6bfdc",
+      ".lovable/meta.yaml": "8794970d6049858cc148d2b86f7a2b22",
+      ".lovable/plan/finish-the-aem-design-system-then-adopt-it-2026-08-20.md": "306e41b106dc6a57f1e140c07b138410",
+      ".lovable/sources.yaml": "8469455bacbb4c31f179c3bcc80a4e2e",
+      ".lovable/system.md": "c4e25c709ecbbd486cad67d02295ae4d",
+      "README.md": "d19675c449605f23c7cfa133c69b398b",
+      "bunfig.toml": "25f4c8696b22b0943db7191e0cdf7942",
+      "eslint.config.js": "07a67437fb1a45ab36d6de0145ff09de",
+      "lovable.toml": "b32568cbef680de9cbb176344986f1a3",
+      "mockupPreviewPlugin.ts": "e42e31c16e4b3b36f860729f5224edad",
+      "package.json": "b290dbc0e05f49dd7d207027706065a5",
+      "public/favicon.ico": "9f504444f85a5af2eef9264b02ae40be",
+      "src/design-system/aem/components/Accordion.tsx": "f05169bd1821e210b1fc0338617e4d88",
+      "src/design-system/aem/components/Alert.tsx": "412212d48428306a9942bc0b5b56d7c8",
+      "src/design-system/aem/components/AppHeader.tsx": "10d86eb7a4f8e4f7b37a31f7944601d0",
+      "src/design-system/aem/components/Avatar.tsx": "706aa88c526119b9514bbece11263f37",
+      "src/design-system/aem/components/Badge.tsx": "2fc671228b9fa17c7fd9b89a424ab5f3",
+      "src/design-system/aem/components/Breadcrumbs.tsx": "5c6fe39a66b6808ef40fcddda31a4c33",
+      "src/design-system/aem/components/Button.tsx": "46fbf1b8ee8722a899255a31941d86e3",
+      "src/design-system/aem/components/Callout.tsx": "26371134f4276352c92e48b29cf9fbff",
+      "src/design-system/aem/components/Card.tsx": "8c76c2b0b642dad9d5d339b4ed509a3e",
+      "src/design-system/aem/components/ChatBubble.tsx": "a7d6f54e2a5adcdaad0729ca38eb06d9",
+      "src/design-system/aem/components/ChatInput.tsx": "2e58c25c2c50409387ac9b3e96b55b62",
+      "src/design-system/aem/components/Checkbox.tsx": "6aaba984843dd9794bff8b897d4f2d20",
+      "src/design-system/aem/components/ConfirmDialog.tsx": "7389221bcfb7f76aae1edbf3a2a0a971",
+      "src/design-system/aem/components/CourseCard.tsx": "8041f70f71ef9ac87749f64d0591395f",
+      "src/design-system/aem/components/Dialog.tsx": "8b368ee5a9d28c72aea98b52b9ec1bb5",
+      "src/design-system/aem/components/DropdownMenu.tsx": "2fdcee875788b2fdb5d2c07e33e285f0",
+      "src/design-system/aem/components/EmptyState.tsx": "899ed00868df99416d8c8a1f5582e23b",
+      "src/design-system/aem/components/Field.tsx": "198c4f854cc6c4fcdae81be0bb69ccc0",
+      "src/design-system/aem/components/IconButton.tsx": "8abb57fa938402bcf7dc40fa675da98f",
+      "src/design-system/aem/components/Input.tsx": "ed434c56f8d9c8f5bf54f8e35349bf0c",
+      "src/design-system/aem/components/Label.tsx": "90e601afc270db89ae220065a79cbd6e",
+      "src/design-system/aem/components/LessonRow.tsx": "0151cda3f31023ba713a76d625cccedf",
+      "src/design-system/aem/components/ModuleCard.tsx": "5c7886055adcf47bcb0e8a5ebfa58aad",
+      "src/design-system/aem/components/NavItem.tsx": "9eb4d156437cab844c7954b31e362ab8",
+      "src/design-system/aem/components/PageHeader.tsx": "83cd19229e189cf2af22acdf84bf9f29",
+      "src/design-system/aem/components/Pagination.tsx": "83e42feb10992a7c6c6e28fa7276331d",
+      "src/design-system/aem/components/PasswordInput.tsx": "be6321c59746a87eab21f88b8760fead",
+      "src/design-system/aem/components/ProgressBar.tsx": "ede39a818cdf3c090d263f4f90b157ae",
+      "src/design-system/aem/components/RadioGroup.tsx": "7028a05898fce2d3d102348266df7ef1",
+      "src/design-system/aem/components/SearchInput.tsx": "b4777f01a15be51045a82948409d4a2a",
+      "src/design-system/aem/components/Select.tsx": "d19db2424882bfe197621f66aaa310c4",
+      "src/design-system/aem/components/Separator.tsx": "9dfafbe798c75a657d690c52f749b339",
+      "src/design-system/aem/components/Sheet.tsx": "2ae04d46931c9b68ebcd1fa591aee72f",
+      "src/design-system/aem/components/Sidebar.tsx": "698932f3dfa262c7626d7cf1c60c6493",
+      "src/design-system/aem/components/Skeleton.tsx": "a9039b2552fafd295f98bd6374519b88",
+      "src/design-system/aem/components/StatCard.tsx": "3a23844379f7d8246096c3530070aba5",
+      "src/design-system/aem/components/StatusIcon.tsx": "de7253440b4c043453d987588bf95b04",
+      "src/design-system/aem/components/SubmissionRow.tsx": "df942be62feb721ece52bcab4322e7ab",
+      "src/design-system/aem/components/Switch.tsx": "d421a81642c17d5900278fd9262fe64c",
+      "src/design-system/aem/components/Table.tsx": "337571e7cffb914c80c4d94c4ac4a5d4",
+      "src/design-system/aem/components/Tabs.tsx": "68f2cdb9ec66a3535cd1dd0ac366e7ad",
+      "src/design-system/aem/components/Text.tsx": "e5bd6a2e4993b299157ed46549113616",
+      "src/design-system/aem/components/Textarea.tsx": "1b1795ab9c861da036cef14496c5293a",
+      "src/design-system/aem/components/Toaster.tsx": "647eb0a1f3f4335bbcd7c069f778c293",
+      "src/design-system/aem/components/Toolbar.tsx": "1586c628f3bf7f2517228cc149aa5dee",
+      "src/design-system/aem/components/Tooltip.tsx": "dafb29ed748b0fdd266dadefb2efeeea",
+      "src/design-system/aem/components/UserChip.tsx": "bd6ed8ce20a02cc789d02ecfc9e4dc5c",
+      "src/design-system/aem/index.ts": "6dbe0f45b95627bf7226172937f717de",
+      "src/design-system/aem/lib/cn.ts": "1d5cc6c3839f7bc135e050f50af58daa",
+      "src/design-system/aem/styles/theme-shadcn-v3.css": "1c9f807c8f73a430c85c1d57b7e633ce",
+      "src/design-system/aem/styles/theme.css": "3047698430fd887f029bf54761baaf36",
+      "src/mockup-preview.d.ts": "38969839f35ce2966e32a9f01a5c09ea",
+      "src/routeTree.gen.ts": "6f67a8aebc2c09c9c5ed77ffc35e30e7",
+      "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
+      "src/routes/[__component].preview.$.tsx": "06d671f4774ac83355e59ad69a350bab",
+      "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
+      "src/routes/__root.tsx": "27e6d3ca5ceb98039fd8e800d578b661",
+      "src/routes/colors.tsx": "d8094a97262acfbeb238a256364fe653",
+      "src/routes/components.tsx": "9159355cc66d56d6f907610f672c3560",
+      "src/routes/index.tsx": "35eac60a07c2b1e51a2918822c54ffec",
+      "src/routes/typography.tsx": "f629b5407d8363449795697a85e045f4",
+      "src/showcase/ShowcaseShell.tsx": "7a0a1c7c10ccfd0372696c94a647e2e4",
+      "src/styles.css": "5cf5c478933bc96bd3fab2aa39bfd706",
+      "tsconfig.json": "994abf64c2b9f78b568879f80ed0170e",
+      "vite.config.ts": "94fd08fb73a33f8d2c51992ff209a0c2",
+      "wrangler.jsonc": "680b897d48e44bcc65fe437c29b38f3b"
+    },
+    "pipeline_version": 8
+  },
+  "tokens": {
+    "color": [
+      {
+        "name": "--aem-ink",
+        "raw": "#1a1a1a",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-ink-soft",
+        "raw": "#5c5c5c",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-ink-muted",
+        "raw": "#9a9a9a",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-surface",
+        "raw": "#ffffff",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-surface-muted",
+        "raw": "#f1f1f1",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-border-subtle",
+        "raw": "#e6e6e6",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-border-strong",
+        "raw": "#d2d2d2",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-focus",
+        "raw": "#1a1a1a",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-accent-peach",
+        "raw": "#ffd193",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-accent-peach-fg",
+        "raw": "#662b00",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-accent-lime",
+        "raw": "#cbf0a2",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-accent-lime-fg",
+        "raw": "#284d00",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-success",
+        "raw": "#cbf0a2",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-success-fg",
+        "raw": "#284d00",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-warning",
+        "raw": "#ffd193",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-warning-fg",
+        "raw": "#662b00",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-danger",
+        "raw": "#ffd2cc",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-danger-fg",
+        "raw": "#7a1c0c",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-info",
+        "raw": "#d9e6ff",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-info-fg",
+        "raw": "#123a7a",
+        "source": "src/design-system/aem/styles/theme.css"
+      }
+    ],
+    "spacing": [
+      {
+        "name": "--spacing",
+        "raw": "0.25rem",
+        "source": "src/design-system/aem/styles/theme.css"
+      }
+    ],
+    "typography": [
+      {
+        "name": "--font-sans",
+        "raw": "\"Inter\", ui-sans-serif, system-ui, sans-serif",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-h1",
+        "raw": "2.25rem",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-h1--line-height",
+        "raw": "1.15",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-h2",
+        "raw": "1.5rem",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-h2--line-height",
+        "raw": "1.25",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-h4",
+        "raw": "1.125rem",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-h4--line-height",
+        "raw": "1.35",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-body",
+        "raw": "0.9375rem",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-body--line-height",
+        "raw": "1.55",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-caption",
+        "raw": "0.8125rem",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-caption--line-height",
+        "raw": "1.45",
+        "source": "src/design-system/aem/styles/theme.css"
+      }
+    ],
+    "radius": [
+      {
+        "name": "--radius-field",
+        "raw": "0.75rem",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--radius-card",
+        "raw": "1rem",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--radius-panel",
+        "raw": "1.25rem",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--radius-pill",
+        "raw": "999px",
+        "source": "src/design-system/aem/styles/theme.css"
+      }
+    ],
+    "shadow": [
+      {
+        "name": "--aem-shadow-card",
+        "raw": "0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.04)",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-shadow-overlay",
+        "raw": "0 12px 40px rgb(0 0 0 / 0.16)",
+        "source": "src/design-system/aem/styles/theme.css"
+      }
+    ],
+    "other": [
+      {
+        "name": "--ease-standard",
+        "raw": "cubic-bezier(0.2, 0, 0, 1)",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--ease-emphasized",
+        "raw": "cubic-bezier(0.3, 0, 0, 1)",
+        "source": "src/design-system/aem/styles/theme.css"
+      }
+    ]
+  },
+  "components": [
+    {
+      "name": "Text",
+      "file": "src/design-system/aem/components/Text",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "h1",
+            "h2",
+            "h4",
+            "paragraph",
+            "caption",
+            "link"
+          ],
+          "default": "paragraph"
+        },
+        {
+          "name": "as",
+          "type": "any"
+        },
+        {
+          "name": "href",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Button",
+      "file": "src/design-system/aem/components/Button",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "primary",
+            "secondary",
+            "ghost",
+            "lime"
+          ],
+          "default": "primary"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "block",
+          "type": "enum",
+          "values": [
+            "true",
+            "false"
+          ],
+          "default": "false"
+        }
+      ]
+    },
+    {
+      "name": "IconButton",
+      "file": "src/design-system/aem/components/IconButton",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "muted",
+            "solid",
+            "lime"
+          ],
+          "default": "muted"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Badge",
+      "file": "src/design-system/aem/components/Badge",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "neutral",
+            "peach",
+            "lime",
+            "solid"
+          ],
+          "default": "neutral"
+        }
+      ]
+    },
+    {
+      "name": "Callout",
+      "file": "src/design-system/aem/components/Callout",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "pending",
+            "done",
+            "neutral"
+          ],
+          "default": "pending"
+        },
+        {
+          "name": "icon",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "Card",
+      "file": "src/design-system/aem/components/Card",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "surface",
+            "muted",
+            "panel"
+          ],
+          "default": "surface"
+        },
+        {
+          "name": "padding",
+          "type": "enum",
+          "values": [
+            "none",
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "enum",
+          "values": [
+            "card",
+            "panel",
+            "field"
+          ],
+          "default": "card"
+        }
+      ]
+    },
+    {
+      "name": "Tabs",
+      "file": "src/design-system/aem/components/Tabs",
+      "import_path": "",
+      "props": [
+        {
+          "name": "items",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "onValueChange",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "name": "ProgressBar",
+      "file": "src/design-system/aem/components/ProgressBar",
+      "import_path": "",
+      "props": [
+        {
+          "name": "value",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string"
+        },
+        {
+          "name": "showLabel",
+          "type": "boolean",
+          "default": "true"
+        }
+      ]
+    },
+    {
+      "name": "Avatar",
+      "file": "src/design-system/aem/components/Avatar",
+      "import_path": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "muted",
+            "surface"
+          ],
+          "default": "muted"
+        },
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "src",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "UserChip",
+      "file": "src/design-system/aem/components/UserChip",
+      "import_path": "",
+      "props": [
+        {
+          "name": "name",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "email",
+          "type": "string"
+        },
+        {
+          "name": "avatarSrc",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "pill",
+            "row"
+          ],
+          "default": "pill"
+        }
+      ]
+    },
+    {
+      "name": "StatusIcon",
+      "file": "src/design-system/aem/components/StatusIcon",
+      "import_path": "",
+      "props": [
+        {
+          "name": "status",
+          "type": "enum",
+          "values": [
+            "available",
+            "completed",
+            "locked"
+          ],
+          "default": "available"
+        }
+      ]
+    },
+    {
+      "name": "LessonRow",
+      "file": "src/design-system/aem/components/LessonRow",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "status",
+          "type": "any",
+          "default": "available"
+        },
+        {
+          "name": "trailing",
+          "type": "any"
+        },
+        {
+          "name": "onOpen",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "name": "ModuleCard",
+      "file": "src/design-system/aem/components/ModuleCard",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "progress",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "meta",
+          "type": "any"
+        },
+        {
+          "name": "children",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "CourseCard",
+      "file": "src/design-system/aem/components/CourseCard",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "progress",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "cover",
+          "type": "any"
+        },
+        {
+          "name": "mentors",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "SubmissionRow",
+      "file": "src/design-system/aem/components/SubmissionRow",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "subtitle",
+          "type": "string"
+        },
+        {
+          "name": "status",
+          "type": "enum",
+          "values": [
+            "review",
+            "accepted"
+          ],
+          "default": "review"
+        },
+        {
+          "name": "timestamp",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Textarea",
+      "file": "src/design-system/aem/components/Textarea",
+      "import_path": ""
+    },
+    {
+      "name": "ChatBubble",
+      "file": "src/design-system/aem/components/ChatBubble",
+      "import_path": "",
+      "props": [
+        {
+          "name": "author",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "avatarSrc",
+          "type": "string"
+        },
+        {
+          "name": "time",
+          "type": "string"
+        },
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "incoming",
+            "outgoing"
+          ],
+          "default": "incoming"
+        }
+      ]
+    },
+    {
+      "name": "ChatInput",
+      "file": "src/design-system/aem/components/ChatInput",
+      "import_path": "",
+      "props": [
+        {
+          "name": "sendLabel",
+          "type": "string",
+          "default": "Надіслати"
+        },
+        {
+          "name": "onSend",
+          "type": "function"
+        }
+      ]
+    },
+    {
+      "name": "AppHeader",
+      "file": "src/design-system/aem/components/AppHeader",
+      "import_path": "",
+      "props": [
+        {
+          "name": "user",
+          "type": "any"
+        },
+        {
+          "name": "brand",
+          "type": "any"
+        },
+        {
+          "name": "actions",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "Input",
+      "file": "src/design-system/aem/components/Input",
+      "import_path": "",
+      "props": [
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        },
+        {
+          "name": "radius",
+          "type": "enum",
+          "values": [
+            "field",
+            "pill"
+          ],
+          "default": "field"
+        },
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "default",
+            "muted",
+            "invalid"
+          ],
+          "default": "default"
+        }
+      ]
+    },
+    {
+      "name": "Label",
+      "file": "src/design-system/aem/components/Label",
+      "import_path": "",
+      "props": [
+        {
+          "name": "required",
+          "type": "boolean"
+        }
+      ]
+    },
+    {
+      "name": "Field",
+      "file": "src/design-system/aem/components/Field",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "hint",
+          "type": "string"
+        },
+        {
+          "name": "error",
+          "type": "string"
+        },
+        {
+          "name": "required",
+          "type": "boolean"
+        },
+        {
+          "name": "children",
+          "type": "function",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "PasswordInput",
+      "file": "src/design-system/aem/components/PasswordInput",
+      "import_path": "",
+      "props": [
+        {
+          "name": "showLabel",
+          "type": "string",
+          "default": "Показати пароль"
+        },
+        {
+          "name": "hideLabel",
+          "type": "string",
+          "default": "Сховати пароль"
+        }
+      ]
+    },
+    {
+      "name": "SearchInput",
+      "file": "src/design-system/aem/components/SearchInput",
+      "import_path": ""
+    },
+    {
+      "name": "Checkbox",
+      "file": "src/design-system/aem/components/Checkbox",
+      "import_path": ""
+    },
+    {
+      "name": "RadioGroup",
+      "file": "src/design-system/aem/components/RadioGroup",
+      "import_path": ""
+    },
+    {
+      "name": "RadioGroupItem",
+      "file": "src/design-system/aem/components/RadioGroup",
+      "import_path": ""
+    },
+    {
+      "name": "Switch",
+      "file": "src/design-system/aem/components/Switch",
+      "import_path": ""
+    },
+    {
+      "name": "Select",
+      "file": "src/design-system/aem/components/Select",
+      "import_path": "",
+      "props": [
+        {
+          "name": "options",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "placeholder",
+          "type": "string",
+          "default": "Виберіть"
+        },
+        {
+          "name": "triggerLabel",
+          "type": "string"
+        },
+        {
+          "name": "className",
+          "type": "string",
+          "default": "size-4 text-ink-muted"
+        },
+        {
+          "name": "id",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "Dialog",
+      "file": "src/design-system/aem/components/Dialog",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "footer",
+          "type": "any"
+        },
+        {
+          "name": "closeLabel",
+          "type": "string",
+          "default": "Закрити"
+        },
+        {
+          "name": "size",
+          "type": "enum",
+          "values": [
+            "sm",
+            "md",
+            "lg"
+          ],
+          "default": "md"
+        }
+      ]
+    },
+    {
+      "name": "DialogRoot",
+      "file": "src/design-system/aem/components/Dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogTrigger",
+      "file": "src/design-system/aem/components/Dialog",
+      "import_path": ""
+    },
+    {
+      "name": "DialogClose",
+      "file": "src/design-system/aem/components/Dialog",
+      "import_path": ""
+    },
+    {
+      "name": "ConfirmDialog",
+      "file": "src/design-system/aem/components/ConfirmDialog",
+      "import_path": "",
+      "props": [
+        {
+          "name": "confirmLabel",
+          "type": "string",
+          "default": "Підтвердити"
+        },
+        {
+          "name": "cancelLabel",
+          "type": "string",
+          "default": "Скасувати"
+        },
+        {
+          "name": "onConfirm",
+          "type": "function"
+        },
+        {
+          "name": "children",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "Sheet",
+      "file": "src/design-system/aem/components/Sheet",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "side",
+          "type": "enum",
+          "values": [
+            "right",
+            "left"
+          ],
+          "default": "right"
+        },
+        {
+          "name": "closeLabel",
+          "type": "string",
+          "default": "Закрити"
+        }
+      ]
+    },
+    {
+      "name": "SheetRoot",
+      "file": "src/design-system/aem/components/Sheet",
+      "import_path": ""
+    },
+    {
+      "name": "SheetTrigger",
+      "file": "src/design-system/aem/components/Sheet",
+      "import_path": ""
+    },
+    {
+      "name": "SheetClose",
+      "file": "src/design-system/aem/components/Sheet",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenu",
+      "file": "src/design-system/aem/components/DropdownMenu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuRoot",
+      "file": "src/design-system/aem/components/DropdownMenu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuTrigger",
+      "file": "src/design-system/aem/components/DropdownMenu",
+      "import_path": ""
+    },
+    {
+      "name": "DropdownMenuItem",
+      "file": "src/design-system/aem/components/DropdownMenu",
+      "import_path": "",
+      "props": [
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "default",
+            "danger"
+          ],
+          "default": "default"
+        }
+      ]
+    },
+    {
+      "name": "DropdownMenuSeparator",
+      "file": "src/design-system/aem/components/DropdownMenu",
+      "import_path": ""
+    },
+    {
+      "name": "Tooltip",
+      "file": "src/design-system/aem/components/Tooltip",
+      "import_path": ""
+    },
+    {
+      "name": "TooltipProvider",
+      "file": "src/design-system/aem/components/Tooltip",
+      "import_path": ""
+    },
+    {
+      "name": "TooltipRoot",
+      "file": "src/design-system/aem/components/Tooltip",
+      "import_path": ""
+    },
+    {
+      "name": "TooltipTrigger",
+      "file": "src/design-system/aem/components/Tooltip",
+      "import_path": ""
+    },
+    {
+      "name": "Alert",
+      "file": "src/design-system/aem/components/Alert",
+      "import_path": "",
+      "props": [
+        {
+          "name": "variant",
+          "type": "enum",
+          "values": [
+            "info",
+            "success",
+            "warning",
+            "danger"
+          ],
+          "default": "info"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "Toaster",
+      "file": "src/design-system/aem/components/Toaster",
+      "import_path": ""
+    },
+    {
+      "name": "Table",
+      "file": "src/design-system/aem/components/Table",
+      "import_path": ""
+    },
+    {
+      "name": "TableHeader",
+      "file": "src/design-system/aem/components/Table",
+      "import_path": ""
+    },
+    {
+      "name": "TableBody",
+      "file": "src/design-system/aem/components/Table",
+      "import_path": ""
+    },
+    {
+      "name": "TableRow",
+      "file": "src/design-system/aem/components/Table",
+      "import_path": ""
+    },
+    {
+      "name": "TableHead",
+      "file": "src/design-system/aem/components/Table",
+      "import_path": ""
+    },
+    {
+      "name": "TableCell",
+      "file": "src/design-system/aem/components/Table",
+      "import_path": ""
+    },
+    {
+      "name": "Pagination",
+      "file": "src/design-system/aem/components/Pagination",
+      "import_path": "",
+      "props": [
+        {
+          "name": "page",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "pageCount",
+          "type": "number",
+          "required": true
+        },
+        {
+          "name": "onPageChange",
+          "type": "function"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Навігація сторінками"
+        },
+        {
+          "name": "prevLabel",
+          "type": "string",
+          "default": "Попередня сторінка"
+        },
+        {
+          "name": "nextLabel",
+          "type": "string",
+          "default": "Наступна сторінка"
+        }
+      ]
+    },
+    {
+      "name": "Skeleton",
+      "file": "src/design-system/aem/components/Skeleton",
+      "import_path": "",
+      "props": [
+        {
+          "name": "radius",
+          "type": "enum",
+          "values": [
+            "field",
+            "card",
+            "pill"
+          ],
+          "default": "field"
+        }
+      ]
+    },
+    {
+      "name": "EmptyState",
+      "file": "src/design-system/aem/components/EmptyState",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "type": "any"
+        },
+        {
+          "name": "action",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "Separator",
+      "file": "src/design-system/aem/components/Separator",
+      "import_path": ""
+    },
+    {
+      "name": "AccordionRoot",
+      "file": "src/design-system/aem/components/Accordion",
+      "import_path": ""
+    },
+    {
+      "name": "AccordionItem",
+      "file": "src/design-system/aem/components/Accordion",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        }
+      ]
+    },
+    {
+      "name": "Breadcrumbs",
+      "file": "src/design-system/aem/components/Breadcrumbs",
+      "import_path": "",
+      "props": [
+        {
+          "name": "items",
+          "type": "any",
+          "required": true
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Навігація"
+        }
+      ]
+    },
+    {
+      "name": "NavItem",
+      "file": "src/design-system/aem/components/NavItem",
+      "import_path": "",
+      "props": [
+        {
+          "name": "active",
+          "type": "enum",
+          "values": [
+            "true",
+            "false"
+          ],
+          "default": "false"
+        },
+        {
+          "name": "icon",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "Sidebar",
+      "file": "src/design-system/aem/components/Sidebar",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Головна навігація"
+        },
+        {
+          "name": "footer",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "PageHeader",
+      "file": "src/design-system/aem/components/PageHeader",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "above",
+          "type": "any"
+        },
+        {
+          "name": "actions",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "StatCard",
+      "file": "src/design-system/aem/components/StatCard",
+      "import_path": "",
+      "props": [
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "neutral",
+            "peach",
+            "lime"
+          ],
+          "default": "neutral"
+        },
+        {
+          "name": "label",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "value",
+          "type": "string",
+          "required": true
+        },
+        {
+          "name": "hint",
+          "type": "string"
+        },
+        {
+          "name": "icon",
+          "type": "any"
+        }
+      ]
+    },
+    {
+      "name": "Toolbar",
+      "file": "src/design-system/aem/components/Toolbar",
+      "import_path": "",
+      "props": [
+        {
+          "name": "label",
+          "type": "string",
+          "default": "Дії"
+        },
+        {
+          "name": "trailing",
+          "type": "any"
+        }
+      ]
+    }
+  ]
+}
