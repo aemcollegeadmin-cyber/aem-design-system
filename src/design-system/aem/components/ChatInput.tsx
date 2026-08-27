@@ -14,7 +14,7 @@ export const ChatInput = forwardRef<HTMLInputElement, ChatInputProps>(function C
   ref,
 ) {
   return (
-    <div className={cn("flex items-center gap-2 rounded-card bg-surface px-4 py-2 shadow-card", className)}>
+    <div className={cn("flex items-center gap-2 rounded-card border-2 border-border-strong bg-surface px-4 py-2 shadow-card", className)}>
       <input
         ref={ref}
         placeholder={placeholder}
