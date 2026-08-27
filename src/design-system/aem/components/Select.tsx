@@ -14,11 +14,14 @@ import {
 import { Check, ChevronDown } from "lucide-react";
 import { cn } from "../lib/cn";
 
+export const SelectRoot = Root;
+
 export interface SelectOption {
   value: string;
   label: string;
   disabled?: boolean;
 }
+
 
 export interface SelectProps extends React.ComponentPropsWithoutRef<typeof Root> {
   options: SelectOption[];

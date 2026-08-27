@@ -31,7 +31,7 @@ export { SearchInput, type SearchInputProps } from "./components/SearchInput";
 export { Checkbox, type CheckboxProps } from "./components/Checkbox";
 export { RadioGroup, RadioGroupItem, type RadioGroupProps, type RadioGroupItemProps } from "./components/RadioGroup";
 export { Switch, type SwitchProps } from "./components/Switch";
-export { Select, type SelectProps, type SelectOption } from "./components/Select";
+export { Select, SelectRoot, type SelectProps, type SelectOption } from "./components/Select";
 
 /* Overlays & feedback */
 export { Dialog, DialogRoot, DialogTrigger, DialogClose, type DialogProps } from "./components/Dialog";
