@@ -149,5 +149,5 @@
 }
 
 [data-aem-composite-control]:focus-visible {
-  outline: none;
+  outline: none !important;
 }
