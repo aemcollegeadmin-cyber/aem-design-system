@@ -21,7 +21,7 @@ export const RadioGroupItem = forwardRef<HTMLButtonElement, RadioGroupItemProps>
       <Item
         ref={ref}
         className={cn(
-          "inline-flex size-5 shrink-0 items-center justify-center rounded-pill border border-border-strong bg-surface transition-colors data-[state=checked]:border-ink disabled:cursor-not-allowed disabled:opacity-50",
+          "inline-flex size-5 shrink-0 items-center justify-center rounded-pill border-2 border-border-strong bg-surface transition-colors data-[state=checked]:border-ink disabled:cursor-not-allowed disabled:opacity-50",
           className,
         )}
         {...props}

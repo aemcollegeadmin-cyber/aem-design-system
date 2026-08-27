@@ -14,7 +14,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Ch
     <Root
       ref={ref}
       className={cn(
-        "inline-flex size-5 shrink-0 items-center justify-center rounded-field border border-border-strong bg-surface text-accent-lime-fg transition-colors data-[state=checked]:border-accent-lime data-[state=checked]:bg-accent-lime disabled:cursor-not-allowed disabled:opacity-50",
+        "inline-flex size-5 shrink-0 items-center justify-center rounded-field border-2 border-border-strong bg-surface text-accent-lime-fg transition-colors data-[state=checked]:border-accent-lime data-[state=checked]:bg-accent-lime disabled:cursor-not-allowed disabled:opacity-50",
         className,
       )}
       {...props}
