@@ -18,7 +18,7 @@ export const ChatInput = forwardRef<HTMLInputElement, ChatInputProps>(function C
       <input
         ref={ref}
         placeholder={placeholder}
-        className="flex-1 bg-transparent text-body text-ink placeholder:text-ink-muted focus:outline-none focus-visible:!outline-none focus-visible:ring-0"
+        className="flex-1 bg-transparent text-body text-ink placeholder:text-ink-muted focus:outline-none focus-visible:[outline:none!important] focus-visible:ring-0"
         {...props}
       />
       <IconButton label={sendLabel} variant="muted" size="sm" onClick={onSend}>
