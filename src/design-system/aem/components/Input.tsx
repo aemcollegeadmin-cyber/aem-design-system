@@ -3,15 +3,15 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../lib/cn";
 
 const input = cva(
-  "w-full bg-surface text-body text-ink placeholder:text-ink-muted transition-colors disabled:cursor-not-allowed disabled:opacity-50",
+  "w-full border-2 border-border-strong bg-surface text-body text-ink placeholder:text-ink-muted transition-colors disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
       size: { sm: "h-9 px-3", md: "h-11 px-4", lg: "h-12 px-4" },
       radius: { field: "rounded-field", pill: "rounded-pill" },
       tone: {
-        default: "shadow-card",
+        default: "",
         muted: "bg-surface-muted",
-        invalid: "shadow-card ring-2 ring-danger-fg",
+        invalid: "border-danger-fg ring-2 ring-danger-fg",
       },
     },
     defaultVariants: { size: "md", radius: "field", tone: "default" },
