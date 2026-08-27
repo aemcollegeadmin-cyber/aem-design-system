@@ -5,14 +5,68 @@
  * `@layer base` (replacing its existing `:root` / `.dark` token blocks). Every
  * shadcn primitive then renders in the AEM palette with no component changes.
  *
- * Values are HSL triplets (shadcn's `hsl(var(--token))` convention) of the very
- * same palette declared in theme.css. Keep the two files in sync.
+ * The first `--aem-*` block carries the canonical AEM base tokens (colors,
+ * typography, shadows, easing) — the single source of truth that consuming
+ * projects must import instead of re-declaring tokens locally. Values are
+ * kept in sync one-to-one with theme.css. The shadcn blocks below are HSL
+ * triplets (shadcn's `hsl(var(--token))` convention) of the very same palette.
  *
  * Accent semantics stay intact: --warning is AEM peach (awaiting review) and
  * --success is AEM lime (accepted / completed).
  */
 
 :root {
+  /* AEM base tokens — canonical (same values as theme.css) */
+  --aem-ink: #1a1a1a;
+  --aem-ink-soft: #5c5c5c;
+  --aem-ink-muted: #9a9a9a;
+  --aem-surface: #ffffff;
+  --aem-surface-muted: #f1f1f1;
+  --aem-border-subtle: #e6e6e6;
+  --aem-border-strong: #d2d2d2;
+  --aem-focus: #1a1a1a;
+
+  --aem-accent-peach: #ffd193;
+  --aem-accent-peach-fg: #662b00;
+  --aem-accent-lime: #cbf0a2;
+  --aem-accent-lime-fg: #284d00;
+
+  --aem-success: #cbf0a2;
+  --aem-success-fg: #284d00;
+  --aem-warning: #ffd193;
+  --aem-warning-fg: #662b00;
+  --aem-danger: #ffd2cc;
+  --aem-danger-fg: #7a1c0c;
+  --aem-info: #d9e6ff;
+  --aem-info-fg: #123a7a;
+
+  --aem-shadow-card: none;
+  --aem-shadow-overlay: 0 12px 40px rgb(0 0 0 / 0.16);
+
+  /* Typography (same values as theme.css) */
+  --aem-font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --aem-text-h1: 2.25rem;
+  --aem-text-h1--line-height: 1.15;
+  --aem-text-h2: 1.5rem;
+  --aem-text-h2--line-height: 1.25;
+  --aem-text-h4: 1.125rem;
+  --aem-text-h4--line-height: 1.35;
+  --aem-text-body: 0.9375rem;
+  --aem-text-body--line-height: 1.55;
+  --aem-text-caption: 0.8125rem;
+  --aem-text-caption--line-height: 1.45;
+
+  /* Radius */
+  --aem-radius-field: 0.75rem;
+  --aem-radius-card: 1rem;
+  --aem-radius-panel: 1.25rem;
+  --aem-radius-pill: 999px;
+
+  /* Motion */
+  --aem-ease-standard: cubic-bezier(0.2, 0, 0, 1);
+  --aem-ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
+
+  /* shadcn mappings */
   --background: 0 0% 95%; /* aem surface-muted — the page canvas */
   --foreground: 0 0% 10%; /* aem ink */
 
