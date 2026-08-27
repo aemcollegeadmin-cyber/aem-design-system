@@ -20,6 +20,10 @@ Apply with any color utility: `bg-<name>`, `text-<name>`, `border-<name>`, `ring
 | `aem-accent-peach-fg` | `--aem-accent-peach-fg` |
 | `aem-accent-lime` | `--aem-accent-lime` |
 | `aem-accent-lime-fg` | `--aem-accent-lime-fg` |
+| `aem-accent-brand` | `--aem-accent-brand` |
+| `aem-accent-brand-fg` | `--aem-accent-brand-fg` |
+| `aem-action-disabled-bg` | `--aem-action-disabled-bg` |
+| `aem-bg-placeholder` | `--aem-bg-placeholder` |
 | `aem-success` | `--aem-success` |
 | `aem-success-fg` | `--aem-success-fg` |
 | `aem-warning` | `--aem-warning` |
@@ -38,12 +42,16 @@ Typography classes (`font-*` for families, `text-*` for sizes):
 | `font-sans` | `--font-sans` |
 | `text-h1` | `--text-h1` |
 | `text-h1--line-height` | `--text-h1--line-height` |
+| `text-h1--font-weight` | `--text-h1--font-weight` |
 | `text-h2` | `--text-h2` |
 | `text-h2--line-height` | `--text-h2--line-height` |
+| `text-h2--font-weight` | `--text-h2--font-weight` |
 | `text-h4` | `--text-h4` |
 | `text-h4--line-height` | `--text-h4--line-height` |
+| `text-h4--font-weight` | `--text-h4--font-weight` |
 | `text-body` | `--text-body` |
 | `text-body--line-height` | `--text-body--line-height` |
+| `text-body--font-weight` | `--text-body--font-weight` |
 | `text-caption` | `--text-caption` |
 | `text-caption--line-height` | `--text-caption--line-height` |
 
@@ -53,6 +61,9 @@ Apply with any spacing utility: `p-<name>`, `m-<name>`, `gap-<name>`, `space-<na
 
 | Name | CSS variable |
 |---|---|
+| — | `--text-h1--letter-spacing` |
+| — | `--text-h2--letter-spacing` |
+| — | `--text-h4--letter-spacing` |
 | — | `--spacing` |
 
 ## Border Radius

@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.0.1",
+    "version": "1.1.0",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -11,7 +11,7 @@
     ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "eabd986bfd0e2a70fbc23c2ef5017a3ef62c863371fc573c6cf969a5eec6f2b3",
+      "#enrichment": "9282db0776bf7e00d046dfabef68e68ae03755634eba8041b9bc84a7ba4f74bb",
       ".dsignore": "a26f2e60b116f104046a9440907feb8e",
       ".gitignore": "6059213806e442947666752f3db6bfdc",
       ".lovable/meta.yaml": "8794970d6049858cc148d2b86f7a2b22",
@@ -76,14 +76,14 @@
       "src/design-system/aem/components/UserChip.tsx": "bd6ed8ce20a02cc789d02ecfc9e4dc5c",
       "src/design-system/aem/index.ts": "fe1073ba0f74e04c14cfcda28d7601b3",
       "src/design-system/aem/lib/cn.ts": "1d5cc6c3839f7bc135e050f50af58daa",
-      "src/design-system/aem/styles/theme-shadcn-v3.css": "51100b419414529d78e4c7a60ec45b2e",
-      "src/design-system/aem/styles/theme.css": "3b07892050fc9f648d20b47b4f27e9f5",
+      "src/design-system/aem/styles/theme-shadcn-v3.css": "324f2f5762e1343ade595347f83a249c",
+      "src/design-system/aem/styles/theme.css": "aaf03d3e7de41f191bacfae507b82bc4",
       "src/mockup-preview.d.ts": "38969839f35ce2966e32a9f01a5c09ea",
       "src/routeTree.gen.ts": "6f67a8aebc2c09c9c5ed77ffc35e30e7",
       "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
       "src/routes/[__component].preview.$.tsx": "06d671f4774ac83355e59ad69a350bab",
       "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
-      "src/routes/__root.tsx": "27e6d3ca5ceb98039fd8e800d578b661",
+      "src/routes/__root.tsx": "749f4e7a7525ee31d96ac19813e416a3",
       "src/routes/colors.tsx": "d8094a97262acfbeb238a256364fe653",
       "src/routes/components.tsx": "9159355cc66d56d6f907610f672c3560",
       "src/routes/index.tsx": "35eac60a07c2b1e51a2918822c54ffec",
@@ -120,7 +120,7 @@
       },
       {
         "name": "--aem-surface-muted",
-        "raw": "#f1f1f1",
+        "raw": "#f2f2f2",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
@@ -135,47 +135,67 @@
       },
       {
         "name": "--aem-focus",
-        "raw": "#1a1a1a",
+        "raw": "#c7f30c",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--aem-accent-peach",
-        "raw": "#ffd193",
+        "raw": "#ffd293",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--aem-accent-peach-fg",
-        "raw": "#662b00",
+        "raw": "#662c00",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--aem-accent-lime",
-        "raw": "#cbf0a2",
+        "raw": "#ccf1a1",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--aem-accent-lime-fg",
-        "raw": "#284d00",
+        "raw": "#294c00",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-accent-brand",
+        "raw": "#c7f30c",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-accent-brand-fg",
+        "raw": "#1a1a1a",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-action-disabled-bg",
+        "raw": "#dfdfdf",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--aem-bg-placeholder",
+        "raw": "#d9d9d9",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--aem-success",
-        "raw": "#cbf0a2",
+        "raw": "#ccf1a1",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--aem-success-fg",
-        "raw": "#284d00",
+        "raw": "#294c00",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--aem-warning",
-        "raw": "#ffd193",
+        "raw": "#ffd293",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--aem-warning-fg",
-        "raw": "#662b00",
+        "raw": "#662c00",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
@@ -201,6 +221,21 @@
     ],
     "spacing": [
       {
+        "name": "--text-h1--letter-spacing",
+        "raw": "-1.4px",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-h2--letter-spacing",
+        "raw": "-1.2px",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-h4--letter-spacing",
+        "raw": "-0.2px",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
         "name": "--spacing",
         "raw": "0.25rem",
         "source": "src/design-system/aem/styles/theme.css"
@@ -209,47 +244,67 @@
     "typography": [
       {
         "name": "--font-sans",
-        "raw": "\"Inter\", ui-sans-serif, system-ui, sans-serif",
+        "raw": "\"Fixel Display\", system-ui, -apple-system, \"Segoe UI\", sans-serif",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--text-h1",
-        "raw": "2.25rem",
+        "raw": "32px",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--text-h1--line-height",
-        "raw": "1.15",
+        "raw": "1.02",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-h1--font-weight",
+        "raw": "700",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--text-h2",
-        "raw": "1.5rem",
+        "raw": "22px",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--text-h2--line-height",
-        "raw": "1.25",
+        "raw": "1.05",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-h2--font-weight",
+        "raw": "700",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--text-h4",
-        "raw": "1.125rem",
+        "raw": "17px",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--text-h4--line-height",
-        "raw": "1.35",
+        "raw": "1.15",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-h4--font-weight",
+        "raw": "600",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--text-body",
-        "raw": "0.9375rem",
+        "raw": "14px",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--text-body--line-height",
-        "raw": "1.55",
+        "raw": "1.45",
+        "source": "src/design-system/aem/styles/theme.css"
+      },
+      {
+        "name": "--text-body--font-weight",
+        "raw": "500",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
@@ -266,17 +321,17 @@
     "radius": [
       {
         "name": "--radius-field",
-        "raw": "0.75rem",
+        "raw": "18px",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--radius-card",
-        "raw": "1rem",
+        "raw": "20px",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
         "name": "--radius-panel",
-        "raw": "1.25rem",
+        "raw": "24px",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
