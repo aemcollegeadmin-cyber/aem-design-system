@@ -3,7 +3,37 @@
    For a Tailwind v3 / shadcn consumer, use ./theme-shadcn-v3.css instead. */
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@font-face {
+  font-family: "Fixel Display";
+  src: url("/fonts/FixelDisplay-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fixel Display";
+  src: url("/fonts/FixelDisplay-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fixel Display";
+  src: url("/fonts/FixelDisplay-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Fixel Display";
+  src: url("/fonts/FixelDisplay-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
 
 :root {
   /* Ink / surface */
@@ -11,22 +41,31 @@
   --aem-ink-soft: #5c5c5c;
   --aem-ink-muted: #9a9a9a;
   --aem-surface: #ffffff;
-  --aem-surface-muted: #f1f1f1;
+  --aem-surface-muted: #f2f2f2;
   --aem-border-subtle: #e6e6e6;
   --aem-border-strong: #d2d2d2;
-  --aem-focus: #1a1a1a;
+  --aem-focus: #c7f30c;
 
   /* Accents */
-  --aem-accent-peach: #ffd193;
-  --aem-accent-peach-fg: #662b00;
-  --aem-accent-lime: #cbf0a2;
-  --aem-accent-lime-fg: #284d00;
+  --aem-accent-peach: #ffd293;
+  --aem-accent-peach-fg: #662c00;
+  --aem-accent-lime: #ccf1a1;
+  --aem-accent-lime-fg: #294c00;
+
+  /* Brand accent — acid lime. Text on it is ALWAYS dark, never white.
+     Do not confuse with the status light-green (--aem-accent-lime). */
+  --aem-accent-brand: #c7f30c;
+  --aem-accent-brand-fg: #1a1a1a;
+
+  /* Neutral utility */
+  --aem-action-disabled-bg: #dfdfdf;
+  --aem-bg-placeholder: #d9d9d9;
 
   /* Semantic states */
-  --aem-success: #cbf0a2;
-  --aem-success-fg: #284d00;
-  --aem-warning: #ffd193;
-  --aem-warning-fg: #662b00;
+  --aem-success: #ccf1a1;
+  --aem-success-fg: #294c00;
+  --aem-warning: #ffd293;
+  --aem-warning-fg: #662c00;
   --aem-danger: #ffd2cc;
   --aem-danger-fg: #7a1c0c;
   --aem-info: #d9e6ff;
@@ -34,34 +73,6 @@
 
   --aem-shadow-card: none;
   --aem-shadow-overlay: 0 12px 40px rgb(0 0 0 / 0.16);
-}
-
-.dark {
-  --aem-ink: #f4f4f4;
-  --aem-ink-soft: #b4b4b4;
-  --aem-ink-muted: #7d7d7d;
-  --aem-surface: #1e1e1e;
-  --aem-surface-muted: #141414;
-  --aem-border-subtle: #2e2e2e;
-  --aem-border-strong: #3d3d3d;
-  --aem-focus: #f4f4f4;
-
-  --aem-accent-peach: #6b4416;
-  --aem-accent-peach-fg: #ffdcae;
-  --aem-accent-lime: #38521c;
-  --aem-accent-lime-fg: #dcf5bb;
-
-  --aem-success: #38521c;
-  --aem-success-fg: #dcf5bb;
-  --aem-warning: #6b4416;
-  --aem-warning-fg: #ffdcae;
-  --aem-danger: #5c1f14;
-  --aem-danger-fg: #ffd2cc;
-  --aem-info: #1c3358;
-  --aem-info-fg: #d9e6ff;
-
-  --aem-shadow-card: none;
-  --aem-shadow-overlay: 0 12px 40px rgb(0 0 0 / 0.6);
 }
 
 @theme inline {
@@ -78,6 +89,10 @@
   --color-accent-peach-fg: var(--aem-accent-peach-fg);
   --color-accent-lime: var(--aem-accent-lime);
   --color-accent-lime-fg: var(--aem-accent-lime-fg);
+  --color-accent-brand: var(--aem-accent-brand);
+  --color-accent-brand-fg: var(--aem-accent-brand-fg);
+  --color-action-disabled-bg: var(--aem-action-disabled-bg);
+  --color-bg-placeholder: var(--aem-bg-placeholder);
   --color-success: var(--aem-success);
   --color-success-fg: var(--aem-success-fg);
   --color-warning: var(--aem-warning);
@@ -93,23 +108,30 @@
 }
 
 @theme {
-  /* Radius. A single-`--radius` consumer maps it to --radius-card (1rem);
-     field = radius - 0.25rem, panel = radius + 0.25rem, pill = fully round. */
-  --radius-field: 0.75rem;
-  --radius-card: 1rem;
-  --radius-panel: 1.25rem;
+  /* Radius. A single-`--radius` consumer maps it to --radius-card (20px);
+     field = 18px, panel = 24px, pill = fully round. */
+  --radius-field: 18px;
+  --radius-card: 20px;
+  --radius-panel: 24px;
   --radius-pill: 999px;
 
-  /* Typography */
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --text-h1: 2.25rem;
-  --text-h1--line-height: 1.15;
-  --text-h2: 1.5rem;
-  --text-h2--line-height: 1.25;
-  --text-h4: 1.125rem;
-  --text-h4--line-height: 1.35;
-  --text-body: 0.9375rem;
-  --text-body--line-height: 1.55;
+  /* Typography — mobile-first base scale */
+  --font-sans: "Fixel Display", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --text-h1: 32px;
+  --text-h1--line-height: 1.02;
+  --text-h1--letter-spacing: -1.4px;
+  --text-h1--font-weight: 700;
+  --text-h2: 22px;
+  --text-h2--line-height: 1.05;
+  --text-h2--letter-spacing: -1.2px;
+  --text-h2--font-weight: 700;
+  --text-h4: 17px;
+  --text-h4--line-height: 1.15;
+  --text-h4--letter-spacing: -0.2px;
+  --text-h4--font-weight: 600;
+  --text-body: 14px;
+  --text-body--line-height: 1.45;
+  --text-body--font-weight: 500;
   --text-caption: 0.8125rem;
   --text-caption--line-height: 1.45;
 
@@ -119,6 +141,17 @@
   /* Motion */
   --ease-standard: cubic-bezier(0.2, 0, 0, 1);
   --ease-emphasized: cubic-bezier(0.3, 0, 0, 1);
+}
+
+/* Desktop type scale */
+@media (min-width: 768px) {
+  :root {
+    --text-h1: 50px;
+    --text-h1--letter-spacing: -2.2px;
+    --text-h2: 26px;
+    --text-h2--letter-spacing: -2px;
+    --text-h4: 18px;
+  }
 }
 
 html {

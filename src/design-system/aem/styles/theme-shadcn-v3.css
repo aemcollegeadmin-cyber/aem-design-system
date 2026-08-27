@@ -1,18 +1,22 @@
 /* AEM College design system — shadcn / Tailwind v3 compatibility export.
  *
  * Use this file INSTEAD of theme.css when the consuming app is a Tailwind v3
- * shadcn/ui project: paste the two blocks below into the app's `index.css`
- * `@layer base` (replacing its existing `:root` / `.dark` token blocks). Every
- * shadcn primitive then renders in the AEM palette with no component changes.
+ * shadcn/ui project: paste the blocks below into the app's `index.css`
+ * `@layer base` (replacing its existing `:root` token block). Every shadcn
+ * primitive then renders in the AEM palette with no component changes.
  *
- * The first `--aem-*` block carries the canonical AEM base tokens (colors,
+ * The `--aem-*` block carries the canonical AEM base tokens (colors,
  * typography, shadows, easing) — the single source of truth that consuming
  * projects must import instead of re-declaring tokens locally. Values are
- * kept in sync one-to-one with theme.css. The shadcn blocks below are HSL
+ * kept in sync one-to-one with theme.css. The shadcn block below is HSL
  * triplets (shadcn's `hsl(var(--token))` convention) of the very same palette.
  *
  * Accent semantics stay intact: --warning is AEM peach (awaiting review) and
- * --success is AEM lime (accepted / completed).
+ * --success is AEM lime (accepted / completed). The brand acid lime
+ * (--aem-accent-brand) is a separate token and always pairs with dark text.
+ *
+ * The Fixel Display @font-face declarations live in theme.css; a Tailwind v3
+ * consumer must declare them itself (files in public/fonts).
  */
 
 :root {
@@ -21,20 +25,29 @@
   --aem-ink-soft: #5c5c5c;
   --aem-ink-muted: #9a9a9a;
   --aem-surface: #ffffff;
-  --aem-surface-muted: #f1f1f1;
+  --aem-surface-muted: #f2f2f2;
   --aem-border-subtle: #e6e6e6;
   --aem-border-strong: #d2d2d2;
-  --aem-focus: #1a1a1a;
+  --aem-focus: #c7f30c;
 
-  --aem-accent-peach: #ffd193;
-  --aem-accent-peach-fg: #662b00;
-  --aem-accent-lime: #cbf0a2;
-  --aem-accent-lime-fg: #284d00;
+  --aem-accent-peach: #ffd293;
+  --aem-accent-peach-fg: #662c00;
+  --aem-accent-lime: #ccf1a1;
+  --aem-accent-lime-fg: #294c00;
 
-  --aem-success: #cbf0a2;
-  --aem-success-fg: #284d00;
-  --aem-warning: #ffd193;
-  --aem-warning-fg: #662b00;
+  /* Brand accent — acid lime. Text on it is ALWAYS dark, never white.
+     Do not confuse with the status light-green (--aem-accent-lime). */
+  --aem-accent-brand: #c7f30c;
+  --aem-accent-brand-fg: #1a1a1a;
+
+  /* Neutral utility */
+  --aem-action-disabled-bg: #dfdfdf;
+  --aem-bg-placeholder: #d9d9d9;
+
+  --aem-success: #ccf1a1;
+  --aem-success-fg: #294c00;
+  --aem-warning: #ffd293;
+  --aem-warning-fg: #662c00;
   --aem-danger: #ffd2cc;
   --aem-danger-fg: #7a1c0c;
   --aem-info: #d9e6ff;
@@ -44,22 +57,29 @@
   --aem-shadow-overlay: 0 12px 40px rgb(0 0 0 / 0.16);
 
   /* Typography (same values as theme.css) */
-  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
-  --text-h1: 2.25rem;
-  --text-h1--line-height: 1.15;
-  --text-h2: 1.5rem;
-  --text-h2--line-height: 1.25;
-  --text-h4: 1.125rem;
-  --text-h4--line-height: 1.35;
-  --text-body: 0.9375rem;
-  --text-body--line-height: 1.55;
+  --font-sans: "Fixel Display", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --text-h1: 32px;
+  --text-h1--line-height: 1.02;
+  --text-h1--letter-spacing: -1.4px;
+  --text-h1--font-weight: 700;
+  --text-h2: 22px;
+  --text-h2--line-height: 1.05;
+  --text-h2--letter-spacing: -1.2px;
+  --text-h2--font-weight: 700;
+  --text-h4: 17px;
+  --text-h4--line-height: 1.15;
+  --text-h4--letter-spacing: -0.2px;
+  --text-h4--font-weight: 600;
+  --text-body: 14px;
+  --text-body--line-height: 1.45;
+  --text-body--font-weight: 500;
   --text-caption: 0.8125rem;
   --text-caption--line-height: 1.45;
 
   /* Radius */
-  --radius-field: 0.75rem;
-  --radius-card: 1rem;
-  --radius-panel: 1.25rem;
+  --radius-field: 18px;
+  --radius-card: 20px;
+  --radius-panel: 24px;
   --radius-pill: 999px;
 
   /* Motion */
@@ -88,6 +108,9 @@
   --accent: 88 72% 79%; /* aem lime */
   --accent-foreground: 89 100% 15%;
 
+  --brand: 71 91% 50%; /* aem accent-brand — acid lime */
+  --brand-foreground: 0 0% 10%;
+
   --destructive: 9 82% 26%;
   --destructive-foreground: 7 100% 90%;
 
@@ -100,90 +123,27 @@
 
   --border: 0 0% 90%; /* aem border-subtle */
   --input: 0 0% 90%;
-  --ring: 0 0% 10%; /* aem focus */
+  --ring: 71 91% 50%; /* aem focus — brand acid lime */
 
-  --radius: 1rem; /* aem radius-card; field = 0.75rem, panel = 1.25rem */
+  --radius: 20px; /* aem radius-card; field = 18px, panel = 24px */
 
   --sidebar-background: 0 0% 10%;
   --sidebar-foreground: 0 0% 71%;
-  --sidebar-primary: 88 72% 79%;
-  --sidebar-primary-foreground: 89 100% 15%;
+  --sidebar-primary: 71 91% 50%;
+  --sidebar-primary-foreground: 0 0% 10%;
   --sidebar-accent: 0 0% 18%;
   --sidebar-accent-foreground: 0 0% 96%;
   --sidebar-border: 0 0% 18%;
-  --sidebar-ring: 88 72% 79%;
+  --sidebar-ring: 71 91% 50%;
 }
 
-.dark {
-  /* AEM base tokens — dark variant (same values as theme.css) */
-  --aem-ink: #f4f4f4;
-  --aem-ink-soft: #b4b4b4;
-  --aem-ink-muted: #7d7d7d;
-  --aem-surface: #1e1e1e;
-  --aem-surface-muted: #141414;
-  --aem-border-subtle: #2e2e2e;
-  --aem-border-strong: #3d3d3d;
-  --aem-focus: #f4f4f4;
-
-  --aem-accent-peach: #6b4416;
-  --aem-accent-peach-fg: #ffdcae;
-  --aem-accent-lime: #38521c;
-  --aem-accent-lime-fg: #dcf5bb;
-
-  --aem-success: #38521c;
-  --aem-success-fg: #dcf5bb;
-  --aem-warning: #6b4416;
-  --aem-warning-fg: #ffdcae;
-  --aem-danger: #5c1f14;
-  --aem-danger-fg: #ffd2cc;
-  --aem-info: #1c3358;
-  --aem-info-fg: #d9e6ff;
-
-  --aem-shadow-card: none;
-  --aem-shadow-overlay: 0 12px 40px rgb(0 0 0 / 0.6);
-
-  /* shadcn mappings */
-  --background: 0 0% 8%;
-  --foreground: 0 0% 96%;
-
-  --card: 0 0% 12%;
-  --card-foreground: 0 0% 96%;
-
-  --popover: 0 0% 12%;
-  --popover-foreground: 0 0% 96%;
-
-  --primary: 0 0% 96%;
-  --primary-foreground: 0 0% 10%;
-
-  --secondary: 0 0% 18%;
-  --secondary-foreground: 0 0% 96%;
-
-  --muted: 0 0% 18%;
-  --muted-foreground: 0 0% 49%;
-
-  --accent: 89 49% 22%;
-  --accent-foreground: 86 74% 85%;
-
-  --destructive: 9 64% 22%;
-  --destructive-foreground: 7 100% 90%;
-
-  --warning: 33 66% 25%;
-  --warning-foreground: 34 100% 84%;
-  --success: 89 49% 22%;
-  --success-foreground: 86 74% 85%;
-  --info: 217 52% 23%;
-  --info-foreground: 220 100% 93%;
-
-  --border: 0 0% 18%;
-  --input: 0 0% 18%;
-  --ring: 0 0% 96%;
-
-  --sidebar-background: 0 0% 8%;
-  --sidebar-foreground: 0 0% 71%;
-  --sidebar-primary: 89 49% 22%;
-  --sidebar-primary-foreground: 86 74% 85%;
-  --sidebar-accent: 0 0% 18%;
-  --sidebar-accent-foreground: 0 0% 96%;
-  --sidebar-border: 0 0% 18%;
-  --sidebar-ring: 89 49% 22%;
+/* Desktop type scale */
+@media (min-width: 768px) {
+  :root {
+    --text-h1: 50px;
+    --text-h1--letter-spacing: -2.2px;
+    --text-h2: 26px;
+    --text-h2--letter-spacing: -2px;
+    --text-h4: 18px;
+  }
 }
