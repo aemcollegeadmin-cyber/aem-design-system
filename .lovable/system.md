@@ -7,6 +7,16 @@ copy is Ukrainian by default.
 
 ## Hard constraints
 
+- Tokens live ONLY in the design system. A project that attaches this library
+  must never declare its own colors, fonts, text sizes, radii, or shadows —
+  every value comes from the system's token files (`theme.css`, or
+  `theme-shadcn-v3.css` for Tailwind v3 / shadcn consumers). If a value is
+  genuinely missing, it is added to the design system and published as a new
+  version — never patched locally in the consumer.
+- Never edit files inside the attached design-system folder in a consumer
+  project. Attach is a versioned snapshot: any local edit there is overwritten
+  by the next library update. All customization flows through new library
+  versions, not consumer-side forks.
 - Never write raw color, radius, font-size, or shadow literals. Use the token
   utilities: `text-ink`, `text-ink-soft`, `text-ink-muted`, `bg-surface`,
   `bg-surface-muted`, `bg-accent-peach` / `text-accent-peach-fg`,
