@@ -32,7 +32,7 @@
   --aem-info: #d9e6ff;
   --aem-info-fg: #123a7a;
 
-  --aem-shadow-card: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.04);
+  --aem-shadow-card: none;
   --aem-shadow-overlay: 0 12px 40px rgb(0 0 0 / 0.16);
 }
 
@@ -60,7 +60,7 @@
   --aem-info: #1c3358;
   --aem-info-fg: #d9e6ff;
 
-  --aem-shadow-card: 0 1px 2px rgb(0 0 0 / 0.4), 0 8px 24px rgb(0 0 0 / 0.32);
+  --aem-shadow-card: none;
   --aem-shadow-overlay: 0 12px 40px rgb(0 0 0 / 0.6);
 }
 
