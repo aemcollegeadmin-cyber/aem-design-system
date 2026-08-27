@@ -8,7 +8,7 @@ const button = cva(
     variants: {
       variant: {
         primary: "bg-ink text-surface hover:bg-ink/90",
-        secondary: "bg-surface text-ink hover:bg-surface-muted",
+        secondary: "bg-surface-muted text-ink hover:bg-border-subtle",
         ghost: "bg-transparent text-ink hover:bg-surface-muted",
         lime: "bg-accent-lime text-accent-lime-fg hover:brightness-95",
       },
