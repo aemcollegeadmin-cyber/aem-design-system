@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -11,16 +11,18 @@
     ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "473e6f3bf15dadb4d62f22fe119e7c8aad64536a41797e4a0cd8c7a07f2bebde",
-      ".dsignore": "2c7d76468c15bc0f1499420154f01ae3",
+      "#enrichment": "eabd986bfd0e2a70fbc23c2ef5017a3ef62c863371fc573c6cf969a5eec6f2b3",
+      ".dsignore": "a26f2e60b116f104046a9440907feb8e",
       ".gitignore": "6059213806e442947666752f3db6bfdc",
       ".lovable/meta.yaml": "8794970d6049858cc148d2b86f7a2b22",
       ".lovable/plan/finish-the-aem-design-system-then-adopt-it-2026-08-20.md": "306e41b106dc6a57f1e140c07b138410",
       ".lovable/sources.yaml": "8469455bacbb4c31f179c3bcc80a4e2e",
-      ".lovable/system.md": "c4e25c709ecbbd486cad67d02295ae4d",
+      ".lovable/system.md": "a49db28abb7e3528bf36d202b70f107b",
       "README.md": "d19675c449605f23c7cfa133c69b398b",
       "bunfig.toml": "25f4c8696b22b0943db7191e0cdf7942",
+      "components_files.txt": "8c3c1a3bb506811061e14ada4f9e5a97",
       "eslint.config.js": "07a67437fb1a45ab36d6de0145ff09de",
+      "exported_files.txt": "de5ff6c8fbb6c575612dfa2fa8a8778b",
       "lovable.toml": "b32568cbef680de9cbb176344986f1a3",
       "mockupPreviewPlugin.ts": "e42e31c16e4b3b36f860729f5224edad",
       "package.json": "b290dbc0e05f49dd7d207027706065a5",
@@ -55,7 +57,7 @@
       "src/design-system/aem/components/ProgressBar.tsx": "ede39a818cdf3c090d263f4f90b157ae",
       "src/design-system/aem/components/RadioGroup.tsx": "7028a05898fce2d3d102348266df7ef1",
       "src/design-system/aem/components/SearchInput.tsx": "b4777f01a15be51045a82948409d4a2a",
-      "src/design-system/aem/components/Select.tsx": "d19db2424882bfe197621f66aaa310c4",
+      "src/design-system/aem/components/Select.tsx": "bf706b2da4e683e19ab8ae2752980ec4",
       "src/design-system/aem/components/Separator.tsx": "9dfafbe798c75a657d690c52f749b339",
       "src/design-system/aem/components/Sheet.tsx": "2ae04d46931c9b68ebcd1fa591aee72f",
       "src/design-system/aem/components/Sidebar.tsx": "698932f3dfa262c7626d7cf1c60c6493",
@@ -72,10 +74,10 @@
       "src/design-system/aem/components/Toolbar.tsx": "1586c628f3bf7f2517228cc149aa5dee",
       "src/design-system/aem/components/Tooltip.tsx": "dafb29ed748b0fdd266dadefb2efeeea",
       "src/design-system/aem/components/UserChip.tsx": "bd6ed8ce20a02cc789d02ecfc9e4dc5c",
-      "src/design-system/aem/index.ts": "6dbe0f45b95627bf7226172937f717de",
+      "src/design-system/aem/index.ts": "fe1073ba0f74e04c14cfcda28d7601b3",
       "src/design-system/aem/lib/cn.ts": "1d5cc6c3839f7bc135e050f50af58daa",
-      "src/design-system/aem/styles/theme-shadcn-v3.css": "1c9f807c8f73a430c85c1d57b7e633ce",
-      "src/design-system/aem/styles/theme.css": "3047698430fd887f029bf54761baaf36",
+      "src/design-system/aem/styles/theme-shadcn-v3.css": "51100b419414529d78e4c7a60ec45b2e",
+      "src/design-system/aem/styles/theme.css": "3b07892050fc9f648d20b47b4f27e9f5",
       "src/mockup-preview.d.ts": "38969839f35ce2966e32a9f01a5c09ea",
       "src/routeTree.gen.ts": "6f67a8aebc2c09c9c5ed77ffc35e30e7",
       "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
@@ -286,7 +288,7 @@
     "shadow": [
       {
         "name": "--aem-shadow-card",
-        "raw": "0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.04)",
+        "raw": "none",
         "source": "src/design-system/aem/styles/theme.css"
       },
       {
@@ -938,6 +940,11 @@
           "type": "string"
         }
       ]
+    },
+    {
+      "name": "SelectRoot",
+      "file": "src/design-system/aem/components/Select",
+      "import_path": ""
     },
     {
       "name": "Dialog",

@@ -473,6 +473,12 @@ import { Select } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8
 | `className` | string | `size-4 text-ink-muted` |
 | `id` | string | `—` |
 
+### SelectRoot
+
+```ts
+import { SelectRoot } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
 ### Separator
 
 ```ts
