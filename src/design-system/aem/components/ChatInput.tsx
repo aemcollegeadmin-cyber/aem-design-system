@@ -16,9 +16,10 @@ export const ChatInput = forwardRef<HTMLInputElement, ChatInputProps>(function C
   return (
     <div className={cn("flex items-center gap-2 rounded-card border-2 border-border-strong bg-surface px-4 py-2 shadow-card transition-colors hover:border-ink focus-within:border-focus", className)}>
       <input
+        data-aem-composite-control
         ref={ref}
         placeholder={placeholder}
-        className="flex-1 bg-transparent text-body text-ink placeholder:text-ink-muted focus:outline-none focus-visible:[outline:none!important] focus-visible:ring-0"
+        className="flex-1 bg-transparent text-body text-ink placeholder:text-ink-muted focus:outline-none focus-visible:ring-0"
         {...props}
       />
       <IconButton label={sendLabel} variant="muted" size="sm" onClick={onSend}>

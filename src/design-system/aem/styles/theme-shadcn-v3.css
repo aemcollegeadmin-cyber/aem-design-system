@@ -147,3 +147,7 @@
     --text-h4: 18px;
   }
 }
+
+[data-aem-composite-control]:focus-visible {
+  outline: none;
+}
