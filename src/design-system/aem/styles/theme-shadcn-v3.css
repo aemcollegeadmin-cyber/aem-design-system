@@ -115,6 +115,34 @@
 }
 
 .dark {
+  /* AEM base tokens — dark variant (same values as theme.css) */
+  --aem-ink: #f4f4f4;
+  --aem-ink-soft: #b4b4b4;
+  --aem-ink-muted: #7d7d7d;
+  --aem-surface: #1e1e1e;
+  --aem-surface-muted: #141414;
+  --aem-border-subtle: #2e2e2e;
+  --aem-border-strong: #3d3d3d;
+  --aem-focus: #f4f4f4;
+
+  --aem-accent-peach: #6b4416;
+  --aem-accent-peach-fg: #ffdcae;
+  --aem-accent-lime: #38521c;
+  --aem-accent-lime-fg: #dcf5bb;
+
+  --aem-success: #38521c;
+  --aem-success-fg: #dcf5bb;
+  --aem-warning: #6b4416;
+  --aem-warning-fg: #ffdcae;
+  --aem-danger: #5c1f14;
+  --aem-danger-fg: #ffd2cc;
+  --aem-info: #1c3358;
+  --aem-info-fg: #d9e6ff;
+
+  --aem-shadow-card: none;
+  --aem-shadow-overlay: 0 12px 40px rgb(0 0 0 / 0.6);
+
+  /* shadcn mappings */
   --background: 0 0% 8%;
   --foreground: 0 0% 96%;
 
