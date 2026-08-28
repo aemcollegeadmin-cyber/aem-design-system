@@ -45,14 +45,17 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
         id={id}
         aria-label={triggerLabel}
         className={cn(
-          "inline-flex h-11 w-full items-center justify-between gap-2 rounded-field border-2 border-border-strong bg-surface px-4 text-body text-ink shadow-card transition-colors hover:border-focus focus:border-focus focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-ink-muted data-[state=open]:border-focus",
+          "inline-flex h-11 w-full items-center justify-between gap-2 rounded-pill border-2 border-border-strong bg-surface pr-1.5 pl-4 text-body text-ink transition-colors hover:border-focus focus:border-focus focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-ink-muted data-[state=open]:border-focus",
           className,
         )}
       >
         <Value placeholder={placeholder} />
-        <Icon>
-          <ChevronDown className="size-4 text-ink-muted" />
+        <Icon asChild>
+          <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-pill bg-surface-muted text-ink-muted">
+            <ChevronDown className="size-4" />
+          </span>
         </Icon>
+
       </Trigger>
       <Portal>
         <Content
