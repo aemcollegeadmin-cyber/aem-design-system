@@ -6,15 +6,16 @@ const input = cva(
   "w-full border-2 border-border-strong bg-surface text-body text-ink placeholder:text-ink-muted transition-colors hover:border-focus focus:border-focus focus:outline-none disabled:cursor-not-allowed disabled:opacity-50",
   {
     variants: {
-      size: { sm: "h-9 px-3", md: "h-11 px-4", lg: "h-12 px-4" },
-      radius: { field: "rounded-field", pill: "rounded-pill" },
+      size: { sm: "h-11 px-4", md: "h-11 px-4", lg: "h-11 px-4" },
+      radius: { field: "rounded-pill", pill: "rounded-pill" },
       tone: {
         default: "",
         muted: "bg-surface-muted",
         invalid: "border-danger-fg",
       },
     },
-    defaultVariants: { size: "md", radius: "field", tone: "default" },
+    defaultVariants: { size: "md", radius: "pill", tone: "default" },
+
   },
 );
 
