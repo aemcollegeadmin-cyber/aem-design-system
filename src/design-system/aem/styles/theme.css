@@ -161,11 +161,12 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
-*:focus-visible:not([data-aem-composite-control]) {
+*:focus-visible:not([data-aem-composite-control]):not([data-aem-input-control]) {
   outline: 2px solid var(--aem-focus);
   outline-offset: 2px;
 }
 
-[data-aem-composite-control]:focus-visible {
+[data-aem-composite-control]:focus-visible,
+[data-aem-input-control]:focus-visible {
   outline: none !important;
 }
