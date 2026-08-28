@@ -40,11 +40,12 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
   return (
     <Root {...props}>
       <Trigger
+        data-aem-input-control
         ref={ref}
         id={id}
         aria-label={triggerLabel}
         className={cn(
-          "inline-flex h-11 w-full items-center justify-between gap-2 rounded-field bg-surface px-4 text-body text-ink shadow-card disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-ink-muted",
+          "inline-flex h-11 w-full items-center justify-between gap-2 rounded-field border-2 border-border-strong bg-surface px-4 text-body text-ink shadow-card transition-colors hover:border-focus focus:border-focus focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-ink-muted data-[state=open]:border-focus",
           className,
         )}
       >

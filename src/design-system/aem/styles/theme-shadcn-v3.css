@@ -148,6 +148,7 @@
   }
 }
 
-[data-aem-composite-control]:focus-visible {
+[data-aem-composite-control]:focus-visible,
+[data-aem-input-control]:focus-visible {
   outline: none !important;
 }
