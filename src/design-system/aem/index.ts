@@ -1,3 +1,5 @@
+import "./styles/theme.css";
+
 export { Text, type TextProps, type TextVariant } from "./components/Text";
 export { Button, type ButtonProps } from "./components/Button";
 export { IconButton, type IconButtonProps } from "./components/IconButton";
