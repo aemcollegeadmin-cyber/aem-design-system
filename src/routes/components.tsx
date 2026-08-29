@@ -31,6 +31,8 @@ import {
   Field,
   Icon,
   IconButton,
+  icons,
+  type IconName,
   Input,
   Label,
   LessonRow,
