@@ -31,7 +31,12 @@ export const UserChip = forwardRef<HTMLDivElement, UserChipProps>(function UserC
         )}
         {...props}
       >
-        <Avatar name={name} src={avatarSrc} size="sm" />
+        <Avatar
+          name={name}
+          src={avatarSrc}
+          size="sm"
+          variant={tone === "onMuted" ? "muted" : "surface"}
+        />
         <span className="text-caption font-medium text-ink">{name}</span>
       </div>
     );
