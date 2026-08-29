@@ -9,11 +9,13 @@ export interface LessonRowProps extends React.HTMLAttributes<HTMLDivElement> {
   status?: LessonStatus;
   trailing?: React.ReactNode;
   onOpen?: () => void;
+  /** Background the row sits on; forwarded to the status indicator. */
+  tone?: "onSurface" | "onMuted";
 }
 
 /** One lesson line: status indicator + title/description card. */
 export const LessonRow = forwardRef<HTMLDivElement, LessonRowProps>(function LessonRow(
-  { title, description, status = "available", trailing, onOpen, className, ...props },
+  { title, description, status = "available", trailing, onOpen, tone = "onSurface", className, ...props },
   ref,
 ) {
   const locked = status === "locked";
@@ -31,7 +33,7 @@ export const LessonRow = forwardRef<HTMLDivElement, LessonRowProps>(function Les
 
   return (
     <div ref={ref} className={cn("flex items-center gap-3", className)} {...props}>
-      <StatusIcon status={status} />
+      <StatusIcon status={status} tone={tone} />
       {onOpen && !locked ? (
         <button
           type="button"

@@ -76,8 +76,8 @@ function OverviewPage() {
             progress={64}
             mentors={
               <>
-                <UserChip name="Олена Ковальчук" />
-                <UserChip name="Ігор Мельник" />
+                <UserChip name="Олена Ковальчук" tone="onMuted" />
+                <UserChip name="Ігор Мельник" tone="onMuted" />
               </>
             }
           />

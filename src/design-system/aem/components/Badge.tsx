@@ -7,13 +7,23 @@ const badge = cva(
   {
     variants: {
       variant: {
-        neutral: "bg-surface-muted text-ink-soft",
+        neutral: "text-ink-soft",
         peach: "bg-accent-peach text-accent-peach-fg",
         lime: "bg-accent-lime text-accent-lime-fg",
         solid: "bg-ink text-surface",
       },
+      /**
+       * Background the badge sits on (neutral variant only). `onSurface`
+       * (default) renders a light-grey pill for white surfaces; `onMuted`
+       * renders a white pill for grey surfaces.
+       */
+      tone: { onSurface: "", onMuted: "" },
     },
-    defaultVariants: { variant: "neutral" },
+    compoundVariants: [
+      { variant: "neutral", tone: "onSurface", class: "bg-surface-muted" },
+      { variant: "neutral", tone: "onMuted", class: "bg-surface shadow-card" },
+    ],
+    defaultVariants: { variant: "neutral", tone: "onSurface" },
   },
 );
 
@@ -23,8 +33,8 @@ export interface BadgeProps
 
 /** Small status pill: "На перевірці", "Прийнято", "4 уроки". */
 export const Badge = forwardRef<HTMLSpanElement, BadgeProps>(function Badge(
-  { className, variant, ...props },
+  { className, variant, tone, ...props },
   ref,
 ) {
-  return <span ref={ref} className={cn(badge({ variant }), className)} {...props} />;
+  return <span ref={ref} className={cn(badge({ variant, tone }), className)} {...props} />;
 });
