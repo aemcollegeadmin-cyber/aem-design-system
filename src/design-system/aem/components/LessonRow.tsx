@@ -9,6 +9,8 @@ export interface LessonRowProps extends React.HTMLAttributes<HTMLDivElement> {
   status?: LessonStatus;
   trailing?: React.ReactNode;
   onOpen?: () => void;
+  /** Background the row sits on; forwarded to the status indicator. */
+  tone?: "onSurface" | "onMuted";
 }
 
 /** One lesson line: status indicator + title/description card. */
