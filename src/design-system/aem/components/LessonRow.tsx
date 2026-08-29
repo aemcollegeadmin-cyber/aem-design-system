@@ -15,7 +15,7 @@ export interface LessonRowProps extends React.HTMLAttributes<HTMLDivElement> {
 
 /** One lesson line: status indicator + title/description card. */
 export const LessonRow = forwardRef<HTMLDivElement, LessonRowProps>(function LessonRow(
-  { title, description, status = "available", trailing, onOpen, className, ...props },
+  { title, description, status = "available", trailing, onOpen, tone = "onSurface", className, ...props },
   ref,
 ) {
   const locked = status === "locked";
