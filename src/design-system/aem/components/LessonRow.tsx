@@ -33,7 +33,7 @@ export const LessonRow = forwardRef<HTMLDivElement, LessonRowProps>(function Les
 
   return (
     <div ref={ref} className={cn("flex items-center gap-3", className)} {...props}>
-      <StatusIcon status={status} />
+      <StatusIcon status={status} tone={tone} />
       {onOpen && !locked ? (
         <button
           type="button"
