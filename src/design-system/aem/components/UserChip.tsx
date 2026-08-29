@@ -25,13 +25,18 @@ export const UserChip = forwardRef<HTMLDivElement, UserChipProps>(function UserC
       <div
         ref={ref}
         className={cn(
-          "inline-flex items-center gap-2 rounded-pill px-2 py-1 pr-3 shadow-card",
+          "inline-flex items-center gap-2 rounded-pill p-1 pr-3 shadow-card",
           tone === "onMuted" ? "bg-surface" : "bg-surface-muted",
           className,
         )}
         {...props}
       >
-        <Avatar name={name} src={avatarSrc} size="sm" />
+        <Avatar
+          name={name}
+          src={avatarSrc}
+          size="sm"
+          variant={tone === "onMuted" ? "muted" : "surface"}
+        />
         <span className="text-caption font-medium text-ink">{name}</span>
       </div>
     );
