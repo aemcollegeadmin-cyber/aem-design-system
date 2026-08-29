@@ -3,6 +3,14 @@ import "./styles/theme.css";
 export { Text, type TextProps, type TextVariant } from "./components/Text";
 export { Button, type ButtonProps } from "./components/Button";
 export { IconButton, type IconButtonProps } from "./components/IconButton";
+export {
+  Icon,
+  icons,
+  iconSizes,
+  type IconProps,
+  type IconName,
+  type IconSize,
+} from "./components/Icon";
 export { Badge, type BadgeProps } from "./components/Badge";
 export { Callout, type CalloutProps } from "./components/Callout";
 export { Card, type CardProps } from "./components/Card";

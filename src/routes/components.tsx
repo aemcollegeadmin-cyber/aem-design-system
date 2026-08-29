@@ -29,6 +29,7 @@ import {
   DropdownMenuTrigger,
   EmptyState,
   Field,
+  Icon,
   IconButton,
   Input,
   Label,
