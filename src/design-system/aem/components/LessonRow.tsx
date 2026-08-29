@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { Layers } from "lucide-react";
+import { Icon } from "./Icon";
 import { StatusIcon, type LessonStatus } from "./StatusIcon";
 import { cn } from "../lib/cn";
 
@@ -26,7 +26,7 @@ export const LessonRow = forwardRef<HTMLDivElement, LessonRowProps>(function Les
         {description && <span className="text-caption text-ink-muted">{description}</span>}
       </span>
       <span className={cn("shrink-0", locked ? "text-ink-muted" : "text-ink")}>
-        {trailing ?? <Layers className="size-5" />}
+        {trailing ?? <Icon name="lesson" size="md" />}
       </span>
     </>
   );

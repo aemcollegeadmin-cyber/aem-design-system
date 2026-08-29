@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { Inbox } from "lucide-react";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export interface EmptyStateProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -24,7 +24,7 @@ export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(function E
       {...props}
     >
       <span className="inline-flex size-10 items-center justify-center rounded-pill bg-surface-muted text-ink-muted">
-        {icon ?? <Inbox className="size-5" />}
+        {icon ?? <Icon name="document" size="md" />}
       </span>
       <span className="text-h4 font-semibold text-ink">{title}</span>
       {description && <span className="max-w-sm text-caption text-ink-muted">{description}</span>}
