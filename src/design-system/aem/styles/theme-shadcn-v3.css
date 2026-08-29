@@ -148,6 +148,15 @@
   }
 }
 
+/* Every outline icon keeps a true 2px stroke at any rendered size. */
+svg.lucide,
+svg.lucide *,
+svg[data-aem-icon],
+svg[data-aem-icon] * {
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
 [data-aem-composite-control]:focus-visible,
 [data-aem-input-control]:focus-visible {
   outline: none !important;

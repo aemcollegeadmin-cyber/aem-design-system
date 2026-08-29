@@ -161,6 +161,15 @@ html {
   -webkit-font-smoothing: antialiased;
 }
 
+/* Every outline icon keeps a true 2px stroke at any rendered size. */
+svg.lucide,
+svg.lucide *,
+svg[data-aem-icon],
+svg[data-aem-icon] * {
+  stroke-width: 2px;
+  vector-effect: non-scaling-stroke;
+}
+
 *:focus-visible:not([data-aem-composite-control]):not([data-aem-input-control]) {
   outline: 2px solid var(--aem-focus);
   outline-offset: 2px;
