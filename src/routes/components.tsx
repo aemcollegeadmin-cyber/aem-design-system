@@ -166,6 +166,36 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
   return [
     { id: "button", title: "Button", node: <ButtonDemo /> },
     {
+      id: "icon",
+      title: "Icon",
+      node: (
+        <Specimen
+          label="Єдина система іконок: прості outline-глифи, стабільний штрих 2px. size: sm 16 / md 20 / lg 24 / xl 32"
+          code={`<Icon name="review" size="md" />`}
+        >
+          <div className="flex w-full flex-col gap-6">
+            <div className="flex items-end gap-6">
+              {(["sm", "md", "lg", "xl"] as const).map((size) => (
+                <div key={size} className="flex flex-col items-center gap-2">
+                  <Icon name="review" size={size} />
+                  <span className="text-caption text-ink-muted">{size}</span>
+                </div>
+              ))}
+            </div>
+            <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
+              {(Object.keys(icons) as IconName[]).map((name) => (
+                <div key={name} className="flex flex-col items-center gap-2 rounded-card bg-surface-muted p-3">
+                  <Icon name={name} size="md" />
+                  <span className="text-caption text-ink-muted">{name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </Specimen>
+      ),
+    },
+    {
+
       id: "icon-button",
       title: "IconButton",
       node: (
