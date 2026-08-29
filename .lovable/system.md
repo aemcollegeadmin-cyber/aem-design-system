@@ -52,3 +52,8 @@ content and controls, `caption` for meta, timestamps and badges.
 
 See `.lovable/rules/design-tokens.md` and `.lovable/rules/components.md` for the
 generated token and component reference.
+## Іконки
+
+- Іконки рендеряться тільки через `<Icon name="…" size="sm|md|lg|xl" />` з дизайн-системи. Не імпортуй `lucide-react` напряму в продуктовому коді.
+- Реєстр `icons` містить лише прості outline-глифи (одна фігура, без дрібних внутрішніх деталей), щоб іконка була читабельною на 16px і не створювала шуму. Потрібна нова іконка — додай семантичне ім'я в реєстр, а не окремий імпорт.
+- Розміри фіксовані: sm 16, md 20, lg 24, xl 32. Штрих завжди 2px (`absoluteStrokeWidth`), незалежно від розміру.
