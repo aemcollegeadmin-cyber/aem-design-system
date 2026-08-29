@@ -1,6 +1,6 @@
 import { useMemo, useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
-import { BookOpen, GraduationCap, Home, Plus, Send, Trash2 } from "lucide-react";
+
 import { ShowcaseShell, Specimen } from "@/showcase/ShowcaseShell";
 import {
   AccordionItem,
@@ -173,16 +173,16 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
           code={`<IconButton label="Додати урок"><Plus /></IconButton>`}
         >
           <IconButton label="Додати урок">
-            <Plus className="size-4" />
+            <Icon name="add" size="sm" />
           </IconButton>
           <IconButton label="Надіслати" variant="solid">
-            <Send className="size-4" />
+            <Icon name="send" size="sm" />
           </IconButton>
           <IconButton label="Прийняти роботу" variant="lime" size="lg">
-            <GraduationCap className="size-5" />
+            <Icon name="review" size="md" />
           </IconButton>
           <IconButton label="Видалити" disabled>
-            <Trash2 className="size-4" />
+            <Icon name="delete" size="sm" />
           </IconButton>
         </Specimen>
       ),
@@ -422,7 +422,7 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
             brand={<Text variant="h4">Той самий коледж!</Text>}
             actions={
               <IconButton label="На головну">
-                <Home className="size-4" />
+                <Icon name="home" size="sm" />
               </IconButton>
             }
           />
@@ -458,13 +458,13 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       node: (
         <Specimen label="active стан через aria-current" code={`<NavItem href="/courses" active>Курси</NavItem>`}>
           <Sidebar className="h-72" footer={<UserChip name="Олена Ковальчук" variant="row" />}>
-            <NavItem href="#sidebar" active icon={<Home className="size-4" />}>
+            <NavItem href="#sidebar" active icon={<Icon name="home" size="sm" />}>
               Головна
             </NavItem>
-            <NavItem href="#sidebar" icon={<BookOpen className="size-4" />}>
+            <NavItem href="#sidebar" icon={<Icon name="course" size="sm" />}>
               Мої курси
             </NavItem>
-            <NavItem href="#sidebar" icon={<GraduationCap className="size-4" />}>
+            <NavItem href="#sidebar" icon={<Icon name="review" size="sm" />}>
               Перевірка робіт
             </NavItem>
           </Sidebar>
@@ -538,7 +538,7 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
           <TooltipRoot>
             <TooltipTrigger asChild>
               <IconButton label="Додати урок">
-                <Plus className="size-4" />
+                <Icon name="add" size="sm" />
               </IconButton>
             </TooltipTrigger>
             <Tooltip>Додати урок до модуля</Tooltip>

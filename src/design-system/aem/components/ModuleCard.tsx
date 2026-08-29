@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { BookOpen } from "lucide-react";
+import { Icon } from "./Icon";
 import { Badge } from "./Badge";
 import { ProgressBar } from "./ProgressBar";
 import { StatusIcon } from "./StatusIcon";
@@ -28,7 +28,7 @@ export const ModuleCard = forwardRef<HTMLElement, ModuleCardProps>(function Modu
           <StatusIcon status="completed" />
         ) : (
           <span className="inline-flex size-8 items-center justify-center rounded-pill bg-surface text-ink shadow-card">
-            <BookOpen className="size-4" />
+            <Icon name="module" size="sm" />
           </span>
         )}
         <div className="flex flex-1 flex-col">
