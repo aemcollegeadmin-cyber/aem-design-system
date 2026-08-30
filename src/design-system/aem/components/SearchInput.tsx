@@ -28,6 +28,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
   const [internalValue, setInternalValue] = useState(String(defaultValue ?? ""));
   const value = isControlled ? String(valueProp) : internalValue;
   const hasValue = value.length > 0;
+  console.log("render:", { isControlled, valueProp, internalValue, value, hasValue });
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
