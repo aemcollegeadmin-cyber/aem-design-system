@@ -39,7 +39,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
 
   const handleInput = useCallback(
     (e: React.FormEvent<HTMLInputElement>) => {
-      console.log("SearchInput handleInput fired:", e.currentTarget.value);
+      console.log("SearchInput handleInput fired:", e.currentTarget.value, "isControlled:", isControlled);
       if (!isControlled) setInternalValue(e.currentTarget.value);
     },
     [isControlled],
