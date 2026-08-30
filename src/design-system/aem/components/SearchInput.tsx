@@ -14,6 +14,16 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
   forwardedRef,
 ) {
   const internalRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    const input = internalRef.current;
+    if (!input) return;
+    const onNativeInput = (e: Event) => {
+      console.log("native input event:", (e.target as HTMLInputElement).value);
+    };
+    input.addEventListener("input", onNativeInput);
+    return () => input.removeEventListener("input", onNativeInput);
+  }, []);
   const isControlled = valueProp !== undefined;
   const [internalValue, setInternalValue] = useState(String(defaultValue ?? ""));
   const value = isControlled ? String(valueProp) : internalValue;
