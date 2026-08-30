@@ -46,6 +46,18 @@ export { Select, SelectRoot, type SelectProps, type SelectOption } from "./compo
 /* Overlays & feedback */
 export { Dialog, DialogRoot, DialogTrigger, DialogClose, type DialogProps } from "./components/Dialog";
 export { ConfirmDialog, type ConfirmDialogProps } from "./components/ConfirmDialog";
+export {
+  MediaDialog,
+  type MediaDialogProps,
+  type MediaDialogMedia,
+  type MediaDialogMediaType,
+  type MediaDialogAction,
+} from "./components/MediaDialog";
+export {
+  OnboardingDialog,
+  type OnboardingDialogProps,
+  type OnboardingStep,
+} from "./components/OnboardingDialog";
 export { Sheet, SheetRoot, SheetTrigger, SheetClose, type SheetProps } from "./components/Sheet";
 export {
   DropdownMenu,
