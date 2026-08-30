@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { Content, Description, Overlay, Portal, Title } from "@radix-ui/react-dialog";
+import { Close, Content, Description, Overlay, Portal, Title } from "@radix-ui/react-dialog";
 import { Button } from "./Button";
 import { Icon, type IconName } from "./Icon";
 import { IconButton } from "./IconButton";
@@ -101,6 +101,25 @@ function StepDots({ current, total }: { current: number; total: number }) {
   );
 }
 
+function ActionButton({
+  action,
+  variant,
+  size,
+  block = true,
+}: {
+  action: MediaDialogAction;
+  variant: "primary" | "secondary" | "ghost";
+  size?: "sm" | "md" | "lg";
+  block?: boolean;
+}) {
+  const button = (
+    <Button variant={variant} size={size} block={block && variant !== "ghost"} onClick={action.onClick}>
+      {action.label}
+    </Button>
+  );
+  return action.keepOpen ? button : <Close asChild>{button}</Close>;
+}
+
 /**
  * Media-first modal: onboarding steps, feature announcements and “what’s new”
  * popups. Wrap in `DialogRoot` (controlled `open` for onboarding flows).
@@ -127,8 +146,6 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
   ref,
 ) {
   const centered = align === "center";
-  const run = (action?: MediaDialogAction) => action?.onClick?.();
-
   return (
     <Portal>
       <Overlay className="fixed inset-0 z-40 bg-ink/40" />
@@ -146,19 +163,11 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
       >
         {dismissible && (
           <div className="flex justify-end">
-            <IconButton
-              label={closeLabel}
-              variant="muted"
-              size="sm"
-              data-aem-dialog-close
-              onClick={(e) => {
-                e.currentTarget
-                  .closest("[role='dialog']")
-                  ?.dispatchEvent(new KeyboardEvent("keydown", { key: "Escape", bubbles: true }));
-              }}
-            >
-              <Icon name="close" size="sm" />
-            </IconButton>
+            <Close asChild>
+              <IconButton label={closeLabel} variant="muted" size="sm">
+                <Icon name="close" size="sm" />
+              </IconButton>
+            </Close>
           </div>
         )}
 
@@ -196,23 +205,17 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
         {(primaryAction || secondaryAction) && (
           <div className="flex flex-col gap-2">
             {primaryAction && (
-              <Button block onClick={() => run(primaryAction)}>
-                {primaryAction.label}
-              </Button>
+              <ActionButton action={primaryAction} variant="primary" />
             )}
             {secondaryAction && (
-              <Button variant="secondary" block onClick={() => run(secondaryAction)}>
-                {secondaryAction.label}
-              </Button>
+              <ActionButton action={secondaryAction} variant="secondary" />
             )}
           </div>
         )}
 
         {tertiaryAction && (
           <div className={cn("flex", centered ? "justify-center" : "justify-start")}>
-            <Button variant="ghost" size="sm" onClick={() => run(tertiaryAction)}>
-              {tertiaryAction.label}
-            </Button>
+            <ActionButton action={tertiaryAction} variant="ghost" size="sm" />
           </div>
         )}
       </Content>
