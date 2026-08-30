@@ -36,7 +36,9 @@ import {
   Input,
   Label,
   LessonRow,
+  MediaDialog,
   ModuleCard,
+  OnboardingDialog,
   NavItem,
   PageHeader,
   Pagination,
@@ -545,6 +547,11 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       node: <OverlaysDemo />,
     },
     {
+      id: "media-onboarding",
+      title: "MediaDialog / OnboardingDialog",
+      node: <MediaDemo />,
+    },
+    {
       id: "dropdown-menu",
       title: "DropdownMenu",
       node: (
@@ -769,6 +776,85 @@ function OverlaysDemo() {
           </div>
         </Sheet>
       </SheetRoot>
+    </Specimen>
+  );
+}
+
+function MediaDemo() {
+  const [tourOpen, setTourOpen] = useState(false);
+
+  return (
+    <Specimen
+      label="media: image / video / embed · onboarding зі кроками"
+      code={`<MediaDialog title="…" media={{ type: "image", src, alt }} primaryAction={{ label: "Зрозуміло" }} />`}
+    >
+      <DialogRoot>
+        <DialogTrigger asChild>
+          <Button variant="secondary">Анонс із картинкою</Button>
+        </DialogTrigger>
+        <MediaDialog
+          title="Новий розділ «Портфоліо»"
+          description="Тепер роботи з усіх курсів збираються в одному місці — з посиланнями та відгуками куратора."
+          media={{
+            type: "image",
+            src: "https://images.unsplash.com/photo-1523726491229-6df1ce2eb52b?auto=format&fit=crop&w=1200&q=60",
+            alt: "Приклад сторінки портфоліо",
+          }}
+          primaryAction={{ label: "Переглянути", onClick: () => toast.success("Відкрито портфоліо") }}
+          secondaryAction={{ label: "Пізніше" }}
+        />
+      </DialogRoot>
+
+      <DialogRoot>
+        <DialogTrigger asChild>
+          <Button variant="secondary">Попап з відео</Button>
+        </DialogTrigger>
+        <MediaDialog
+          size="md"
+          align="start"
+          title="Як здавати домашні завдання"
+          description="Коротке відео на дві хвилини — від прикріплення файлу до відгуку куратора."
+          media={{
+            type: "embed",
+            src: "https://www.youtube.com/embed/aqz-KE-bpKQ",
+            alt: "Відео-інструкція",
+          }}
+          primaryAction={{ label: "Готово" }}
+        />
+      </DialogRoot>
+
+      <Button variant="lime" onClick={() => setTourOpen(true)}>
+        Онбординг (3 кроки)
+      </Button>
+      <OnboardingDialog
+        open={tourOpen}
+        onFinish={() => {
+          setTourOpen(false);
+          toast.success("Онбординг завершено");
+        }}
+        onSkip={() => setTourOpen(false)}
+        steps={[
+          {
+            title: "Вітаємо в коледжі!",
+            description: "Покажемо за три кроки, де шукати курси, уроки та відгуки куратора.",
+            icon: "users",
+          },
+          {
+            title: "Курси та модулі",
+            description: "Прогрес рахується автоматично — відкривайте наступний урок, коли попередній зданий.",
+            media: {
+              type: "image",
+              src: "https://images.unsplash.com/photo-1517245386807-bb43389510dd?auto=format&fit=crop&w=1200&q=60",
+              alt: "Список курсів",
+            },
+          },
+          {
+            title: "Домашні завдання",
+            description: "Здавайте роботи прямо в уроці й отримуйте відгук у чаті.",
+            icon: "review",
+          },
+        ]}
+      />
     </Specimen>
   );
 }
