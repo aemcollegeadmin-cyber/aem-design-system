@@ -77,7 +77,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
           onClick={handleClear}
           className="absolute top-1.5 right-1.5 inline-flex size-8 items-center justify-center rounded-pill bg-surface-muted text-ink-muted transition-colors hover:bg-border-subtle hover:text-ink"
         >
-          <Icon name="close" size="sm" label={clearLabel} />
+          <Icon name="close" size="sm" aria-hidden="true" />
         </button>
       )}
     </div>
