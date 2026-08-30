@@ -1,4 +1,4 @@
-import { forwardRef, useRef, useState, useCallback, useEffect } from "react";
+import { forwardRef, useRef, useState, useCallback } from "react";
 import { Icon } from "./Icon";
 import { Input, type InputProps } from "./Input";
 import { cn } from "../lib/cn";
@@ -14,21 +14,10 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
   forwardedRef,
 ) {
   const internalRef = useRef<HTMLInputElement>(null);
-
-  useEffect(() => {
-    const input = internalRef.current;
-    if (!input) return;
-    const onNativeInput = (e: Event) => {
-      console.log("native input event:", (e.target as HTMLInputElement).value);
-    };
-    input.addEventListener("input", onNativeInput);
-    return () => input.removeEventListener("input", onNativeInput);
-  }, []);
   const isControlled = valueProp !== undefined;
   const [internalValue, setInternalValue] = useState(String(defaultValue ?? ""));
   const value = isControlled ? String(valueProp) : internalValue;
   const hasValue = value.length > 0;
-  console.log("render:", { isControlled, valueProp, internalValue, value, hasValue });
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,14 +25,6 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
       onChange?.(e);
     },
     [isControlled, onChange],
-  );
-
-  const handleInput = useCallback(
-    (e: React.FormEvent<HTMLInputElement>) => {
-      console.log("SearchInput handleInput fired:", e.currentTarget.value, "isControlled:", isControlled);
-      if (!isControlled) setInternalValue(e.currentTarget.value);
-    },
-    [isControlled],
   );
 
   const handleClear = useCallback(() => {
@@ -85,12 +66,10 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
         className="pl-12 pr-12"
         defaultValue={defaultValue}
         onChange={handleChange}
-        onInput={handleInput}
         {...(isControlled ? { value: valueProp } : {})}
         {...props}
       />
 
-      <span data-debug-value={value} className="sr-only">debug</span>
       {hasValue && (
         <button
           type="button"
