@@ -70,6 +70,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
         {...props}
       />
 
+      <span data-debug-value={value} className="sr-only">debug</span>
       {hasValue && (
         <button
           type="button"
