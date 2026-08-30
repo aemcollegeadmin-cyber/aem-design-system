@@ -21,11 +21,18 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
 
   const handleChange = useCallback(
     (e: React.ChangeEvent<HTMLInputElement>) => {
-      console.log("SearchInput handleChange fired:", e.target.value);
       if (!isControlled) setInternalValue(e.target.value);
       onChange?.(e);
     },
     [isControlled, onChange],
+  );
+
+  const handleInput = useCallback(
+    (e: React.FormEvent<HTMLInputElement>) => {
+      console.log("SearchInput handleInput fired:", e.currentTarget.value);
+      if (!isControlled) setInternalValue(e.currentTarget.value);
+    },
+    [isControlled],
   );
 
   const handleClear = useCallback(() => {
