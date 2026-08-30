@@ -74,6 +74,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
         className="pl-12 pr-12"
         defaultValue={defaultValue}
         onChange={handleChange}
+        onInput={handleInput}
         {...(isControlled ? { value: valueProp } : {})}
         {...props}
       />
