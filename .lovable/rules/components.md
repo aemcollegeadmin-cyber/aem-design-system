@@ -194,6 +194,7 @@ import { ContinueLessonCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-
 | `title` | string | `—` |
 | `kind` | any | `video` |
 | `previewSrc` | string | `—` |
+| `previewVideoSrc` | string | `—` |
 | `onOpen` | function | `—` |
 | `progress` | number | `—` |
 | `progressLabel` | string | `—` |
@@ -484,6 +485,7 @@ import { MediaPreview } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e
 | `size` | sm · md · lg | `md` |
 | `kind` | video · test · reading · task · image | `video` |
 | `src` | string | `—` |
+| `videoSrc` | string | `—` |
 | `alt` | string | `—` |
 | `onActivate` | function | `—` |
 | `actionLabel` | string | `—` |

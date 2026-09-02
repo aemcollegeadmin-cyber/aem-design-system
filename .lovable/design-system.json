@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.3.0",
+    "version": "1.4.0",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -17,7 +17,7 @@
       ".lovable/meta.yaml": "8794970d6049858cc148d2b86f7a2b22",
       ".lovable/plan/finish-the-aem-design-system-then-adopt-it-2026-08-20.md": "306e41b106dc6a57f1e140c07b138410",
       ".lovable/sources.yaml": "8469455bacbb4c31f179c3bcc80a4e2e",
-      ".lovable/system.md": "8374ef0069afcab6c64a6fb14545c411",
+      ".lovable/system.md": "708cc5074068eb6166b9f57eb69a2fdb",
       "README.md": "d19675c449605f23c7cfa133c69b398b",
       "bunfig.toml": "25f4c8696b22b0943db7191e0cdf7942",
       "components_files.txt": "8c3c1a3bb506811061e14ada4f9e5a97",
@@ -49,7 +49,7 @@
       "src/design-system/aem/components/ChatInput.tsx": "a37bb1bf8a3a0e85062b27cce2cec290",
       "src/design-system/aem/components/Checkbox.tsx": "b98c0fa42b5279d75cb1810b4bcc9f01",
       "src/design-system/aem/components/ConfirmDialog.tsx": "7389221bcfb7f76aae1edbf3a2a0a971",
-      "src/design-system/aem/components/ContinueLessonCard.tsx": "56a159ff66e6551d0000a73ac9e614f7",
+      "src/design-system/aem/components/ContinueLessonCard.tsx": "6b90fc14d2a90970780ba910703e36ee",
       "src/design-system/aem/components/CourseCard.tsx": "5595b45fb48233acf4a054a802f11089",
       "src/design-system/aem/components/Dialog.tsx": "545fd5d1b178ca0b242d407793a90b07",
       "src/design-system/aem/components/DropdownMenu.tsx": "2fdcee875788b2fdb5d2c07e33e285f0",
@@ -64,7 +64,7 @@
       "src/design-system/aem/components/LessonRow.tsx": "0555fa1c2e7cc1e437e9204a2e2d5bbe",
       "src/design-system/aem/components/LessonSidebar.tsx": "a7e8d87ad84cdcab97871a9749cf8504",
       "src/design-system/aem/components/MediaDialog.tsx": "0141461bf649eb3317d1c21fe8cd9605",
-      "src/design-system/aem/components/MediaPreview.tsx": "48ed608f468d370763eb792f1aa72814",
+      "src/design-system/aem/components/MediaPreview.tsx": "171ba31ee0ceba7852de7c1a584ca763",
       "src/design-system/aem/components/ModuleCard.tsx": "9d02fa09280266d81725c620bae3ac47",
       "src/design-system/aem/components/NavItem.tsx": "e0ce096c874e9f48d65441a5a405e6e5",
       "src/design-system/aem/components/OnboardingDialog.tsx": "d61cade0124068af87c398c51a631065",
@@ -86,7 +86,7 @@
       "src/design-system/aem/components/Skeleton.tsx": "a9039b2552fafd295f98bd6374519b88",
       "src/design-system/aem/components/StatCard.tsx": "d5a63dcf676e0f58d3ca7f8e2767b129",
       "src/design-system/aem/components/StatusIcon.tsx": "f80fd0230639f8437551283cab466eb8",
-      "src/design-system/aem/components/StreakChip.tsx": "7a08d30929f56befb2228965e58f9a85",
+      "src/design-system/aem/components/StreakChip.tsx": "7e0ee13a686bcc8a634510d7675e0a86",
       "src/design-system/aem/components/SubmissionRow.tsx": "5657777f040d231b5f2b2de7addff92f",
       "src/design-system/aem/components/Switch.tsx": "026bfe7811307716d9aa44553e6491d0",
       "src/design-system/aem/components/Table.tsx": "673d53100baf35c255ffd3cce1eb45fa",
@@ -1254,6 +1254,10 @@
           "type": "string"
         },
         {
+          "name": "videoSrc",
+          "type": "string"
+        },
+        {
           "name": "alt",
           "type": "string"
         },
@@ -1288,6 +1292,10 @@
         },
         {
           "name": "previewSrc",
+          "type": "string"
+        },
+        {
+          "name": "previewVideoSrc",
           "type": "string"
         },
         {
