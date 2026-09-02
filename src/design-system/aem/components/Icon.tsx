@@ -103,6 +103,60 @@ export const icons = {
   calendar: Calendar,
 } satisfies Record<string, LucideIcon>;
 
+/**
+ * Solid counterparts used for the small sizes (sm/md), where a 2px outline
+ * stroke is visually too heavy. Same semantic names as `icons`.
+ */
+export const filledIcons = {
+  home: Ph.SquaresFour,
+  menu: Ph.List,
+  more: Ph.DotsThree,
+  back: Ph.ArrowLeft,
+  forward: Ph.ArrowRight,
+  up: Ph.ArrowUp,
+  down: Ph.ArrowDown,
+  chevronLeft: Ph.CaretLeft,
+  chevronRight: Ph.CaretRight,
+  chevronUp: Ph.CaretUp,
+  chevronDown: Ph.CaretDown,
+  external: Ph.ArrowSquareOut,
+  close: Ph.X,
+  logout: Ph.SignOut,
+
+  course: Ph.Folder,
+  module: Ph.Folder,
+  lesson: Ph.File,
+  document: Ph.File,
+  review: Ph.CheckSquare,
+  bookmark: Ph.BookmarkSimple,
+  star: Ph.Star,
+
+  user: Ph.User,
+  users: Ph.Users,
+  chat: Ph.ChatCircle,
+  mail: Ph.Envelope,
+  bell: Ph.Bell,
+
+  add: Ph.Plus,
+  remove: Ph.Minus,
+  edit: Ph.PencilSimple,
+  delete: Ph.Trash,
+  copy: Ph.Copy,
+  search: Ph.MagnifyingGlass,
+  settings: Ph.Gear,
+  send: Ph.ArrowUp,
+  play: Ph.Play,
+
+  check: Ph.Check,
+  done: Ph.CheckCircle,
+  alert: Ph.WarningCircle,
+  info: Ph.Info,
+  dot: Ph.Circle,
+  clock: Ph.Clock,
+  calendar: Ph.CalendarBlank,
+} satisfies Record<keyof typeof icons, Ph.Icon>;
+
+
 export type IconName = keyof typeof icons;
 
 /**
