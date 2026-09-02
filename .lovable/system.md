@@ -60,6 +60,10 @@ copy is Ukrainian by default.
 - Icon-only controls use `IconButton`, which requires a `label` for its
   accessible name. Actions are `<button>`, navigation is `<a>`.
 - Keyboard focus stays visible; the theme sets a global `:focus-visible` ring.
+- Any control that sits on `bg-surface-muted` must have a visible border so it
+  does not dissolve into the canvas. `Button` secondary/ghost, `IconButton`
+  muted, `Switch`, and `ToggleGroup` all ship with a 2px `border-border-strong`
+  outline by default.
 
 ## Type scale usage
 
