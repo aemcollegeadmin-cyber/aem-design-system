@@ -54,6 +54,8 @@ export const ContinueLessonCard = forwardRef<HTMLElement, ContinueLessonCardProp
         <MediaPreview
           kind={kind}
           src={previewSrc}
+          videoSrc={previewVideoSrc}
+
           alt={title}
           size="md"
           onActivate={onOpen}
