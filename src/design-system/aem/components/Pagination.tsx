@@ -36,7 +36,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
       <IconButton
         label={prevLabel}
         variant="muted"
-        size="md"
+        size="sm"
         disabled={page <= 1}
         onClick={() => onPageChange?.(page - 1)}
       >
@@ -48,7 +48,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
       <IconButton
         label={nextLabel}
         variant="muted"
-        size="md"
+        size="sm"
         disabled={page >= pageCount}
         onClick={() => onPageChange?.(page + 1)}
       >

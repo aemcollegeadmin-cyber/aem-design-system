@@ -34,7 +34,7 @@ export const Sheet = forwardRef<HTMLDivElement, SheetProps>(function Sheet(
         <div className="flex items-center justify-between gap-4">
           <Title className="text-h4 text-ink">{title}</Title>
           <Close asChild>
-            <IconButton label={closeLabel} variant="muted" size="md">
+            <IconButton label={closeLabel} variant="muted" size="sm">
               <Icon name="close" size="md" />
             </IconButton>
           </Close>

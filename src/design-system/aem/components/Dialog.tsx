@@ -53,7 +53,7 @@ export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog(
             )}
           </div>
           <Close asChild>
-            <IconButton label={closeLabel} variant="muted" size="md">
+            <IconButton label={closeLabel} variant="muted" size="sm">
               <Icon name="close" size="md" />
             </IconButton>
           </Close>

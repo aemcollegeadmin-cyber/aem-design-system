@@ -19,7 +19,7 @@ function ThemeToggle() {
     <IconButton
       label={dark ? "Світла тема" : "Темна тема"}
       variant="muted"
-      size="md"
+      size="sm"
       onClick={() => setDark((value) => !value)}
     >
       {dark ? <Sun className="size-4" /> : <Moon className="size-4" />}

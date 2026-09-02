@@ -164,7 +164,7 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
         {dismissible && (
           <div className="flex justify-end">
             <Close asChild>
-              <IconButton label={closeLabel} variant="muted" size="md">
+              <IconButton label={closeLabel} variant="muted" size="sm">
                 <Icon name="close" size="md" />
               </IconButton>
             </Close>
@@ -215,7 +215,7 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
 
         {tertiaryAction && (
           <div className={cn("flex", centered ? "justify-center" : "justify-start")}>
-            <ActionButton action={tertiaryAction} variant="ghost" size="md" />
+            <ActionButton action={tertiaryAction} variant="ghost" size="sm" />
           </div>
         )}
       </Content>
