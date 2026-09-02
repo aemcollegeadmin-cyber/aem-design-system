@@ -929,7 +929,7 @@ function MediaDemo() {
             src: "https://images.unsplash.com/photo-1523726491229-6df1ce2eb52b?auto=format&fit=crop&w=1200&q=60",
             alt: "Приклад сторінки портфоліо",
           }}
-          primaryAction={{ label: "Переглянути", onClick: () => toast.success("Відкрито портфоліо") }}
+          primaryAction={{ label: "Переглянути", onClick: () => void toast.success("Відкрито портфоліо") }}
           secondaryAction={{ label: "Пізніше" }}
         />
       </DialogRoot>
