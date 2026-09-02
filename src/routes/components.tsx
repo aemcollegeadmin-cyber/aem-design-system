@@ -67,6 +67,8 @@ import {
   Tabs,
   Text,
   Textarea,
+  ToggleGroup,
+  ToggleGroupItem,
   Toolbar,
   Tooltip,
   TooltipRoot,

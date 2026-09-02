@@ -15,6 +15,12 @@ export { Badge, type BadgeProps } from "./components/Badge";
 export { Callout, type CalloutProps } from "./components/Callout";
 export { Card, type CardProps } from "./components/Card";
 export { Tabs, type TabsProps, type TabItem } from "./components/Tabs";
+export {
+  ToggleGroup,
+  ToggleGroupItem,
+  type ToggleGroupProps,
+  type ToggleGroupItemProps,
+} from "./components/ToggleGroup";
 export { ProgressBar, type ProgressBarProps } from "./components/ProgressBar";
 export { Avatar, type AvatarProps } from "./components/Avatar";
 export { UserChip, type UserChipProps } from "./components/UserChip";
