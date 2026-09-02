@@ -29,7 +29,7 @@ export function toastPoints({
     () => (
       <div className="flex items-center gap-3 rounded-card bg-surface-inverse px-4 py-3 text-on-inverse">
         <span className="inline-flex size-8 items-center justify-center rounded-pill bg-accent-brand text-accent-brand-fg">
-          <Icon name={icon} size="sm" />
+          <Icon name={icon} size="md" />
         </span>
         <span className="flex flex-col">
           <span className="text-body text-on-inverse">{label ?? `+${points} балів`}</span>
