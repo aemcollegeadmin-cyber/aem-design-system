@@ -175,7 +175,7 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       node: (
         <Specimen
           label="Єдина система іконок: прості outline-глифи, стабільний штрих 2px. size: sm 16 / md 20 / lg 24 / xl 32"
-          code={`<Icon name="review" size="md" />`}
+          code={`<Icon name="review" size="lg" />`}
         >
           <div className="flex w-full flex-col gap-6">
             <div className="flex items-end gap-6">
@@ -189,7 +189,7 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
             <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
               {(Object.keys(icons) as IconName[]).map((name) => (
                 <div key={name} className="flex flex-col items-center gap-2 rounded-card bg-surface-muted p-3">
-                  <Icon name={name} size="md" />
+                  <Icon name={name} size="lg" />
                   <span className="text-caption text-ink-muted">{name}</span>
                 </div>
               ))}
@@ -208,16 +208,16 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
           code={`<IconButton label="Додати урок"><Plus /></IconButton>`}
         >
           <IconButton label="Додати урок">
-            <Icon name="add" size="sm" />
+            <Icon name="add" size="lg" />
           </IconButton>
           <IconButton label="Надіслати" variant="solid">
-            <Icon name="send" size="sm" />
+            <Icon name="send" size="lg" />
           </IconButton>
           <IconButton label="Прийняти роботу" variant="lime" size="lg">
-            <Icon name="review" size="md" />
+            <Icon name="review" size="lg" />
           </IconButton>
           <IconButton label="Видалити" disabled>
-            <Icon name="delete" size="sm" />
+            <Icon name="delete" size="lg" />
           </IconButton>
         </Specimen>
       ),
@@ -460,7 +460,7 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
             brand={<Text variant="h4">Той самий коледж!</Text>}
             actions={
               <IconButton label="На головну">
-                <Icon name="home" size="sm" />
+                <Icon name="home" size="lg" />
               </IconButton>
             }
           />
@@ -496,13 +496,13 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       node: (
         <Specimen label="active стан через aria-current" code={`<NavItem href="/courses" active>Курси</NavItem>`}>
           <Sidebar className="h-72" footer={<UserChip name="Олена Ковальчук" variant="row" />}>
-            <NavItem href="#sidebar" active icon={<Icon name="home" size="sm" />}>
+            <NavItem href="#sidebar" active icon={<Icon name="home" size="lg" />}>
               Головна
             </NavItem>
-            <NavItem href="#sidebar" icon={<Icon name="course" size="sm" />}>
+            <NavItem href="#sidebar" icon={<Icon name="course" size="lg" />}>
               Мої курси
             </NavItem>
-            <NavItem href="#sidebar" icon={<Icon name="review" size="sm" />}>
+            <NavItem href="#sidebar" icon={<Icon name="review" size="lg" />}>
               Перевірка робіт
             </NavItem>
           </Sidebar>
@@ -581,7 +581,7 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
           <TooltipRoot>
             <TooltipTrigger asChild>
               <IconButton label="Додати урок">
-                <Icon name="add" size="sm" />
+                <Icon name="add" size="lg" />
               </IconButton>
             </TooltipTrigger>
             <Tooltip>Додати урок до модуля</Tooltip>
