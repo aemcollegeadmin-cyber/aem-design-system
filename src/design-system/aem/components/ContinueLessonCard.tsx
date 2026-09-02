@@ -31,6 +31,8 @@ export const ContinueLessonCard = forwardRef<HTMLElement, ContinueLessonCardProp
       title,
       kind = "video",
       previewSrc,
+      previewVideoSrc,
+
       onOpen,
       progress,
       progressLabel,
