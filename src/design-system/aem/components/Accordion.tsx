@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { Content, Header, Item, Root, Trigger } from "@radix-ui/react-accordion";
-import { ChevronDown } from "lucide-react";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export const AccordionRoot = Root;
@@ -21,7 +21,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
         <Header>
           <Trigger className="group flex w-full items-center justify-between gap-4 px-4 py-3 text-left text-body text-ink">
             {title}
-            <ChevronDown className="size-4 shrink-0 text-ink-muted transition-transform group-data-[state=open]:rotate-180" />
+            <Icon name="chevronDown" size="sm" className="text-ink-muted transition-transform group-data-[state=open]:rotate-180" />
           </Trigger>
         </Header>
         <Content className="px-4 pb-4 text-caption text-ink-soft">{children}</Content>

@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
-import { CircleAlert, CircleCheck, Info, TriangleAlert } from "lucide-react";
+import { Icon, type IconName } from "./Icon";
 import { cn } from "../lib/cn";
 
 const alert = cva("flex items-start gap-3 rounded-card px-4 py-3", {
@@ -23,21 +23,21 @@ export interface AlertProps
 }
 
 const icons = {
-  info: Info,
-  success: CircleCheck,
-  warning: CircleAlert,
-  danger: TriangleAlert,
-} as const;
+  info: "info",
+  success: "done",
+  warning: "alert",
+  danger: "warning",
+} as const satisfies Record<string, IconName>;
 
 /** Page-level status message. Use `Callout` for inline lesson strips. */
 export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   { className, variant = "info", title, icon, children, ...props },
   ref,
 ) {
-  const Icon = icons[variant ?? "info"];
+  const iconName = icons[variant ?? "info"];
   return (
     <div ref={ref} role="status" className={cn(alert({ variant }), className)} {...props}>
-      <span className="mt-0.5 shrink-0">{icon ?? <Icon className="size-4" />}</span>
+      <span className="mt-0.5 shrink-0">{icon ?? <Icon name={iconName} size="sm" />}</span>
       <div className="flex flex-col gap-0.5">
         {title && <span className="text-body font-semibold">{title}</span>}
         {children && <span className="text-caption">{children}</span>}

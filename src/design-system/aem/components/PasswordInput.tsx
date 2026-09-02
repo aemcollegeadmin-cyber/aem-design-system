@@ -1,7 +1,7 @@
 import { forwardRef, useState } from "react";
-import { Eye, EyeOff } from "lucide-react";
 import { Input, type InputProps } from "./Input";
 import { IconButton } from "./IconButton";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export interface PasswordInputProps extends Omit<InputProps, "type"> {
@@ -26,7 +26,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
           onClick={() => setVisible((v) => !v)}
           className="absolute top-1/2 right-1.5 -translate-y-1/2"
         >
-          {visible ? <EyeOff className="size-4" /> : <Eye className="size-4" />}
+          <Icon name={visible ? "hide" : "show"} size="sm" />
         </IconButton>
       </div>
     );

@@ -1,7 +1,7 @@
 import { forwardRef } from "react";
 import { Close, Content, Overlay, Portal, Root, Title, Trigger } from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
 import { IconButton } from "./IconButton";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export const SheetRoot = Root;
@@ -35,7 +35,7 @@ export const Sheet = forwardRef<HTMLDivElement, SheetProps>(function Sheet(
           <Title className="text-h4 text-ink">{title}</Title>
           <Close asChild>
             <IconButton label={closeLabel} variant="muted" size="sm">
-              <X className="size-4" />
+              <Icon name="close" size="sm" />
             </IconButton>
           </Close>
         </div>

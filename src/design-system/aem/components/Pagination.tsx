@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
-import { ChevronLeft, ChevronRight } from "lucide-react";
 import { IconButton } from "./IconButton";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export interface PaginationProps extends Omit<React.HTMLAttributes<HTMLElement>, "onChange"> {
@@ -40,7 +40,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
         disabled={page <= 1}
         onClick={() => onPageChange?.(page - 1)}
       >
-        <ChevronLeft className="size-4" />
+        <Icon name="chevronLeft" size="sm" />
       </IconButton>
       <span className="text-caption text-ink-muted">
         {page} / {pageCount}
@@ -52,7 +52,7 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
         disabled={page >= pageCount}
         onClick={() => onPageChange?.(page + 1)}
       >
-        <ChevronRight className="size-4" />
+        <Icon name="chevronRight" size="sm" />
       </IconButton>
     </nav>
   );

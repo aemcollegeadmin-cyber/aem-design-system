@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { Indicator, Root } from "@radix-ui/react-checkbox";
-import { Check } from "lucide-react";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export interface CheckboxProps extends React.ComponentPropsWithoutRef<typeof Root> {}

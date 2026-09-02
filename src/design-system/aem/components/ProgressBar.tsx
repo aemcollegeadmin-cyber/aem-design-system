@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { CircleCheck } from "lucide-react";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export interface ProgressBarProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -21,7 +21,7 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(function
       {showLabel && (
         <div className="flex items-center gap-1.5 text-caption text-ink-soft">
           <span>{label ?? `Пройдено ${clamped}%`}</span>
-          <CircleCheck className={cn("size-4", complete ? "text-accent-lime-fg" : "text-ink-muted")} />
+          <Icon name="done" size="sm" className={complete ? "text-accent-lime-fg" : "text-ink-muted"} />
         </div>
       )}
       <div

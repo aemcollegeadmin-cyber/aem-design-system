@@ -11,7 +11,7 @@ import {
   Value,
   Viewport,
 } from "@radix-ui/react-select";
-import { Check, ChevronDown } from "lucide-react";
+import { Icon as AemIcon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export const SelectRoot = Root;
@@ -52,7 +52,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
         <Value placeholder={placeholder} />
         <Icon asChild>
           <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-pill bg-surface-muted text-ink-muted">
-            <ChevronDown className="size-4" />
+            <AemIcon name="chevronDown" size="sm" />
           </span>
         </Icon>
 
@@ -73,7 +73,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
               >
                 <ItemText>{option.label}</ItemText>
                 <ItemIndicator>
-                  <Check className="size-4" />
+                  <AemIcon name="check" size="sm" />
                 </ItemIndicator>
               </Item>
             ))}
