@@ -499,6 +499,104 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       ),
     },
     {
+      id: "gamification-states",
+      title: "Гейміфікація: стани",
+      node: (
+        <div className="flex w-full flex-col gap-4">
+          <Specimen label="loading" code={`<ScoreCard loading /> · <LeaderboardCard loading />`}>
+            <div className="grid w-full gap-4 lg:grid-cols-3">
+              <ScoreCard loading label="Бал у коледжі" score="—" className="lg:col-span-2" />
+              <LeaderboardCard loading title="Рейтинг тижня" entries={[]} />
+            </div>
+          </Specimen>
+          <Specimen
+            label="перший тиждень / порожній рейтинг / серія 0"
+            code={`<LeaderboardCard entries={[]} /> · <ScoreCard chart={{ title, bars: [] }} />`}
+          >
+            <div className="grid w-full gap-4 lg:grid-cols-3">
+              <ScoreCard
+                className="lg:col-span-2"
+                label="Бал у коледжі"
+                score="0"
+                chart={{ title: "Бали по тижнях", bars: [] }}
+                footnote="Перший бал зʼявиться після першого уроку."
+              />
+              <LeaderboardCard title="Рейтинг тижня" entries={[]} />
+            </div>
+          </Specimen>
+        </div>
+      ),
+    },
+    {
+      id: "scoreboard",
+      title: "Scoreboard",
+      node: (
+        <div className="flex w-full flex-col gap-4">
+          <Specimen
+            label="повна сторінка рейтингу тижня"
+            code={`<Scoreboard title="Рейтинг тижня" rows={rows} currentRow={me} footer={<Pagination … />} />`}
+          >
+            <div className="w-full">
+              <Scoreboard
+                title="Рейтинг тижня"
+                period="1–7 вересня"
+                rows={[
+                  { rank: 1, name: "Оля К.", score: "2 310", delta: "+320", meta: "Інтерфейсник" },
+                  { rank: 2, name: "Іван Б.", score: "1 905", delta: "+260", meta: "Інтерфейсник" },
+                  { rank: 3, name: "Ната Ш.", score: "1 780", delta: "+180", meta: "Дизайн-система" },
+                  { rank: 4, name: "Марта Г.", score: "1 640", delta: "+150", meta: "Інтерфейсник" },
+                ]}
+                currentRow={{ rank: 7, name: "Ти", score: "1 480", delta: "+120", meta: "Інтерфейсник" }}
+                footer={<Pagination page={1} pageCount={4} />}
+              />
+            </div>
+          </Specimen>
+          <Specimen label="loading / empty" code={`<Scoreboard loading rows={[]} />`}>
+            <div className="grid w-full gap-4 lg:grid-cols-2">
+              <Scoreboard title="Рейтинг тижня" rows={[]} loading />
+              <Scoreboard title="Рейтинг тижня" period="1–7 вересня" rows={[]} />
+            </div>
+          </Specimen>
+        </div>
+      ),
+    },
+    {
+      id: "rank-up",
+      title: "RankUpDialog + toastPoints",
+      node: (
+        <div className="flex w-full flex-col gap-4">
+          <Specimen
+            label="нове місце в рейтингу"
+            code={`<DialogRoot><RankUpDialog rank="#5" rankDelta="↑ 2 місця" /></DialogRoot>`}
+          >
+            <DialogRoot>
+              <DialogTrigger asChild>
+                <Button>Показати попап</Button>
+              </DialogTrigger>
+              <RankUpDialog
+                rank="#5"
+                rankDelta="↑ 2 місця за тиждень"
+                score="1 620"
+                description="Ти обійшов Нату Ш. Ще 90 балів — і топ-3."
+              />
+            </DialogRoot>
+          </Specimen>
+          <Specimen
+            label="бали нараховані"
+            code={`toastPoints({ points: 25, reason: "Урок 12 завершено" })`}
+          >
+            <Button
+              variant="secondary"
+              onClick={() => toastPoints({ points: 25, reason: "Урок 12 завершено" })}
+            >
+              +25 балів
+            </Button>
+          </Specimen>
+        </div>
+      ),
+    },
+
+    {
       id: "continue-lesson-card",
       title: "ContinueLessonCard",
       node: (
