@@ -62,10 +62,10 @@ copy is Ukrainian by default.
 - Keyboard focus stays visible; the theme sets a global `:focus-visible` ring.
 - Any control that sits on `bg-surface-muted` must have a visible border so it
   does not dissolve into the canvas. `Button` secondary/ghost, `IconButton`
-  muted, `Switch`, and `ToggleGroup` all ship with a 2px `border-border-strong`
-  outline by default.
-- Use `ToggleGroup` (single or multiple) for filter buttons, view switches, and
-  other segmented controls. Do not rebuild the same behaviour with raw buttons.
+  muted, and `Switch` all ship with a 2px `border-border-strong` outline by
+  default.
+- For a binary on/off setting use `Switch` — no text labels inside the control.
+  For a group of mutually exclusive options use `RadioGroup` or `Tabs`.
 
 ## Type scale usage
 
