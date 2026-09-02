@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 
 export interface ScoreCardBar {
