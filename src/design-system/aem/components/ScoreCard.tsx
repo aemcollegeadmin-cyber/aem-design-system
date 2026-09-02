@@ -136,6 +136,11 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
       {chart && (
         <div className="flex flex-col gap-3 border-t-2 border-on-inverse-track pt-5">
           <span className="text-body text-on-inverse">{chart.title}</span>
+          {chart.bars.length === 0 ? (
+            <p className="rounded-card bg-surface-inverse-muted px-4 py-6 text-center text-caption text-on-inverse-soft">
+              {chart.emptyLabel ?? "Це твій перший тиждень — історія балів з'явиться далі."}
+            </p>
+          ) : (
           <div className="flex h-28 items-end gap-2">
             {chart.bars.map((bar, index) => (
               <div key={bar.label ?? index} className="flex h-full flex-1 flex-col items-center justify-end gap-2">
@@ -152,6 +157,8 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
               </div>
             ))}
           </div>
+          )}
+
         </div>
       )}
 
