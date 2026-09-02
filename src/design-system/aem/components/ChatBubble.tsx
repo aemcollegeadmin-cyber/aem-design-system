@@ -25,7 +25,8 @@ export const ChatBubble = forwardRef<HTMLDivElement, ChatBubbleProps>(function C
       <Avatar name={author} src={avatarSrc} size="md" />
       <div
         className={cn(
-          "max-w-md rounded-card px-4 py-3 text-caption",
+          "max-w-md rounded-card px-4 py-3 text-caption break-words",
+          "[&_a]:text-ink-soft [&_a]:underline [&_a]:decoration-ink-muted/50 [&_a:hover]:text-ink",
           outgoing ? "bg-surface-muted text-ink" : "bg-surface text-ink shadow-card",
         )}
       >
