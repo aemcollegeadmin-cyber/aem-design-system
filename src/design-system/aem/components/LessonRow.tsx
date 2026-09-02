@@ -26,7 +26,7 @@ export const LessonRow = forwardRef<HTMLDivElement, LessonRowProps>(function Les
         {description && <span className="text-caption text-ink-muted">{description}</span>}
       </span>
       <span className={cn("shrink-0", locked ? "text-ink-muted" : "text-ink")}>
-        {trailing ?? <Icon name="lesson" size="lg" />}
+        {trailing ?? <Icon name="lesson" size="md" />}
       </span>
     </>
   );
