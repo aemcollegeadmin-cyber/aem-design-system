@@ -207,7 +207,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
       <Solid
         ref={ref}
         size={px}
-        weight="fill"
+        weight={strokeOnlyGlyphs.has(name) ? "bold" : "fill"}
         {...a11y}
         {...(props as Record<string, unknown>)}
       />
