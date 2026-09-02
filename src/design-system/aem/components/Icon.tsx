@@ -41,7 +41,9 @@ import {
   X,
   type LucideIcon,
 } from "lucide-react";
+import * as Ph from "@phosphor-icons/react";
 import { cn } from "../lib/cn";
+
 
 /**
  * Curated icon registry. Every entry is a geometrically simple outline glyph
