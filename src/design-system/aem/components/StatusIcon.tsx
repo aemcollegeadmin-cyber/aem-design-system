@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { Ban, CircleCheck, Play } from "lucide-react";
+import { Icon, type IconName } from "./Icon";
 import { cn } from "../lib/cn";
 
 export type LessonStatus = "available" | "completed" | "locked";
@@ -25,7 +25,7 @@ export const StatusIcon = forwardRef<HTMLSpanElement, StatusIconProps>(function 
   { status = "available", tone = "onSurface", className, ...props },
   ref,
 ) {
-  const Icon = status === "completed" ? CircleCheck : status === "locked" ? Ban : Play;
+  const name: IconName = status === "completed" ? "done" : status === "locked" ? "locked" : "play";
   const neutralBg = tone === "onMuted" ? "bg-surface" : "bg-surface-muted";
   const styles: Record<LessonStatus, string> = {
     available: cn(neutralBg, "text-ink"),
@@ -40,7 +40,7 @@ export const StatusIcon = forwardRef<HTMLSpanElement, StatusIconProps>(function 
       className={cn("inline-flex size-8 items-center justify-center rounded-pill", styles[status], className)}
       {...props}
     >
-      <Icon className="size-4" />
+      <Icon name={name} size="sm" />
     </span>
   );
 });

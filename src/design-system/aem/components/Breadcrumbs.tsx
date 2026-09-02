@@ -1,5 +1,5 @@
 import { forwardRef } from "react";
-import { ChevronRight } from "lucide-react";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export interface BreadcrumbItem {
@@ -33,7 +33,7 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(function Br
                   {item.label}
                 </span>
               )}
-              {!isLast && <ChevronRight className="size-3 text-ink-muted" aria-hidden="true" />}
+              {!isLast && <Icon name="chevronRight" size="sm" className="text-ink-muted" aria-hidden="true" />}
             </li>
           );
         })}

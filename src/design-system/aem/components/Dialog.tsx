@@ -9,8 +9,8 @@ import {
   Title,
   Trigger,
 } from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
 import { IconButton } from "./IconButton";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export const DialogRoot = Root;
@@ -54,7 +54,7 @@ export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog(
           </div>
           <Close asChild>
             <IconButton label={closeLabel} variant="muted" size="sm">
-              <X className="size-4" />
+              <Icon name="close" size="sm" />
             </IconButton>
           </Close>
         </div>

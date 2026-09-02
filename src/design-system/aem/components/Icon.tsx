@@ -4,6 +4,7 @@ import {
   ArrowLeft,
   ArrowRight,
   ArrowUp,
+  Ban,
   Bell,
   Bookmark,
   Calendar,
@@ -18,6 +19,8 @@ import {
   Clock,
   Copy,
   Ellipsis,
+  Eye,
+  EyeOff,
   ExternalLink,
   File,
   Folder,
@@ -36,6 +39,7 @@ import {
   SquareCheck,
   Star,
   Trash,
+  TriangleAlert,
   User,
   Users,
   X,
@@ -94,6 +98,8 @@ export const icons = {
   settings: Settings,
   send: ArrowUp,
   play: Play,
+  show: Eye,
+  hide: EyeOff,
 
   /* Status */
   check: Check,
@@ -103,6 +109,8 @@ export const icons = {
   dot: Circle,
   clock: Clock,
   calendar: Calendar,
+  warning: TriangleAlert,
+  locked: Ban,
 } satisfies Record<string, LucideIcon>;
 
 /**
@@ -150,6 +158,8 @@ export const filledIcons = {
   settings: Ph.Gear,
   send: Ph.ArrowUp,
   play: Ph.Play,
+  show: Ph.Eye,
+  hide: Ph.EyeSlash,
 
   check: Ph.Check,
   done: Ph.CheckCircle,
@@ -158,6 +168,8 @@ export const filledIcons = {
   dot: Ph.Circle,
   clock: Ph.Clock,
   calendar: Ph.CalendarBlank,
+  warning: Ph.Warning,
+  locked: Ph.Prohibit,
 } satisfies Record<keyof typeof icons, Ph.Icon>;
 
 

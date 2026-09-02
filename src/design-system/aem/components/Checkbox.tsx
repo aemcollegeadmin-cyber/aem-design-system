@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { Indicator, Root } from "@radix-ui/react-checkbox";
-import { Check } from "lucide-react";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export interface CheckboxProps extends React.ComponentPropsWithoutRef<typeof Root> {}
@@ -20,7 +20,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Ch
       {...props}
     >
       <Indicator>
-        <Check className="size-3.5" />
+        <Icon name="check" size="sm" />
       </Indicator>
     </Root>
   );
