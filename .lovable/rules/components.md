@@ -320,7 +320,7 @@ import { IconButton } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 
 | Prop | Type | Default |
 |---|---|---|
-| `variant` | muted · solid · lime | `muted` |
+| `variant` | muted · solid · lime · ghost | `muted` |
 | `size` | sm · md · lg | `md` |
 | `label` | string | `—` |
 
@@ -457,6 +457,24 @@ import { PageHeader } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 | `above` | any | `—` |
 | `actions` | any | `—` |
 
+### PageNav
+
+```ts
+import { PageNav } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `title` | string | `—` |
+| `breadcrumbs` | any | `—` |
+| `status` | any | `—` |
+| `backHref` | string | `—` |
+| `onBack` | function | `—` |
+| `backLabel` | string | `Назад` |
+| `actions` | any | `—` |
+
 ### Pagination
 
 ```ts
@@ -538,7 +556,7 @@ import { Select } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8
 | `options` | any | `—` |
 | `placeholder` | string | `Виберіть` |
 | `triggerLabel` | string | `—` |
-| `className` | string | `inline-flex size-8 shrink-0 items-center justify-center rounded-pill bg-surface-muted text-ink-muted` |
+| `className` | string | `text-ink-muted` |
 | `id` | string | `—` |
 
 ### SelectRoot
