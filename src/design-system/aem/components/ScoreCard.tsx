@@ -101,7 +101,7 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
           <span className="text-body text-on-inverse">{chart.title}</span>
           <div className="flex h-28 items-end gap-2">
             {chart.bars.map((bar, index) => (
-              <div key={bar.label ?? index} className="flex flex-1 flex-col items-center gap-2">
+              <div key={bar.label ?? index} className="flex h-full flex-1 flex-col items-center justify-end gap-2">
                 <div
                   className={cn(
                     "w-full rounded-field",

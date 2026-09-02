@@ -24,6 +24,27 @@ export { LessonSidebar, type LessonSidebarProps } from "./components/LessonSideb
 export { ModuleCard, type ModuleCardProps } from "./components/ModuleCard";
 export { CourseCard, type CourseCardProps } from "./components/CourseCard";
 export {
+  ScoreCard,
+  type ScoreCardProps,
+  type ScoreCardBar,
+  type ScoreCardComparison,
+} from "./components/ScoreCard";
+export {
+  LeaderboardCard,
+  type LeaderboardCardProps,
+  type LeaderboardEntry,
+} from "./components/LeaderboardCard";
+export {
+  MediaPreview,
+  type MediaPreviewProps,
+  type MediaPreviewKind,
+} from "./components/MediaPreview";
+export {
+  ContinueLessonCard,
+  type ContinueLessonCardProps,
+} from "./components/ContinueLessonCard";
+export { StreakChip, type StreakChipProps } from "./components/StreakChip";
+export {
   SubmissionRow,
   type SubmissionRowProps,
   type SubmissionStatus,
