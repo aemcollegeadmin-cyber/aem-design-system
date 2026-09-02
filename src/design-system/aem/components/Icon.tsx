@@ -49,6 +49,7 @@ import {
   List,
   ListOrdered,
   Loader,
+  Flame,
   LogIn,
   LogOut,
   Mail,
@@ -155,6 +156,7 @@ export const icons = {
   warning: TriangleAlert,
   locked: Ban,
   loader: Loader,
+  flame: Flame,
 
   /* Content & editor */
   bold: Bold,
@@ -311,6 +313,7 @@ export const filledIcons = {
   rotateCcw: Ph.ArrowCounterClockwise,
   plug: Ph.Plug,
   unplug: Ph.Plugs,
+  flame: Ph.Fire,
 } satisfies Record<keyof typeof icons, Ph.Icon>;
 
 
