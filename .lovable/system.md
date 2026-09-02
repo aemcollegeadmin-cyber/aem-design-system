@@ -185,3 +185,11 @@ generated token and component reference.
 - Якщо урок відео — передавай `previewVideoSrc` у `ContinueLessonCard`
   (або `videoSrc` у `MediaPreview`): рендериться реальний кадр відео чи
   YouTube-мініатюра, а не просто іконка play.
+
+## Один розмір контролів
+
+- Усі інтерактивні контроли мають ЄДИНУ висоту 44px (`h-11`): `Button`,
+  `IconButton` (`size-11`), `Input`, `PasswordInput`, `SearchInput`, `Select`,
+  `Tabs` (трек h-11), `StreakChip`, кнопка «назад» у `PageNav`.
+- Пропи `size="sm" | "lg"` лишились лише як аліаси до `md` — вони більше не
+  змінюють геометрію. Не вводь власних висот у продуктовому коді.

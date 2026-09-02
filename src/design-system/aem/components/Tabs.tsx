@@ -22,7 +22,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
       ref={ref}
       role="tablist"
       className={cn(
-        "inline-flex w-fit gap-1 rounded-pill border-2 border-border-strong bg-surface-muted p-1",
+        "inline-flex h-11 w-fit items-center gap-1 rounded-pill border-2 border-border-strong bg-surface-muted p-1",
         className,
       )}
       {...props}
@@ -37,7 +37,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
             aria-selected={active}
             onClick={() => onValueChange?.(item.value)}
             className={cn(
-              "rounded-pill px-4 py-2 text-caption transition-colors",
+              "inline-flex h-full items-center rounded-pill px-4 text-body transition-colors",
               active
                 ? "bg-surface text-ink shadow-card"
                 : "text-ink-muted hover:bg-surface hover:text-ink-soft",

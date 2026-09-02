@@ -13,11 +13,13 @@ const button = cva(
         ghost: "border-border-strong bg-transparent text-ink hover:bg-surface-muted",
         lime: "bg-accent-lime text-accent-lime-fg hover:brightness-95",
       },
+      /** Single control height across the system — sm/lg are kept as aliases. */
       size: {
-        sm: "h-9 px-4 text-caption",
+        sm: "h-11 px-5 text-body",
         md: "h-11 px-5 text-body",
-        lg: "h-12 px-6 text-body",
+        lg: "h-11 px-5 text-body",
       },
+
       block: { true: "w-full", false: "" },
     },
     defaultVariants: { variant: "primary", size: "md", block: false },
