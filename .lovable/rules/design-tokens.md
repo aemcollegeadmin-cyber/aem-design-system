@@ -54,6 +54,7 @@ Typography classes (`font-*` for families, `text-*` for sizes):
 | `text-body--font-weight` | `--text-body--font-weight` |
 | `text-caption` | `--text-caption` |
 | `text-caption--line-height` | `--text-caption--line-height` |
+| `text-caption--font-weight` | `--text-caption--font-weight` |
 
 ## Spacing
 
@@ -74,6 +75,7 @@ Border-radius classes:
 |---|---|
 | `rounded-field` | `--radius-field` |
 | `rounded-card` | `--radius-card` |
+| `rounded-composer` | `--radius-composer` |
 | `rounded-panel` | `--radius-panel` |
 | `rounded-pill` | `--radius-pill` |
 

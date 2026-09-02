@@ -74,6 +74,7 @@ import { Badge } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8b
 | Prop | Type | Default |
 |---|---|---|
 | `variant` | neutral · peach · lime · solid | `neutral` |
+| `tone` | onSurface · onMuted | `onSurface` |
 
 ### Breadcrumbs
 
@@ -295,6 +296,20 @@ import { Field } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8b
 | `required` | boolean | `—` |
 | `children` | function | `—` |
 
+### Icon
+
+```ts
+import { Icon } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `name` | home · menu · more · back · forward · up · down · chevronLeft · chevronRight · chevronUp · chevronDown · external · close · logout · course · module · lesson · document · review · bookmark · star · user · users · chat · mail · bell · add · remove · edit · delete · copy · search · settings · send · play · show · hide · check · done · alert · info · dot · clock · calendar · warning · locked | `—` |
+| `size` | md · lg · xl | `lg` |
+| `label` | string | `—` |
+
 ### IconButton
 
 ```ts
@@ -320,7 +335,7 @@ import { Input } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8b
 | Prop | Type | Default |
 |---|---|---|
 | `size` | sm · md · lg | `md` |
-| `radius` | field · pill | `field` |
+| `radius` | field · pill | `pill` |
 | `tone` | default · muted · invalid | `default` |
 
 ### Label
@@ -350,6 +365,32 @@ import { LessonRow } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33a
 | `status` | any | `available` |
 | `trailing` | any | `—` |
 | `onOpen` | function | `—` |
+| `tone` | onSurface · onMuted | `onSurface` |
+
+### MediaDialog
+
+```ts
+import { MediaDialog } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `title` | string | `—` |
+| `description` | string | `—` |
+| `media` | any | `—` |
+| `mediaAspect` | video · square · wide | `video` |
+| `icon` | any | `—` |
+| `step` | object | `—` |
+| `primaryAction` | any | `—` |
+| `secondaryAction` | any | `—` |
+| `tertiaryAction` | any | `—` |
+| `dismissible` | boolean | `true` |
+| `closeLabel` | string | `Закрити` |
+| `size` | sm · md · lg | `sm` |
+| `align` | center · start | `center` |
+| `children` | any | `—` |
 
 ### ModuleCard
 
@@ -379,6 +420,27 @@ import { NavItem } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac
 |---|---|---|
 | `active` | true · false | `false` |
 | `icon` | any | `—` |
+
+### OnboardingDialog
+
+```ts
+import { OnboardingDialog } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `open` | boolean | `—` |
+| `steps` | any | `—` |
+| `onFinish` | function | `—` |
+| `onSkip` | function | `—` |
+| `skipLabel` | string | `Пропустити` |
+| `backLabel` | string | `Назад` |
+| `nextLabel` | string | `Далі` |
+| `finishLabel` | string | `Почати` |
+| `size` | any | `sm` |
+| `align` | any | `center` |
 
 ### PageHeader
 
@@ -457,6 +519,12 @@ import { RadioGroupItem } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82
 import { SearchInput } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `clearLabel` | string | `Очистити` |
+
 ### Select
 
 ```ts
@@ -470,7 +538,7 @@ import { Select } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8
 | `options` | any | `—` |
 | `placeholder` | string | `Виберіть` |
 | `triggerLabel` | string | `—` |
-| `className` | string | `size-4 text-ink-muted` |
+| `className` | string | `inline-flex size-8 shrink-0 items-center justify-center rounded-pill bg-surface-muted text-ink-muted` |
 | `id` | string | `—` |
 
 ### SelectRoot
@@ -569,6 +637,7 @@ import { StatusIcon } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 | Prop | Type | Default |
 |---|---|---|
 | `status` | available · completed · locked | `available` |
+| `tone` | onSurface · onMuted | `onSurface` |
 
 ### SubmissionRow
 
@@ -718,4 +787,5 @@ import { UserChip } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aa
 | `email` | string | `—` |
 | `avatarSrc` | string | `—` |
 | `variant` | pill · row | `pill` |
+| `tone` | onSurface · onMuted | `onSurface` |
 
