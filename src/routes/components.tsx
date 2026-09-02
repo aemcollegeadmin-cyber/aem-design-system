@@ -67,8 +67,6 @@ import {
   Tabs,
   Text,
   Textarea,
-  ToggleGroup,
-  ToggleGroupItem,
   Toolbar,
   Tooltip,
   TooltipRoot,
@@ -329,11 +327,6 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       id: "tabs",
       title: "Tabs",
       node: <TabsDemo />,
-    },
-    {
-      id: "toggle-group",
-      title: "ToggleGroup",
-      node: <ToggleGroupDemo />,
     },
     {
       id: "progress-bar",
@@ -655,30 +648,6 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       ),
     },
   ];
-}
-
-function ToggleGroupDemo() {
-  const [filter, setFilter] = useState("all");
-  const [formats, setFormats] = useState(["pdf"]);
-  return (
-    <Specimen
-      label="type: single / multiple · обрамлений pill-перемикач"
-      code={`<ToggleGroup type="single" value={filter} onValueChange={setFilter}><ToggleGroupItem value="all">Усі</ToggleGroupItem></ToggleGroup>`}
-    >
-      <div className="flex flex-col gap-4">
-        <ToggleGroup type="single" value={filter} onValueChange={setFilter}>
-          <ToggleGroupItem value="all">Усі</ToggleGroupItem>
-          <ToggleGroupItem value="active">Активні</ToggleGroupItem>
-          <ToggleGroupItem value="archive">Архів</ToggleGroupItem>
-        </ToggleGroup>
-        <ToggleGroup type="multiple" value={formats} onValueChange={setFormats}>
-          <ToggleGroupItem value="pdf">PDF</ToggleGroupItem>
-          <ToggleGroupItem value="video">Відео</ToggleGroupItem>
-          <ToggleGroupItem value="quiz">Тест</ToggleGroupItem>
-        </ToggleGroup>
-      </div>
-    </Specimen>
-  );
 }
 
 function TabsDemo() {
