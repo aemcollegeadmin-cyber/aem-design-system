@@ -92,6 +92,11 @@
   --color-ink-muted: var(--aem-ink-muted);
   --color-surface: var(--aem-surface);
   --color-surface-muted: var(--aem-surface-muted);
+  --color-surface-inverse: var(--aem-surface-inverse);
+  --color-surface-inverse-muted: var(--aem-surface-inverse-muted);
+  --color-on-inverse: var(--aem-on-inverse);
+  --color-on-inverse-soft: var(--aem-on-inverse-soft);
+  --color-on-inverse-track: var(--aem-on-inverse-track);
   --color-border-subtle: var(--aem-border-subtle);
   --color-border-strong: var(--aem-border-strong);
   --color-border-line: var(--aem-border-line);
