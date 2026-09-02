@@ -15,8 +15,8 @@
  * --success is AEM lime (accepted / completed). The brand acid lime
  * (--aem-accent-brand) is a separate token and always pairs with dark text.
  *
- * The Fixel Display @font-face declarations live in theme.css; a Tailwind v3
- * consumer must declare them itself (files in public/fonts).
+ * The Fixel Display @font-face declarations are included below, so a Tailwind
+ * v3 consumer gets the correct typeface from this file alone.
  */
 
 @font-face {
