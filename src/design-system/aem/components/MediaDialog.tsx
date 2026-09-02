@@ -161,8 +161,8 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
         onInteractOutside={(e) => !dismissible && e.preventDefault()}
         {...props}
       >
-        <div className="grid shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
-          <Title className="min-w-0 text-h2 text-left text-ink">{title}</Title>
+        <header className="flex shrink-0 items-start justify-between gap-4">
+          <Title className="min-w-0 flex-1 text-h2 text-left text-ink">{title}</Title>
           {dismissible && (
             <Close asChild>
               <IconButton label={closeLabel} variant="muted" size="sm">
@@ -170,7 +170,7 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
               </IconButton>
             </Close>
           )}
-        </div>
+        </header>
 
         <div className="flex flex-col gap-4">
           {media && <MediaFrame media={media} aspect={mediaAspect} />}
