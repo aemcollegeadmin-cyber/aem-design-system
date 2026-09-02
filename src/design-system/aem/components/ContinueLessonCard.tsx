@@ -10,6 +10,9 @@ export interface ContinueLessonCardProps extends React.HTMLAttributes<HTMLElemen
   kind?: MediaPreviewKind;
   /** Poster image URL. */
   previewSrc?: string;
+  /** Lesson video URL (file or YouTube link) — renders a real video preview. */
+  previewVideoSrc?: string;
+
   /** Starts the lesson from the poster. */
   onOpen?: () => void;
   /** Watched/completed share of the lesson, 0–100. */
