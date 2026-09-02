@@ -186,3 +186,272 @@ input[type="search"]::-webkit-search-results-decoration {
   appearance: none;
   display: none;
 }
+
+/* ---------------------------------------------------------------------------
+ * AEM utility compatibility layer.
+ *
+ * Tailwind v3 consumers do NOT generate `bg-surface-inverse`, `text-h1`,
+ * `rounded-panel`, … unless every token is mirrored into tailwind.config.ts.
+ * Those classes then silently render as nothing — e.g. ScoreCard shows up
+ * white/transparent instead of the dark hero surface.
+ *
+ * These declarations make every AEM token class real CSS, so design-system
+ * components look identical in a v3 consumer with zero config work.
+ * ------------------------------------------------------------------------- */
+.bg-ink { background-color: var(--aem-ink); }
+.text-ink { color: var(--aem-ink); }
+.border-ink { border-color: var(--aem-ink); }
+.ring-ink { --tw-ring-color: var(--aem-ink); }
+.fill-ink { fill: var(--aem-ink); }
+.stroke-ink { stroke: var(--aem-ink); }
+.divide-ink > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-ink); }
+.bg-ink-soft { background-color: var(--aem-ink-soft); }
+.text-ink-soft { color: var(--aem-ink-soft); }
+.border-ink-soft { border-color: var(--aem-ink-soft); }
+.ring-ink-soft { --tw-ring-color: var(--aem-ink-soft); }
+.fill-ink-soft { fill: var(--aem-ink-soft); }
+.stroke-ink-soft { stroke: var(--aem-ink-soft); }
+.divide-ink-soft > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-ink-soft); }
+.bg-ink-muted { background-color: var(--aem-ink-muted); }
+.text-ink-muted { color: var(--aem-ink-muted); }
+.border-ink-muted { border-color: var(--aem-ink-muted); }
+.ring-ink-muted { --tw-ring-color: var(--aem-ink-muted); }
+.fill-ink-muted { fill: var(--aem-ink-muted); }
+.stroke-ink-muted { stroke: var(--aem-ink-muted); }
+.divide-ink-muted > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-ink-muted); }
+.bg-surface { background-color: var(--aem-surface); }
+.text-surface { color: var(--aem-surface); }
+.border-surface { border-color: var(--aem-surface); }
+.ring-surface { --tw-ring-color: var(--aem-surface); }
+.fill-surface { fill: var(--aem-surface); }
+.stroke-surface { stroke: var(--aem-surface); }
+.divide-surface > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-surface); }
+.bg-surface-muted { background-color: var(--aem-surface-muted); }
+.text-surface-muted { color: var(--aem-surface-muted); }
+.border-surface-muted { border-color: var(--aem-surface-muted); }
+.ring-surface-muted { --tw-ring-color: var(--aem-surface-muted); }
+.fill-surface-muted { fill: var(--aem-surface-muted); }
+.stroke-surface-muted { stroke: var(--aem-surface-muted); }
+.divide-surface-muted > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-surface-muted); }
+.bg-surface-inverse { background-color: var(--aem-surface-inverse); }
+.text-surface-inverse { color: var(--aem-surface-inverse); }
+.border-surface-inverse { border-color: var(--aem-surface-inverse); }
+.ring-surface-inverse { --tw-ring-color: var(--aem-surface-inverse); }
+.fill-surface-inverse { fill: var(--aem-surface-inverse); }
+.stroke-surface-inverse { stroke: var(--aem-surface-inverse); }
+.divide-surface-inverse > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-surface-inverse); }
+.bg-surface-inverse-muted { background-color: var(--aem-surface-inverse-muted); }
+.text-surface-inverse-muted { color: var(--aem-surface-inverse-muted); }
+.border-surface-inverse-muted { border-color: var(--aem-surface-inverse-muted); }
+.ring-surface-inverse-muted { --tw-ring-color: var(--aem-surface-inverse-muted); }
+.fill-surface-inverse-muted { fill: var(--aem-surface-inverse-muted); }
+.stroke-surface-inverse-muted { stroke: var(--aem-surface-inverse-muted); }
+.divide-surface-inverse-muted > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-surface-inverse-muted); }
+.bg-on-inverse { background-color: var(--aem-on-inverse); }
+.text-on-inverse { color: var(--aem-on-inverse); }
+.border-on-inverse { border-color: var(--aem-on-inverse); }
+.ring-on-inverse { --tw-ring-color: var(--aem-on-inverse); }
+.fill-on-inverse { fill: var(--aem-on-inverse); }
+.stroke-on-inverse { stroke: var(--aem-on-inverse); }
+.divide-on-inverse > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-on-inverse); }
+.bg-on-inverse-soft { background-color: var(--aem-on-inverse-soft); }
+.text-on-inverse-soft { color: var(--aem-on-inverse-soft); }
+.border-on-inverse-soft { border-color: var(--aem-on-inverse-soft); }
+.ring-on-inverse-soft { --tw-ring-color: var(--aem-on-inverse-soft); }
+.fill-on-inverse-soft { fill: var(--aem-on-inverse-soft); }
+.stroke-on-inverse-soft { stroke: var(--aem-on-inverse-soft); }
+.divide-on-inverse-soft > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-on-inverse-soft); }
+.bg-on-inverse-track { background-color: var(--aem-on-inverse-track); }
+.text-on-inverse-track { color: var(--aem-on-inverse-track); }
+.border-on-inverse-track { border-color: var(--aem-on-inverse-track); }
+.ring-on-inverse-track { --tw-ring-color: var(--aem-on-inverse-track); }
+.fill-on-inverse-track { fill: var(--aem-on-inverse-track); }
+.stroke-on-inverse-track { stroke: var(--aem-on-inverse-track); }
+.divide-on-inverse-track > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-on-inverse-track); }
+.bg-border-subtle { background-color: var(--aem-border-subtle); }
+.text-border-subtle { color: var(--aem-border-subtle); }
+.border-border-subtle { border-color: var(--aem-border-subtle); }
+.ring-border-subtle { --tw-ring-color: var(--aem-border-subtle); }
+.fill-border-subtle { fill: var(--aem-border-subtle); }
+.stroke-border-subtle { stroke: var(--aem-border-subtle); }
+.divide-border-subtle > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-border-subtle); }
+.bg-border-strong { background-color: var(--aem-border-strong); }
+.text-border-strong { color: var(--aem-border-strong); }
+.border-border-strong { border-color: var(--aem-border-strong); }
+.ring-border-strong { --tw-ring-color: var(--aem-border-strong); }
+.fill-border-strong { fill: var(--aem-border-strong); }
+.stroke-border-strong { stroke: var(--aem-border-strong); }
+.divide-border-strong > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-border-strong); }
+.bg-border-line { background-color: var(--aem-border-line); }
+.text-border-line { color: var(--aem-border-line); }
+.border-border-line { border-color: var(--aem-border-line); }
+.ring-border-line { --tw-ring-color: var(--aem-border-line); }
+.fill-border-line { fill: var(--aem-border-line); }
+.stroke-border-line { stroke: var(--aem-border-line); }
+.divide-border-line > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-border-line); }
+.bg-focus { background-color: var(--aem-focus); }
+.text-focus { color: var(--aem-focus); }
+.border-focus { border-color: var(--aem-focus); }
+.ring-focus { --tw-ring-color: var(--aem-focus); }
+.fill-focus { fill: var(--aem-focus); }
+.stroke-focus { stroke: var(--aem-focus); }
+.divide-focus > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-focus); }
+.bg-accent-peach { background-color: var(--aem-accent-peach); }
+.text-accent-peach { color: var(--aem-accent-peach); }
+.border-accent-peach { border-color: var(--aem-accent-peach); }
+.ring-accent-peach { --tw-ring-color: var(--aem-accent-peach); }
+.fill-accent-peach { fill: var(--aem-accent-peach); }
+.stroke-accent-peach { stroke: var(--aem-accent-peach); }
+.divide-accent-peach > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-accent-peach); }
+.bg-accent-peach-fg { background-color: var(--aem-accent-peach-fg); }
+.text-accent-peach-fg { color: var(--aem-accent-peach-fg); }
+.border-accent-peach-fg { border-color: var(--aem-accent-peach-fg); }
+.ring-accent-peach-fg { --tw-ring-color: var(--aem-accent-peach-fg); }
+.fill-accent-peach-fg { fill: var(--aem-accent-peach-fg); }
+.stroke-accent-peach-fg { stroke: var(--aem-accent-peach-fg); }
+.divide-accent-peach-fg > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-accent-peach-fg); }
+.bg-accent-lime { background-color: var(--aem-accent-lime); }
+.text-accent-lime { color: var(--aem-accent-lime); }
+.border-accent-lime { border-color: var(--aem-accent-lime); }
+.ring-accent-lime { --tw-ring-color: var(--aem-accent-lime); }
+.fill-accent-lime { fill: var(--aem-accent-lime); }
+.stroke-accent-lime { stroke: var(--aem-accent-lime); }
+.divide-accent-lime > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-accent-lime); }
+.bg-accent-lime-fg { background-color: var(--aem-accent-lime-fg); }
+.text-accent-lime-fg { color: var(--aem-accent-lime-fg); }
+.border-accent-lime-fg { border-color: var(--aem-accent-lime-fg); }
+.ring-accent-lime-fg { --tw-ring-color: var(--aem-accent-lime-fg); }
+.fill-accent-lime-fg { fill: var(--aem-accent-lime-fg); }
+.stroke-accent-lime-fg { stroke: var(--aem-accent-lime-fg); }
+.divide-accent-lime-fg > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-accent-lime-fg); }
+.bg-accent-brand { background-color: var(--aem-accent-brand); }
+.text-accent-brand { color: var(--aem-accent-brand); }
+.border-accent-brand { border-color: var(--aem-accent-brand); }
+.ring-accent-brand { --tw-ring-color: var(--aem-accent-brand); }
+.fill-accent-brand { fill: var(--aem-accent-brand); }
+.stroke-accent-brand { stroke: var(--aem-accent-brand); }
+.divide-accent-brand > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-accent-brand); }
+.bg-accent-brand-fg { background-color: var(--aem-accent-brand-fg); }
+.text-accent-brand-fg { color: var(--aem-accent-brand-fg); }
+.border-accent-brand-fg { border-color: var(--aem-accent-brand-fg); }
+.ring-accent-brand-fg { --tw-ring-color: var(--aem-accent-brand-fg); }
+.fill-accent-brand-fg { fill: var(--aem-accent-brand-fg); }
+.stroke-accent-brand-fg { stroke: var(--aem-accent-brand-fg); }
+.divide-accent-brand-fg > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-accent-brand-fg); }
+.bg-action-disabled-bg { background-color: var(--aem-action-disabled-bg); }
+.text-action-disabled-bg { color: var(--aem-action-disabled-bg); }
+.border-action-disabled-bg { border-color: var(--aem-action-disabled-bg); }
+.ring-action-disabled-bg { --tw-ring-color: var(--aem-action-disabled-bg); }
+.fill-action-disabled-bg { fill: var(--aem-action-disabled-bg); }
+.stroke-action-disabled-bg { stroke: var(--aem-action-disabled-bg); }
+.divide-action-disabled-bg > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-action-disabled-bg); }
+.bg-bg-placeholder { background-color: var(--aem-bg-placeholder); }
+.text-bg-placeholder { color: var(--aem-bg-placeholder); }
+.border-bg-placeholder { border-color: var(--aem-bg-placeholder); }
+.ring-bg-placeholder { --tw-ring-color: var(--aem-bg-placeholder); }
+.fill-bg-placeholder { fill: var(--aem-bg-placeholder); }
+.stroke-bg-placeholder { stroke: var(--aem-bg-placeholder); }
+.divide-bg-placeholder > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-bg-placeholder); }
+.bg-success { background-color: var(--aem-success); }
+.text-success { color: var(--aem-success); }
+.border-success { border-color: var(--aem-success); }
+.ring-success { --tw-ring-color: var(--aem-success); }
+.fill-success { fill: var(--aem-success); }
+.stroke-success { stroke: var(--aem-success); }
+.divide-success > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-success); }
+.bg-success-fg { background-color: var(--aem-success-fg); }
+.text-success-fg { color: var(--aem-success-fg); }
+.border-success-fg { border-color: var(--aem-success-fg); }
+.ring-success-fg { --tw-ring-color: var(--aem-success-fg); }
+.fill-success-fg { fill: var(--aem-success-fg); }
+.stroke-success-fg { stroke: var(--aem-success-fg); }
+.divide-success-fg > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-success-fg); }
+.bg-warning { background-color: var(--aem-warning); }
+.text-warning { color: var(--aem-warning); }
+.border-warning { border-color: var(--aem-warning); }
+.ring-warning { --tw-ring-color: var(--aem-warning); }
+.fill-warning { fill: var(--aem-warning); }
+.stroke-warning { stroke: var(--aem-warning); }
+.divide-warning > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-warning); }
+.bg-warning-fg { background-color: var(--aem-warning-fg); }
+.text-warning-fg { color: var(--aem-warning-fg); }
+.border-warning-fg { border-color: var(--aem-warning-fg); }
+.ring-warning-fg { --tw-ring-color: var(--aem-warning-fg); }
+.fill-warning-fg { fill: var(--aem-warning-fg); }
+.stroke-warning-fg { stroke: var(--aem-warning-fg); }
+.divide-warning-fg > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-warning-fg); }
+.bg-danger { background-color: var(--aem-danger); }
+.text-danger { color: var(--aem-danger); }
+.border-danger { border-color: var(--aem-danger); }
+.ring-danger { --tw-ring-color: var(--aem-danger); }
+.fill-danger { fill: var(--aem-danger); }
+.stroke-danger { stroke: var(--aem-danger); }
+.divide-danger > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-danger); }
+.bg-danger-fg { background-color: var(--aem-danger-fg); }
+.text-danger-fg { color: var(--aem-danger-fg); }
+.border-danger-fg { border-color: var(--aem-danger-fg); }
+.ring-danger-fg { --tw-ring-color: var(--aem-danger-fg); }
+.fill-danger-fg { fill: var(--aem-danger-fg); }
+.stroke-danger-fg { stroke: var(--aem-danger-fg); }
+.divide-danger-fg > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-danger-fg); }
+.bg-info { background-color: var(--aem-info); }
+.text-info { color: var(--aem-info); }
+.border-info { border-color: var(--aem-info); }
+.ring-info { --tw-ring-color: var(--aem-info); }
+.fill-info { fill: var(--aem-info); }
+.stroke-info { stroke: var(--aem-info); }
+.divide-info > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-info); }
+.bg-info-fg { background-color: var(--aem-info-fg); }
+.text-info-fg { color: var(--aem-info-fg); }
+.border-info-fg { border-color: var(--aem-info-fg); }
+.ring-info-fg { --tw-ring-color: var(--aem-info-fg); }
+.fill-info-fg { fill: var(--aem-info-fg); }
+.stroke-info-fg { stroke: var(--aem-info-fg); }
+.divide-info-fg > :not([hidden]) ~ :not([hidden]) { border-color: var(--aem-info-fg); }
+
+.text-h1 {
+  font-size: var(--text-h1);
+  line-height: var(--text-h1--line-height);
+  letter-spacing: var(--text-h1--letter-spacing, normal);
+  font-weight: var(--text-h1--font-weight);
+}
+.text-h2 {
+  font-size: var(--text-h2);
+  line-height: var(--text-h2--line-height);
+  letter-spacing: var(--text-h2--letter-spacing, normal);
+  font-weight: var(--text-h2--font-weight);
+}
+.text-h3 {
+  font-size: var(--text-h3);
+  line-height: var(--text-h3--line-height);
+  letter-spacing: var(--text-h3--letter-spacing, normal);
+  font-weight: var(--text-h3--font-weight);
+}
+.text-h4 {
+  font-size: var(--text-h4);
+  line-height: var(--text-h4--line-height);
+  letter-spacing: var(--text-h4--letter-spacing, normal);
+  font-weight: var(--text-h4--font-weight);
+}
+.text-body {
+  font-size: var(--text-body);
+  line-height: var(--text-body--line-height);
+  letter-spacing: var(--text-body--letter-spacing, normal);
+  font-weight: var(--text-body--font-weight);
+}
+.text-caption {
+  font-size: var(--text-caption);
+  line-height: var(--text-caption--line-height);
+  letter-spacing: var(--text-caption--letter-spacing, normal);
+  font-weight: var(--text-caption--font-weight);
+}
+
+.rounded-field { border-radius: var(--radius-field); }
+.rounded-card { border-radius: var(--radius-card); }
+.rounded-composer { border-radius: var(--radius-composer); }
+.rounded-panel { border-radius: var(--radius-panel); }
+.rounded-pill { border-radius: var(--radius-pill); }
+
+.shadow-card { box-shadow: var(--aem-shadow-card); }
+.shadow-overlay { box-shadow: var(--aem-shadow-overlay); }
+.font-sans { font-family: var(--font-sans); }
