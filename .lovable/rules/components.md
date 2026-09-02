@@ -180,6 +180,25 @@ import { ConfirmDialog } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-
 | `onConfirm` | function | `—` |
 | `children` | any | `—` |
 
+### ContinueLessonCard
+
+```ts
+import { ContinueLessonCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `meta` | string | `—` |
+| `title` | string | `—` |
+| `kind` | any | `video` |
+| `previewSrc` | string | `—` |
+| `onOpen` | function | `—` |
+| `progress` | number | `—` |
+| `progressLabel` | string | `—` |
+| `actions` | any | `—` |
+
 ### CourseCard
 
 ```ts
@@ -330,7 +349,7 @@ import { Icon } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bb
 
 | Prop | Type | Default |
 |---|---|---|
-| `name` | home · menu · more · back · forward · up · down · chevronLeft · chevronRight · chevronUp · chevronDown · external · close · logout · course · module · lesson · document · review · bookmark · star · user · users · chat · mail · bell · add · remove · edit · delete · copy · search · settings · send · play · show · hide · check · done · alert · info · dot · clock · calendar · warning · locked · loader · bold · italic · heading1 · heading2 · list · listOrdered · quote · link · unlink · gripVertical · save · bookOpen · fileText · fileImage · folderOpen · image · imagePlus · camera · upload · download · zoomIn · zoomOut · graduationCap · award · trophy · clipboardCheck · activity · megaphone · partyPopper · sparkles · wand · userCircle · userCog · userPlus · userMinus · logIn · keyRound · sliders · refresh · rotateCcw · plug · unplug | `—` |
+| `name` | home · menu · more · back · forward · up · down · chevronLeft · chevronRight · chevronUp · chevronDown · external · close · logout · course · module · lesson · document · review · bookmark · star · user · users · chat · mail · bell · add · remove · edit · delete · copy · search · settings · send · play · show · hide · check · done · alert · info · dot · clock · calendar · warning · locked · loader · flame · bold · italic · heading1 · heading2 · list · listOrdered · quote · link · unlink · gripVertical · save · bookOpen · fileText · fileImage · folderOpen · image · imagePlus · camera · upload · download · zoomIn · zoomOut · graduationCap · award · trophy · clipboardCheck · activity · megaphone · partyPopper · sparkles · wand · userCircle · userCog · userPlus · userMinus · logIn · keyRound · sliders · refresh · rotateCcw · plug · unplug | `—` |
 | `size` | md · lg · xl | `lg` |
 | `label` | string | `—` |
 
@@ -373,6 +392,24 @@ import { Label } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8b
 | Prop | Type | Default |
 |---|---|---|
 | `required` | boolean | `—` |
+
+### LeaderboardCard
+
+```ts
+import { LeaderboardCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `title` | string | `—` |
+| `action` | any | `—` |
+| `entries` | any | `—` |
+| `footer` | any | `—` |
+| `loading` | boolean | `false` |
+| `loadingRows` | number | `5` |
+| `emptyLabel` | string | `Рейтинг ще формується — перші бали з'являться цього тижня.` |
 
 ### LessonRow
 
@@ -433,6 +470,23 @@ import { MediaDialog } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e3
 | `size` | sm · md · lg | `sm` |
 | `align` | center · start | `center` |
 | `children` | any | `—` |
+
+### MediaPreview
+
+```ts
+import { MediaPreview } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `size` | sm · md · lg | `md` |
+| `kind` | video · test · reading · task · image | `video` |
+| `src` | string | `—` |
+| `alt` | string | `—` |
+| `onActivate` | function | `—` |
+| `actionLabel` | string | `—` |
 
 ### ModuleCard
 
@@ -574,6 +628,67 @@ import { RadioGroup } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 import { RadioGroupItem } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
+### RankUpDialog
+
+```ts
+import { RankUpDialog } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `title` | string | `Нове місце в рейтингу` |
+| `rank` | string | `—` |
+| `rankDelta` | string | `—` |
+| `description` | string | `—` |
+| `score` | string | `—` |
+| `scoreLabel` | string | `Бал у коледжі` |
+| `primaryLabel` | string | `До рейтингу` |
+| `onPrimary` | function | `—` |
+| `secondaryLabel` | string | `Пізніше` |
+| `closeLabel` | string | `Закрити` |
+
+### ScoreCard
+
+```ts
+import { ScoreCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `label` | string | `—` |
+| `score` | string | `—` |
+| `delta` | string | `—` |
+| `rank` | string | `—` |
+| `rankDelta` | string | `—` |
+| `comparison` | any | `—` |
+| `chart` | object | `—` |
+| `footnote` | string | `—` |
+| `loading` | boolean | `false` |
+
+### Scoreboard
+
+```ts
+import { Scoreboard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `title` | string | `—` |
+| `period` | string | `—` |
+| `rows` | any | `—` |
+| `currentRow` | any | `—` |
+| `loading` | boolean | `false` |
+| `loadingRows` | number | `8` |
+| `emptyTitle` | string | `Рейтинг ще формується` |
+| `emptyDescription` | string | `Щойно з'являться перші бали за тиждень — тут буде список.` |
+| `footer` | any | `—` |
+
 ### SearchInput
 
 ```ts
@@ -699,6 +814,21 @@ import { StatusIcon } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 |---|---|---|
 | `status` | available · completed · locked | `available` |
 | `tone` | onSurface · onMuted | `onSurface` |
+
+### StreakChip
+
+```ts
+import { StreakChip } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `days` | number | `—` |
+| `unit` | string | `днів` |
+| `active` | boolean | `true` |
+| `as` | button · span | `button` |
 
 ### SubmissionRow
 

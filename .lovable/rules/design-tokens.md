@@ -13,6 +13,11 @@ Apply with any color utility: `bg-<name>`, `text-<name>`, `border-<name>`, `ring
 | `aem-ink-muted` | `--aem-ink-muted` |
 | `aem-surface` | `--aem-surface` |
 | `aem-surface-muted` | `--aem-surface-muted` |
+| `aem-surface-inverse` | `--aem-surface-inverse` |
+| `aem-surface-inverse-muted` | `--aem-surface-inverse-muted` |
+| `aem-on-inverse` | `--aem-on-inverse` |
+| `aem-on-inverse-soft` | `--aem-on-inverse-soft` |
+| `aem-on-inverse-track` | `--aem-on-inverse-track` |
 | `aem-border-subtle` | `--aem-border-subtle` |
 | `aem-border-strong` | `--aem-border-strong` |
 | `aem-focus` | `--aem-focus` |
