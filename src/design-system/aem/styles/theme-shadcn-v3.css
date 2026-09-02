@@ -28,6 +28,7 @@
   --aem-surface-muted: #f2f2f2;
   --aem-border-subtle: #e6e6e6;
   --aem-border-strong: #d2d2d2;
+  --aem-border-line: #e6e6e6;
   --aem-focus: #c7f30c;
 
   --aem-accent-peach: #ffd293;
@@ -66,6 +67,10 @@
   --text-h2--line-height: 1.05;
   --text-h2--letter-spacing: -1.2px;
   --text-h2--font-weight: 700;
+  --text-h3: 19px;
+  --text-h3--line-height: 1.1;
+  --text-h3--letter-spacing: -0.6px;
+  --text-h3--font-weight: 700;
   --text-h4: 17px;
   --text-h4--line-height: 1.15;
   --text-h4--letter-spacing: -0.2px;
@@ -146,6 +151,8 @@
     --text-h1--letter-spacing: -2.2px;
     --text-h2: 26px;
     --text-h2--letter-spacing: -2px;
+    --text-h3: 21px;
+    --text-h3--letter-spacing: -0.8px;
     --text-h4: 18px;
   }
 }
