@@ -329,11 +329,6 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       node: <TabsDemo />,
     },
     {
-      id: "toggle-group",
-      title: "ToggleGroup",
-      node: <ToggleGroupDemo />,
-    },
-    {
       id: "progress-bar",
       title: "ProgressBar",
       node: (
