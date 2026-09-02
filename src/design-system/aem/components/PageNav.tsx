@@ -43,31 +43,35 @@ export const PageNav = forwardRef<HTMLElement, PageNavProps>(function PageNav(
   return (
     <header
       ref={ref}
-      className={cn("flex w-full items-center gap-4", className)}
+      className={cn("flex w-full flex-col gap-2", className)}
       {...props}
     >
-      {showBack &&
-        (backHref ? (
-          <a href={backHref} aria-label={backLabel} className={backClasses}>
-            <Icon name="chevronLeft" size="lg" aria-hidden="true" />
-          </a>
-        ) : (
-          <button type="button" aria-label={backLabel} onClick={onBack} className={backClasses}>
-            <Icon name="chevronLeft" size="lg" aria-hidden="true" />
-          </button>
-        ))}
-
-      <div className="flex min-w-0 flex-1 flex-col gap-2">
+      <div className="flex w-full items-start justify-between gap-4">
         <h1 className="truncate text-h2 text-ink">{title}</h1>
-        {breadcrumbs && (
-          <div className="flex min-w-0 items-center justify-between gap-4">
-            <Breadcrumbs items={breadcrumbs} />
-            {status && <div className="flex shrink-0 items-center">{status}</div>}
-          </div>
-        )}
+        {actions && <div className="flex shrink-0 flex-wrap items-center gap-2">{actions}</div>}
       </div>
 
-      {actions && <div className="flex shrink-0 flex-wrap items-center gap-2">{actions}</div>}
+      {(showBack || breadcrumbs) && (
+        <div className="flex w-full items-center gap-4">
+          {showBack &&
+            (backHref ? (
+              <a href={backHref} aria-label={backLabel} className={backClasses}>
+                <Icon name="chevronLeft" size="lg" aria-hidden="true" />
+              </a>
+            ) : (
+              <button type="button" aria-label={backLabel} onClick={onBack} className={backClasses}>
+                <Icon name="chevronLeft" size="lg" aria-hidden="true" />
+              </button>
+            ))}
+
+          {breadcrumbs && (
+            <div className="flex min-w-0 flex-1 items-center justify-between gap-4">
+              <Breadcrumbs items={breadcrumbs} />
+              {status && <div className="flex shrink-0 items-center">{status}</div>}
+            </div>
+          )}
+        </div>
+      )}
     </header>
   );
 });

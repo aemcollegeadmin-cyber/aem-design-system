@@ -1,5 +1,6 @@
 import { forwardRef, useRef, useState, useCallback } from "react";
 import { Icon } from "./Icon";
+import { IconButton } from "./IconButton";
 import { Input, type InputProps } from "./Input";
 import { cn } from "../lib/cn";
 
@@ -52,12 +53,12 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
 
   return (
     <div className={cn("relative", className)}>
-      <span
+      <Icon
+        name="search"
+        size="md"
         aria-hidden="true"
-        className="pointer-events-none absolute top-1.5 left-1.5 inline-flex size-8 items-center justify-center rounded-pill bg-surface-muted text-ink-muted"
-      >
-        <Icon name="search" size="md" />
-      </span>
+        className="pointer-events-none absolute top-1/2 left-3 -translate-y-1/2 text-ink-muted"
+      />
 
       <Input
         ref={setRefs}
@@ -71,14 +72,15 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
       />
 
       {hasValue && (
-        <button
-          type="button"
-          aria-label={clearLabel}
+        <IconButton
+          label={clearLabel}
           onClick={handleClear}
-          className="absolute top-1.5 right-1.5 inline-flex size-8 items-center justify-center rounded-pill bg-surface-muted text-ink-muted transition-colors hover:bg-border-subtle hover:text-ink"
+          variant="ghost"
+          size="sm"
+          className="absolute right-1.5 top-1/2 -translate-y-1/2"
         >
           <Icon name="close" size="md" aria-hidden="true" />
-        </button>
+        </IconButton>
       )}
     </div>
   );

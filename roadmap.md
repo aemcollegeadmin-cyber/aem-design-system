@@ -1,13 +1,4 @@
-# AEM College Design System — roadmap
+# Roadmap
 
-1. ✅ ChatInput: автоматично розтягувати поле вводу пропорційно до тексту в переписці.
-2. ✅ ChatBubble: зробити посилання всередині бульбашки контрастними (не білими) на світлому тлі.
-3. ✅ Перевірити компоненти у preview та відкоригувати дрібні візуальні огріхи.
-4. ✅ ChatInput: зафіксувати радіус 22px незалежно від висоти поля.
-5. ✅ ChatInput: рівномірні відступи (4px) навколо кнопки надсилання.
-6. ✅ ChatBubble: видима межа бульбашки на білому фоні (2px border).
-7. ✅ Sidebar: пропорційні внутрішні відступи (більший вертикальний для оптичної рівноваги).
-8. ✅ Switch / IconButton muted / Button secondary+ghost: додати рамку, щоб не губились на сірому тлі.
-9. ❌ ToggleGroup: видалено — замість групи текстових кнопок використовуємо Switch (on/off без тексту).
-10. ✅ Метадані: meta.yaml + package.json — закріплені версії залежностей.
-11. ✅ Заголовки H2 у всіх модалках — вирівняти по лівому краю.
+- [x] PageNav: align status tag vertically with back button
+- [x] Remove icon backgrounds/substrates inside inputs

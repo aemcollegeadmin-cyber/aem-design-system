@@ -51,9 +51,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
       >
         <Value placeholder={placeholder} />
         <Icon asChild>
-          <span className="inline-flex size-8 shrink-0 items-center justify-center rounded-pill bg-surface-muted text-ink-muted">
-            <AemIcon name="chevronDown" size="md" />
-          </span>
+          <AemIcon name="chevronDown" size="md" className="text-ink-muted" />
         </Icon>
 
       </Trigger>
