@@ -179,3 +179,9 @@ generated token and component reference.
   класи — і компоненти рендеряться «прозорими»/білими (типовий симптом:
   `ScoreCard` замість темної картки виглядає білим).
 - Не дублюй ці класи в `tailwind.config.ts` і не переоголошуй токени локально.
+
+- `StreakChip` має рівно ту саму геометрію, що й `Button size="md"` (h-11,
+  px-5, `rounded-pill`, 2px бордер) — жодних власних розмірів.
+- Якщо урок відео — передавай `previewVideoSrc` у `ContinueLessonCard`
+  (або `videoSrc` у `MediaPreview`): рендериться реальний кадр відео чи
+  YouTube-мініатюра, а не просто іконка play.
