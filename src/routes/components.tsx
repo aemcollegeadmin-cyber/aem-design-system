@@ -434,15 +434,18 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       title: "ChatBubble / ChatInput",
       node: (
         <Specimen label="variant: incoming / outgoing" code={`<ChatBubble author="Олена" variant="incoming">…</ChatBubble>`}>
-          <div className="flex w-full max-w-lg flex-col gap-3">
-            <ChatBubble author="Олена Ковальчук" time="10:24">
-              Подивіться, будь ласка, відступи в другому блоці.
-            </ChatBubble>
-            <ChatBubble author="Ви" time="10:31" variant="outgoing">
-              Дякую! Виправлю до вечора.
-            </ChatBubble>
-            <ChatInput />
-          </div>
+        <div className="flex w-full max-w-lg flex-col gap-3">
+          <ChatBubble author="Олена Ковальчук" time="10:24">
+            Подивіться, будь ласка, відступи в другому блоці.{" "}
+            <a href="#chat" className="break-all">
+              https://aem.ua/lesson/3
+            </a>
+          </ChatBubble>
+          <ChatBubble author="Ви" time="10:31" variant="outgoing">
+            Дякую! Виправлю до вечора.
+          </ChatBubble>
+          <ChatInput />
+        </div>
         </Specimen>
       ),
     },
