@@ -64,6 +64,8 @@ copy is Ukrainian by default.
   does not dissolve into the canvas. `Button` secondary/ghost, `IconButton`
   muted, `Switch`, and `ToggleGroup` all ship with a 2px `border-border-strong`
   outline by default.
+- Use `ToggleGroup` (single or multiple) for filter buttons, view switches, and
+  other segmented controls. Do not rebuild the same behaviour with raw buttons.
 
 ## Type scale usage
 
