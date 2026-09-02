@@ -4,8 +4,13 @@ import { Breadcrumbs, type BreadcrumbItem } from "./Breadcrumbs";
 import { cn } from "../lib/cn";
 
 export interface PageNavProps extends React.HTMLAttributes<HTMLElement> {
-  /** Page title, rendered as the single H1 of the page. */
-  title: string;
+  /** Page title, rendered as the single H1 of the page. Omit when `titleSlot` is used. */
+  title?: string;
+  /**
+   * Custom title area — use on pages that own their heading (e.g. an inline
+   * title input) so PageNav does not render a duplicate H1.
+   */
+  titleSlot?: React.ReactNode;
   /** Breadcrumb trail rendered under the title. */
   breadcrumbs?: BreadcrumbItem[];
   /** Status badge rendered at the end of the breadcrumb row. */
@@ -19,6 +24,7 @@ export interface PageNavProps extends React.HTMLAttributes<HTMLElement> {
   /** Trailing page actions rendered on the far right of the header. */
   actions?: React.ReactNode;
 }
+
 
 const backClasses =
   "inline-flex size-10 shrink-0 items-center justify-center rounded-pill border-2 border-border-strong bg-surface-muted text-ink no-underline transition-colors hover:bg-border-subtle";
