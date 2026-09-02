@@ -37,6 +37,7 @@ import {
   Input,
   Label,
   LessonRow,
+  LessonSidebar,
   MediaDialog,
   ModuleCard,
   OnboardingDialog,
@@ -530,6 +531,18 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       ),
     },
     {
+      id: "lesson-sidebar",
+      title: "LessonSidebar",
+      node: (
+        <Specimen
+          label="панель уроку: таби, статус, опис (clamped / full), стек дій"
+          code={`<LessonSidebar tabs={tabs} value={tab} onValueChange={setTab} callout={<Callout variant="done">…</Callout>} actions={<Button variant="secondary" block>Наступний урок</Button>} />`}
+        >
+          <LessonSidebarDemo />
+        </Specimen>
+      ),
+    },
+    {
       id: "sidebar",
       title: "Sidebar / NavItem",
       node: (
@@ -684,6 +697,59 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       ),
     },
   ];
+}
+
+function LessonSidebarDemo() {
+  const [tab, setTab] = useState("info");
+  const [state, setState] = useState<"clamped" | "full">("clamped");
+
+  return (
+    <div className="flex w-full max-w-sm flex-col gap-3">
+      <LessonSidebar
+        tabs={[
+          { value: "info", label: "Інформація" },
+          { value: "tips", label: "Рекомендації" },
+        ]}
+        value={tab}
+        onValueChange={setTab}
+        contentState={state}
+        callout={<Callout variant="done">Урок пройдено! 2 вересня 2026 р. о 23:36</Callout>}
+        actions={
+          <>
+            <Button variant="secondary" block>
+              <Icon name="document" size="md" />
+              Матеріали до уроку
+            </Button>
+            <Button variant="secondary" block>
+              Наступний урок
+            </Button>
+          </>
+        }
+      >
+        {tab === "info" ? (
+          <div className="flex flex-col gap-3">
+            <Text variant="paragraph">
+              Розберемося з реєстрацією в Claude та варіантами підписок, щоб зрозуміти, який тариф
+              підійде під твої задачі. Тут глянемо на різницю між безкоштовною версією, Pro та Max.
+            </Text>
+            <Text variant="paragraph">
+              Окремо пройдемося по тому, як працює командний доступ та API, і чому для активних
+              агентів вигідніше брати фіксовану підписку, ніж платити за кожен запит.
+            </Text>
+          </div>
+        ) : (
+          <Text variant="paragraph">Почни з безкоштовного тарифу, щоб перевірити свої сценарії.</Text>
+        )}
+      </LessonSidebar>
+      <Button
+        size="sm"
+        variant="ghost"
+        onClick={() => setState(state === "clamped" ? "full" : "clamped")}
+      >
+        {state === "clamped" ? "contentState=\"full\"" : "contentState=\"clamped\""}
+      </Button>
+    </div>
+  );
 }
 
 function EditHeaderDemo() {
