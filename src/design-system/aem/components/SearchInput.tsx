@@ -56,7 +56,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
         aria-hidden="true"
         className="pointer-events-none absolute top-1.5 left-1.5 inline-flex size-8 items-center justify-center rounded-pill bg-surface-muted text-ink-muted"
       >
-        <Icon name="search" size="sm" />
+        <Icon name="search" size="lg" />
       </span>
 
       <Input
@@ -77,7 +77,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInputProps>(functi
           onClick={handleClear}
           className="absolute top-1.5 right-1.5 inline-flex size-8 items-center justify-center rounded-pill bg-surface-muted text-ink-muted transition-colors hover:bg-border-subtle hover:text-ink"
         >
-          <Icon name="close" size="sm" aria-hidden="true" />
+          <Icon name="close" size="lg" aria-hidden="true" />
         </button>
       )}
     </div>

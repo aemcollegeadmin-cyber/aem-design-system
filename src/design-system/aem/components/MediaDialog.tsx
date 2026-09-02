@@ -165,7 +165,7 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
           <div className="flex justify-end">
             <Close asChild>
               <IconButton label={closeLabel} variant="muted" size="sm">
-                <Icon name="close" size="sm" />
+                <Icon name="close" size="lg" />
               </IconButton>
             </Close>
           </div>
@@ -180,7 +180,7 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
               centered && "mx-auto",
             )}
           >
-            <Icon name={icon} size="md" />
+            <Icon name={icon} size="lg" />
           </div>
         )}
 

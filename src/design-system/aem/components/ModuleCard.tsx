@@ -28,7 +28,7 @@ export const ModuleCard = forwardRef<HTMLElement, ModuleCardProps>(function Modu
           <StatusIcon status="completed" />
         ) : (
           <span className="inline-flex size-8 items-center justify-center rounded-pill bg-surface text-ink shadow-card">
-            <Icon name="module" size="sm" />
+            <Icon name="module" size="lg" />
           </span>
         )}
         <div className="flex flex-1 flex-col">
