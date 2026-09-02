@@ -45,7 +45,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
         id={id}
         aria-label={triggerLabel}
         className={cn(
-          "inline-flex h-11 w-full items-center justify-between gap-2 rounded-pill border-2 border-border-strong bg-surface pr-1.5 pl-4 text-body text-ink transition-colors hover:border-focus focus:border-focus focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-ink-muted data-[state=open]:border-focus",
+          "inline-flex h-11 w-full items-center justify-between gap-2 rounded-pill border-2 border-border-strong bg-surface pr-1.5 pl-4 text-body text-ink transition-colors hover:border-ink focus:border-ink focus:outline-none disabled:cursor-not-allowed disabled:opacity-50 data-[placeholder]:text-ink-muted data-[state=open]:border-ink",
           className,
         )}
       >

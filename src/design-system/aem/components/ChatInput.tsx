@@ -50,7 +50,7 @@ export const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>(functio
   return (
     <div
       className={cn(
-        "flex min-h-11 items-end gap-2 rounded-[var(--radius-composer)] border-2 border-border-strong bg-surface p-1 pl-4 transition-colors hover:border-focus focus-within:border-focus",
+        "flex min-h-11 items-end gap-2 rounded-[var(--radius-composer)] border-2 border-border-strong bg-surface p-1 pl-4 transition-colors hover:border-ink focus-within:border-ink",
         className,
       )}
     >
