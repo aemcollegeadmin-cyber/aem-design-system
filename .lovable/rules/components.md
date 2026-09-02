@@ -390,6 +390,23 @@ import { LessonRow } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33a
 | `onOpen` | function | `—` |
 | `tone` | onSurface · onMuted | `onSurface` |
 
+### LessonSidebar
+
+```ts
+import { LessonSidebar } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `tabs` | any | `—` |
+| `value` | string | `—` |
+| `onValueChange` | function | `—` |
+| `callout` | any | `—` |
+| `contentState` | clamped · full | `clamped` |
+| `actions` | any | `—` |
+
 ### MediaDialog
 
 ```ts

@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -11,13 +11,13 @@
     ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "a8d1652593a2cbab1a36bec3d08d752c43c1b3288a8c248200e773ff0e144ac2",
+      "#enrichment": "4f7370a163212aeafb168e603e4d23fab980171cb62d8a1d08cd0640d7ffd25b",
       ".dsignore": "a26f2e60b116f104046a9440907feb8e",
       ".gitignore": "6059213806e442947666752f3db6bfdc",
       ".lovable/meta.yaml": "8794970d6049858cc148d2b86f7a2b22",
       ".lovable/plan/finish-the-aem-design-system-then-adopt-it-2026-08-20.md": "306e41b106dc6a57f1e140c07b138410",
       ".lovable/sources.yaml": "8469455bacbb4c31f179c3bcc80a4e2e",
-      ".lovable/system.md": "6a6f27bbc3d75226e83ed9c10f63d568",
+      ".lovable/system.md": "9d99d8c1e2be23adb29b6d33090c7850",
       "README.md": "d19675c449605f23c7cfa133c69b398b",
       "bunfig.toml": "25f4c8696b22b0943db7191e0cdf7942",
       "components_files.txt": "8c3c1a3bb506811061e14ada4f9e5a97",
@@ -60,6 +60,7 @@
       "src/design-system/aem/components/Input.tsx": "d0eaf86e066d9be4e11685ef5b5022b0",
       "src/design-system/aem/components/Label.tsx": "aaa37837c438ae6b6e685a1eec4824c9",
       "src/design-system/aem/components/LessonRow.tsx": "0555fa1c2e7cc1e437e9204a2e2d5bbe",
+      "src/design-system/aem/components/LessonSidebar.tsx": "6626594d9de3eea10033a378b3ee8ebb",
       "src/design-system/aem/components/MediaDialog.tsx": "474d015229c97d9768e9567e646780ac",
       "src/design-system/aem/components/ModuleCard.tsx": "9d02fa09280266d81725c620bae3ac47",
       "src/design-system/aem/components/NavItem.tsx": "e0ce096c874e9f48d65441a5a405e6e5",
@@ -88,7 +89,7 @@
       "src/design-system/aem/components/Toolbar.tsx": "1586c628f3bf7f2517228cc149aa5dee",
       "src/design-system/aem/components/Tooltip.tsx": "dafb29ed748b0fdd266dadefb2efeeea",
       "src/design-system/aem/components/UserChip.tsx": "347e5e99c875cef170828c3bfa536b41",
-      "src/design-system/aem/index.ts": "308d4f0feb80cfed36fc4f70613d4a7b",
+      "src/design-system/aem/index.ts": "d2a8dbdd2498bebcf29baad79f743cb5",
       "src/design-system/aem/lib/cn.ts": "1d5cc6c3839f7bc135e050f50af58daa",
       "src/design-system/aem/styles/theme-shadcn-v3.css": "9edfa9dc6b7e96ee08753be0b6409ca6",
       "src/design-system/aem/styles/theme.css": "d7fa924d47c41c35829a58ae3829d556",
@@ -100,7 +101,7 @@
       "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
       "src/routes/__root.tsx": "749f4e7a7525ee31d96ac19813e416a3",
       "src/routes/colors.tsx": "fcee8aeb0fd5af838edc738476e1811c",
-      "src/routes/components.tsx": "71a66697222f297dc917907fcf80fbe2",
+      "src/routes/components.tsx": "9c690a4b09a96bd6fc6d414a7bae5839",
       "src/routes/index.tsx": "3913e960e9ffe2db34f533e48477d28e",
       "src/routes/typography.tsx": "fbb9a2ca12ffce365716cb5407aa033b",
       "src/showcase/ShowcaseShell.tsx": "61ee35bb64c0c7befd38f492eb7236c9",
@@ -851,6 +852,42 @@
             "onMuted"
           ],
           "default": "onSurface"
+        }
+      ]
+    },
+    {
+      "name": "LessonSidebar",
+      "file": "src/design-system/aem/components/LessonSidebar",
+      "import_path": "",
+      "props": [
+        {
+          "name": "tabs",
+          "type": "any"
+        },
+        {
+          "name": "value",
+          "type": "string"
+        },
+        {
+          "name": "onValueChange",
+          "type": "function"
+        },
+        {
+          "name": "callout",
+          "type": "any"
+        },
+        {
+          "name": "contentState",
+          "type": "enum",
+          "values": [
+            "clamped",
+            "full"
+          ],
+          "default": "clamped"
+        },
+        {
+          "name": "actions",
+          "type": "any"
         }
       ]
     },
