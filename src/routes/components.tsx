@@ -525,20 +525,7 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
           label="режим редагування: inline-заголовок + перемикачі"
           code={`<EditHeader title={title} onTitleChange={setTitle} controls={<Switch />} actions={<Button>Зберегти</Button>} />`}
         >
-          <EditHeader
-            className="w-full"
-            onBack={() => undefined}
-            title={editTitle}
-            onTitleChange={setEditTitle}
-            breadcrumbs={[
-              { label: "Курси", href: "/components" },
-              { label: "Веб-дизайн", onClick: () => undefined },
-              { label: "Урок 4" },
-            ]}
-            status={<Badge variant="lime">Чернетка</Badge>}
-            controls={<Switch aria-label="Опублікувати" />}
-            actions={<Button size="sm">Зберегти</Button>}
-          />
+          <EditHeaderDemo />
         </Specimen>
       ),
     },
@@ -699,9 +686,29 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
   ];
 }
 
+function EditHeaderDemo() {
+  const [title, setTitle] = useState("Урок 4. Модульні сітки");
+
+  return (
+    <EditHeader
+      className="w-full"
+      onBack={() => undefined}
+      title={title}
+      onTitleChange={setTitle}
+      breadcrumbs={[
+        { label: "Курси", href: "/components" },
+        { label: "Веб-дизайн", onClick: () => undefined },
+        { label: "Урок 4" },
+      ]}
+      status={<Badge variant="lime">Чернетка</Badge>}
+      controls={<Switch aria-label="Опублікувати" />}
+      actions={<Button size="sm">Зберегти</Button>}
+    />
+  );
+}
+
 function TabsDemo() {
   const [tab, setTab] = useState("lessons");
-  const [editTitle, setEditTitle] = useState("Урок 4. Модульні сітки");
   return (
     <Specimen label="value + onValueChange" code={`<Tabs items={items} value={tab} onValueChange={setTab} />`}>
       <Tabs
