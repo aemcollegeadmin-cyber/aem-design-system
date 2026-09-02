@@ -105,30 +105,60 @@ export const icons = {
 
 export type IconName = keyof typeof icons;
 
-/** Icon scale. Only two sizes so the 2px stroke stays proportional. */
-export const iconSizes = { lg: 24, xl: 32 } as const;
+/**
+ * Icon scale.
+ * - `sm` (16) and `md` (20) render FILLED glyphs — a 2px stroke is far too
+ *   heavy at those sizes, so small icons are solid shapes instead.
+ * - `lg` (24) and `xl` (32) render outline glyphs with a constant 2px stroke.
+ */
+export const iconSizes = { sm: 16, md: 20, lg: 24, xl: 32 } as const;
 
 export type IconSize = keyof typeof iconSizes;
+
+/** Sizes rendered as solid glyphs. */
+const filledSizes: IconSize[] = ["sm", "md"];
 
 export interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, "ref"> {
   /** Semantic icon name from the system registry. */
   name: IconName;
-  /** lg 24px, xl 32px. */
+  /** sm 16px & md 20px are filled; lg 24px & xl 32px are 2px outline. */
   size?: IconSize;
   /** Accessible name. Omit for purely decorative icons. */
   label?: string;
 }
 
 /**
- * The single way to render an icon in this system: simple outline glyphs with a
- * constant 2px stroke at every size.
+ * The single way to render an icon in this system: solid glyphs at sm/md,
+ * simple outline glyphs with a constant 2px stroke at lg/xl.
  */
 export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
   { name, size = "lg", label, className, ...props },
   ref,
 ) {
-  const Glyph = icons[name];
   const px = iconSizes[size];
+  const filled = filledSizes.includes(size);
+  const a11y = {
+    "data-aem-icon": name,
+    "aria-hidden": label ? undefined : true,
+    "aria-label": label,
+    role: label ? ("img" as const) : undefined,
+    className: cn("shrink-0", className),
+  };
+
+  if (filled) {
+    const Solid = filledIcons[name];
+    return (
+      <Solid
+        ref={ref}
+        size={px}
+        weight="fill"
+        {...a11y}
+        {...(props as Record<string, unknown>)}
+      />
+    );
+  }
+
+  const Glyph = icons[name];
   return (
     <Glyph
       ref={ref}
@@ -136,12 +166,9 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
       height={px}
       strokeWidth={2}
       absoluteStrokeWidth
-      data-aem-icon={name}
-      aria-hidden={label ? undefined : true}
-      aria-label={label}
-      role={label ? "img" : undefined}
-      className={cn("shrink-0", className)}
+      {...a11y}
       {...props}
     />
   );
 });
+
