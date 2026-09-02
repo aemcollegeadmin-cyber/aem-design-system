@@ -25,6 +25,7 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
           size="sm"
           onClick={() => setVisible((v) => !v)}
           className="absolute top-1/2 right-1.5 -translate-y-1/2"
+        >
           <Icon name={visible ? "hide" : "show"} size="md" />
         </IconButton>
       </div>
