@@ -27,7 +27,7 @@ export interface PageNavProps extends React.HTMLAttributes<HTMLElement> {
 
 
 const backClasses =
-  "inline-flex size-10 shrink-0 items-center justify-center rounded-pill border-2 border-border-strong bg-surface-muted text-ink no-underline transition-colors hover:bg-border-subtle";
+  "inline-flex size-11 shrink-0 items-center justify-center rounded-pill border-2 border-border-strong bg-surface-muted text-ink no-underline transition-colors hover:bg-border-subtle";
 
 /** Consistent page-top navigation: back control, title, breadcrumbs + status, trailing actions. */
 export const PageNav = forwardRef<HTMLElement, PageNavProps>(function PageNav(
