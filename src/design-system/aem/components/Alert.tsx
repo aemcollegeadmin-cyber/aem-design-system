@@ -37,7 +37,7 @@ export const Alert = forwardRef<HTMLDivElement, AlertProps>(function Alert(
   const iconName = icons[variant ?? "info"];
   return (
     <div ref={ref} role="status" className={cn(alert({ variant }), className)} {...props}>
-      <span className="mt-0.5 shrink-0">{icon ?? <Icon name={iconName} size="sm" />}</span>
+      <span className="mt-0.5 shrink-0">{icon ?? <Icon name={iconName} size="md" />}</span>
       <div className="flex flex-col gap-0.5">
         {title && <span className="text-body font-semibold">{title}</span>}
         {children && <span className="text-caption">{children}</span>}

@@ -177,16 +177,16 @@ export type IconName = keyof typeof icons;
 
 /**
  * Icon scale.
- * - `sm` (16) and `md` (20) render two-tone (duotone) glyphs — a 2px stroke is far too
- *   heavy at those sizes, so small icons are solid shapes instead.
+ * - `md` (20) renders two-tone (duotone) glyphs — a 2px stroke is far too
+ *   heavy at that size, so small icons are solid shapes instead.
  * - `lg` (24) and `xl` (32) render outline glyphs with a constant 2px stroke.
  */
-export const iconSizes = { sm: 16, md: 20, lg: 24, xl: 32 } as const;
+export const iconSizes = { md: 20, lg: 24, xl: 32 } as const;
 
 export type IconSize = keyof typeof iconSizes;
 
 /** Sizes rendered as two-tone glyphs. */
-const filledSizes: IconSize[] = ["sm", "md"];
+const filledSizes: IconSize[] = ["md"];
 
 /**
  * Glyphs that have no enclosed area (arrows, carets, cross, plus …). Phosphor's
@@ -220,14 +220,14 @@ const strokeOnlyGlyphs = new Set<IconName>([
 export interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, "ref"> {
   /** Semantic icon name from the system registry. */
   name: IconName;
-  /** sm 16px & md 20px are two-tone; lg 24px & xl 32px are 2px outline. */
+  /** md 20px is two-tone; lg 24px & xl 32px are 2px outline. */
   size?: IconSize;
   /** Accessible name. Omit for purely decorative icons. */
   label?: string;
 }
 
 /**
- * The single way to render an icon in this system: two-tone glyphs at sm/md,
+ * The single way to render an icon in this system: two-tone glyphs at md,
  * simple outline glyphs with a constant 2px stroke at lg/xl.
  */
 export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(

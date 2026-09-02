@@ -33,7 +33,7 @@ export const Breadcrumbs = forwardRef<HTMLElement, BreadcrumbsProps>(function Br
                   {item.label}
                 </span>
               )}
-              {!isLast && <Icon name="chevronRight" size="sm" className="text-ink-muted" aria-hidden="true" />}
+              {!isLast && <Icon name="chevronRight" size="md" className="text-ink-muted" aria-hidden="true" />}
             </li>
           );
         })}

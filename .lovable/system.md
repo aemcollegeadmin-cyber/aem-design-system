@@ -70,9 +70,9 @@ See `.lovable/rules/design-tokens.md` and `.lovable/rules/components.md` for the
 generated token and component reference.
 ## Іконки
 
-- Іконки рендеряться тільки через `<Icon name="…" size="sm|md|lg|xl" />` з дизайн-системи. Не імпортуй `lucide-react` напряму в продуктовому коді.
+- Іконки рендеряться тільки через `<Icon name="…" size="md|lg|xl" />` з дизайн-системи. Не імпортуй `lucide-react` напряму в продуктовому коді.
 - Реєстр `icons` (outline, lucide) і `filledIcons` (solid, phosphor) містять однакові семантичні імена. Потрібна нова іконка — додай ім'я в ОБА реєстри, а не окремий імпорт.
-- Розміри фіксовані: sm 16, md 20, lg 24, xl 32. **sm і md завжди рендеряться двохсоставними (duotone: основна форма + прозорий парний шар)** — 2px штрих на малих розмірах виглядає надто важким. lg і xl — outline зі сталим штрихом 2px (`absoluteStrokeWidth`).
+- Розміри фіксовані: md 20, lg 24, xl 32. **md завжди рендериться двохсоставною (duotone: основна форма + прозорий парний шар)** — 2px штрих на малому розмірі виглядає надто важким. lg і xl — outline зі сталим штрихом 2px (`absoluteStrokeWidth`).
 
 
 ## Попапи та онбординг

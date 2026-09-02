@@ -40,7 +40,7 @@ export const StatusIcon = forwardRef<HTMLSpanElement, StatusIconProps>(function 
       className={cn("inline-flex size-8 items-center justify-center rounded-pill", styles[status], className)}
       {...props}
     >
-      <Icon name={name} size="sm" />
+      <Icon name={name} size="md" />
     </span>
   );
 });

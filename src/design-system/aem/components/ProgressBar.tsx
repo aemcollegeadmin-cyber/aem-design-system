@@ -21,7 +21,7 @@ export const ProgressBar = forwardRef<HTMLDivElement, ProgressBarProps>(function
       {showLabel && (
         <div className="flex items-center gap-1.5 text-caption text-ink-soft">
           <span>{label ?? `Пройдено ${clamped}%`}</span>
-          <Icon name="done" size="sm" className={complete ? "text-accent-lime-fg" : "text-ink-muted"} />
+          <Icon name="done" size="md" className={complete ? "text-accent-lime-fg" : "text-ink-muted"} />
         </div>
       )}
       <div

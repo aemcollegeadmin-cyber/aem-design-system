@@ -21,7 +21,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
         <Header>
           <Trigger className="group flex w-full items-center justify-between gap-4 px-4 py-3 text-left text-body text-ink">
             {title}
-            <Icon name="chevronDown" size="sm" className="text-ink-muted transition-transform group-data-[state=open]:rotate-180" />
+            <Icon name="chevronDown" size="md" className="text-ink-muted transition-transform group-data-[state=open]:rotate-180" />
           </Trigger>
         </Header>
         <Content className="px-4 pb-4 text-caption text-ink-soft">{children}</Content>
