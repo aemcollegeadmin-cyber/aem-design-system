@@ -34,6 +34,10 @@ export {
   type LeaderboardCardProps,
   type LeaderboardEntry,
 } from "./components/LeaderboardCard";
+export { Scoreboard, type ScoreboardProps, type ScoreboardRow } from "./components/Scoreboard";
+export { RankUpDialog, type RankUpDialogProps } from "./components/RankUpDialog";
+export { toastPoints, type ScoreToastOptions } from "./components/ScoreToast";
+
 export {
   MediaPreview,
   type MediaPreviewProps,
