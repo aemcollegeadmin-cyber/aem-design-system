@@ -33,7 +33,7 @@ export const StatCard = forwardRef<HTMLDivElement, StatCardProps>(function StatC
         <span className="text-caption opacity-80">{label}</span>
         {icon && <span className="opacity-80">{icon}</span>}
       </div>
-      <span className="text-h2 font-semibold">{value}</span>
+      <span className="text-h2">{value}</span>
       {hint && <span className="text-caption opacity-70">{hint}</span>}
     </div>
   );

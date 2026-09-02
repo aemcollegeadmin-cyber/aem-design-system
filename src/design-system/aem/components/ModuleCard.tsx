@@ -32,7 +32,7 @@ export const ModuleCard = forwardRef<HTMLElement, ModuleCardProps>(function Modu
           </span>
         )}
         <div className="flex flex-1 flex-col">
-          <h3 className="text-h2 font-semibold text-ink">{title}</h3>
+          <h3 className="text-h2 text-ink">{title}</h3>
           {description && <p className="text-caption text-ink-muted">{description}</p>}
         </div>
         {meta ?? <Badge variant={complete ? "lime" : "neutral"}>{complete ? "Пройдено" : "Модуль"}</Badge>}

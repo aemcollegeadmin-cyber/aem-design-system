@@ -25,7 +25,7 @@ export const SubmissionRow = forwardRef<HTMLDivElement, SubmissionRowProps>(func
     >
       <StatusIcon status={status === "accepted" ? "completed" : "available"} />
       <div className="flex flex-1 flex-col">
-        <span className="text-body font-medium text-ink">{title}</span>
+        <span className="text-body text-ink">{title}</span>
         {subtitle && <span className="text-caption text-ink-muted">{subtitle}</span>}
       </div>
       <Badge variant={status === "accepted" ? "lime" : "peach"}>

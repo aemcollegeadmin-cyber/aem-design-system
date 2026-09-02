@@ -4,11 +4,11 @@ import { cn } from "../lib/cn";
 export type TextVariant = "h1" | "h2" | "h4" | "paragraph" | "caption" | "link";
 
 const variantClass: Record<TextVariant, string> = {
-  h1: "text-h1 font-semibold tracking-tight text-ink",
-  h2: "text-h2 font-semibold tracking-tight text-ink",
-  h4: "text-h4 font-semibold text-ink",
+  h1: "text-h1 tracking-tight text-ink",
+  h2: "text-h2 tracking-tight text-ink",
+  h4: "text-h4 text-ink",
   paragraph: "text-body text-ink-soft",
-  caption: "text-caption text-ink-muted",
+  caption: "text-caption text-ink-soft",
   link: "text-body text-ink underline underline-offset-2 hover:no-underline",
 };
 

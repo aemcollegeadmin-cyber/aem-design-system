@@ -44,7 +44,7 @@ export const TableHead = forwardRef<HTMLTableCellElement, TableHeadProps>(functi
   { className, scope = "col", ...props },
   ref,
 ) {
-  return <th ref={ref} scope={scope} className={cn("px-4 py-3 text-left font-medium", className)} {...props} />;
+  return <th ref={ref} scope={scope} className={cn("px-4 py-3 text-left font-semibold", className)} {...props} />;
 });
 
 export interface TableCellProps extends React.TdHTMLAttributes<HTMLTableCellElement> {}

@@ -37,7 +37,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
             aria-selected={active}
             onClick={() => onValueChange?.(item.value)}
             className={cn(
-              "rounded-pill px-4 py-2 text-caption font-medium transition-colors",
+              "rounded-pill px-4 py-2 text-caption transition-colors",
               active
                 ? "bg-surface text-ink shadow-card"
                 : "text-ink-muted hover:bg-surface hover:text-ink-soft",

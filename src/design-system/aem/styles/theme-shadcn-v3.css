@@ -69,12 +69,13 @@
   --text-h4: 17px;
   --text-h4--line-height: 1.15;
   --text-h4--letter-spacing: -0.2px;
-  --text-h4--font-weight: 600;
+  --text-h4--font-weight: 700;
   --text-body: 14px;
   --text-body--line-height: 1.45;
   --text-body--font-weight: 500;
-  --text-caption: 0.8125rem;
-  --text-caption--line-height: 1.45;
+  --text-caption: 13px;
+  --text-caption--line-height: 1.4;
+  --text-caption--font-weight: 500;
 
   /* Radius */
   --radius-field: 18px;

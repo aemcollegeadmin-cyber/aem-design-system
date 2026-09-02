@@ -185,7 +185,7 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
         )}
 
         <div className={cn("flex flex-col gap-2", centered && "text-center")}>
-          <Title className="text-h4 font-semibold text-ink">{title}</Title>
+          <Title className="text-h4 text-ink">{title}</Title>
           {description && (
             <Description className="text-body text-ink-soft">{description}</Description>
           )}

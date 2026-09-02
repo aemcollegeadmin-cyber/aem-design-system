@@ -898,7 +898,7 @@ function ComponentsPage() {
         <div className="flex min-w-0 flex-1 flex-col gap-12">
           {visible.map((section) => (
             <section key={section.id} id={section.id} className="flex scroll-mt-28 flex-col gap-4">
-              <h2 className="text-h2 font-semibold text-ink">{section.title}</h2>
+              <h2 className="text-h2 text-ink">{section.title}</h2>
               {section.node}
             </section>
           ))}

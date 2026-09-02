@@ -37,7 +37,7 @@ export const UserChip = forwardRef<HTMLDivElement, UserChipProps>(function UserC
           size="sm"
           variant={tone === "onMuted" ? "muted" : "surface"}
         />
-        <span className="text-caption font-medium text-ink">{name}</span>
+        <span className="text-caption text-ink">{name}</span>
       </div>
     );
   }
@@ -45,7 +45,7 @@ export const UserChip = forwardRef<HTMLDivElement, UserChipProps>(function UserC
     <div ref={ref} className={cn("flex items-center gap-3", className)} {...props}>
       <Avatar name={name} src={avatarSrc} size="lg" />
       <span className="flex flex-col">
-        <span className="text-body font-medium text-ink">{name}</span>
+        <span className="text-body text-ink">{name}</span>
         {email && <span className="text-caption text-ink-muted">{email}</span>}
       </span>
     </div>

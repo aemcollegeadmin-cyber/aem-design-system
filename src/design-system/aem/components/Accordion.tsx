@@ -19,7 +19,7 @@ export const AccordionItem = forwardRef<HTMLDivElement, AccordionItemProps>(
         {...props}
       >
         <Header>
-          <Trigger className="group flex w-full items-center justify-between gap-4 px-4 py-3 text-left text-body font-medium text-ink">
+          <Trigger className="group flex w-full items-center justify-between gap-4 px-4 py-3 text-left text-body text-ink">
             {title}
             <ChevronDown className="size-4 shrink-0 text-ink-muted transition-transform group-data-[state=open]:rotate-180" />
           </Trigger>
