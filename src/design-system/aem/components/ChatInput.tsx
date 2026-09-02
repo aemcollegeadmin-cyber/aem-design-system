@@ -50,7 +50,7 @@ export const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>(functio
   return (
     <div
       className={cn(
-        "flex min-h-11 items-end gap-2 rounded-pill border-2 border-border-strong bg-surface py-1 pl-4 pr-1.5 transition-colors hover:border-focus focus-within:border-focus",
+        "flex min-h-11 gap-2 rounded-pill border-2 border-border-strong bg-surface py-1 pl-4 pr-1.5 transition-colors hover:border-focus focus-within:border-focus",
         className,
       )}
     >
@@ -60,7 +60,7 @@ export const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>(functio
         value={currentValue}
         placeholder={placeholder}
         rows={1}
-        className="min-h-[22px] max-h-40 flex-1 resize-none bg-transparent py-1.5 text-body text-ink placeholder:text-ink-muted focus:outline-none focus-visible:ring-0"
+        className="min-h-[22px] max-h-40 flex-1 resize-none self-stretch bg-transparent py-2 text-body text-ink placeholder:text-ink-muted focus:outline-none focus-visible:ring-0"
         onChange={(e) => {
           setInternalValue(e.target.value);
           onChange?.(e);
@@ -75,7 +75,13 @@ export const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>(functio
         }}
         {...props}
       />
-      <IconButton label={sendLabel} variant="muted" size="sm" onClick={onSend}>
+      <IconButton
+        label={sendLabel}
+        variant="muted"
+        size="sm"
+        className="self-end"
+        onClick={onSend}
+      >
         <Icon name="send" size="sm" />
       </IconButton>
     </div>
