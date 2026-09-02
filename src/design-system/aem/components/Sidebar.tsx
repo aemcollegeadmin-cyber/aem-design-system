@@ -17,7 +17,7 @@ export const Sidebar = forwardRef<HTMLElement, SidebarProps>(function Sidebar(
       ref={ref}
       aria-label={label}
       className={cn(
-        "flex h-full w-64 flex-col justify-between gap-6 rounded-panel bg-surface p-4 shadow-card",
+        "flex h-full w-64 flex-col justify-between gap-5 rounded-panel bg-surface px-4 py-5 shadow-card",
         className,
       )}
       {...props}
