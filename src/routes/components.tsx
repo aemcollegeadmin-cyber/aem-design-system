@@ -199,9 +199,6 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
             </div>
           </div>
         </Specimen>
-
-          </div>
-        </Specimen>
       ),
     },
     {
