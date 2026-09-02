@@ -31,8 +31,8 @@ export const Sheet = forwardRef<HTMLDivElement, SheetProps>(function Sheet(
         )}
         {...props}
       >
-        <div className="flex items-center justify-between gap-4">
-          <Title className="text-h4 text-left text-ink">{title}</Title>
+        <div className="grid shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
+          <Title className="min-w-0 text-h2 text-left text-ink">{title}</Title>
           <Close asChild>
             <IconButton label={closeLabel} variant="muted" size="sm">
               <Icon name="close" size="md" />

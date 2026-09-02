@@ -45,19 +45,17 @@ export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog(
         )}
         {...props}
       >
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex flex-col gap-1">
-            <Title className="text-h4 text-left text-ink">{title}</Title>
-            {description && (
-              <Description className="text-caption text-ink-muted">{description}</Description>
-            )}
-          </div>
+        <div className="grid shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
+          <Title className="min-w-0 text-h2 text-left text-ink">{title}</Title>
           <Close asChild>
             <IconButton label={closeLabel} variant="muted" size="sm">
               <Icon name="close" size="md" />
             </IconButton>
           </Close>
         </div>
+        {description && (
+          <Description className="text-caption text-ink-muted">{description}</Description>
+        )}
         {children}
         {footer && <div className="flex justify-end gap-2">{footer}</div>}
       </Content>

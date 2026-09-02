@@ -161,8 +161,8 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
         onInteractOutside={(e) => !dismissible && e.preventDefault()}
         {...props}
       >
-        <div className="flex items-start justify-between gap-4">
-          <Title className="text-h4 text-left text-ink">{title}</Title>
+        <div className="grid shrink-0 grid-cols-[minmax(0,1fr)_auto] items-center gap-4">
+          <Title className="min-w-0 text-h2 text-left text-ink">{title}</Title>
           {dismissible && (
             <Close asChild>
               <IconButton label={closeLabel} variant="muted" size="sm">
@@ -172,52 +172,54 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
           )}
         </div>
 
-        {media && <MediaFrame media={media} aspect={mediaAspect} />}
+        <div className="flex flex-col gap-4">
+          {media && <MediaFrame media={media} aspect={mediaAspect} />}
 
-        {!media && icon && (
-          <div
-            className={cn(
-              "flex size-12 items-center justify-center rounded-pill bg-accent-lime text-accent-lime-fg",
-              centered && "mx-auto",
-            )}
-          >
-            <Icon name={icon} size="lg" />
-          </div>
-        )}
+          {!media && icon && (
+            <div
+              className={cn(
+                "flex size-12 items-center justify-center rounded-pill bg-accent-lime text-accent-lime-fg",
+                centered && "mx-auto",
+              )}
+            >
+              <Icon name={icon} size="lg" />
+            </div>
+          )}
 
-        {description && (
-          <Description className={cn("text-body text-ink-soft", centered && "text-center")}>
-            {description}
-          </Description>
-        )}
+          {description && (
+            <Description className={cn("text-body text-ink-soft", centered && "text-center")}>
+              {description}
+            </Description>
+          )}
 
-        {children}
+          {children}
 
-        {step && (
-          <div className={cn("flex items-center gap-3", centered && "justify-center")}>
-            <StepDots current={step.current} total={step.total} />
-            <span className="text-caption text-ink-muted">
-              {step.current} з {step.total}
-            </span>
-          </div>
-        )}
+          {step && (
+            <div className={cn("flex items-center gap-3", centered && "justify-center")}>
+              <StepDots current={step.current} total={step.total} />
+              <span className="text-caption text-ink-muted">
+                {step.current} з {step.total}
+              </span>
+            </div>
+          )}
 
-        {(primaryAction || secondaryAction) && (
-          <div className="flex flex-col gap-2">
-            {primaryAction && (
-              <ActionButton action={primaryAction} variant="primary" />
-            )}
-            {secondaryAction && (
-              <ActionButton action={secondaryAction} variant="secondary" />
-            )}
-          </div>
-        )}
+          {(primaryAction || secondaryAction) && (
+            <div className="flex flex-col gap-2">
+              {primaryAction && (
+                <ActionButton action={primaryAction} variant="primary" />
+              )}
+              {secondaryAction && (
+                <ActionButton action={secondaryAction} variant="secondary" />
+              )}
+            </div>
+          )}
 
-        {tertiaryAction && (
-          <div className={cn("flex", centered ? "justify-center" : "justify-start")}>
-            <ActionButton action={tertiaryAction} variant="ghost" size="sm" />
-          </div>
-        )}
+          {tertiaryAction && (
+            <div className={cn("flex", centered ? "justify-center" : "justify-start")}>
+              <ActionButton action={tertiaryAction} variant="ghost" size="sm" />
+            </div>
+          )}
+        </div>
       </Content>
     </Portal>
   );
