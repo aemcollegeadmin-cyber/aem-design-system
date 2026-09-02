@@ -29,6 +29,22 @@ copy is Ukrainian by default.
 - Compose existing components before writing a new one — `LessonRow` builds on
   `StatusIcon`, `ModuleCard` on `ProgressBar` + `Badge`, `UserChip` on `Avatar`.
 
+## Typography — exactly five roles
+
+- The scale is closed: `text-h1`, `text-h2`, `text-h4`, `text-body`,
+  `text-caption`. No other size may appear — never `text-sm`, `text-xl`, or an
+  arbitrary `text-[13px]`. Prefer the `Text` component (`variant="h1" | "h2" |
+  "h4" | "paragraph" | "caption" | "link"`) over raw classes.
+- Font weight is part of the token, not the markup: h1/h2/h4 are 700, body and
+  caption are 500. Never add `font-medium` / `font-semibold` next to a
+  `text-*` role class — it duplicates (or weakens) the token. Weight utilities
+  are allowed only on non-role text such as button labels or table headers,
+  where the component already sets them.
+- Tone is expressed with color tokens (`text-ink`, `text-ink-soft`,
+  `text-ink-muted`) — a different tone is never a new size.
+
+
+
 ## Semantics of the accents
 
 - Peach (`accent-peach`) = blocked / awaiting review ("На перевірці").
