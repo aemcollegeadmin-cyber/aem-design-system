@@ -127,3 +127,10 @@ generated token and component reference.
   `"full"` — показує весь контент. Інших станів немає.
 - Дії передаються в `actions` як `Button variant="secondary" block` — вони
   стають вертикальним стеком автоматично.
+
+## Оновлення (icons / LessonSidebar / dialogs)
+
+- Реєстр `icons` / `filledIcons` розширено: редактор (`bold`, `italic`, `heading1`, `heading2`, `list`, `listOrdered`, `quote`, `link`, `unlink`, `gripVertical`, `save`), файли й медіа (`bookOpen`, `fileText`, `fileImage`, `folderOpen`, `image`, `imagePlus`, `camera`, `upload`, `download`, `zoomIn`, `zoomOut`), навчання (`graduationCap`, `award`, `trophy`, `clipboardCheck`, `activity`, `megaphone`, `partyPopper`, `sparkles`, `wand`), акаунти й система (`userCircle`, `userCog`, `userPlus`, `userMinus`, `logIn`, `keyRound`, `sliders`, `refresh`, `rotateCcw`, `plug`, `unplug`, `loader`). Ніколи не імпортуй lucide/phosphor напряму — тільки `Icon`.
+- `LessonSidebar` має `contentState="scroll"` (фіксована висота панелі, скролиться лише тіло) та `headerSlot` (форма/фільтри замість табів).
+- `MediaDialogAction` підтримує `disabled` і `loading`; `onClick` може повернути `false` (або Promise, що резолвиться у `false`), щоб не закривати попап при помилці валідації. Async `onClick` автоматично показує спінер. `OnboardingStep` має `onNext`, `nextDisabled`, `nextLoading`.
+- `Button` має проп `loading` (спінер + блокування).
