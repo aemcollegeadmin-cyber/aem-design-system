@@ -1,4 +1,5 @@
 import { forwardRef } from "react";
+import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 
 export interface ScoreCardBar {
@@ -33,10 +34,12 @@ export interface ScoreCardProps extends React.HTMLAttributes<HTMLElement> {
   /** Place change, e.g. "↑ 2 місця". */
   rankDelta?: string;
   comparison?: ScoreCardComparison;
-  /** Bar history block. */
-  chart?: { title: string; bars: ScoreCardBar[] };
+  /** Bar history block. An empty `bars` array renders `emptyLabel` instead. */
+  chart?: { title: string; bars: ScoreCardBar[]; emptyLabel?: string };
   /** Muted closing line, e.g. "Найкращий тиждень. Серія 12 днів тримає темп." */
   footnote?: string;
+  /** Skeleton placeholder instead of content. */
+  loading?: boolean;
 }
 
 /**
@@ -44,9 +47,42 @@ export interface ScoreCardProps extends React.HTMLAttributes<HTMLElement> {
  * distance to the next place and a short history of weekly points.
  */
 export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreCard(
-  { label, score, delta, rank, rankDelta, comparison, chart, footnote, className, ...props },
+  {
+    label,
+    score,
+    delta,
+    rank,
+    rankDelta,
+    comparison,
+    chart,
+    footnote,
+    loading = false,
+    className,
+    ...props
+  },
   ref,
 ) {
+  if (loading) {
+    return (
+      <section
+        ref={ref}
+        aria-busy="true"
+        className={cn(
+          "flex flex-col gap-6 rounded-panel bg-surface-inverse p-6 text-on-inverse",
+          className,
+        )}
+        {...props}
+      >
+        <div className="flex flex-col gap-3">
+          <Skeleton radius="pill" className="h-4 w-32 bg-surface-inverse-muted" />
+          <Skeleton radius="pill" className="h-10 w-48 bg-surface-inverse-muted" />
+        </div>
+        <Skeleton radius="pill" className="h-2 w-full bg-surface-inverse-muted" />
+        <Skeleton radius="card" className="h-28 w-full bg-surface-inverse-muted" />
+      </section>
+    );
+  }
+
   return (
     <section
       ref={ref}
@@ -56,6 +92,7 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
       )}
       {...props}
     >
+
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-2">
           <span className="text-caption tracking-widest text-on-inverse-soft uppercase">
@@ -99,6 +136,11 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
       {chart && (
         <div className="flex flex-col gap-3 border-t-2 border-on-inverse-track pt-5">
           <span className="text-body text-on-inverse">{chart.title}</span>
+          {chart.bars.length === 0 ? (
+            <p className="rounded-card bg-surface-inverse-muted px-4 py-6 text-center text-caption text-on-inverse-soft">
+              {chart.emptyLabel ?? "Це твій перший тиждень — історія балів з'явиться далі."}
+            </p>
+          ) : (
           <div className="flex h-28 items-end gap-2">
             {chart.bars.map((bar, index) => (
               <div key={bar.label ?? index} className="flex h-full flex-1 flex-col items-center justify-end gap-2">
@@ -115,6 +157,8 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
               </div>
             ))}
           </div>
+          )}
+
         </div>
       )}
 

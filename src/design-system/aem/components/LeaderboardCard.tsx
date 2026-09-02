@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { Avatar } from "./Avatar";
+import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 
 export interface LeaderboardEntry {
@@ -21,11 +22,30 @@ export interface LeaderboardCardProps extends React.HTMLAttributes<HTMLElement> 
   entries: LeaderboardEntry[];
   /** Optional block under the list, e.g. a Callout with the next goal. */
   footer?: React.ReactNode;
+  /** Skeleton rows instead of the list. */
+  loading?: boolean;
+  /** Number of skeleton rows while loading. */
+  loadingRows?: number;
+  /** Line shown when there are no entries yet. */
+  emptyLabel?: string;
 }
 
 /** Weekly ranking preview: top places plus the current student's row. */
 export const LeaderboardCard = forwardRef<HTMLElement, LeaderboardCardProps>(
-  function LeaderboardCard({ title, action, entries, footer, className, ...props }, ref) {
+  function LeaderboardCard(
+    {
+      title,
+      action,
+      entries,
+      footer,
+      loading = false,
+      loadingRows = 5,
+      emptyLabel = "Рейтинг ще формується — перші бали з'являться цього тижня.",
+      className,
+      ...props
+    },
+    ref,
+  ) {
     return (
       <section
         ref={ref}
@@ -37,7 +57,19 @@ export const LeaderboardCard = forwardRef<HTMLElement, LeaderboardCardProps>(
           {action}
         </div>
 
+        {loading ? (
+          <div className="flex flex-col gap-2">
+            {Array.from({ length: loadingRows }).map((_, index) => (
+              <Skeleton key={index} radius="pill" className="h-11 w-full" />
+            ))}
+          </div>
+        ) : entries.length === 0 ? (
+          <p className="rounded-card bg-surface-muted px-4 py-6 text-center text-caption text-ink-muted">
+            {emptyLabel}
+          </p>
+        ) : (
         <ul className="flex flex-col gap-1">
+
           {entries.map((entry) => (
             <li
               key={`${entry.rank}-${entry.name}`}
@@ -69,6 +101,8 @@ export const LeaderboardCard = forwardRef<HTMLElement, LeaderboardCardProps>(
             </li>
           ))}
         </ul>
+        )}
+
 
         {footer && <div className="border-t-2 border-border-line pt-4">{footer}</div>}
       </section>
