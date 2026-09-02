@@ -498,33 +498,22 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       id: "page-nav",
       title: "PageNav",
       node: (
-        <>
-          <Specimen
-            label="back + заголовок + другорядний рядок + статус"
-            code={`<PageNav backHref="/" title="Чат з ментором" subtitle="Інтерфейсник → UX/UI" actions={<Badge tone="onSurface" variant="lime">Прийнято</Badge>} />`}
-          >
-            <PageNav
-              className="w-full"
-              backHref="#page-nav"
-              title="Чат з ментором"
-              subtitle="Інтерфейсник → Професійний погляд на UX/UI → Стартапи та MVP продукти"
-              actions={<Badge variant="lime">Прийнято</Badge>}
-            />
-          </Specimen>
-          <Specimen label="з хлібними крихтами" code={`<PageNav onBack={...} breadcrumbs={[...]} />`}>
-            <PageNav
-              className="w-full"
-              onBack={() => undefined}
-              title="Веб-дизайн з нуля"
-              breadcrumbs={[
-                { label: "Головна", href: "/" },
-                { label: "Курси", href: "/components" },
-                { label: "Веб-дизайн" },
-              ]}
-              actions={<Button variant="lime">Продовжити</Button>}
-            />
-          </Specimen>
-        </>
+        <Specimen
+          label="back + заголовок + хлібні крихти + статус"
+          code={`<PageNav onBack={...} title="Веб-дизайн" breadcrumbs={[...]} status={<Badge variant="peach">На перевірці</Badge>} />`}
+        >
+          <PageNav
+            className="w-full"
+            onBack={() => undefined}
+            title="Веб-дизайн з нуля"
+            breadcrumbs={[
+              { label: "Головна", href: "/" },
+              { label: "Курси", href: "/components" },
+              { label: "Веб-дизайн" },
+            ]}
+            status={<Badge variant="peach">На перевірці</Badge>}
+          />
+        </Specimen>
       ),
     },
     {

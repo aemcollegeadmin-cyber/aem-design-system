@@ -6,29 +6,29 @@ import { cn } from "../lib/cn";
 export interface PageNavProps extends React.HTMLAttributes<HTMLElement> {
   /** Page title, rendered as the single H1 of the page. */
   title: string;
-  /** Secondary line under the title (path, meta, subtitle). Ignored when `breadcrumbs` is set. */
-  subtitle?: string;
-  /** Breadcrumb trail rendered instead of `subtitle`. */
+  /** Breadcrumb trail rendered under the title. */
   breadcrumbs?: BreadcrumbItem[];
+  /** Status badge rendered at the end of the breadcrumb row. */
+  status?: React.ReactNode;
   /** Navigation target for the back control — renders an anchor. */
   backHref?: string;
   /** Click handler for the back control — renders a button. Ignored when `backHref` is set. */
   onBack?: () => void;
   /** Accessible name of the back control. */
   backLabel?: string;
-  /** Trailing content: status badge, actions. */
+  /** Trailing page actions rendered on the far right of the header. */
   actions?: React.ReactNode;
 }
 
 const backClasses =
   "inline-flex size-10 shrink-0 items-center justify-center rounded-pill border-2 border-border-strong bg-surface-muted text-ink no-underline transition-colors hover:bg-border-subtle";
 
-/** Consistent page-top navigation: back control, title, secondary line, trailing actions. */
+/** Consistent page-top navigation: back control, title, breadcrumbs + status, trailing actions. */
 export const PageNav = forwardRef<HTMLElement, PageNavProps>(function PageNav(
   {
     title,
-    subtitle,
     breadcrumbs,
+    status,
     backHref,
     onBack,
     backLabel = "Назад",
@@ -57,12 +57,13 @@ export const PageNav = forwardRef<HTMLElement, PageNavProps>(function PageNav(
           </button>
         ))}
 
-      <div className="flex min-w-0 flex-1 flex-col gap-0.5">
+      <div className="flex min-w-0 flex-1 flex-col gap-2">
         <h1 className="truncate text-h2 text-ink">{title}</h1>
-        {breadcrumbs ? (
-          <Breadcrumbs items={breadcrumbs} />
-        ) : (
-          subtitle && <p className="truncate text-caption text-ink-muted">{subtitle}</p>
+        {breadcrumbs && (
+          <div className="flex min-w-0 items-center justify-between gap-4">
+            <Breadcrumbs items={breadcrumbs} />
+            {status && <div className="flex shrink-0 items-center">{status}</div>}
+          </div>
         )}
       </div>
 
