@@ -19,6 +19,7 @@ import {
   ConfirmDialog,
   CourseCard,
   Dialog,
+  EditHeader,
   DialogClose,
   DialogRoot,
   DialogTrigger,
@@ -517,6 +518,18 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       ),
     },
     {
+      id: "edit-header",
+      title: "EditHeader",
+      node: (
+        <Specimen
+          label="режим редагування: inline-заголовок + перемикачі"
+          code={`<EditHeader title={title} onTitleChange={setTitle} controls={<Switch />} actions={<Button>Зберегти</Button>} />`}
+        >
+          <EditHeaderDemo />
+        </Specimen>
+      ),
+    },
+    {
       id: "sidebar",
       title: "Sidebar / NavItem",
       node: (
@@ -671,6 +684,27 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       ),
     },
   ];
+}
+
+function EditHeaderDemo() {
+  const [title, setTitle] = useState("Урок 4. Модульні сітки");
+
+  return (
+    <EditHeader
+      className="w-full"
+      onBack={() => undefined}
+      title={title}
+      onTitleChange={setTitle}
+      breadcrumbs={[
+        { label: "Курси", href: "/components" },
+        { label: "Веб-дизайн", onClick: () => undefined },
+        { label: "Урок 4" },
+      ]}
+      status={<Badge variant="lime">Чернетка</Badge>}
+      controls={<Switch aria-label="Опублікувати" />}
+      actions={<Button size="sm">Зберегти</Button>}
+    />
+  );
 }
 
 function TabsDemo() {

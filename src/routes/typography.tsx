@@ -33,6 +33,9 @@ function TypographyPage() {
         <Specimen label="text-h2 — назва модуля" code={`<Text variant="h2">Модуль 2. Верстка</Text>`}>
           <Text variant="h2">Модуль 2. Верстка</Text>
         </Specimen>
+        <Specimen label="text-h3 — підзаголовок секції" code={`<Text variant="h3">Урок 4. Сітки</Text>`}>
+          <Text variant="h3">Урок 4. Сітки</Text>
+        </Specimen>
         <Specimen label="text-h4 — заголовок картки" code={`<Text variant="h4">Домашнє завдання</Text>`}>
           <Text variant="h4">Домашнє завдання</Text>
         </Specimen>

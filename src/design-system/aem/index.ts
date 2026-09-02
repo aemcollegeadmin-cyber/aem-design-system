@@ -99,6 +99,7 @@ export { NavItem, type NavItemProps } from "./components/NavItem";
 export { Sidebar, type SidebarProps } from "./components/Sidebar";
 export { PageHeader, type PageHeaderProps } from "./components/PageHeader";
 export { PageNav, type PageNavProps } from "./components/PageNav";
+export { EditHeader, type EditHeaderProps } from "./components/EditHeader";
 export { StatCard, type StatCardProps } from "./components/StatCard";
 export { Toolbar, type ToolbarProps } from "./components/Toolbar";
 

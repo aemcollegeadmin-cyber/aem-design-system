@@ -21,6 +21,7 @@ copy is Ukrainian by default.
   utilities: `text-ink`, `text-ink-soft`, `text-ink-muted`, `bg-surface`,
   `bg-surface-muted`, `bg-accent-peach` / `text-accent-peach-fg`,
   `bg-accent-lime` / `text-accent-lime-fg`, `rounded-field|card|panel|pill`,
+  `border-border-line` (canonical hairline / divider colour),
   `text-h1|h2|h4|body|caption`, `shadow-card`. Add a new token to
   `src/design-system/aem/styles/theme.css` if a value is genuinely missing.
 - No inline `style` for styling. The single exception is a computed dimension,
@@ -29,13 +30,13 @@ copy is Ukrainian by default.
 - Compose existing components before writing a new one — `LessonRow` builds on
   `StatusIcon`, `ModuleCard` on `ProgressBar` + `Badge`, `UserChip` on `Avatar`.
 
-## Typography — exactly five roles
+## Typography — exactly six roles
 
-- The scale is closed: `text-h1`, `text-h2`, `text-h4`, `text-body`,
+- The scale is closed: `text-h1`, `text-h2`, `text-h3`, `text-h4`, `text-body`,
   `text-caption`. No other size may appear — never `text-sm`, `text-xl`, or an
-  arbitrary `text-[13px]`. Prefer the `Text` component (`variant="h1" | "h2" |
+  arbitrary `text-[13px]`. Prefer the `Text` component (`variant="h1" | "h2" | "h3" |
   "h4" | "paragraph" | "caption" | "link"`) over raw classes.
-- Font weight is part of the token, not the markup: h1/h2/h4 are 700, body and
+- Font weight is part of the token, not the markup: h1/h2/h3/h4 are 700, body and
   caption are 500. Never add `font-medium` / `font-semibold` next to a
   `text-*` role class — it duplicates (or weakens) the token. Weight utilities
   are allowed only on non-role text such as button labels or table headers,
@@ -108,3 +109,11 @@ generated token and component reference.
 - Дії сторінки (кнопки) йдуть у проп `actions` — на крайній правій стороні шапки.
 - `PageHeader` лишається для великих секційних заголовків з описом; для
   консістентної верхньої навігації використовуй саме `PageNav`.
+
+- Хлібні крихти приймають `href` (навігація, працює з Cmd+click) або `onClick`
+  (дія). Не збирай власні трейли з тексту і шевронів.
+- Сторінка з власним заголовком (наприклад inline-інпут назви) використовує
+  `PageNav` з пропом `titleSlot` — щоб не було двох H1.
+- Режим редагування сторінки — компонент `EditHeader`: inline-інпут назви,
+  слот `controls` для перемикачів (`Switch`, `Tabs`) і `actions` для «Зберегти /
+  Скасувати». Не роби кастомних edit-шапок у продуктовому коді.

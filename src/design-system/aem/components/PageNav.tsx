@@ -4,8 +4,13 @@ import { Breadcrumbs, type BreadcrumbItem } from "./Breadcrumbs";
 import { cn } from "../lib/cn";
 
 export interface PageNavProps extends React.HTMLAttributes<HTMLElement> {
-  /** Page title, rendered as the single H1 of the page. */
-  title: string;
+  /** Page title, rendered as the single H1 of the page. Omit when `titleSlot` is used. */
+  title?: string;
+  /**
+   * Custom title area — use on pages that own their heading (e.g. an inline
+   * title input) so PageNav does not render a duplicate H1.
+   */
+  titleSlot?: React.ReactNode;
   /** Breadcrumb trail rendered under the title. */
   breadcrumbs?: BreadcrumbItem[];
   /** Status badge rendered at the end of the breadcrumb row. */
@@ -20,6 +25,7 @@ export interface PageNavProps extends React.HTMLAttributes<HTMLElement> {
   actions?: React.ReactNode;
 }
 
+
 const backClasses =
   "inline-flex size-10 shrink-0 items-center justify-center rounded-pill border-2 border-border-strong bg-surface-muted text-ink no-underline transition-colors hover:bg-border-subtle";
 
@@ -27,6 +33,7 @@ const backClasses =
 export const PageNav = forwardRef<HTMLElement, PageNavProps>(function PageNav(
   {
     title,
+    titleSlot,
     breadcrumbs,
     status,
     backHref,
@@ -46,10 +53,12 @@ export const PageNav = forwardRef<HTMLElement, PageNavProps>(function PageNav(
       className={cn("flex w-full flex-col gap-2", className)}
       {...props}
     >
-      <div className="flex w-full items-start justify-between gap-4">
-        <h1 className="truncate text-h2 text-ink">{title}</h1>
-        {actions && <div className="flex shrink-0 flex-wrap items-center gap-2">{actions}</div>}
-      </div>
+      {(titleSlot || title || actions) && (
+        <div className="flex w-full items-start justify-between gap-4">
+          {titleSlot ?? (title ? <h1 className="truncate text-h2 text-ink">{title}</h1> : <span />)}
+          {actions && <div className="flex shrink-0 flex-wrap items-center gap-2">{actions}</div>}
+        </div>
+      )}
 
       {(showBack || breadcrumbs) && (
         <div className="flex w-full items-center gap-4">
