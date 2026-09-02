@@ -106,8 +106,10 @@ export const icons = {
 } satisfies Record<string, LucideIcon>;
 
 /**
- * Solid counterparts used for the small sizes (sm/md), where a 2px outline
- * stroke is visually too heavy. Same semantic names as `icons`.
+ * Two-tone counterparts used for the small sizes (sm/md), where a 2px outline
+ * stroke is visually too heavy. Rendered with Phosphor's `duotone` weight: a
+ * solid primary shape in `currentColor` plus a paired translucent secondary
+ * shape. Same semantic names as `icons`.
  */
 export const filledIcons = {
   home: Ph.SquaresFour,
@@ -163,7 +165,7 @@ export type IconName = keyof typeof icons;
 
 /**
  * Icon scale.
- * - `sm` (16) and `md` (20) render FILLED glyphs — a 2px stroke is far too
+ * - `sm` (16) and `md` (20) render two-tone (duotone) glyphs — a 2px stroke is far too
  *   heavy at those sizes, so small icons are solid shapes instead.
  * - `lg` (24) and `xl` (32) render outline glyphs with a constant 2px stroke.
  */
@@ -171,7 +173,7 @@ export const iconSizes = { sm: 16, md: 20, lg: 24, xl: 32 } as const;
 
 export type IconSize = keyof typeof iconSizes;
 
-/** Sizes rendered as solid glyphs. */
+/** Sizes rendered as two-tone glyphs. */
 const filledSizes: IconSize[] = ["sm", "md"];
 
 /**
@@ -206,14 +208,14 @@ const strokeOnlyGlyphs = new Set<IconName>([
 export interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, "ref"> {
   /** Semantic icon name from the system registry. */
   name: IconName;
-  /** sm 16px & md 20px are filled; lg 24px & xl 32px are 2px outline. */
+  /** sm 16px & md 20px are two-tone; lg 24px & xl 32px are 2px outline. */
   size?: IconSize;
   /** Accessible name. Omit for purely decorative icons. */
   label?: string;
 }
 
 /**
- * The single way to render an icon in this system: solid glyphs at sm/md,
+ * The single way to render an icon in this system: two-tone glyphs at sm/md,
  * simple outline glyphs with a constant 2px stroke at lg/xl.
  */
 export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
@@ -236,7 +238,7 @@ export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
       <Solid
         ref={ref}
         size={px}
-        weight={strokeOnlyGlyphs.has(name) ? "bold" : "fill"}
+        weight={strokeOnlyGlyphs.has(name) ? "bold" : "duotone"}
         {...a11y}
         {...(props as Record<string, unknown>)}
       />

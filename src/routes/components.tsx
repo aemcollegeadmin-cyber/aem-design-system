@@ -174,8 +174,8 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       title: "Icon",
       node: (
         <Specimen
-          label="Єдина система іконок: sm 16 / md 20 — залиті (filled), lg 24 / xl 32 — outline зі штрихом 2px"
-          code={`<Icon name="review" size="md" /> // filled\n<Icon name="review" size="lg" /> // outline 2px`}
+          label="Єдина система іконок: sm 16 / md 20 — двохсоставні (duotone), lg 24 / xl 32 — outline зі штрихом 2px"
+          code={`<Icon name="review" size="md" /> // duotone\n<Icon name="review" size="lg" /> // outline 2px`}
         >
           <div className="flex w-full flex-col gap-6">
             <div className="flex items-end gap-6">

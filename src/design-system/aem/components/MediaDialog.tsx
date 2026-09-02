@@ -165,7 +165,7 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
           <div className="flex justify-end">
             <Close asChild>
               <IconButton label={closeLabel} variant="muted" size="sm">
-                <Icon name="close" size="lg" />
+                <Icon name="close" size="md" />
               </IconButton>
             </Close>
           </div>
