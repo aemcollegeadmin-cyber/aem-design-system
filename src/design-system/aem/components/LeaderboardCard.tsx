@@ -101,6 +101,8 @@ export const LeaderboardCard = forwardRef<HTMLElement, LeaderboardCardProps>(
             </li>
           ))}
         </ul>
+        )}
+
 
         {footer && <div className="border-t-2 border-border-line pt-4">{footer}</div>}
       </section>
