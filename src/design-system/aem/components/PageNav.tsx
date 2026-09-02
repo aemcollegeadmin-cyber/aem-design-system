@@ -33,6 +33,7 @@ const backClasses =
 export const PageNav = forwardRef<HTMLElement, PageNavProps>(function PageNav(
   {
     title,
+    titleSlot,
     breadcrumbs,
     status,
     backHref,
@@ -52,10 +53,12 @@ export const PageNav = forwardRef<HTMLElement, PageNavProps>(function PageNav(
       className={cn("flex w-full flex-col gap-2", className)}
       {...props}
     >
-      <div className="flex w-full items-start justify-between gap-4">
-        <h1 className="truncate text-h2 text-ink">{title}</h1>
-        {actions && <div className="flex shrink-0 flex-wrap items-center gap-2">{actions}</div>}
-      </div>
+      {(titleSlot || title || actions) && (
+        <div className="flex w-full items-start justify-between gap-4">
+          {titleSlot ?? (title ? <h1 className="truncate text-h2 text-ink">{title}</h1> : <span />)}
+          {actions && <div className="flex shrink-0 flex-wrap items-center gap-2">{actions}</div>}
+        </div>
+      )}
 
       {(showBack || breadcrumbs) && (
         <div className="flex w-full items-center gap-4">
