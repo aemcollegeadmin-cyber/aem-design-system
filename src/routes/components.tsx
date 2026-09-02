@@ -174,12 +174,12 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       title: "Icon",
       node: (
         <Specimen
-          label="Єдина система іконок: прості outline-глифи, стабільний штрих 2px. size: lg 24 / xl 32"
-          code={`<Icon name="review" size="lg" />`}
+          label="Єдина система іконок: sm 16 / md 20 — залиті (filled), lg 24 / xl 32 — outline зі штрихом 2px"
+          code={`<Icon name="review" size="md" /> // filled\n<Icon name="review" size="lg" /> // outline 2px`}
         >
           <div className="flex w-full flex-col gap-6">
             <div className="flex items-end gap-6">
-              {(["lg", "xl"] as const).map((size) => (
+              {(["sm", "md", "lg", "xl"] as const).map((size) => (
                 <div key={size} className="flex flex-col items-center gap-2">
                   <Icon name="review" size={size} />
                   <span className="text-caption text-ink-muted">{size}</span>
@@ -189,11 +189,17 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
             <div className="grid grid-cols-3 gap-3 sm:grid-cols-6">
               {(Object.keys(icons) as IconName[]).map((name) => (
                 <div key={name} className="flex flex-col items-center gap-2 rounded-card bg-surface-muted p-3">
-                  <Icon name={name} size="lg" />
+                  <div className="flex items-center gap-2">
+                    <Icon name={name} size="md" />
+                    <Icon name={name} size="lg" />
+                  </div>
                   <span className="text-caption text-ink-muted">{name}</span>
                 </div>
               ))}
             </div>
+          </div>
+        </Specimen>
+
           </div>
         </Specimen>
       ),
