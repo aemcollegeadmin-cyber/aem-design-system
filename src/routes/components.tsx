@@ -419,6 +419,137 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       ),
     },
     {
+      id: "score-card",
+      title: "ScoreCard",
+      node: (
+        <Specimen
+          label="бал у коледжі · 2/3 сітки"
+          code={`<ScoreCard label="Бал у коледжі" score="1 480" rank="#7" />`}
+        >
+          <div className="w-full">
+            <ScoreCard
+              label="Бал у коледжі"
+              score="1 480"
+              delta="+120 за тиждень"
+              rank="#7"
+              rankDelta="↑ 2 місця"
+              comparison={{
+                value: 78,
+                leftLabel: "ти · 1 480",
+                rightLabel: "#6 Ната Ш. · 1 520",
+                hint: "40 балів — і ти обходиш шосте місце",
+              }}
+              chart={{
+                title: "Бали за 8 тижнів",
+                bars: [
+                  { value: 18 },
+                  { value: 34 },
+                  { value: 28 },
+                  { value: 52 },
+                  { value: 10 },
+                  { value: 44 },
+                  { value: 62 },
+                  { value: 100, highlight: true },
+                ],
+              }}
+              footnote="Найкращий тиждень. Серія 12 днів тримає темп."
+            />
+          </div>
+        </Specimen>
+      ),
+    },
+    {
+      id: "leaderboard-card",
+      title: "LeaderboardCard",
+      node: (
+        <Specimen
+          label="рейтинг тижня · 1/3 сітки"
+          code={`<LeaderboardCard title="Рейтинг тижня" entries={entries} />`}
+        >
+          <div className="w-full max-w-sm">
+            <LeaderboardCard
+              title="Рейтинг тижня"
+              action={
+                <Text variant="link" href="#">
+                  усі →
+                </Text>
+              }
+              entries={[
+                { rank: 1, name: "Оля К.", score: "2 310" },
+                { rank: 2, name: "Іван Б.", score: "1 905" },
+                { rank: 3, name: "Ната Ш.", score: "1 780" },
+                { rank: 7, name: "Ти", score: "1 480", current: true },
+              ]}
+              footer={
+                <Callout title="+40 балів до топ-5">
+                  Це один урок і один тест. Оновлення в неділю.
+                </Callout>
+              }
+            />
+          </div>
+        </Specimen>
+      ),
+    },
+    {
+      id: "continue-lesson-card",
+      title: "ContinueLessonCard",
+      node: (
+        <div className="flex w-full flex-col gap-4">
+          <Specimen
+            label="відео-урок"
+            code={`<ContinueLessonCard kind="video" title="Сітки та вирівнювання" progress={30} />`}
+          >
+            <div className="w-full">
+              <ContinueLessonCard
+                meta="Інтерфейсник · Модуль 3 · Урок 12 з 90"
+                title="Сітки та вирівнювання: як зібрати екран, що не розсипається"
+                kind="video"
+                progress={30}
+                progressLabel="4:12 з 14:20"
+                actions={
+                  <>
+                    <Button>Продовжити</Button>
+                    <Button variant="secondary">ДЗ №2 на перевірці</Button>
+                  </>
+                }
+              />
+            </div>
+          </Specimen>
+          <Specimen label="тест" code={`<ContinueLessonCard kind="test" title="Тест до модуля 3" />`}>
+            <div className="w-full">
+              <ContinueLessonCard
+                meta="Інтерфейсник · Модуль 3 · Тест"
+                title="Тест до модуля 3: сітки, ритм, відступи"
+                kind="test"
+                actions={<Button>Пройти тест</Button>}
+              />
+            </div>
+          </Specimen>
+          <Specimen label="MediaPreview: kind × size" code={`<MediaPreview kind="reading" size="lg" />`}>
+            <div className="flex flex-wrap items-end gap-3">
+              <MediaPreview kind="video" size="sm" />
+              <MediaPreview kind="test" size="md" />
+              <MediaPreview kind="reading" size="md" />
+              <MediaPreview kind="task" size="md" />
+            </div>
+          </Specimen>
+        </div>
+      ),
+    },
+    {
+      id: "streak-chip",
+      title: "StreakChip",
+      node: (
+        <Specimen label="активна серія / зупинена" code={`<StreakChip days={12} />`}>
+          <div className="flex flex-wrap items-center gap-3">
+            <StreakChip days={12} />
+            <StreakChip days={0} active={false} />
+            <StreakChip days={12} as="span" />
+          </div>
+        </Specimen>
+      ),
+    },
+    {
       id: "submission-row",
       title: "SubmissionRow",
       node: (
