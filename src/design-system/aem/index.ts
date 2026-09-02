@@ -20,6 +20,7 @@ export { Avatar, type AvatarProps } from "./components/Avatar";
 export { UserChip, type UserChipProps } from "./components/UserChip";
 export { StatusIcon, type StatusIconProps, type LessonStatus } from "./components/StatusIcon";
 export { LessonRow, type LessonRowProps } from "./components/LessonRow";
+export { LessonSidebar, type LessonSidebarProps } from "./components/LessonSidebar";
 export { ModuleCard, type ModuleCardProps } from "./components/ModuleCard";
 export { CourseCard, type CourseCardProps } from "./components/CourseCard";
 export {
