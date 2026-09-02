@@ -22,7 +22,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
       ref={ref}
       role="tablist"
       className={cn(
-        "flex gap-1 rounded-pill border-2 border-border-strong bg-surface-muted p-1",
+        "inline-flex w-fit gap-1 rounded-pill border-2 border-border-strong bg-surface-muted p-1",
         className,
       )}
       {...props}
