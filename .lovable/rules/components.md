@@ -265,6 +265,29 @@ import { DropdownMenuSeparator } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e
 import { DropdownMenuTrigger } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
+### EditHeader
+
+```ts
+import { EditHeader } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `title` | string | `—` |
+| `onTitleChange` | function | `—` |
+| `titlePlaceholder` | string | `Без назви` |
+| `titleLabel` | string | `Назва` |
+| `titleDisabled` | boolean | `—` |
+| `breadcrumbs` | any | `—` |
+| `status` | any | `—` |
+| `backHref` | string | `—` |
+| `onBack` | function | `—` |
+| `backLabel` | string | `—` |
+| `controls` | any | `—` |
+| `actions` | any | `—` |
+
 ### EmptyState
 
 ```ts
@@ -468,6 +491,7 @@ import { PageNav } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac
 | Prop | Type | Default |
 |---|---|---|
 | `title` | string | `—` |
+| `titleSlot` | any | `—` |
 | `breadcrumbs` | any | `—` |
 | `status` | any | `—` |
 | `backHref` | string | `—` |
@@ -738,7 +762,7 @@ import { Text } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bb
 
 | Prop | Type | Default |
 |---|---|---|
-| `variant` | h1 · h2 · h4 · paragraph · caption · link | `paragraph` |
+| `variant` | h1 · h2 · h3 · h4 · paragraph · caption · link | `paragraph` |
 | `as` | any | `—` |
 | `href` | string | `—` |
 
