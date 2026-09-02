@@ -220,14 +220,14 @@ const strokeOnlyGlyphs = new Set<IconName>([
 export interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, "ref"> {
   /** Semantic icon name from the system registry. */
   name: IconName;
-  /** sm 16px & md 20px are two-tone; lg 24px & xl 32px are 2px outline. */
+  /** md 20px is two-tone; lg 24px & xl 32px are 2px outline. */
   size?: IconSize;
   /** Accessible name. Omit for purely decorative icons. */
   label?: string;
 }
 
 /**
- * The single way to render an icon in this system: two-tone glyphs at sm/md,
+ * The single way to render an icon in this system: two-tone glyphs at md,
  * simple outline glyphs with a constant 2px stroke at lg/xl.
  */
 export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(

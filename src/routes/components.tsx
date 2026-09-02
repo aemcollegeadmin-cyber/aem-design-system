@@ -106,7 +106,7 @@ function ButtonDemo() {
         <Button variant="lime">Здати роботу</Button>
       </Specimen>
       <Specimen label="size: sm / md / lg + block" code={`<Button size="lg" block>Далі</Button>`}>
-        <Button size="sm">Малий</Button>
+        <Button size="md">Малий</Button>
         <Button size="md">Середній</Button>
         <Button size="lg">Великий</Button>
       </Specimen>
@@ -346,7 +346,7 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       title: "Avatar / UserChip",
       node: (
         <Specimen label="size: sm / md / lg · UserChip variant pill / row" code={`<UserChip name="Олена" variant="row" email="o@aem.ua" />`}>
-          <Avatar name="Олена" size="sm" />
+          <Avatar name="Олена" size="md" />
           <Avatar name="Ігор" />
           <Avatar name="Марта" size="lg" variant="surface" />
           <UserChip name="Олена Ковальчук" />

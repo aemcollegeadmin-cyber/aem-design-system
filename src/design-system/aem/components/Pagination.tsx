@@ -36,11 +36,11 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
       <IconButton
         label={prevLabel}
         variant="muted"
-        size="sm"
+        size="md"
         disabled={page <= 1}
         onClick={() => onPageChange?.(page - 1)}
       >
-        <Icon name="chevronLeft" size="sm" />
+        <Icon name="chevronLeft" size="md" />
       </IconButton>
       <span className="text-caption text-ink-muted">
         {page} / {pageCount}
@@ -48,11 +48,11 @@ export const Pagination = forwardRef<HTMLElement, PaginationProps>(function Pagi
       <IconButton
         label={nextLabel}
         variant="muted"
-        size="sm"
+        size="md"
         disabled={page >= pageCount}
         onClick={() => onPageChange?.(page + 1)}
       >
-        <Icon name="chevronRight" size="sm" />
+        <Icon name="chevronRight" size="md" />
       </IconButton>
     </nav>
   );

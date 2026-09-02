@@ -79,7 +79,7 @@ export const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>(functio
       <IconButton
         label={sendLabel}
         variant="muted"
-        size="sm"
+        size="md"
         className="self-end"
         onClick={onSend}
       >

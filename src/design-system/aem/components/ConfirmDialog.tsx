@@ -19,7 +19,7 @@ export const ConfirmDialog = forwardRef<HTMLDivElement, ConfirmDialogProps>(
     return (
       <Dialog
         ref={ref}
-        size="sm"
+        size="md"
         footer={
           <>
             <DialogClose asChild>

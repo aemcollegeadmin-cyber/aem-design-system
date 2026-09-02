@@ -25,7 +25,7 @@ export const Callout = forwardRef<HTMLDivElement, CalloutProps>(function Callout
   { className, variant = "pending", icon, children, ...props },
   ref,
 ) {
-  const fallback = <Icon name={variant === "done" ? "done" : "alert"} size="sm" />;
+  const fallback = <Icon name={variant === "done" ? "done" : "alert"} size="md" />;
   return (
     <div ref={ref} className={cn(callout({ variant }), className)} {...props}>
       <span className="mt-px shrink-0">{icon ?? fallback}</span>

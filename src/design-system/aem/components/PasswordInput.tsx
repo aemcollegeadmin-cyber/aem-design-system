@@ -22,11 +22,11 @@ export const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(
         <IconButton
           label={visible ? hideLabel : showLabel}
           variant="muted"
-          size="sm"
+          size="md"
           onClick={() => setVisible((v) => !v)}
           className="absolute top-1/2 right-1.5 -translate-y-1/2"
         >
-          <Icon name={visible ? "hide" : "show"} size="sm" />
+          <Icon name={visible ? "hide" : "show"} size="md" />
         </IconButton>
       </div>
     );
