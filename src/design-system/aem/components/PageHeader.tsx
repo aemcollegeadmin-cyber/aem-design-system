@@ -20,7 +20,7 @@ export const PageHeader = forwardRef<HTMLElement, PageHeaderProps>(function Page
       {above}
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div className="flex flex-col gap-1">
-          <h1 className="text-h1 font-semibold text-ink">{title}</h1>
+          <h1 className="text-h1 text-ink">{title}</h1>
           {description && <p className="text-body text-ink-soft">{description}</p>}
         </div>
         {actions && <div className="flex flex-wrap items-center gap-2">{actions}</div>}

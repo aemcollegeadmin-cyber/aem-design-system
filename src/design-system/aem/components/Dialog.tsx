@@ -47,7 +47,7 @@ export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog(
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex flex-col gap-1">
-            <Title className="text-h4 font-semibold text-ink">{title}</Title>
+            <Title className="text-h4 text-ink">{title}</Title>
             {description && (
               <Description className="text-caption text-ink-muted">{description}</Description>
             )}

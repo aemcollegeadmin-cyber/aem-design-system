@@ -13,7 +13,7 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(
   ref,
 ) {
   return (
-    <Root ref={ref} className={cn("text-caption font-medium text-ink-soft", className)} {...props}>
+    <Root ref={ref} className={cn("text-caption text-ink-soft", className)} {...props}>
       {children}
       {required && (
         <span className="text-danger-fg" aria-hidden="true">

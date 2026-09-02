@@ -63,7 +63,7 @@ function SwatchGrid({ items }: { items: Swatch[] }) {
           >
             <span className="text-caption">Аа</span>
           </div>
-          <span className="text-body font-medium text-ink">{item.token}</span>
+          <span className="text-body text-ink">{item.token}</span>
           <span className="text-caption text-ink-muted">{item.role}</span>
         </div>
       ))}

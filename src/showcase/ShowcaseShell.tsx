@@ -78,7 +78,7 @@ export function Section({
   return (
     <section className={cn("flex flex-col gap-4", className)}>
       <div className="flex flex-col gap-1">
-        <h2 className="text-h2 font-semibold text-ink">{title}</h2>
+        <h2 className="text-h2 text-ink">{title}</h2>
         {description && <p className="text-caption text-ink-muted">{description}</p>}
       </div>
       {children}

@@ -26,7 +26,7 @@ export const EmptyState = forwardRef<HTMLDivElement, EmptyStateProps>(function E
       <span className="inline-flex size-10 items-center justify-center rounded-pill bg-surface-muted text-ink-muted">
         {icon ?? <Icon name="document" size="md" />}
       </span>
-      <span className="text-h4 font-semibold text-ink">{title}</span>
+      <span className="text-h4 text-ink">{title}</span>
       {description && <span className="max-w-sm text-caption text-ink-muted">{description}</span>}
       {action}
     </div>

@@ -22,7 +22,7 @@ export const LessonRow = forwardRef<HTMLDivElement, LessonRowProps>(function Les
   const body = (
     <>
       <span className="flex flex-col text-left">
-        <span className={cn("text-body font-medium", locked ? "text-ink-muted" : "text-ink")}>{title}</span>
+        <span className={cn("text-body", locked ? "text-ink-muted" : "text-ink")}>{title}</span>
         {description && <span className="text-caption text-ink-muted">{description}</span>}
       </span>
       <span className={cn("shrink-0", locked ? "text-ink-muted" : "text-ink")}>
