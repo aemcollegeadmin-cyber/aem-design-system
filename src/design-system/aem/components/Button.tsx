@@ -1,5 +1,6 @@
 import { forwardRef } from "react";
 import { cva, type VariantProps } from "class-variance-authority";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 const button = cva(
@@ -25,19 +26,27 @@ const button = cva(
 
 export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
-    VariantProps<typeof button> {}
+    VariantProps<typeof button> {
+  /** Shows a spinner and blocks interaction while an action is in flight. */
+  loading?: boolean;
+}
 
 /** Pill-shaped action button. Icons are passed as children. */
 export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button(
-  { className, variant, size, block, type = "button", ...props },
+  { className, variant, size, block, type = "button", loading, disabled, children, ...props },
   ref,
 ) {
   return (
     <button
       ref={ref}
       type={type}
+      disabled={disabled || loading}
+      aria-busy={loading || undefined}
       className={cn(button({ variant, size, block }), className)}
       {...props}
-    />
+    >
+      {loading && <Icon name="loader" size="md" className="animate-spin" />}
+      {children}
+    </button>
   );
 });
