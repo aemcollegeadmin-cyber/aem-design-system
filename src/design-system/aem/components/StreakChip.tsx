@@ -35,12 +35,13 @@ export const StreakChip = forwardRef<HTMLElement, StreakChipProps>(function Stre
   );
 
   const classes = cn(
-    "inline-flex h-11 items-center gap-2 rounded-pill border-2 px-4 text-body",
+    "inline-flex h-11 items-center justify-center gap-2 rounded-pill border-2 px-5 text-body font-semibold transition-colors",
     active
       ? "border-border-strong bg-surface-muted text-ink"
       : "border-border-strong bg-surface text-ink-muted",
     className,
   );
+
 
   if (as === "span") {
     return (
