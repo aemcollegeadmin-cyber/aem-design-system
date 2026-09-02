@@ -161,15 +161,16 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
         onInteractOutside={(e) => !dismissible && e.preventDefault()}
         {...props}
       >
-        {dismissible && (
-          <div className="flex justify-end">
+        <div className="flex items-start justify-between gap-4">
+          <Title className="text-h4 text-left text-ink">{title}</Title>
+          {dismissible && (
             <Close asChild>
               <IconButton label={closeLabel} variant="muted" size="sm">
                 <Icon name="close" size="md" />
               </IconButton>
             </Close>
-          </div>
-        )}
+          )}
+        </div>
 
         {media && <MediaFrame media={media} aspect={mediaAspect} />}
 
@@ -184,12 +185,11 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
           </div>
         )}
 
-        <div className={cn("flex flex-col gap-2", centered && "text-center")}>
-          <Title className="text-h4 text-left text-ink">{title}</Title>
-          {description && (
-            <Description className="text-body text-ink-soft">{description}</Description>
-          )}
-        </div>
+        {description && (
+          <Description className={cn("text-body text-ink-soft", centered && "text-center")}>
+            {description}
+          </Description>
+        )}
 
         {children}
 
