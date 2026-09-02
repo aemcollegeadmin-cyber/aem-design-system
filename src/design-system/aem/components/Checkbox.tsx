@@ -20,7 +20,7 @@ export const Checkbox = forwardRef<HTMLButtonElement, CheckboxProps>(function Ch
       {...props}
     >
       <Indicator>
-        <Check className="size-3.5" />
+        <Icon name="check" size="sm" />
       </Indicator>
     </Root>
   );
