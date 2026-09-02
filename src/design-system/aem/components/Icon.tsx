@@ -105,15 +105,15 @@ export const icons = {
 
 export type IconName = keyof typeof icons;
 
-/** Icon scale. Values match the system's 4px spacing rhythm. */
-export const iconSizes = { sm: 16, md: 20, lg: 24, xl: 32 } as const;
+/** Icon scale. Only two sizes so the 2px stroke stays proportional. */
+export const iconSizes = { lg: 24, xl: 32 } as const;
 
 export type IconSize = keyof typeof iconSizes;
 
 export interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, "ref"> {
   /** Semantic icon name from the system registry. */
   name: IconName;
-  /** sm 16px, md 20px, lg 24px, xl 32px. */
+  /** lg 24px, xl 32px. */
   size?: IconSize;
   /** Accessible name. Omit for purely decorative icons. */
   label?: string;
@@ -124,7 +124,7 @@ export interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, "ref"> {
  * constant 2px stroke at every size.
  */
 export const Icon = forwardRef<SVGSVGElement, IconProps>(function Icon(
-  { name, size = "md", label, className, ...props },
+  { name, size = "lg", label, className, ...props },
   ref,
 ) {
   const Glyph = icons[name];
