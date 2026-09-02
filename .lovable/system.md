@@ -167,3 +167,15 @@ generated token and component reference.
 - Підвищення місця в рейтингу — `RankUpDialog` у `DialogRoot` з керованим
   `open`. Показувати один раз на подію, не на кожен рендер.
 
+
+## Підключення в проєкті на Tailwind v3 / shadcn (ОБОВ'ЯЗКОВО)
+
+- Проєкт-споживач ОБОВ'ЯЗКОВО імпортує
+  `design-system/aem/styles/theme-shadcn-v3.css` у своєму `index.css`
+  (першим рядком, до `@tailwind` директив).
+- Цей файл, окрім токенів, містить готовий шар утиліт AEM
+  (`bg-surface-inverse`, `text-on-inverse`, `text-h1…text-caption`,
+  `rounded-panel`, `shadow-card` тощо). Без нього Tailwind v3 НЕ генерує ці
+  класи — і компоненти рендеряться «прозорими»/білими (типовий симптом:
+  `ScoreCard` замість темної картки виглядає білим).
+- Не дублюй ці класи в `tailwind.config.ts` і не переоголошуй токени локально.
