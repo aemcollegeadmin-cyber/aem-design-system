@@ -25,11 +25,14 @@ export const ChatBubble = forwardRef<HTMLDivElement, ChatBubbleProps>(function C
       <Avatar name={author} src={avatarSrc} size="md" />
       <div
         className={cn(
-          "max-w-md rounded-card px-4 py-3 text-caption break-words",
+          "max-w-md rounded-card border-2 px-4 py-3 text-caption break-words",
           "[&_a]:text-ink-soft [&_a]:underline [&_a]:decoration-ink-muted/50 [&_a:hover]:text-ink",
-          outgoing ? "bg-surface-muted text-ink" : "bg-surface text-ink shadow-card",
+          outgoing
+            ? "border-transparent bg-surface-muted text-ink"
+            : "border-border-subtle bg-surface text-ink",
         )}
       >
+
         <p>{children}</p>
         {time && <span className="mt-2 block text-caption text-ink-muted">{time}</span>}
       </div>
