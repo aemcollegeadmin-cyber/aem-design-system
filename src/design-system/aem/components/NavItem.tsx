@@ -7,7 +7,7 @@ const navItem = cva(
   {
     variants: {
       active: {
-        true: "bg-surface-muted font-medium text-ink",
+        true: "bg-surface-muted font-semibold text-ink",
         false: "text-ink-soft hover:bg-surface-muted hover:text-ink",
       },
     },

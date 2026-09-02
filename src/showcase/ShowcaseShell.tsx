@@ -50,7 +50,7 @@ export function ShowcaseShell({ children }: { children: React.ReactNode }) {
                 key={page.to}
                 to={page.to}
                 className="rounded-pill px-4 py-2 text-body text-ink-soft no-underline hover:bg-surface-muted hover:text-ink"
-                activeProps={{ className: "bg-surface-muted font-medium text-ink" }}
+                activeProps={{ className: "bg-surface-muted font-semibold text-ink" }}
                 activeOptions={{ exact: page.to === "/" }}
               >
                 {page.label}

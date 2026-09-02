@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../lib/cn";
 
 const avatar = cva(
-  "inline-flex shrink-0 items-center justify-center overflow-hidden rounded-pill bg-surface-muted text-ink font-medium",
+  "inline-flex shrink-0 items-center justify-center overflow-hidden rounded-pill bg-surface-muted text-ink font-semibold",
   {
     variants: {
       size: { sm: "size-6 text-caption", md: "size-8 text-caption", lg: "size-10 text-body" },
