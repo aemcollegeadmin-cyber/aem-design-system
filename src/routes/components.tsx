@@ -486,9 +486,12 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
                 { rank: 7, name: "Ти", score: "1 480", current: true },
               ]}
               footer={
-                <Callout title="+40 балів до топ-5">
-                  Це один урок і один тест. Оновлення в неділю.
-                </Callout>
+                <Card variant="muted" radius="card">
+                  <Text variant="h4">+40 балів до топ-5</Text>
+                  <Text variant="caption" className="text-ink-muted">
+                    Це один урок і один тест. Оновлення в неділю.
+                  </Text>
+                </Card>
               }
             />
           </div>
