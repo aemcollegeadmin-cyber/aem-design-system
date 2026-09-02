@@ -1,4 +1,4 @@
-import { forwardRef } from "react";
+import { forwardRef, useRef, useState } from "react";
 import { Close, Content, Description, Overlay, Portal, Title } from "@radix-ui/react-dialog";
 import { Button } from "./Button";
 import { Icon, type IconName } from "./Icon";
@@ -23,9 +23,16 @@ export interface MediaDialogMedia {
 
 export interface MediaDialogAction {
   label: string;
-  onClick?: () => void;
+  /**
+   * Return (or resolve to) `false` to keep the dialog open — e.g. when a form
+   * inside the step fails validation. Any other result closes it.
+   */
+  onClick?: () => void | boolean | Promise<void | boolean>;
   /** Keeps the dialog open after the click (default: closes it). */
   keepOpen?: boolean;
+  disabled?: boolean;
+  /** Shows a spinner and blocks the action; async handlers set this automatically. */
+  loading?: boolean;
 }
 
 export interface MediaDialogProps
@@ -106,18 +113,44 @@ function ActionButton({
   variant,
   size,
   block = true,
+  onClose,
 }: {
   action: MediaDialogAction;
   variant: "primary" | "secondary" | "ghost";
   size?: "sm" | "md" | "lg";
   block?: boolean;
+  onClose: () => void;
 }) {
-  const button = (
-    <Button variant={variant} size={size} block={block && variant !== "ghost"} onClick={action.onClick}>
+  const [pending, setPending] = useState(false);
+
+  async function handleClick() {
+    if (pending) return;
+    try {
+      const result = action.onClick?.();
+      if (result instanceof Promise) {
+        setPending(true);
+        const settled = await result;
+        if (!action.keepOpen && settled !== false) onClose();
+        return;
+      }
+      if (!action.keepOpen && result !== false) onClose();
+    } finally {
+      setPending(false);
+    }
+  }
+
+  return (
+    <Button
+      variant={variant}
+      size={size}
+      block={block && variant !== "ghost"}
+      disabled={action.disabled}
+      loading={action.loading || pending}
+      onClick={handleClick}
+    >
       {action.label}
     </Button>
   );
-  return action.keepOpen ? button : <Close asChild>{button}</Close>;
 }
 
 /**
@@ -146,6 +179,8 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
   ref,
 ) {
   const centered = align === "center";
+  const closeRef = useRef<HTMLButtonElement>(null);
+  const requestClose = () => closeRef.current?.click();
   return (
     <Portal>
       <Overlay className="fixed inset-0 z-40 bg-ink/40" />
@@ -161,6 +196,8 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
         onInteractOutside={(e) => !dismissible && e.preventDefault()}
         {...props}
       >
+        <Close ref={closeRef} aria-hidden tabIndex={-1} className="hidden" />
+
         <header className="flex shrink-0 items-start justify-between gap-4">
           <Title className="min-w-0 flex-1 text-h2 text-left text-ink">{title}</Title>
           {dismissible && (
@@ -206,17 +243,17 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
           {(primaryAction || secondaryAction) && (
             <div className="flex flex-col gap-2">
               {primaryAction && (
-                <ActionButton action={primaryAction} variant="primary" />
+                <ActionButton action={primaryAction} variant="primary" onClose={requestClose} />
               )}
               {secondaryAction && (
-                <ActionButton action={secondaryAction} variant="secondary" />
+                <ActionButton action={secondaryAction} variant="secondary" onClose={requestClose} />
               )}
             </div>
           )}
 
           {tertiaryAction && (
             <div className={cn("flex", centered ? "justify-center" : "justify-start")}>
-              <ActionButton action={tertiaryAction} variant="ghost" size="sm" />
+              <ActionButton action={tertiaryAction} variant="ghost" size="sm" onClose={requestClose} />
             </div>
           )}
         </div>
