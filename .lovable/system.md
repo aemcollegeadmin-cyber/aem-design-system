@@ -151,3 +151,19 @@ generated token and component reference.
   `bg-accent-brand`), а не окремий компонент.
 - Бали, час і місця передаються вже відформатованими рядками — компоненти не
   форматують числа.
+
+## Гейміфікація (MVP)
+
+- Стани завантаження і порожні стани вже вбудовані: `ScoreCard loading`,
+  `LeaderboardCard loading` / порожній `entries={[]}` (показує `emptyLabel`),
+  `ScoreCard chart={{ bars: [] }}` (перший тиждень), `Scoreboard loading` /
+  порожні `rows`. Не малюй власні `Skeleton`/`EmptyState` для цих блоків.
+- Серія 0 днів — `<StreakChip days={0} active={false} />`, не окремий компонент.
+- Окрема сторінка рейтингу тижня — `Scoreboard` (`rows`, `currentRow` для
+  закріпленого власного рядка, `footer` для `Pagination`). Без перемикача
+  періодів: MVP показує лише тиждень.
+- Нарахування балів показується тостом `toastPoints({ points, reason })`;
+  потрібен один `<Toaster />` у корені. Не роби власних toast-стилів.
+- Підвищення місця в рейтингу — `RankUpDialog` у `DialogRoot` з керованим
+  `open`. Показувати один раз на подію, не на кожен рендер.
+
