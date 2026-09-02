@@ -10,6 +10,7 @@ const iconButton = cva(
         muted: "border-border-strong bg-surface-muted text-ink hover:bg-border-subtle",
         solid: "bg-ink text-surface hover:bg-ink/90",
         lime: "bg-accent-lime text-accent-lime-fg hover:brightness-95",
+        ghost: "border-transparent bg-transparent text-ink-muted hover:text-ink",
       },
       size: { sm: "size-8", md: "size-10", lg: "size-12" },
     },
