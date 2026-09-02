@@ -177,16 +177,16 @@ export type IconName = keyof typeof icons;
 
 /**
  * Icon scale.
- * - `sm` (16) and `md` (20) render two-tone (duotone) glyphs — a 2px stroke is far too
- *   heavy at those sizes, so small icons are solid shapes instead.
+ * - `md` (20) renders two-tone (duotone) glyphs — a 2px stroke is far too
+ *   heavy at that size, so small icons are solid shapes instead.
  * - `lg` (24) and `xl` (32) render outline glyphs with a constant 2px stroke.
  */
-export const iconSizes = { sm: 16, md: 20, lg: 24, xl: 32 } as const;
+export const iconSizes = { md: 20, lg: 24, xl: 32 } as const;
 
 export type IconSize = keyof typeof iconSizes;
 
 /** Sizes rendered as two-tone glyphs. */
-const filledSizes: IconSize[] = ["sm", "md"];
+const filledSizes: IconSize[] = ["md"];
 
 /**
  * Glyphs that have no enclosed area (arrows, carets, cross, plus …). Phosphor's
