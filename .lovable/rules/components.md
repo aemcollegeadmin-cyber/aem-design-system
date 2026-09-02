@@ -102,6 +102,7 @@ import { Button } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8
 | `variant` | primary · secondary · ghost · lime | `primary` |
 | `size` | sm · md · lg | `md` |
 | `block` | true · false | `false` |
+| `loading` | boolean | `—` |
 
 ### Callout
 
@@ -329,7 +330,7 @@ import { Icon } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bb
 
 | Prop | Type | Default |
 |---|---|---|
-| `name` | home · menu · more · back · forward · up · down · chevronLeft · chevronRight · chevronUp · chevronDown · external · close · logout · course · module · lesson · document · review · bookmark · star · user · users · chat · mail · bell · add · remove · edit · delete · copy · search · settings · send · play · show · hide · check · done · alert · info · dot · clock · calendar · warning · locked | `—` |
+| `name` | home · menu · more · back · forward · up · down · chevronLeft · chevronRight · chevronUp · chevronDown · external · close · logout · course · module · lesson · document · review · bookmark · star · user · users · chat · mail · bell · add · remove · edit · delete · copy · search · settings · send · play · show · hide · check · done · alert · info · dot · clock · calendar · warning · locked · loader · bold · italic · heading1 · heading2 · list · listOrdered · quote · link · unlink · gripVertical · save · bookOpen · fileText · fileImage · folderOpen · image · imagePlus · camera · upload · download · zoomIn · zoomOut · graduationCap · award · trophy · clipboardCheck · activity · megaphone · partyPopper · sparkles · wand · userCircle · userCog · userPlus · userMinus · logIn · keyRound · sliders · refresh · rotateCcw · plug · unplug | `—` |
 | `size` | md · lg · xl | `lg` |
 | `label` | string | `—` |
 
@@ -403,8 +404,9 @@ import { LessonSidebar } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-
 | `tabs` | any | `—` |
 | `value` | string | `—` |
 | `onValueChange` | function | `—` |
+| `headerSlot` | any | `—` |
 | `callout` | any | `—` |
-| `contentState` | clamped · full | `clamped` |
+| `contentState` | clamped · full · scroll | `clamped` |
 | `actions` | any | `—` |
 
 ### MediaDialog
