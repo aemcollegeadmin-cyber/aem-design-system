@@ -494,6 +494,39 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       ),
     },
     {
+      id: "page-nav",
+      title: "PageNav",
+      node: (
+        <>
+          <Specimen
+            label="back + заголовок + другорядний рядок + статус"
+            code={`<PageNav backHref="/" title="Чат з ментором" subtitle="Інтерфейсник → UX/UI" actions={<Badge tone="onSurface" variant="lime">Прийнято</Badge>} />`}
+          >
+            <PageNav
+              className="w-full"
+              backHref="#page-nav"
+              title="Чат з ментором"
+              subtitle="Інтерфейсник → Професійний погляд на UX/UI → Стартапи та MVP продукти"
+              actions={<Badge variant="lime">Прийнято</Badge>}
+            />
+          </Specimen>
+          <Specimen label="з хлібними крихтами" code={`<PageNav onBack={...} breadcrumbs={[...]} />`}>
+            <PageNav
+              className="w-full"
+              onBack={() => undefined}
+              title="Веб-дизайн з нуля"
+              breadcrumbs={[
+                { label: "Головна", href: "/" },
+                { label: "Курси", href: "/components" },
+                { label: "Веб-дизайн" },
+              ]}
+              actions={<Button variant="lime">Продовжити</Button>}
+            />
+          </Specimen>
+        </>
+      ),
+    },
+    {
       id: "sidebar",
       title: "Sidebar / NavItem",
       node: (
