@@ -12,13 +12,21 @@ export interface TabsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "o
   onValueChange?: (value: string) => void;
 }
 
-/** Segmented tab switcher with a white active pill. */
+/** Segmented tab switcher with a bordered, pill-shaped track. */
 export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
   { items, value, onValueChange, className, ...props },
   ref,
 ) {
   return (
-    <div ref={ref} role="tablist" className={cn("flex gap-1 rounded-pill p-1", className)} {...props}>
+    <div
+      ref={ref}
+      role="tablist"
+      className={cn(
+        "flex gap-1 rounded-pill border-2 border-border-strong bg-surface-muted p-1",
+        className,
+      )}
+      {...props}
+    >
       {items.map((item) => {
         const active = item.value === value;
         return (
@@ -30,7 +38,9 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
             onClick={() => onValueChange?.(item.value)}
             className={cn(
               "rounded-pill px-4 py-2 text-caption font-medium transition-colors",
-              active ? "bg-surface text-ink shadow-card" : "text-ink-muted hover:text-ink-soft",
+              active
+                ? "bg-surface text-ink shadow-card"
+                : "text-ink-muted hover:bg-surface hover:text-ink-soft",
             )}
           >
             {item.label}
