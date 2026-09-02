@@ -174,6 +174,35 @@ export type IconSize = keyof typeof iconSizes;
 /** Sizes rendered as solid glyphs. */
 const filledSizes: IconSize[] = ["sm", "md"];
 
+/**
+ * Glyphs that have no enclosed area (arrows, carets, cross, plus …). Phosphor's
+ * `fill` weight wraps those in a solid square, which reads as a different icon,
+ * so they use the heavy `bold` weight instead — visually solid, same shape.
+ */
+const strokeOnlyGlyphs = new Set<IconName>([
+  "menu",
+  "more",
+  "back",
+  "forward",
+  "up",
+  "down",
+  "chevronLeft",
+  "chevronRight",
+  "chevronUp",
+  "chevronDown",
+  "external",
+  "close",
+  "logout",
+  "add",
+  "remove",
+  "edit",
+  "copy",
+  "search",
+  "send",
+  "check",
+]);
+
+
 export interface IconProps extends Omit<React.SVGProps<SVGSVGElement>, "ref"> {
   /** Semantic icon name from the system registry. */
   name: IconName;
