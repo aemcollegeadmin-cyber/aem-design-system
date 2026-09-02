@@ -13,6 +13,15 @@ export interface OnboardingStep {
   content?: React.ReactNode;
   /** Overrides the default «Далі» / «Почати» label. */
   nextLabel?: string;
+  /** Blocks the primary action (e.g. required field is empty). */
+  nextDisabled?: boolean;
+  /** Spinner on the primary action while the step is being submitted. */
+  nextLoading?: boolean;
+  /**
+   * Runs before advancing. Return (or resolve to) `false` to stay on the step —
+   * used for per-step validation.
+   */
+  onNext?: () => void | boolean | Promise<void | boolean>;
 }
 
 export interface OnboardingDialogProps {
@@ -73,7 +82,19 @@ export function OnboardingDialog({
         primaryAction={{
           label: step.nextLabel ?? (isLast ? finishLabel : nextLabel),
           keepOpen: !isLast,
-          onClick: () => (isLast ? onFinish?.() : setIndex((i) => i + 1)),
+          disabled: step.nextDisabled,
+          loading: step.nextLoading,
+          onClick: async () => {
+            if (step.onNext) {
+              const ok = await step.onNext();
+              if (ok === false) return false;
+            }
+            if (isLast) {
+              onFinish?.();
+              return;
+            }
+            setIndex((i) => i + 1);
+          },
         }}
         secondaryAction={
           index > 0
