@@ -134,3 +134,20 @@ generated token and component reference.
 - `LessonSidebar` має `contentState="scroll"` (фіксована висота панелі, скролиться лише тіло) та `headerSlot` (форма/фільтри замість табів).
 - `MediaDialogAction` підтримує `disabled` і `loading`; `onClick` може повернути `false` (або Promise, що резолвиться у `false`), щоб не закривати попап при помилці валідації. Async `onClick` автоматично показує спінер. `OnboardingStep` має `onNext`, `nextDisabled`, `nextLoading`.
 - `Button` має проп `loading` (спінер + блокування).
+
+## Дашборд студента (ScoreCard / LeaderboardCard / ContinueLessonCard / StreakChip)
+
+- Головна сторінка навчання складається з готових компонентів; не збирай власні
+  картки: `ScoreCard` (бал у коледжі, 2/3 сітки), `LeaderboardCard` (рейтинг
+  тижня, 1/3 сітки), `ContinueLessonCard` (урок, на якому людина зупинилась),
+  `StreakChip` (day streak у шапці, поруч з головною дією).
+- Темні поверхні мають власні токени: `bg-surface-inverse`,
+  `bg-surface-inverse-muted`, `text-on-inverse`, `text-on-inverse-soft`,
+  `bg-on-inverse-track`. На темному фоні НЕ використовуй `text-ink*`.
+- Прев'ю уроку — тільки `MediaPreview` з `kind="video|test|reading|task|image"`
+  (глиф підбирається автоматично) і `size="sm|md|lg"`. Не вставляй `<video>` чи
+  `<img>` вручну як постер.
+- Поточний студент у рейтингу — `current: true` у записі (рядок стає
+  `bg-accent-brand`), а не окремий компонент.
+- Бали, час і місця передаються вже відформатованими рядками — компоненти не
+  форматують числа.
