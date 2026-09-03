@@ -15,6 +15,7 @@ import {
   Card,
   ChatBubble,
   ChatInput,
+  ChatPanel,
   Checkbox,
   ConfirmDialog,
   ContinueLessonCard,
@@ -696,6 +697,36 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
         </Specimen>
       ),
     },
+    {
+      id: "chat-panel",
+      title: "ChatPanel",
+      node: (
+        <Specimen
+          label="висота панелі така сама, як у LessonSidebar (contentState: fit / scroll / full)"
+          code={`<ChatPanel headerSlot={<Text variant="h3">Чат з ментором</Text>} composer={<ChatInput />}>…</ChatPanel>`}
+        >
+          <ChatPanel
+            className="max-w-lg"
+            contentState="scroll"
+            floatingComposerOnMobile={false}
+            headerSlot={<Text variant="h3">Чат з ментором</Text>}
+            composer={<ChatInput />}
+            style={{ height: 360 }}
+          >
+            <ChatBubble author="Олена Ковальчук" time="10:24">
+              Подивіться, будь ласка, відступи в другому блоці.
+            </ChatBubble>
+            <ChatBubble author="Ви" time="10:31" variant="outgoing">
+              Дякую! Виправлю до вечора.
+            </ChatBubble>
+            <ChatBubble author="Олена Ковальчук" time="10:35">
+              Супер, тоді чекаю оновлення й одразу перевірю.
+            </ChatBubble>
+          </ChatPanel>
+        </Specimen>
+      ),
+    },
+
     {
       id: "app-header",
       title: "AppHeader",
