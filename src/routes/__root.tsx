@@ -35,6 +35,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "preload", href: fixelRegular, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "preload", href: fixelMedium, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "preload", href: fixelSemiBold, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "preload", href: fixelBold, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
