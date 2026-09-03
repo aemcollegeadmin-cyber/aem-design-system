@@ -93,7 +93,7 @@ export const LessonSidebar = forwardRef<HTMLElement, LessonSidebarProps>(functio
       className={cn(
         SIDEBAR_SHELL,
         scroll && "h-full",
-        fit && "lg:sticky lg:top-4 lg:h-[calc(100dvh-2rem)] lg:max-h-[calc(100dvh-2rem)]",
+        fit && "aem-panel-fit lg:sticky lg:top-4 lg:h-[calc(100dvh-2rem)] lg:max-h-[calc(100dvh-2rem)]",
         className,
       )}
       {...props}
@@ -106,7 +106,7 @@ export const LessonSidebar = forwardRef<HTMLElement, LessonSidebarProps>(functio
           SIDEBAR_BODY,
           clamped && "max-h-72 overflow-hidden",
           scroll && "flex-1 overflow-y-auto",
-          fit && "lg:flex-1 lg:overflow-y-auto",
+          fit && "aem-panel-fit-body lg:flex-1 lg:overflow-y-auto",
         )}
       >
         {children}

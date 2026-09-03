@@ -487,3 +487,29 @@ input[type="search"]::-webkit-search-results-decoration {
 .shadow-card { box-shadow: var(--aem-shadow-card); }
 .shadow-overlay { box-shadow: var(--aem-shadow-overlay); }
 .font-sans { font-family: var(--font-sans); }
+
+/* -------------------------------------------------------------------------
+ * Panel geometry (framework-independent).
+ * LessonSidebar / ChatPanel `fit` mode. Plain CSS so consumers on Tailwind v3
+ * get identical panel heights even if the design-system folder is not part of
+ * their Tailwind `content` globs.
+ * ---------------------------------------------------------------------- */
+.aem-panel-fit {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .aem-panel-fit {
+    position: sticky;
+    top: 1rem;
+    height: calc(100dvh - 2rem);
+    max-height: calc(100dvh - 2rem);
+  }
+
+  .aem-panel-fit-body {
+    flex: 1 1 0%;
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
