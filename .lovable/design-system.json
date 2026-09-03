@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.4.10",
+    "version": "1.4.11",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -65,11 +65,11 @@
       "src/design-system/aem/components/LeaderboardCard.tsx": "991382148c9337b729e4bb9e81057ea9",
       "src/design-system/aem/components/LessonRow.tsx": "0555fa1c2e7cc1e437e9204a2e2d5bbe",
       "src/design-system/aem/components/LessonSidebar.tsx": "0a32c6b3af96a058a88b5acf40c8eb9f",
-      "src/design-system/aem/components/MediaDialog.tsx": "42ce3ed65d7e49f51f41e524d9179300",
+      "src/design-system/aem/components/MediaDialog.tsx": "3a1b2a9d2d8f9da898510207329ed518",
       "src/design-system/aem/components/MediaPreview.tsx": "171ba31ee0ceba7852de7c1a584ca763",
       "src/design-system/aem/components/ModuleCard.tsx": "9d02fa09280266d81725c620bae3ac47",
       "src/design-system/aem/components/NavItem.tsx": "e0ce096c874e9f48d65441a5a405e6e5",
-      "src/design-system/aem/components/OnboardingDialog.tsx": "99a44c9526d8d3cfad0bbebed089b485",
+      "src/design-system/aem/components/OnboardingDialog.tsx": "5d15e0e513fbcc6fbd19db4c1213471b",
       "src/design-system/aem/components/PageHeader.tsx": "e90e0abfc43e1eddf78bb2a858f7df68",
       "src/design-system/aem/components/PageNav.tsx": "f8ce5fd4c357f4901dac60a524022f2b",
       "src/design-system/aem/components/Pagination.tsx": "cec2b76ec33f9b8802e70f8b739d1e6f",
@@ -99,7 +99,7 @@
       "src/design-system/aem/components/Toolbar.tsx": "1586c628f3bf7f2517228cc149aa5dee",
       "src/design-system/aem/components/Tooltip.tsx": "dafb29ed748b0fdd266dadefb2efeeea",
       "src/design-system/aem/components/UserChip.tsx": "347e5e99c875cef170828c3bfa536b41",
-      "src/design-system/aem/index.ts": "2c93a8255e55e72a0bd443b9ab89b79f",
+      "src/design-system/aem/index.ts": "f7570ae1e197cfe15685c2ec2ba34451",
       "src/design-system/aem/lib/cn.ts": "1d5cc6c3839f7bc135e050f50af58daa",
       "src/design-system/aem/lib/useFitViewport.ts": "ae9c180f59d720509220d63470d85d64",
       "src/design-system/aem/styles/theme-shadcn-v3.css": "8c00f28413f7d77f6e3a33c12f9532d1",
@@ -1759,6 +1759,16 @@
             "wide"
           ],
           "default": "video"
+        },
+        {
+          "name": "mediaSurface",
+          "type": "enum",
+          "values": [
+            "muted",
+            "inverse",
+            "transparent"
+          ],
+          "default": "muted"
         },
         {
           "name": "icon",

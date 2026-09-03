@@ -480,6 +480,7 @@ import { MediaDialog } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e3
 | `media` | any | `—` |
 | `mediaComponent` | any | `—` |
 | `mediaAspect` | video · square · wide | `video` |
+| `mediaSurface` | muted · inverse · transparent | `muted` |
 | `icon` | any | `—` |
 | `step` | object | `—` |
 | `primaryAction` | any | `—` |
