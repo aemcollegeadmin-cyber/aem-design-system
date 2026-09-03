@@ -992,8 +992,31 @@ function LessonSidebarDemo() {
         {state === "clamped" ? "contentState=\"full\"" : "contentState=\"clamped\""}
       </Button>
     </div>
+
+    <LessonSidebar
+      className="max-w-sm"
+      contentState="full"
+      floatingActionsOnMobile={false}
+      headerSlot={<Text variant="h3">Перевірка роботи</Text>}
+      callout={<Callout variant="warning">Здано 2 вересня — очікує на перевірку</Callout>}
+      actions={
+        <>
+          <Button block>Прийняти роботу</Button>
+          <Button variant="secondary" block>
+            Повернути на доопрацювання
+          </Button>
+        </>
+      }
+    >
+      <Text variant="paragraph">
+        Роль ментора змінює лише контент: заголовок замість табів і свої дії. Відступи, радіус,
+        розділювач і висоти кнопок — ті самі, що в панелі студента.
+      </Text>
+    </LessonSidebar>
+    </div>
   );
 }
+
 
 function EditHeaderDemo() {
   const [title, setTitle] = useState("Урок 4. Модульні сітки");
