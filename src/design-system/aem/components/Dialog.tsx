@@ -35,7 +35,7 @@ export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog(
 ) {
   return (
     <Portal>
-      <Overlay className="fixed inset-0 z-40 bg-ink/80 backdrop-blur-[2px]" />
+      <Overlay className="aem-modal-overlay" />
       <Content
         ref={ref}
         className={cn(

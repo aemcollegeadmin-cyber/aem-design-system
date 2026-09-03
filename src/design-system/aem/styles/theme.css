@@ -238,3 +238,14 @@ input[type="search"]::-webkit-search-results-decoration {
     overflow-y: auto;
   }
 }
+
+/* Modal scrim (framework-independent) — used by all dialog overlays so
+   consumers get the dim + subtle blur without Tailwind color utilities. */
+.aem-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background-color: color-mix(in srgb, var(--aem-ink) 80%, transparent);
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
