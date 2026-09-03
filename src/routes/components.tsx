@@ -945,7 +945,9 @@ function LessonSidebarDemo() {
   const [state, setState] = useState<"clamped" | "full">("clamped");
 
   return (
+    <div className="grid w-full gap-4 lg:grid-cols-2">
     <div className="flex w-full max-w-sm flex-col gap-3">
+
       <LessonSidebar
         tabs={[
           { value: "info", label: "Інформація" },
