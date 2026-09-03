@@ -40,15 +40,14 @@ export interface OnboardingDialogProps {
 
 /**
  * Multi-step onboarding / welcome flow built on `MediaDialog`: media or accent
- * icon per step, progress dots, back / next / skip. Blocking when `onSkip`
+ * icon per step, progress dots, back / next. Blocking when `onClose`
  * is omitted (no close control, Esc and overlay clicks are ignored).
  */
 export function OnboardingDialog({
   open,
   steps,
   onFinish,
-  onSkip,
-  skipLabel = "Пропустити",
+  onClose,
   backLabel = "Назад",
   nextLabel = "Далі",
   finishLabel = "Почати",
@@ -65,7 +64,7 @@ export function OnboardingDialog({
     <Root
       open={open}
       onOpenChange={(next) => {
-        if (!next) onSkip?.();
+        if (!next) onClose?.();
       }}
     >
       <MediaDialog
@@ -76,7 +75,7 @@ export function OnboardingDialog({
         icon={step.icon}
         size={size}
         align={align}
-        dismissible={Boolean(onSkip)}
+        dismissible={Boolean(onClose)}
         step={steps.length > 1 ? { current: index + 1, total: steps.length } : undefined}
         primaryAction={{
           label: step.nextLabel ?? (isLast ? finishLabel : nextLabel),
@@ -100,7 +99,6 @@ export function OnboardingDialog({
             ? { label: backLabel, keepOpen: true, onClick: () => setIndex((i) => i - 1) }
             : undefined
         }
-        tertiaryAction={onSkip && !isLast ? { label: skipLabel, onClick: onSkip } : undefined}
       >
         {step.content}
       </MediaDialog>
