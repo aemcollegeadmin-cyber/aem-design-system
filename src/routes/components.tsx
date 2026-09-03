@@ -15,6 +15,7 @@ import {
   Card,
   ChatBubble,
   ChatInput,
+  ChatPanel,
   Checkbox,
   ConfirmDialog,
   ContinueLessonCard,
