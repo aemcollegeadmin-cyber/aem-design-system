@@ -50,7 +50,7 @@ export const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>(functio
   return (
     <div
       className={cn(
-        "flex min-h-11 items-end gap-2 rounded-[var(--radius-composer)] border-2 border-border-strong bg-surface p-1 pl-4 transition-colors hover:border-ink focus-within:border-ink",
+        "flex min-h-11 items-start gap-2 rounded-[var(--radius-composer)] border-2 border-border-strong bg-surface p-1 pl-4 transition-colors hover:border-ink focus-within:border-ink",
         className,
       )}
     >
@@ -60,7 +60,7 @@ export const ChatInput = forwardRef<HTMLTextAreaElement, ChatInputProps>(functio
         value={currentValue}
         placeholder={placeholder}
         rows={1}
-        className="min-h-8 max-h-40 flex-1 resize-none bg-transparent py-1.5 text-body leading-5 text-ink placeholder:text-ink-muted focus:outline-none focus-visible:ring-0"
+        className="min-h-8 max-h-40 flex-1 resize-none bg-transparent py-2 text-body leading-5 text-ink placeholder:text-ink-muted focus:outline-none focus-visible:ring-0"
 
         onChange={(e) => {
           setInternalValue(e.target.value);
