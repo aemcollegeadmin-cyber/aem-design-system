@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.4.9",
+    "version": "1.4.10",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -47,13 +47,13 @@
       "src/design-system/aem/components/Callout.tsx": "aa643587b9b938bdb4387a6f618a9d0b",
       "src/design-system/aem/components/Card.tsx": "8c76c2b0b642dad9d5d339b4ed509a3e",
       "src/design-system/aem/components/ChatBubble.tsx": "dc6eecb6af44c5bf2d96a151979d423c",
-      "src/design-system/aem/components/ChatInput.tsx": "a37bb1bf8a3a0e85062b27cce2cec290",
+      "src/design-system/aem/components/ChatInput.tsx": "b80f0125bfd7f544a769cba97eb8e0a8",
       "src/design-system/aem/components/ChatPanel.tsx": "ee16eba11c304e31c24616b8249c7cd9",
       "src/design-system/aem/components/Checkbox.tsx": "b98c0fa42b5279d75cb1810b4bcc9f01",
       "src/design-system/aem/components/ConfirmDialog.tsx": "7389221bcfb7f76aae1edbf3a2a0a971",
       "src/design-system/aem/components/ContinueLessonCard.tsx": "6b90fc14d2a90970780ba910703e36ee",
       "src/design-system/aem/components/CourseCard.tsx": "5595b45fb48233acf4a054a802f11089",
-      "src/design-system/aem/components/Dialog.tsx": "545fd5d1b178ca0b242d407793a90b07",
+      "src/design-system/aem/components/Dialog.tsx": "7501d65667c1fc9b00c2d3b64849d823",
       "src/design-system/aem/components/DropdownMenu.tsx": "2fdcee875788b2fdb5d2c07e33e285f0",
       "src/design-system/aem/components/EditHeader.tsx": "4e06b5df269c955f89d28f1cbb31cc58",
       "src/design-system/aem/components/EmptyState.tsx": "f54206c48162ab3bc179e7b245a6711d",
@@ -65,25 +65,25 @@
       "src/design-system/aem/components/LeaderboardCard.tsx": "991382148c9337b729e4bb9e81057ea9",
       "src/design-system/aem/components/LessonRow.tsx": "0555fa1c2e7cc1e437e9204a2e2d5bbe",
       "src/design-system/aem/components/LessonSidebar.tsx": "0a32c6b3af96a058a88b5acf40c8eb9f",
-      "src/design-system/aem/components/MediaDialog.tsx": "0141461bf649eb3317d1c21fe8cd9605",
+      "src/design-system/aem/components/MediaDialog.tsx": "42ce3ed65d7e49f51f41e524d9179300",
       "src/design-system/aem/components/MediaPreview.tsx": "171ba31ee0ceba7852de7c1a584ca763",
       "src/design-system/aem/components/ModuleCard.tsx": "9d02fa09280266d81725c620bae3ac47",
       "src/design-system/aem/components/NavItem.tsx": "e0ce096c874e9f48d65441a5a405e6e5",
-      "src/design-system/aem/components/OnboardingDialog.tsx": "d61cade0124068af87c398c51a631065",
+      "src/design-system/aem/components/OnboardingDialog.tsx": "99a44c9526d8d3cfad0bbebed089b485",
       "src/design-system/aem/components/PageHeader.tsx": "e90e0abfc43e1eddf78bb2a858f7df68",
       "src/design-system/aem/components/PageNav.tsx": "f8ce5fd4c357f4901dac60a524022f2b",
       "src/design-system/aem/components/Pagination.tsx": "cec2b76ec33f9b8802e70f8b739d1e6f",
       "src/design-system/aem/components/PasswordInput.tsx": "4a3f1540e9d464a64a553444ee8bdf4a",
       "src/design-system/aem/components/ProgressBar.tsx": "bcf319a3c23c2eb255878534656b4bc9",
       "src/design-system/aem/components/RadioGroup.tsx": "641eaa4dfe762c108d486ade24a554a8",
-      "src/design-system/aem/components/RankUpDialog.tsx": "4e77d87bbcb13be5e72e677d7939e67e",
+      "src/design-system/aem/components/RankUpDialog.tsx": "a62ac6026f69da6b606303e76adf706a",
       "src/design-system/aem/components/ScoreCard.tsx": "34143a1a6c1f2aaf02fd64f0344515c6",
       "src/design-system/aem/components/ScoreToast.tsx": "32c003d32232589e3147dfaaaaa482b0",
       "src/design-system/aem/components/Scoreboard.tsx": "c1a01c105f1cfe0e499ce393bec0238b",
       "src/design-system/aem/components/SearchInput.tsx": "8293be0b87fba65a7842b7b220a7b6e5",
       "src/design-system/aem/components/Select.tsx": "dff60a51e5de48b67935fedbe7a3c904",
       "src/design-system/aem/components/Separator.tsx": "9dfafbe798c75a657d690c52f749b339",
-      "src/design-system/aem/components/Sheet.tsx": "32620ea8101ec79e65478f68e629cf93",
+      "src/design-system/aem/components/Sheet.tsx": "23175cdce8e867970125dedf2a341020",
       "src/design-system/aem/components/Sidebar.tsx": "aad638bf560143f983f40e181fd32321",
       "src/design-system/aem/components/Skeleton.tsx": "a9039b2552fafd295f98bd6374519b88",
       "src/design-system/aem/components/StatCard.tsx": "d5a63dcf676e0f58d3ca7f8e2767b129",
@@ -110,9 +110,9 @@
       "src/router.tsx": "8f905e713b0eba7fa8148b7995a708c9",
       "src/routes/[__component].preview.$.tsx": "06d671f4774ac83355e59ad69a350bab",
       "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
-      "src/routes/__root.tsx": "e0e9f48d95e12695a88b6f0d51514f34",
+      "src/routes/__root.tsx": "fe9de980adb4a4867de6b31db4d4fbf9",
       "src/routes/colors.tsx": "fcee8aeb0fd5af838edc738476e1811c",
-      "src/routes/components.tsx": "01794a7663831c77c0095fb1387e7189",
+      "src/routes/components.tsx": "314384f628d8a0991f5eb9783f4b84d6",
       "src/routes/index.tsx": "3913e960e9ffe2db34f533e48477d28e",
       "src/routes/typography.tsx": "92d62f0915b6284f6e9ad3b65fe0949f",
       "src/showcase/ShowcaseShell.tsx": "61ee35bb64c0c7befd38f492eb7236c9",
@@ -1747,6 +1747,10 @@
           "type": "any"
         },
         {
+          "name": "mediaComponent",
+          "type": "any"
+        },
+        {
           "name": "mediaAspect",
           "type": "enum",
           "values": [
@@ -1831,13 +1835,8 @@
           "type": "function"
         },
         {
-          "name": "onSkip",
+          "name": "onClose",
           "type": "function"
-        },
-        {
-          "name": "skipLabel",
-          "type": "string",
-          "default": "Пропустити"
         },
         {
           "name": "backLabel",

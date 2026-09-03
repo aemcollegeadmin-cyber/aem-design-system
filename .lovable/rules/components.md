@@ -478,6 +478,7 @@ import { MediaDialog } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e3
 | `title` | string | `—` |
 | `description` | string | `—` |
 | `media` | any | `—` |
+| `mediaComponent` | any | `—` |
 | `mediaAspect` | video · square · wide | `video` |
 | `icon` | any | `—` |
 | `step` | object | `—` |
@@ -550,8 +551,7 @@ import { OnboardingDialog } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa
 | `open` | boolean | `—` |
 | `steps` | any | `—` |
 | `onFinish` | function | `—` |
-| `onSkip` | function | `—` |
-| `skipLabel` | string | `Пропустити` |
+| `onClose` | function | `—` |
 | `backLabel` | string | `Назад` |
 | `nextLabel` | string | `Далі` |
 | `finishLabel` | string | `Почати` |
