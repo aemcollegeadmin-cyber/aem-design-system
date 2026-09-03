@@ -198,7 +198,7 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
       >
         <Close ref={closeRef} aria-hidden tabIndex={-1} className="hidden" />
 
-        <header className="flex shrink-0 items-start justify-between gap-4">
+        <header className="flex shrink-0 items-center justify-between gap-4">
           <Title className="min-w-0 flex-1 text-h2 text-left text-ink">{title}</Title>
           {dismissible && (
             <Close asChild>
@@ -215,11 +215,13 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
           {!media && icon && (
             <div
               className={cn(
-                "flex size-12 items-center justify-center rounded-pill bg-accent-lime text-accent-lime-fg",
+                "flex w-full items-center justify-center overflow-hidden rounded-card bg-surface-muted aspect-video text-accent-lime-fg",
                 centered && "mx-auto",
               )}
             >
-              <Icon name={icon} size="lg" />
+              <div className="flex size-12 items-center justify-center rounded-pill bg-accent-lime text-accent-lime-fg">
+                <Icon name={icon} size="lg" />
+              </div>
             </div>
           )}
 
@@ -232,11 +234,8 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
           {children}
 
           {step && (
-            <div className={cn("flex items-center gap-3", centered && "justify-center")}>
+            <div className={cn("flex items-center", centered && "justify-center")}>
               <StepDots current={step.current} total={step.total} />
-              <span className="text-caption text-ink-muted">
-                {step.current} з {step.total}
-              </span>
             </div>
           )}
 

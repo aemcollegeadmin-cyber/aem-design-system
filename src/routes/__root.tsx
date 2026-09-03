@@ -10,6 +10,9 @@ import type { ReactNode } from "react";
 import { Toaster, TooltipProvider } from "@/design-system/aem";
 import appCss from "../styles.css?url";
 import fixelRegular from "../design-system/aem/assets/fonts/FixelDisplay-Regular.woff2?url";
+import fixelMedium from "../design-system/aem/assets/fonts/FixelDisplay-Medium.woff2?url";
+import fixelSemiBold from "../design-system/aem/assets/fonts/FixelDisplay-SemiBold.woff2?url";
+import fixelBold from "../design-system/aem/assets/fonts/FixelDisplay-Bold.woff2?url";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -32,6 +35,9 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "preload", href: fixelRegular, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "preload", href: fixelMedium, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "preload", href: fixelSemiBold, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
+      { rel: "preload", href: fixelBold, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],

@@ -1288,7 +1288,7 @@ function MediaDemo() {
           setTourOpen(false);
           toast.success("Онбординг завершено");
         }}
-        onSkip={() => setTourOpen(false)}
+        onClose={() => setTourOpen(false)}
         steps={[
           {
             title: "Вітаємо в коледжі!",
