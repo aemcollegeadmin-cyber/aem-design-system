@@ -48,8 +48,11 @@ export interface MediaDialogProps
    */
   mediaComponent?: React.ReactNode;
   mediaAspect?: "video" | "square" | "wide";
-  /** Background surface behind media, mediaComponent, or fallback icon. */
-  mediaSurface?: "muted" | "inverse";
+  /**
+   * Background surface behind media, mediaComponent, or fallback icon:
+   * light (`muted`), dark (`inverse`) or none (`transparent`).
+   */
+  mediaSurface?: MediaSurface;
 
   /** Circular accent glyph shown above the title (used when there is no media). */
   icon?: IconName;
@@ -67,11 +70,19 @@ export interface MediaDialogProps
   children?: React.ReactNode;
 }
 
+export type MediaSurface = "muted" | "inverse" | "transparent";
+
+const mediaSurfaces: Record<MediaSurface, string> = {
+  muted: "bg-surface-muted",
+  inverse: "bg-surface-inverse",
+  transparent: "bg-transparent",
+};
+
 const sizes = { sm: "max-w-sm", md: "max-w-lg", lg: "max-w-2xl" } as const;
 const aspects = { video: "aspect-video", square: "aspect-square", wide: "aspect-[21/9]" } as const;
 
-function MediaFrame({ media, aspect, surface }: { media: MediaDialogMedia; aspect: keyof typeof aspects; surface: "muted" | "inverse" }) {
-  const surfaceBg = surface === "inverse" ? "bg-surface-inverse" : "bg-surface-muted";
+function MediaFrame({ media, aspect, surface }: { media: MediaDialogMedia; aspect: keyof typeof aspects; surface: MediaSurface }) {
+  const surfaceBg = mediaSurfaces[surface];
   return (
     <div className={cn("w-full overflow-hidden rounded-card", surfaceBg, aspects[aspect])}>
       {media.type === "image" && (
@@ -192,7 +203,7 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
   ref,
 ) {
   const centered = align === "center";
-  const surfaceBg = mediaSurface === "inverse" ? "bg-surface-inverse" : "bg-surface-muted";
+  const surfaceBg = mediaSurfaces[mediaSurface];
   const onSurfaceColor = mediaSurface === "inverse" ? "text-on-inverse" : "text-accent-lime-fg";
   const glyphSurfaceBg = mediaSurface === "inverse" ? "bg-surface-inverse-muted" : "bg-accent-lime";
   const closeRef = useRef<HTMLButtonElement>(null);
