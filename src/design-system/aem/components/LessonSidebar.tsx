@@ -31,7 +31,11 @@ export interface LessonSidebarProps extends React.HTMLAttributes<HTMLElement> {
    * the same spacing.
    */
   headerSlot?: React.ReactNode;
-  /** Status strip under the header — usually a `Callout`. */
+  /**
+   * Status messages (`Callout` / `Alert`). Rendered as ONE tight group pinned
+   * to the bottom of the panel, above the actions. Pass several elements — the
+   * group keeps a minimal `gap-2` between them.
+   */
   callout?: React.ReactNode;
   /**
    * Body scroll behaviour only — padding, gaps, radius, header and action
