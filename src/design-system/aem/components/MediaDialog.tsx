@@ -48,6 +48,8 @@ export interface MediaDialogProps
    */
   mediaComponent?: React.ReactNode;
   mediaAspect?: "video" | "square" | "wide";
+  /** Background surface behind media, mediaComponent, or fallback icon. */
+  mediaSurface?: "muted" | "inverse";
 
   /** Circular accent glyph shown above the title (used when there is no media). */
   icon?: IconName;
@@ -68,9 +70,10 @@ export interface MediaDialogProps
 const sizes = { sm: "max-w-sm", md: "max-w-lg", lg: "max-w-2xl" } as const;
 const aspects = { video: "aspect-video", square: "aspect-square", wide: "aspect-[21/9]" } as const;
 
-function MediaFrame({ media, aspect }: { media: MediaDialogMedia; aspect: keyof typeof aspects }) {
+function MediaFrame({ media, aspect, surface }: { media: MediaDialogMedia; aspect: keyof typeof aspects; surface: "muted" | "inverse" }) {
+  const surfaceBg = surface === "inverse" ? "bg-surface-inverse" : "bg-surface-muted";
   return (
-    <div className={cn("w-full overflow-hidden rounded-card bg-surface-muted", aspects[aspect])}>
+    <div className={cn("w-full overflow-hidden rounded-card", surfaceBg, aspects[aspect])}>
       {media.type === "image" && (
         <img src={media.src} alt={media.alt ?? ""} className="size-full object-cover" />
       )}
@@ -172,6 +175,7 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
     mediaComponent,
 
     mediaAspect = "video",
+    mediaSurface = "muted",
     icon,
     step,
     primaryAction,
@@ -188,6 +192,9 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
   ref,
 ) {
   const centered = align === "center";
+  const surfaceBg = mediaSurface === "inverse" ? "bg-surface-inverse" : "bg-surface-muted";
+  const onSurfaceColor = mediaSurface === "inverse" ? "text-on-inverse" : "text-accent-lime-fg";
+  const glyphSurfaceBg = mediaSurface === "inverse" ? "bg-surface-inverse-muted" : "bg-accent-lime";
   const closeRef = useRef<HTMLButtonElement>(null);
   const requestClose = () => closeRef.current?.click();
   return (
@@ -219,12 +226,13 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
         </header>
 
         <div className="flex flex-col gap-4">
-          {media && <MediaFrame media={media} aspect={mediaAspect} />}
+          {media && <MediaFrame media={media} aspect={mediaAspect} surface={mediaSurface} />}
 
           {!media && mediaComponent && (
             <div
               className={cn(
-                "relative w-full overflow-hidden rounded-card bg-surface-muted isolate",
+                "relative w-full overflow-hidden rounded-card isolate",
+                surfaceBg,
                 aspects[mediaAspect],
               )}
             >
@@ -236,11 +244,13 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
 
             <div
               className={cn(
-                "flex w-full items-center justify-center overflow-hidden rounded-card bg-surface-muted aspect-video text-accent-lime-fg",
+                "flex w-full items-center justify-center overflow-hidden rounded-card aspect-video",
+                surfaceBg,
+                onSurfaceColor,
                 centered && "mx-auto",
               )}
             >
-              <div className="flex size-12 items-center justify-center rounded-pill bg-accent-lime text-accent-lime-fg">
+              <div className={cn("flex size-12 items-center justify-center rounded-pill", glyphSurfaceBg, onSurfaceColor)}>
                 <Icon name={icon} size="lg" />
               </div>
             </div>
