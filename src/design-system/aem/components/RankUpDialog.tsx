@@ -59,7 +59,7 @@ export const RankUpDialog = forwardRef<HTMLDivElement, RankUpDialogProps>(functi
         )}
         {...props}
       >
-        <header className="flex shrink-0 items-start justify-between gap-4">
+        <header className="flex shrink-0 items-center justify-between gap-4">
           <Title className="min-w-0 flex-1 text-left text-h2 text-ink">{title}</Title>
           <Close asChild>
             <IconButton label={closeLabel} variant="muted" size="sm">
