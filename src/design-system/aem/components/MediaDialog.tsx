@@ -70,9 +70,10 @@ export interface MediaDialogProps
 const sizes = { sm: "max-w-sm", md: "max-w-lg", lg: "max-w-2xl" } as const;
 const aspects = { video: "aspect-video", square: "aspect-square", wide: "aspect-[21/9]" } as const;
 
-function MediaFrame({ media, aspect }: { media: MediaDialogMedia; aspect: keyof typeof aspects }) {
+function MediaFrame({ media, aspect, surface }: { media: MediaDialogMedia; aspect: keyof typeof aspects; surface: "muted" | "inverse" }) {
+  const surfaceBg = surface === "inverse" ? "bg-surface-inverse" : "bg-surface-muted";
   return (
-    <div className={cn("w-full overflow-hidden rounded-card bg-surface-muted", aspects[aspect])}>
+    <div className={cn("w-full overflow-hidden rounded-card", surfaceBg, aspects[aspect])}>
       {media.type === "image" && (
         <img src={media.src} alt={media.alt ?? ""} className="size-full object-cover" />
       )}
@@ -174,6 +175,7 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
     mediaComponent,
 
     mediaAspect = "video",
+    mediaSurface = "muted",
     icon,
     step,
     primaryAction,
@@ -190,6 +192,9 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
   ref,
 ) {
   const centered = align === "center";
+  const surfaceBg = mediaSurface === "inverse" ? "bg-surface-inverse" : "bg-surface-muted";
+  const onSurfaceColor = mediaSurface === "inverse" ? "text-on-inverse" : "text-accent-lime-fg";
+  const glyphSurfaceBg = mediaSurface === "inverse" ? "bg-surface-inverse-muted" : "bg-accent-lime";
   const closeRef = useRef<HTMLButtonElement>(null);
   const requestClose = () => closeRef.current?.click();
   return (
