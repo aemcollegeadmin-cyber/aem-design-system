@@ -247,5 +247,4 @@ input[type="search"]::-webkit-search-results-decoration {
   z-index: 40;
   background-color: color-mix(in srgb, var(--aem-ink) 80%, transparent);
   backdrop-filter: blur(2px);
-  -webkit-backdrop-filter: blur(2px);
 }
