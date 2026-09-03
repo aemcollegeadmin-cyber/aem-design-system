@@ -1,6 +1,7 @@
 import { forwardRef, useId } from "react";
 import { Tabs, type TabItem } from "./Tabs";
 import { cn } from "../lib/cn";
+import { useFitViewport } from "../lib/useFitViewport";
 
 /**
  * Invariants shared by EVERY LessonSidebar instance, regardless of the account
@@ -81,6 +82,7 @@ export const LessonSidebar = forwardRef<HTMLElement, LessonSidebarProps>(functio
   const clamped = contentState === "clamped";
   const scroll = contentState === "scroll";
   const fit = contentState === "fit";
+  const fitRef = useFitViewport<HTMLElement>(fit);
   const floating = Boolean(actions) && floatingActionsOnMobile;
   const header = headerSlot ??
     (tabs && value ? (
@@ -89,7 +91,11 @@ export const LessonSidebar = forwardRef<HTMLElement, LessonSidebarProps>(functio
 
   return (
     <aside
-      ref={ref}
+      ref={(node) => {
+        (fitRef as React.MutableRefObject<HTMLElement | null>).current = node;
+        if (typeof ref === "function") ref(node);
+        else if (ref) (ref as React.MutableRefObject<HTMLElement | null>).current = node;
+      }}
       className={cn(
         SIDEBAR_SHELL,
         scroll && "h-full",

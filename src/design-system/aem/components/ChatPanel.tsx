@@ -55,6 +55,7 @@ export const ChatPanel = forwardRef<HTMLElement, ChatPanelProps>(function ChatPa
 ) {
   const threadRef = useRef<HTMLDivElement>(null);
   const fit = contentState === "fit";
+  const fitRef = useFitViewport<HTMLElement>(fit);
   const scroll = contentState === "scroll";
   const floating = Boolean(composer) && floatingComposerOnMobile;
 
@@ -66,7 +67,11 @@ export const ChatPanel = forwardRef<HTMLElement, ChatPanelProps>(function ChatPa
 
   return (
     <section
-      ref={ref}
+      ref={(node) => {
+        (fitRef as React.MutableRefObject<HTMLElement | null>).current = node;
+        if (typeof ref === "function") ref(node);
+        else if (ref) (ref as React.MutableRefObject<HTMLElement | null>).current = node;
+      }}
       className={cn(
         PANEL_SHELL,
         scroll && "h-full",
