@@ -41,7 +41,14 @@ export interface MediaDialogProps
   description?: string;
   /** Visual at the top of the dialog: screenshot, GIF, video or embed. */
   media?: MediaDialogMedia;
+  /**
+   * Custom React node (e.g. a CSS/React animation) rendered inside the same
+   * media container. Used only when `media` is not provided — `media` wins.
+   * The node must keep its styles scoped to its own container.
+   */
+  mediaComponent?: React.ReactNode;
   mediaAspect?: "video" | "square" | "wide";
+
   /** Circular accent glyph shown above the title (used when there is no media). */
   icon?: IconName;
   /** Onboarding step position — renders progress dots and «N з M». */
