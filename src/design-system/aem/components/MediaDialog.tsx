@@ -48,6 +48,8 @@ export interface MediaDialogProps
    */
   mediaComponent?: React.ReactNode;
   mediaAspect?: "video" | "square" | "wide";
+  /** Background surface behind media, mediaComponent, or fallback icon. */
+  mediaSurface?: "muted" | "inverse";
 
   /** Circular accent glyph shown above the title (used when there is no media). */
   icon?: IconName;

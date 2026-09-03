@@ -10,6 +10,7 @@ export interface OnboardingStep {
   /** Custom React node (animation etc.) rendered in the media container when `media` is absent. */
   mediaComponent?: React.ReactNode;
   mediaAspect?: MediaDialogProps["mediaAspect"];
+  mediaSurface?: MediaDialogProps["mediaSurface"];
 
   icon?: IconName;
   /** Extra content (form fields, checklist) rendered under the description. */
