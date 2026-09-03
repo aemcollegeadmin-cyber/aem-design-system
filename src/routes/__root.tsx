@@ -9,6 +9,7 @@ import type { ReactNode } from "react";
 
 import { Toaster, TooltipProvider } from "@/design-system/aem";
 import appCss from "../styles.css?url";
+import fixelRegular from "../design-system/aem/assets/fonts/FixelDisplay-Regular.woff2?url";
 
 export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()({
   head: () => ({
@@ -30,6 +31,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "preload", href: fixelRegular, as: "font", type: "font/woff2", crossOrigin: "anonymous" },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
     ],
