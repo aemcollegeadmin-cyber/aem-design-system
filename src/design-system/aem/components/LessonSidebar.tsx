@@ -10,6 +10,11 @@ import { cn } from "../lib/cn";
 const SIDEBAR_SHELL = "flex min-h-0 w-full flex-col gap-4 rounded-panel bg-surface p-4 shadow-card";
 const SIDEBAR_HEADER = "shrink-0";
 const SIDEBAR_BODY = "relative min-h-0 text-body text-ink";
+/**
+ * Status messages (Callout / Alert) always sit at the BOTTOM of the panel,
+ * directly ABOVE the actions. They are one visual group: `gap-2`, no divider.
+ */
+const SIDEBAR_CALLOUTS = "mt-auto flex shrink-0 flex-col gap-2";
 const SIDEBAR_ACTIONS = "flex shrink-0 flex-col gap-3 border-t-2 border-border-line pt-4";
 const SIDEBAR_ACTIONS_MOBILE =
   "max-lg:fixed max-lg:inset-x-0 max-lg:bottom-0 max-lg:z-40 max-lg:border-t-2 max-lg:bg-surface max-lg:px-4 max-lg:pb-[max(1rem,env(safe-area-inset-bottom))] max-lg:pt-3";
@@ -26,7 +31,11 @@ export interface LessonSidebarProps extends React.HTMLAttributes<HTMLElement> {
    * the same spacing.
    */
   headerSlot?: React.ReactNode;
-  /** Status strip under the header — usually a `Callout`. */
+  /**
+   * Status messages (`Callout` / `Alert`). Rendered as ONE tight group pinned
+   * to the bottom of the panel, above the actions. Pass several elements — the
+   * group keeps a minimal `gap-2` between them.
+   */
   callout?: React.ReactNode;
   /**
    * Body scroll behaviour only — padding, gaps, radius, header and action
@@ -91,8 +100,6 @@ export const LessonSidebar = forwardRef<HTMLElement, LessonSidebarProps>(functio
     >
       {header && <div className={SIDEBAR_HEADER}>{header}</div>}
 
-      {callout && <div className={SIDEBAR_HEADER}>{callout}</div>}
-
       <div
         id={panelId}
         className={cn(
@@ -111,9 +118,12 @@ export const LessonSidebar = forwardRef<HTMLElement, LessonSidebarProps>(functio
         )}
       </div>
 
+      {callout && <div className={SIDEBAR_CALLOUTS}>{callout}</div>}
+
       {actions && (
         <div className={cn(SIDEBAR_ACTIONS, floating && SIDEBAR_ACTIONS_MOBILE)}>{actions}</div>
       )}
+
       {floating && <div aria-hidden="true" className="h-20 shrink-0 lg:hidden" />}
     </aside>
   );

@@ -987,7 +987,15 @@ function LessonSidebarDemo() {
         value={tab}
         onValueChange={setTab}
         contentState={state}
-        callout={<Callout variant="done">Урок пройдено! 2 вересня 2026 р. о 23:36</Callout>}
+        callout={
+          <>
+            <Callout variant="done">Урок пройдено! 2 вересня 2026 р. о 23:36</Callout>
+            <Callout variant="neutral">
+              Це домашнє завдання приймається автоматично, але його виконання враховується для
+              отримання сертифікату.
+            </Callout>
+          </>
+        }
         actions={
           <>
             <Button variant="secondary" block>
