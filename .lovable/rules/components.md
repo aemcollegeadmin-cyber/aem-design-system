@@ -159,6 +159,23 @@ import { ChatInput } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33a
 | `sendLabel` | string | `Надіслати` |
 | `onSend` | function | `—` |
 
+### ChatPanel
+
+```ts
+import { ChatPanel } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `headerSlot` | any | `—` |
+| `callout` | any | `—` |
+| `composer` | any | `—` |
+| `contentState` | fit · scroll · full | `fit` |
+| `floatingComposerOnMobile` | boolean | `true` |
+| `autoScroll` | boolean | `true` |
+
 ### Checkbox
 
 ```ts
