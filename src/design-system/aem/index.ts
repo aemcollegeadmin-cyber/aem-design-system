@@ -54,6 +54,7 @@ export {
 export { Textarea, type TextareaProps } from "./components/Textarea";
 export { ChatBubble, type ChatBubbleProps } from "./components/ChatBubble";
 export { ChatInput, type ChatInputProps } from "./components/ChatInput";
+export { ChatPanel, type ChatPanelProps } from "./components/ChatPanel";
 export { AppHeader, type AppHeaderProps } from "./components/AppHeader";
 
 /* Forms */
