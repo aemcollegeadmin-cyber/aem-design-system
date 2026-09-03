@@ -973,6 +973,7 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
 
 function LessonSidebarDemo() {
   const [tab, setTab] = useState("info");
+  const [mentorTab, setMentorTab] = useState("info");
   const [state, setState] = useState<"clamped" | "full">("clamped");
 
   return (
@@ -1037,19 +1038,20 @@ function LessonSidebarDemo() {
       contentState="full"
       floatingActionsOnMobile={false}
       headerSlot={<Text variant="h3">Перевірка роботи</Text>}
-      callout={<Callout variant="pending">Здано 2 вересня — очікує на перевірку</Callout>}
-      actions={
+      callout={
         <>
-          <Button block>Прийняти роботу</Button>
-          <Button variant="secondary" block>
-            Повернути на доопрацювання
-          </Button>
+          <Callout variant="pending">Здано 2 вересня — очікує на перевірку</Callout>
+          <Callout variant="neutral">
+            Перевір рекомендації та залиш фідбек у чаті перед прийняттям.
+          </Callout>
         </>
       }
+      actions={<Button block>Прийняти роботу</Button>}
     >
       <Text variant="paragraph">
-        Роль ментора змінює лише контент: заголовок замість табів і свої дії. Відступи, радіус,
-        розділювач і висоти кнопок — ті самі, що в панелі студента.
+        Вигляд ментора: ті самі вкладки «Інформація / Рекомендації», тіпси знизу і єдина дія —
+        «Прийняти роботу». Стану «повернути на доопрацювання» немає. Кнопки прийняття в чаті
+        не дублюються — вони живуть лише тут.
       </Text>
     </LessonSidebar>
     </div>
