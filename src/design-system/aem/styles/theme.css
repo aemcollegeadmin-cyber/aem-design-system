@@ -213,3 +213,24 @@ input[type="search"]::-webkit-search-results-decoration {
   appearance: none;
   display: none;
 }
+
+/* Panel geometry (framework-independent) — LessonSidebar / ChatPanel `fit`. */
+.aem-panel-fit {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 1024px) {
+  .aem-panel-fit {
+    position: sticky;
+    top: 1rem;
+    height: calc(100dvh - 2rem);
+    max-height: calc(100dvh - 2rem);
+  }
+
+  .aem-panel-fit-body {
+    flex: 1 1 0%;
+    min-height: 0;
+    overflow-y: auto;
+  }
+}
