@@ -503,6 +503,7 @@ input[type="search"]::-webkit-search-results-decoration {
   .aem-panel-fit {
     position: sticky;
     top: 1rem;
+    align-self: start;
     height: calc(100dvh - 2rem);
     max-height: calc(100dvh - 2rem);
   }

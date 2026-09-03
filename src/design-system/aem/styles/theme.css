@@ -224,8 +224,10 @@ input[type="search"]::-webkit-search-results-decoration {
   /* Fill the grid row (so a panel matches the media/player next to it) but
      never exceed the visible viewport — no page-level scrolling needed. */
   .aem-panel-fit {
-    align-self: stretch;
-    height: 100%;
+    position: sticky;
+    top: 1rem;
+    align-self: start;
+    height: calc(100dvh - 2rem);
     max-height: calc(100dvh - 2rem);
   }
 
