@@ -1,10 +1,10 @@
 import { useEffect, useRef } from "react";
 
 /**
- * Caps an element's height so its bottom edge always sits `bottomGap` px
+ * Fixes an element's height so its bottom edge always sits `bottomGap` px
  * above the viewport bottom — wherever the element is placed on the page
- * (under any header) and on any screen size. Re-measures on resize/scroll,
- * so the panel "breathes" with the viewport instead of overflowing it.
+ * (under any header) and on any screen size. Re-measures when the viewport
+ * changes, while keeping page scroll from changing or stretching the panel.
  *
  * Desktop-only (lg+): on mobile the panel is in normal flow.
  */
@@ -19,22 +19,26 @@ export function useFitViewport<T extends HTMLElement>(enabled: boolean, bottomGa
     const mq = window.matchMedia("(min-width: 1024px)");
     const update = () => {
       if (!mq.matches) {
+        el.style.height = "";
         el.style.maxHeight = "";
         return;
       }
       const top = el.getBoundingClientRect().top;
       const available = window.innerHeight - top - bottomGap;
-      el.style.maxHeight = `${Math.max(240, Math.round(available))}px`;
+      const height = `${Math.max(0, Math.round(available))}px`;
+      el.style.height = height;
+      el.style.maxHeight = height;
     };
 
     update();
     window.addEventListener("resize", update);
-    window.addEventListener("scroll", update, { passive: true });
+    window.visualViewport?.addEventListener("resize", update);
     mq.addEventListener?.("change", update);
     return () => {
       window.removeEventListener("resize", update);
-      window.removeEventListener("scroll", update);
+      window.visualViewport?.removeEventListener("resize", update);
       mq.removeEventListener?.("change", update);
+      el.style.height = "";
       el.style.maxHeight = "";
     };
   }, [enabled, bottomGap]);

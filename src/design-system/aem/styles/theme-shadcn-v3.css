@@ -506,6 +506,7 @@ input[type="search"]::-webkit-search-results-decoration {
     align-self: start;
     height: calc(100dvh - 2rem);
     max-height: calc(100dvh - 2rem);
+    overflow: hidden;
   }
 
   .aem-panel-fit-body {
