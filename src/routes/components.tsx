@@ -607,8 +607,29 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       node: (
         <div className="flex w-full flex-col gap-4">
           <Specimen
-            label="відео-урок"
-            code={`<ContinueLessonCard kind="video" title="Сітки та вирівнювання" progress={30} />`}
+            label="відео-урок з прев'ю"
+            code={`<ContinueLessonCard kind="video" previewVideoSrc="…" title="…" progress={30} />`}
+          >
+            <div className="w-full">
+              <ContinueLessonCard
+                meta="Інтерфейсник · Модуль 3 · Урок 12 з 90"
+                title="Сітки та вирівнювання: як зібрати екран, що не розсипається"
+                kind="video"
+                previewVideoSrc="https://www.youtube.com/watch?v=dQw4w9WgXcQ"
+                progress={30}
+                progressLabel="4:12 з 14:20"
+                actions={
+                  <>
+                    <Button>Продовжити</Button>
+                    <Button variant="secondary">ДЗ №2 на перевірці</Button>
+                  </>
+                }
+              />
+            </div>
+          </Specimen>
+          <Specimen
+            label="відео-урок без прев'ю"
+            code={`<ContinueLessonCard kind="video" title="…" progress={30} />`}
           >
             <div className="w-full">
               <ContinueLessonCard
