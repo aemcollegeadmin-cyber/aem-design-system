@@ -1,5 +1,6 @@
 import { forwardRef, useEffect, useRef } from "react";
 import { cn } from "../lib/cn";
+import { useFitViewport } from "../lib/useFitViewport";
 
 /**
  * Height/geometry invariants are shared with `LessonSidebar`: the same shell,
