@@ -10,6 +10,11 @@ import { cn } from "../lib/cn";
 const SIDEBAR_SHELL = "flex min-h-0 w-full flex-col gap-4 rounded-panel bg-surface p-4 shadow-card";
 const SIDEBAR_HEADER = "shrink-0";
 const SIDEBAR_BODY = "relative min-h-0 text-body text-ink";
+/**
+ * Status messages (Callout / Alert) always sit at the BOTTOM of the panel,
+ * directly ABOVE the actions. They are one visual group: `gap-2`, no divider.
+ */
+const SIDEBAR_CALLOUTS = "mt-auto flex shrink-0 flex-col gap-2";
 const SIDEBAR_ACTIONS = "flex shrink-0 flex-col gap-3 border-t-2 border-border-line pt-4";
 const SIDEBAR_ACTIONS_MOBILE =
   "max-lg:fixed max-lg:inset-x-0 max-lg:bottom-0 max-lg:z-40 max-lg:border-t-2 max-lg:bg-surface max-lg:px-4 max-lg:pb-[max(1rem,env(safe-area-inset-bottom))] max-lg:pt-3";
