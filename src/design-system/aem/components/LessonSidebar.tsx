@@ -91,8 +91,6 @@ export const LessonSidebar = forwardRef<HTMLElement, LessonSidebarProps>(functio
     >
       {header && <div className={SIDEBAR_HEADER}>{header}</div>}
 
-      {callout && <div className={SIDEBAR_HEADER}>{callout}</div>}
-
       <div
         id={panelId}
         className={cn(
@@ -111,9 +109,12 @@ export const LessonSidebar = forwardRef<HTMLElement, LessonSidebarProps>(functio
         )}
       </div>
 
+      {callout && <div className={SIDEBAR_CALLOUTS}>{callout}</div>}
+
       {actions && (
         <div className={cn(SIDEBAR_ACTIONS, floating && SIDEBAR_ACTIONS_MOBILE)}>{actions}</div>
       )}
+
       {floating && <div aria-hidden="true" className="h-20 shrink-0 lg:hidden" />}
     </aside>
   );
