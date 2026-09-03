@@ -444,8 +444,9 @@ import { LessonSidebar } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-
 | `onValueChange` | function | `—` |
 | `headerSlot` | any | `—` |
 | `callout` | any | `—` |
-| `contentState` | clamped · full · scroll | `clamped` |
+| `contentState` | fit · clamped · full · scroll | `fit` |
 | `actions` | any | `—` |
+| `floatingActionsOnMobile` | boolean | `true` |
 
 ### MediaDialog
 

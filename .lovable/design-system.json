@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.4.1",
+    "version": "1.4.2",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -17,7 +17,7 @@
       ".lovable/meta.yaml": "8794970d6049858cc148d2b86f7a2b22",
       ".lovable/plan/finish-the-aem-design-system-then-adopt-it-2026-08-20.md": "306e41b106dc6a57f1e140c07b138410",
       ".lovable/sources.yaml": "8469455bacbb4c31f179c3bcc80a4e2e",
-      ".lovable/system.md": "83720a10fc3e48001e6e5cf0e76f4360",
+      ".lovable/system.md": "b8a3801986f1e2e5cac859c4c961fd33",
       "README.md": "d19675c449605f23c7cfa133c69b398b",
       "bunfig.toml": "25f4c8696b22b0943db7191e0cdf7942",
       "components_files.txt": "3634a1bc29711409cd1ada4e1f90247e",
@@ -62,7 +62,7 @@
       "src/design-system/aem/components/Label.tsx": "aaa37837c438ae6b6e685a1eec4824c9",
       "src/design-system/aem/components/LeaderboardCard.tsx": "991382148c9337b729e4bb9e81057ea9",
       "src/design-system/aem/components/LessonRow.tsx": "0555fa1c2e7cc1e437e9204a2e2d5bbe",
-      "src/design-system/aem/components/LessonSidebar.tsx": "a7e8d87ad84cdcab97871a9749cf8504",
+      "src/design-system/aem/components/LessonSidebar.tsx": "5d466865b444326b703fcf03aa4f154b",
       "src/design-system/aem/components/MediaDialog.tsx": "0141461bf649eb3317d1c21fe8cd9605",
       "src/design-system/aem/components/MediaPreview.tsx": "171ba31ee0ceba7852de7c1a584ca763",
       "src/design-system/aem/components/ModuleCard.tsx": "9d02fa09280266d81725c620bae3ac47",
@@ -109,9 +109,9 @@
       "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
       "src/routes/__root.tsx": "749f4e7a7525ee31d96ac19813e416a3",
       "src/routes/colors.tsx": "fcee8aeb0fd5af838edc738476e1811c",
-      "src/routes/components.tsx": "46a2aaf45d524c75f0f6740c63857f1b",
+      "src/routes/components.tsx": "540527cb30fca5f2e42dcb499c473800",
       "src/routes/index.tsx": "3913e960e9ffe2db34f533e48477d28e",
-      "src/routes/typography.tsx": "fbb9a2ca12ffce365716cb5407aa033b",
+      "src/routes/typography.tsx": "92d62f0915b6284f6e9ad3b65fe0949f",
       "src/showcase/ShowcaseShell.tsx": "61ee35bb64c0c7befd38f492eb7236c9",
       "src/styles.css": "5cf5c478933bc96bd3fab2aa39bfd706",
       "tsconfig.json": "994abf64c2b9f78b568879f80ed0170e",
@@ -965,15 +965,21 @@
           "name": "contentState",
           "type": "enum",
           "values": [
+            "fit",
             "clamped",
             "full",
             "scroll"
           ],
-          "default": "clamped"
+          "default": "fit"
         },
         {
           "name": "actions",
           "type": "any"
+        },
+        {
+          "name": "floatingActionsOnMobile",
+          "type": "boolean",
+          "default": "true"
         }
       ]
     },
