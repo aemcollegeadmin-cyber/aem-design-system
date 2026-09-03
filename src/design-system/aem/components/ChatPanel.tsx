@@ -82,7 +82,7 @@ export const ChatPanel = forwardRef<HTMLElement, ChatPanelProps>(function ChatPa
         className={cn(
           PANEL_BODY,
           scroll && "flex-1 overflow-y-auto",
-          fit && "lg:flex-1 lg:overflow-y-auto",
+          fit && "aem-panel-fit-body lg:flex-1 lg:overflow-y-auto",
         )}
       >
         {children}
