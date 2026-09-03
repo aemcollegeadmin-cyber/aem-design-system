@@ -973,7 +973,6 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
 
 function LessonSidebarDemo() {
   const [tab, setTab] = useState("info");
-  const [mentorTab, setMentorTab] = useState("info");
   const [state, setState] = useState<"clamped" | "full">("clamped");
 
   return (

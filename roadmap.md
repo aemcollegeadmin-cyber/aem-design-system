@@ -9,3 +9,5 @@
 - [ ] Explain/close sync gap: LMS ships its own custom `LessonHomeworkSidebar` + `AppIcon` + `OnboardingDialog` instead of the system components — needs consumer-side refactor prompt (not a DS fix)
 - [ ] Breadcrumbs: mobile collapse (…, previous step, current) — always one line
 - [ ] SubmissionRow: mobile wrap — title/subtitle first line, badge + date on next line
+- [x] LessonSidebar: mentor state (same tabs/info, single "Прийняти роботу" action; no return-for-rework)
+- [x] Panels: adaptive viewport-bound height (bottom gap on any screen, no page scroll)
