@@ -169,6 +169,8 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
     title,
     description,
     media,
+    mediaComponent,
+
     mediaAspect = "video",
     icon,
     step,
@@ -219,7 +221,19 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
         <div className="flex flex-col gap-4">
           {media && <MediaFrame media={media} aspect={mediaAspect} />}
 
-          {!media && icon && (
+          {!media && mediaComponent && (
+            <div
+              className={cn(
+                "relative w-full overflow-hidden rounded-card bg-surface-muted isolate",
+                aspects[mediaAspect],
+              )}
+            >
+              {mediaComponent}
+            </div>
+          )}
+
+          {!media && !mediaComponent && icon && (
+
             <div
               className={cn(
                 "flex w-full items-center justify-center overflow-hidden rounded-card bg-surface-muted aspect-video text-accent-lime-fg",
