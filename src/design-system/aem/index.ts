@@ -129,3 +129,4 @@ export { StatCard, type StatCardProps } from "./components/StatCard";
 export { Toolbar, type ToolbarProps } from "./components/Toolbar";
 
 export { cn } from "./lib/cn";
+export { useFitViewport } from "./lib/useFitViewport";
