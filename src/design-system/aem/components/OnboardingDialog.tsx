@@ -7,7 +7,10 @@ export interface OnboardingStep {
   title: string;
   description?: string;
   media?: MediaDialogMedia;
+  /** Custom React node (animation etc.) rendered in the media container when `media` is absent. */
+  mediaComponent?: React.ReactNode;
   mediaAspect?: MediaDialogProps["mediaAspect"];
+
   icon?: IconName;
   /** Extra content (form fields, checklist) rendered under the description. */
   content?: React.ReactNode;
@@ -71,6 +74,8 @@ export function OnboardingDialog({
         title={step.title}
         description={step.description}
         media={step.media}
+        mediaComponent={step.mediaComponent}
+
         mediaAspect={step.mediaAspect}
         icon={step.icon}
         size={size}

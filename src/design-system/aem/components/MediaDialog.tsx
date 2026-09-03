@@ -41,7 +41,14 @@ export interface MediaDialogProps
   description?: string;
   /** Visual at the top of the dialog: screenshot, GIF, video or embed. */
   media?: MediaDialogMedia;
+  /**
+   * Custom React node (e.g. a CSS/React animation) rendered inside the same
+   * media container. Used only when `media` is not provided — `media` wins.
+   * The node must keep its styles scoped to its own container.
+   */
+  mediaComponent?: React.ReactNode;
   mediaAspect?: "video" | "square" | "wide";
+
   /** Circular accent glyph shown above the title (used when there is no media). */
   icon?: IconName;
   /** Onboarding step position — renders progress dots and «N з M». */
@@ -162,6 +169,8 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
     title,
     description,
     media,
+    mediaComponent,
+
     mediaAspect = "video",
     icon,
     step,
@@ -212,7 +221,19 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
         <div className="flex flex-col gap-4">
           {media && <MediaFrame media={media} aspect={mediaAspect} />}
 
-          {!media && icon && (
+          {!media && mediaComponent && (
+            <div
+              className={cn(
+                "relative w-full overflow-hidden rounded-card bg-surface-muted isolate",
+                aspects[mediaAspect],
+              )}
+            >
+              {mediaComponent}
+            </div>
+          )}
+
+          {!media && !mediaComponent && icon && (
+
             <div
               className={cn(
                 "flex w-full items-center justify-center overflow-hidden rounded-card bg-surface-muted aspect-video text-accent-lime-fg",
