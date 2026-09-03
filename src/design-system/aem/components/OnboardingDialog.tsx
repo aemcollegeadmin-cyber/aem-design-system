@@ -78,6 +78,7 @@ export function OnboardingDialog({
         mediaComponent={step.mediaComponent}
 
         mediaAspect={step.mediaAspect}
+        mediaSurface={step.mediaSurface}
         icon={step.icon}
         size={size}
         align={align}
