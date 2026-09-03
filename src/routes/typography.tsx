@@ -8,12 +8,12 @@ export const Route = createFileRoute("/typography")({
       { title: "Типографіка — дизайн-система AEM" },
       {
         name: "description",
-        content: "Шрифт Inter і повна типографічна шкала дизайн-системи AEM College.",
+        content: "Шрифт Fixel Display і повна типографічна шкала дизайн-системи AEM College.",
       },
       { property: "og:title", content: "Типографіка — дизайн-система AEM" },
       {
         property: "og:description",
-        content: "Шрифт Inter і повна типографічна шкала дизайн-системи AEM College.",
+        content: "Шрифт Fixel Display і повна типографічна шкала дизайн-системи AEM College.",
       },
     ],
   }),
@@ -25,7 +25,7 @@ function TypographyPage() {
     <ShowcaseShell>
       <Section
         title="Типографіка"
-        description="Inter, ваги 400 / 500 / 600 / 700. Шкала задана токенами text-h1…text-caption."
+        description="Fixel Display, ваги 400 / 500 / 600 / 700. Шкала задана токенами text-h1…text-caption."
       >
         <Specimen label="text-h1 — заголовок сторінки" code={`<Text variant="h1">Мої курси</Text>`}>
           <Text variant="h1">Мої курси</Text>
