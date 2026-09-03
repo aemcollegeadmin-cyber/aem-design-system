@@ -226,12 +226,13 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
         </header>
 
         <div className="flex flex-col gap-4">
-          {media && <MediaFrame media={media} aspect={mediaAspect} />}
+          {media && <MediaFrame media={media} aspect={mediaAspect} surface={mediaSurface} />}
 
           {!media && mediaComponent && (
             <div
               className={cn(
-                "relative w-full overflow-hidden rounded-card bg-surface-muted isolate",
+                "relative w-full overflow-hidden rounded-card isolate",
+                surfaceBg,
                 aspects[mediaAspect],
               )}
             >
@@ -243,11 +244,13 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
 
             <div
               className={cn(
-                "flex w-full items-center justify-center overflow-hidden rounded-card bg-surface-muted aspect-video text-accent-lime-fg",
+                "flex w-full items-center justify-center overflow-hidden rounded-card aspect-video",
+                surfaceBg,
+                onSurfaceColor,
                 centered && "mx-auto",
               )}
             >
-              <div className="flex size-12 items-center justify-center rounded-pill bg-accent-lime text-accent-lime-fg">
+              <div className={cn("flex size-12 items-center justify-center rounded-pill", glyphSurfaceBg, onSurfaceColor)}>
                 <Icon name={icon} size="lg" />
               </div>
             </div>
