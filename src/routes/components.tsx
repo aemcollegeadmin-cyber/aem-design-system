@@ -998,7 +998,7 @@ function LessonSidebarDemo() {
       contentState="full"
       floatingActionsOnMobile={false}
       headerSlot={<Text variant="h3">Перевірка роботи</Text>}
-      callout={<Callout variant="warning">Здано 2 вересня — очікує на перевірку</Callout>}
+      callout={<Callout variant="pending">Здано 2 вересня — очікує на перевірку</Callout>}
       actions={
         <>
           <Button block>Прийняти роботу</Button>
