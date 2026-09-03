@@ -69,7 +69,7 @@ export const ChatPanel = forwardRef<HTMLElement, ChatPanelProps>(function ChatPa
       className={cn(
         PANEL_SHELL,
         scroll && "h-full",
-        fit && "aem-panel-fit lg:sticky lg:top-4 lg:h-[calc(100dvh-2rem)] lg:max-h-[calc(100dvh-2rem)]",
+        fit && "aem-panel-fit",
         className,
       )}
       {...props}
