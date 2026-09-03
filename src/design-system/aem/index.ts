@@ -77,6 +77,7 @@ export {
   type MediaDialogMedia,
   type MediaDialogMediaType,
   type MediaDialogAction,
+  type MediaSurface,
 } from "./components/MediaDialog";
 export {
   OnboardingDialog,
