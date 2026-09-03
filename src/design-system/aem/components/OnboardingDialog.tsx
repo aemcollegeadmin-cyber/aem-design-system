@@ -29,9 +29,8 @@ export interface OnboardingDialogProps {
   steps: OnboardingStep[];
   /** Called after the last step's primary action. */
   onFinish?: () => void;
-  /** Called when the user skips or closes; omit to make the flow blocking. */
-  onSkip?: () => void;
-  skipLabel?: string;
+  /** Called when the user closes; omit to make the flow blocking. */
+  onClose?: () => void;
   backLabel?: string;
   nextLabel?: string;
   finishLabel?: string;
