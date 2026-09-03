@@ -21,7 +21,7 @@ export const Sheet = forwardRef<HTMLDivElement, SheetProps>(function Sheet(
 ) {
   return (
     <Portal>
-      <Overlay className="fixed inset-0 z-40 bg-ink/40" />
+      <Overlay className="fixed inset-0 z-40 bg-ink/60 backdrop-blur-[2px]" />
       <Content
         ref={ref}
         className={cn(
