@@ -267,6 +267,26 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       ),
     },
     {
+      id: "text-link",
+      title: "TextLink",
+      node: (
+        <Specimen
+          label="second action link: button text weight + underline"
+          code={`<TextLink href=\"/forgot\">Забули пароль?</TextLink>`}
+        >
+          <div className="flex flex-col gap-2">
+            <TextLink href="#">Забули пароль?</TextLink>
+            <Text>
+              Немає акаунту?{" "}
+              <TextLink as="button" onClick={() => alert("register")}>
+                Зареєструватися
+              </TextLink>
+            </Text>
+          </div>
+        </Specimen>
+      ),
+    },
+    {
       id: "card",
       title: "Card",
       node: (
