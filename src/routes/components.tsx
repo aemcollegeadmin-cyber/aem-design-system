@@ -79,6 +79,7 @@ import {
   TableRow,
   Tabs,
   Text,
+  TextLink,
   Textarea,
   Toolbar,
   Tooltip,
@@ -261,6 +262,26 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
             <Text variant="h4">Урок 3. Сітки</Text>
             <Text>Основний текст уроку.</Text>
             <Text variant="caption">Оновлено 10 хвилин тому</Text>
+          </div>
+        </Specimen>
+      ),
+    },
+    {
+      id: "text-link",
+      title: "TextLink",
+      node: (
+        <Specimen
+          label="second action link: button text weight + underline"
+          code={`<TextLink href=\"/forgot\">Забули пароль?</TextLink>`}
+        >
+          <div className="flex flex-col gap-2">
+            <TextLink href="#">Забули пароль?</TextLink>
+            <Text>
+              Немає акаунту?{" "}
+              <TextLink as="button" onClick={() => alert("register")}>
+                Зареєструватися
+              </TextLink>
+            </Text>
           </div>
         </Specimen>
       ),
