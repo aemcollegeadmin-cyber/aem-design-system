@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.4.14",
+    "version": "1.4.15",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -11,7 +11,7 @@
     ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "826a2a7bfc1c90a900f03aceca8818bca123b4ca005d2883c08a9906b9a04468",
+      "#enrichment": "8226e1725a65a3385dff1ebb21ccf43d00639ba85eec133f4d9897f9e6ca47da",
       ".dsignore": "a26f2e60b116f104046a9440907feb8e",
       ".gitignore": "6059213806e442947666752f3db6bfdc",
       ".lovable/meta.yaml": "8794970d6049858cc148d2b86f7a2b22",
@@ -94,12 +94,13 @@
       "src/design-system/aem/components/Table.tsx": "673d53100baf35c255ffd3cce1eb45fa",
       "src/design-system/aem/components/Tabs.tsx": "af42921269b5824295aed52aede33872",
       "src/design-system/aem/components/Text.tsx": "760428b7ba0088ecdf15bdb1e8c5aae4",
+      "src/design-system/aem/components/TextLink.tsx": "d5934f40ad23d25919d698700ec4b10e",
       "src/design-system/aem/components/Textarea.tsx": "c09e20f74a48dd5df9b64e22ffb18d46",
       "src/design-system/aem/components/Toaster.tsx": "647eb0a1f3f4335bbcd7c069f778c293",
       "src/design-system/aem/components/Toolbar.tsx": "1586c628f3bf7f2517228cc149aa5dee",
       "src/design-system/aem/components/Tooltip.tsx": "dafb29ed748b0fdd266dadefb2efeeea",
       "src/design-system/aem/components/UserChip.tsx": "347e5e99c875cef170828c3bfa536b41",
-      "src/design-system/aem/index.ts": "f7570ae1e197cfe15685c2ec2ba34451",
+      "src/design-system/aem/index.ts": "d7ef733076ff8a137c3481f711156421",
       "src/design-system/aem/lib/cn.ts": "f42d8fb0d920ae1cdb1cff4709b87d7f",
       "src/design-system/aem/lib/useFitViewport.ts": "ae9c180f59d720509220d63470d85d64",
       "src/design-system/aem/styles/theme-shadcn-v3.css": "72db1d61257961d9d0f3dab400c5a057",
@@ -112,7 +113,7 @@
       "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
       "src/routes/__root.tsx": "fe9de980adb4a4867de6b31db4d4fbf9",
       "src/routes/colors.tsx": "fcee8aeb0fd5af838edc738476e1811c",
-      "src/routes/components.tsx": "314384f628d8a0991f5eb9783f4b84d6",
+      "src/routes/components.tsx": "149a47643950ec8f6ce53829c9d4c414",
       "src/routes/index.tsx": "3913e960e9ffe2db34f533e48477d28e",
       "src/routes/typography.tsx": "92d62f0915b6284f6e9ad3b65fe0949f",
       "src/showcase/ShowcaseShell.tsx": "61ee35bb64c0c7befd38f492eb7236c9",
@@ -472,6 +473,21 @@
           ],
           "default": "paragraph"
         },
+        {
+          "name": "as",
+          "type": "any"
+        },
+        {
+          "name": "href",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "TextLink",
+      "file": "src/design-system/aem/components/TextLink",
+      "import_path": "",
+      "props": [
         {
           "name": "as",
           "type": "any"

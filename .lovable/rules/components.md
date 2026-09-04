@@ -936,6 +936,19 @@ import { Text } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bb
 | `as` | any | `—` |
 | `href` | string | `—` |
 
+### TextLink
+
+```ts
+import { TextLink } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `as` | any | `—` |
+| `href` | string | `—` |
+
 ### Textarea
 
 ```ts
