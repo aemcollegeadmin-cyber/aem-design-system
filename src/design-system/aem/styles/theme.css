@@ -244,7 +244,12 @@ input[type="search"]::-webkit-search-results-decoration {
 .aem-modal-overlay {
   position: fixed;
   inset: 0;
+  width: 100%;
+  height: 100%;
   z-index: 40;
+  /* Fallback first: older mobile browsers (iOS < 16.4) drop color-mix(). */
+  background-color: rgba(26, 26, 26, 0.8);
   background-color: color-mix(in srgb, var(--aem-ink) 80%, transparent);
   backdrop-filter: blur(2px);
 }
+
