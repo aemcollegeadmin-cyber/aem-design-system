@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.4.16",
+    "version": "1.5.0",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -102,7 +102,7 @@
       "src/design-system/aem/components/UserChip.tsx": "347e5e99c875cef170828c3bfa536b41",
       "src/design-system/aem/index.ts": "d7ef733076ff8a137c3481f711156421",
       "src/design-system/aem/lib/cn.ts": "f42d8fb0d920ae1cdb1cff4709b87d7f",
-      "src/design-system/aem/lib/useFitViewport.ts": "ae9c180f59d720509220d63470d85d64",
+      "src/design-system/aem/lib/useFitViewport.ts": "c05852da9d78fc1c73a787a1ff399f76",
       "src/design-system/aem/styles/theme-shadcn-v3.css": "184e19c2ba3d86d72fa13df017377fde",
       "src/design-system/aem/styles/theme.css": "c84633c8f769dd31b842e0b6bf5b0494",
       "src/index.ts": "b5130dc1deb409f8e2340570266c816a",
