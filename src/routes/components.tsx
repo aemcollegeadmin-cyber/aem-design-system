@@ -1110,6 +1110,50 @@ function EditHeaderDemo() {
   );
 }
 
+function ScoreboardDemo() {
+  const [period, setPeriod] = useState("week");
+  const weekRows = [
+    { rank: 1, name: "Оля К.", score: "2 310", delta: "+320", meta: "Інтерфейсник" },
+    { rank: 2, name: "Іван Б.", score: "1 905", delta: "+260", meta: "Інтерфейсник" },
+    { rank: 3, name: "Ната Ш.", score: "1 780", delta: "+180", meta: "Дизайн-система" },
+    { rank: 4, name: "Марта Г.", score: "1 640", delta: "+150", meta: "Інтерфейсник" },
+  ];
+  const allRows = [
+    { rank: 1, name: "Ната Ш.", score: "24 180", meta: "Дизайн-система" },
+    { rank: 2, name: "Оля К.", score: "21 940", meta: "Інтерфейсник" },
+    { rank: 3, name: "Марта Г.", score: "19 620", meta: "Інтерфейсник" },
+    { rank: 4, name: "Іван Б.", score: "18 305", meta: "Інтерфейсник" },
+  ];
+  const week = period === "week";
+  return (
+    <Scoreboard
+      title="Рейтинг"
+      period={week ? "1–7 вересня" : "за весь час"}
+      periods={[
+        { value: "week", label: "Тиждень" },
+        { value: "all", label: "Загальний" },
+      ]}
+      activePeriod={period}
+      onPeriodChange={setPeriod}
+      infoTitle="Як рахуються бали"
+      infoDescription={
+        <p>
+          Бали нараховуються за завершені уроки, тести та вчасно здані домашні завдання.
+          Тижневий рейтинг рахує бали з понеділка по неділю; загальний — усі бали за весь
+          час навчання в коледжі.
+        </p>
+      }
+      rows={week ? weekRows : allRows}
+      currentRow={
+        week
+          ? { rank: 7, name: "Ти", score: "1 480", delta: "+120", meta: "Інтерфейсник" }
+          : { rank: 12, name: "Ти", score: "9 860", meta: "Інтерфейсник" }
+      }
+      footer={<Pagination page={1} pageCount={4} />}
+    />
+  );
+}
+
 function TabsDemo() {
   const [tab, setTab] = useState("lessons");
   return (
