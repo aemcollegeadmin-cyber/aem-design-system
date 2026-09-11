@@ -42,12 +42,33 @@ export const PageNav = forwardRef<HTMLElement, PageNavProps>(function PageNav(
     onBack,
     backLabel = "Назад",
     actions,
+    loading = false,
     className,
     ...props
   },
   ref,
 ) {
   const showBack = Boolean(backHref || onBack);
+
+  if (loading) {
+    return (
+      <header
+        ref={ref}
+        aria-busy="true"
+        className={cn("flex w-full flex-col gap-2", className)}
+        {...props}
+      >
+        <div className="flex w-full items-start justify-between gap-4">
+          <Skeleton radius="pill" className="h-8 w-64 max-w-full" />
+          {actions !== undefined && <Skeleton radius="pill" className="h-11 w-32 shrink-0" />}
+        </div>
+        <div className="flex w-full items-center gap-4">
+          {showBack && <Skeleton radius="pill" className="size-11 shrink-0" />}
+          <Skeleton radius="pill" className="h-4 w-48 max-w-full" />
+        </div>
+      </header>
+    );
+  }
 
   return (
     <header
