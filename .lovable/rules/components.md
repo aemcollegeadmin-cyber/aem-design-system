@@ -721,6 +721,7 @@ import { Scoreboard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 | `infoDescription` | any | `—` |
 | `rows` | any | `—` |
 | `currentRow` | any | `—` |
+| `overallRanking` | any | `—` |
 | `loading` | boolean | `false` |
 | `loadingRows` | number | `8` |
 | `emptyTitle` | string | `Рейтинг ще формується` |
