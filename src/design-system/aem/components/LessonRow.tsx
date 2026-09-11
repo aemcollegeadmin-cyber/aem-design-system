@@ -1,23 +1,36 @@
 import { forwardRef } from "react";
 import { Icon } from "./Icon";
 import { StatusIcon, type LessonStatus } from "./StatusIcon";
+import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 
 export interface LessonRowProps extends React.HTMLAttributes<HTMLDivElement> {
-  title: string;
+  /** Required unless `loading` is true. */
+  title?: string;
   description?: string;
   status?: LessonStatus;
   trailing?: React.ReactNode;
   onOpen?: () => void;
   /** Background the row sits on; forwarded to the status indicator. */
   tone?: "onSurface" | "onMuted";
+  /** Skeleton placeholder instead of content. */
+  loading?: boolean;
 }
 
 /** One lesson line: status indicator + title/description card. */
 export const LessonRow = forwardRef<HTMLDivElement, LessonRowProps>(function LessonRow(
-  { title, description, status = "available", trailing, onOpen, tone = "onSurface", className, ...props },
+  { title, description, status = "available", trailing, onOpen, tone = "onSurface", loading = false, className, ...props },
   ref,
 ) {
+  if (loading) {
+    return (
+      <div ref={ref} aria-busy="true" className={cn("flex items-center gap-3", className)} {...props}>
+        <Skeleton radius="pill" className="size-8 shrink-0" />
+        <Skeleton radius="card" className="h-[52px] flex-1" />
+      </div>
+    );
+  }
+
   const locked = status === "locked";
   const body = (
     <>

@@ -3,24 +3,60 @@ import { Icon } from "./Icon";
 import { Badge } from "./Badge";
 import { ProgressBar } from "./ProgressBar";
 import { StatusIcon } from "./StatusIcon";
+import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 
 export interface ModuleCardProps extends React.HTMLAttributes<HTMLElement> {
-  title: string;
+  /** Required unless `loading` is true. */
+  title?: string;
   description?: string;
-  progress: number;
+  /** Required unless `loading` is true. */
+  progress?: number;
   /** Right-hand meta pill, e.g. "4 уроки" or "Пройдено". */
   meta?: React.ReactNode;
   /** LessonRow children. */
   children?: React.ReactNode;
+  /** Skeleton placeholder instead of content. */
+  loading?: boolean;
+  /** Number of skeleton lesson rows while loading. */
+  loadingRows?: number;
 }
 
 /** Module panel: header, progress and the lesson list. */
 export const ModuleCard = forwardRef<HTMLElement, ModuleCardProps>(function ModuleCard(
-  { title, description, progress, meta, children, className, ...props },
+  { title, description, progress, meta, children, loading = false, loadingRows = 3, className, ...props },
   ref,
 ) {
-  const complete = progress >= 100;
+  if (loading) {
+    return (
+      <section
+        ref={ref}
+        aria-busy="true"
+        className={cn("flex flex-col gap-4 rounded-panel bg-surface-muted p-5", className)}
+        {...props}
+      >
+        <div className="flex items-start gap-3">
+          <Skeleton radius="pill" className="size-8 shrink-0 bg-surface" />
+          <div className="flex flex-1 flex-col gap-2">
+            <Skeleton radius="pill" className="h-5 w-40 bg-surface" />
+            {description !== undefined && <Skeleton radius="pill" className="h-4 w-56 bg-surface" />}
+          </div>
+          <Skeleton radius="pill" className="h-6 w-20 bg-surface" />
+        </div>
+        <Skeleton radius="pill" className="h-2 w-full bg-surface" />
+        <div className="flex flex-col gap-2">
+          {Array.from({ length: loadingRows }).map((_, index) => (
+            <div key={index} className="flex items-center gap-3">
+              <Skeleton radius="pill" className="size-8 shrink-0 bg-surface" />
+              <Skeleton radius="card" className="h-14 flex-1 bg-surface" />
+            </div>
+          ))}
+        </div>
+      </section>
+    );
+  }
+
+  const complete = (progress ?? 0) >= 100;
   return (
     <section ref={ref} className={cn("flex flex-col gap-4 rounded-panel bg-surface-muted p-5", className)} {...props}>
       <div className="flex items-start gap-3">
@@ -37,7 +73,7 @@ export const ModuleCard = forwardRef<HTMLElement, ModuleCardProps>(function Modu
         </div>
         {meta ?? <Badge variant={complete ? "lime" : "neutral"}>{complete ? "Пройдено" : "Модуль"}</Badge>}
       </div>
-      <ProgressBar value={progress} />
+      <ProgressBar value={progress ?? 0} />
       <div className="flex flex-col gap-2">{children}</div>
     </section>
   );

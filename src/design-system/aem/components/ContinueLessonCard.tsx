@@ -1,11 +1,13 @@
 import { forwardRef } from "react";
 import { MediaPreview, type MediaPreviewKind } from "./MediaPreview";
+import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 
 export interface ContinueLessonCardProps extends React.HTMLAttributes<HTMLElement> {
   /** Breadcrumb-like meta line, e.g. "Інтерфейсник · Модуль 3 · Урок 12 з 90". */
   meta?: string;
-  title: string;
+  /** Required unless `loading` is true. */
+  title?: string;
   /** Kind of lesson content — drives the poster glyph. */
   kind?: MediaPreviewKind;
   /** Poster image URL. */
@@ -21,6 +23,8 @@ export interface ContinueLessonCardProps extends React.HTMLAttributes<HTMLElemen
   progressLabel?: string;
   /** Buttons on the right, e.g. "Продовжити" + homework status. */
   actions?: React.ReactNode;
+  /** Skeleton placeholder instead of content. */
+  loading?: boolean;
 }
 
 /** Resume card for the lesson the student stopped on. */
@@ -37,11 +41,38 @@ export const ContinueLessonCard = forwardRef<HTMLElement, ContinueLessonCardProp
       progress,
       progressLabel,
       actions,
+      loading = false,
       className,
       ...props
     },
     ref,
   ) {
+    if (loading) {
+      return (
+        <section
+          ref={ref}
+          aria-busy="true"
+          className={cn(
+            "flex flex-col gap-5 rounded-panel bg-surface p-6 md:flex-row md:items-center",
+            className,
+          )}
+          {...props}
+        >
+          <MediaPreview loading size="md" />
+          <div className="flex min-w-0 flex-1 flex-col gap-3">
+            <Skeleton radius="pill" className="h-4 w-40" />
+            <Skeleton radius="pill" className="h-6 w-3/4" />
+            <Skeleton radius="pill" className="h-2 w-full" />
+          </div>
+          {actions !== undefined && (
+            <div className="flex shrink-0 flex-col gap-2">
+              <Skeleton radius="pill" className="h-11 w-40" />
+            </div>
+          )}
+        </section>
+      );
+    }
+
     return (
       <section
         ref={ref}

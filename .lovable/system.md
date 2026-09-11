@@ -170,6 +170,21 @@ generated token and component reference.
 - Бали, час і місця передаються вже відформатованими рядками — компоненти не
   форматують числа.
 
+## Стани завантаження
+
+- Кожен контентний компонент, що залежить від даних, має вбудований `loading`
+  і рендерить `Skeleton` із правильною геометрією — щоб сторінка не стрибала
+  під час завантаження. Використовуй ці пропи замість власних обгорток:
+  `ModuleCard loading`, `CourseCard loading`, `LessonRow loading`,
+  `ContinueLessonCard loading`, `MediaPreview loading`, `LessonSidebar loading`,
+  `ChatPanel loading`, `ScoreCard loading`, `LeaderboardCard loading`,
+  `Scoreboard loading`.
+- Скелетон повинен повторювати розміри реального контенту (той самий
+  `rounded-panel`, ті самі відступи, висота рядків, прогрес-бар тощо).
+  Не створюй окремих «плейсхолдерних» компонентів у продуктовому коді.
+- Порожні стани окремо від `loading`: після завантаження, коли даних немає,
+  використовуй вбудовані `emptyLabel` / `EmptyState` компонентів.
+
 ## Гейміфікація (MVP)
 
 - Стани завантаження і порожні стани вже вбудовані: `ScoreCard loading`,
@@ -177,9 +192,10 @@ generated token and component reference.
   `ScoreCard chart={{ bars: [] }}` (перший тиждень), `Scoreboard loading` /
   порожні `rows`. Не малюй власні `Skeleton`/`EmptyState` для цих блоків.
 - Серія 0 днів — `<StreakChip days={0} active={false} />`, не окремий компонент.
-- Окрема сторінка рейтингу тижня — `Scoreboard` (`rows`, `currentRow` для
-  закріпленого власного рядка, `footer` для `Pagination`). Без перемикача
-  періодів: MVP показує лише тиждень.
+- Окрема сторінка рейтингу — `Scoreboard` з `periods`, `activePeriod`,
+  `onPeriodChange` для перемикання «Тиждень / Загальний» і `infoTitle` /
+  `infoDescription` для пояснення балів. `rows` й `currentRow` передає LMS відповідно
+  до обраного періоду.
 - Нарахування балів показується тостом `toastPoints({ points, reason })`;
   потрібен один `<Toaster />` у корені. Не роби власних toast-стилів.
 - Підвищення місця в рейтингу — `RankUpDialog` у `DialogRoot` з керованим

@@ -403,50 +403,68 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       id: "lesson-row",
       title: "LessonRow",
       node: (
-        <Specimen label="status + trailing" code={`<LessonRow title="Урок 1" status="completed" />`}>
-          <div className="flex w-full flex-col gap-2">
-            <LessonRow title="Урок 1. Знайомство" description="12 хвилин" status="completed" />
-            <LessonRow title="Урок 2. Типографіка" description="24 хвилини" />
-            <LessonRow title="Урок 3. Сітки" description="Відкриється 14 березня" status="locked" />
-          </div>
-        </Specimen>
+        <>
+          <Specimen label="status + trailing" code={`<LessonRow title="Урок 1" status="completed" />`}>
+            <div className="flex w-full flex-col gap-2">
+              <LessonRow title="Урок 1. Знайомство" description="12 хвилин" status="completed" />
+              <LessonRow title="Урок 2. Типографіка" description="24 хвилини" />
+              <LessonRow title="Урок 3. Сітки" description="Відкриється 14 березня" status="locked" />
+            </div>
+          </Specimen>
+          <Specimen label="loading" code={`<LessonRow loading />`}>
+            <div className="flex w-full flex-col gap-2">
+              <LessonRow loading />
+              <LessonRow loading />
+            </div>
+          </Specimen>
+        </>
       ),
     },
     {
       id: "module-card",
       title: "ModuleCard",
       node: (
-        <Specimen label="композиція з LessonRow" code={`<ModuleCard title="Модуль 2" progress={50}>…</ModuleCard>`}>
-          <ModuleCard
-            title="Модуль 2. Верстка"
-            description="Практика на реальних макетах"
-            progress={50}
-            meta={<Badge variant="peach">2 з 4</Badge>}
-            className="w-full"
-          >
-            <LessonRow title="Урок 1. Flexbox" status="completed" />
-            <LessonRow title="Урок 2. Grid" />
-          </ModuleCard>
-        </Specimen>
+        <>
+          <Specimen label="композиція з LessonRow" code={`<ModuleCard title="Модуль 2" progress={50}>…</ModuleCard>`}>
+            <ModuleCard
+              title="Модуль 2. Верстка"
+              description="Практика на реальних макетах"
+              progress={50}
+              meta={<Badge variant="peach">2 з 4</Badge>}
+              className="w-full"
+            >
+              <LessonRow title="Урок 1. Flexbox" status="completed" />
+              <LessonRow title="Урок 2. Grid" />
+            </ModuleCard>
+          </Specimen>
+          <Specimen label="loading" code={`<ModuleCard loading />`}>
+            <ModuleCard loading className="w-full" />
+          </Specimen>
+        </>
       ),
     },
     {
       id: "course-card",
       title: "CourseCard",
       node: (
-        <Specimen label="cover + progress + mentors" code={`<CourseCard title="Веб-дизайн" progress={64} />`}>
-          <CourseCard
-            title="Веб-дизайн з нуля"
-            description="6 модулів · 32 уроки"
-            progress={64}
-            mentors={
-              <>
-                <UserChip name="Олена Ковальчук" />
-                <UserChip name="Ігор Мельник" />
-              </>
-            }
-          />
-        </Specimen>
+        <>
+          <Specimen label="cover + progress + mentors" code={`<CourseCard title="Веб-дизайн" progress={64} />`}>
+            <CourseCard
+              title="Веб-дизайн з нуля"
+              description="6 модулів · 32 уроки"
+              progress={64}
+              mentors={
+                <>
+                  <UserChip name="Олена Ковальчук" />
+                  <UserChip name="Ігор Мельник" />
+                </>
+              }
+            />
+          </Specimen>
+          <Specimen label="loading" code={`<CourseCard loading />`}>
+            <CourseCard loading />
+          </Specimen>
+        </>
       ),
     },
     {
@@ -667,12 +685,21 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
               />
             </div>
           </Specimen>
+          <Specimen label="loading" code={`<ContinueLessonCard loading />`}>
+            <div className="w-full">
+              <ContinueLessonCard
+                loading
+                actions={<Skeleton radius="pill" className="h-11 w-40" />}
+              />
+            </div>
+          </Specimen>
           <Specimen label="MediaPreview: kind × size" code={`<MediaPreview kind="reading" size="lg" />`}>
             <div className="flex flex-wrap items-end gap-3">
               <MediaPreview kind="video" size="sm" />
               <MediaPreview kind="test" size="md" />
               <MediaPreview kind="reading" size="md" />
               <MediaPreview kind="task" size="md" />
+              <MediaPreview size="md" loading />
             </div>
           </Specimen>
         </div>
@@ -732,29 +759,41 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       id: "chat-panel",
       title: "ChatPanel",
       node: (
-        <Specimen
-          label="висота панелі така сама, як у LessonSidebar (contentState: fit / scroll / full)"
-          code={`<ChatPanel headerSlot={<Text variant="h3">Чат з ментором</Text>} composer={<ChatInput />}>…</ChatPanel>`}
-        >
-          <ChatPanel
-            className="max-w-lg"
-            contentState="scroll"
-            floatingComposerOnMobile={false}
-            headerSlot={<Text variant="h3">Чат з ментором</Text>}
-            composer={<ChatInput />}
-            style={{ height: 360 }}
+        <>
+          <Specimen
+            label="висота панелі така сама, як у LessonSidebar (contentState: fit / scroll / full)"
+            code={`<ChatPanel headerSlot={<Text variant="h3">Чат з ментором</Text>} composer={<ChatInput />}>…</ChatPanel>`}
           >
-            <ChatBubble author="Олена Ковальчук" time="10:24">
-              Подивіться, будь ласка, відступи в другому блоці.
-            </ChatBubble>
-            <ChatBubble author="Ви" time="10:31" variant="outgoing">
-              Дякую! Виправлю до вечора.
-            </ChatBubble>
-            <ChatBubble author="Олена Ковальчук" time="10:35">
-              Супер, тоді чекаю оновлення й одразу перевірю.
-            </ChatBubble>
-          </ChatPanel>
-        </Specimen>
+            <ChatPanel
+              className="max-w-lg"
+              contentState="scroll"
+              floatingComposerOnMobile={false}
+              headerSlot={<Text variant="h3">Чат з ментором</Text>}
+              composer={<ChatInput />}
+              style={{ height: 360 }}
+            >
+              <ChatBubble author="Олена Ковальчук" time="10:24">
+                Подивіться, будь ласка, відступи в другому блоці.
+              </ChatBubble>
+              <ChatBubble author="Ви" time="10:31" variant="outgoing">
+                Дякую! Виправлю до вечора.
+              </ChatBubble>
+              <ChatBubble author="Олена Ковальчук" time="10:35">
+                Супер, тоді чекаю оновлення й одразу перевірю.
+              </ChatBubble>
+            </ChatPanel>
+          </Specimen>
+          <Specimen label="loading" code={`<ChatPanel loading composer={<ChatInput />} />`}>
+            <ChatPanel
+              className="max-w-lg"
+              contentState="scroll"
+              floatingComposerOnMobile={false}
+              loading
+              composer={<ChatInput />}
+              style={{ height: 360 }}
+            />
+          </Specimen>
+        </>
       ),
     },
 
@@ -837,12 +876,24 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       id: "lesson-sidebar",
       title: "LessonSidebar",
       node: (
-        <Specimen
-          label="панель уроку: таби, статус, опис (clamped / full), стек дій"
-          code={`<LessonSidebar tabs={tabs} value={tab} onValueChange={setTab} callout={<Callout variant="done">…</Callout>} actions={<Button variant="secondary" block>Наступний урок</Button>} />`}
-        >
-          <LessonSidebarDemo />
-        </Specimen>
+        <>
+          <Specimen
+            label="панель уроку: таби, статус, опис (clamped / full), стек дій"
+            code={`<LessonSidebar tabs={tabs} value={tab} onValueChange={setTab} callout={<Callout variant="done">…</Callout>} actions={<Button variant="secondary" block>Наступний урок</Button>} />`}
+          >
+            <LessonSidebarDemo />
+          </Specimen>
+          <Specimen label="loading" code={`<LessonSidebar loading actions={<Button />} />`}>
+            <div className="w-full max-w-sm">
+              <LessonSidebar
+                loading
+                contentState="full"
+                floatingActionsOnMobile={false}
+                actions={<Button block>Наступний урок</Button>}
+              />
+            </div>
+          </Specimen>
+        </>
       ),
     },
     {
