@@ -28,6 +28,21 @@ export interface ScoreboardProps extends React.HTMLAttributes<HTMLElement> {
   title?: string;
   /** Period caption, e.g. "1–7 вересня". */
   period?: string;
+  /**
+   * Period switcher, e.g. Тиждень / Загальний. Rendered under the header.
+   * The parent re-fetches/re-computes `rows` on change — the component is
+   * purely presentational.
+   */
+  periods?: TabItem[];
+  /** Active period value. Required when `periods` is passed. */
+  activePeriod?: string;
+  onPeriodChange?: (value: string) => void;
+  /**
+   * Explainer about how points work, opened from the info icon in the header.
+   * Shown regardless of the active period (covers the all-time total too).
+   */
+  infoTitle?: string;
+  infoDescription?: React.ReactNode;
   rows: ScoreboardRow[];
   /** Own row pinned to the bottom when it is outside the visible range. */
   currentRow?: ScoreboardRow;
