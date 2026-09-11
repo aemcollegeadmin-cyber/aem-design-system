@@ -23,6 +23,8 @@ export interface PageNavProps extends React.HTMLAttributes<HTMLElement> {
   backLabel?: string;
   /** Trailing page actions rendered on the far right of the header. */
   actions?: React.ReactNode;
+  /** Skeleton placeholder instead of title/breadcrumbs — keeps the same geometry. */
+  loading?: boolean;
 }
 
 
