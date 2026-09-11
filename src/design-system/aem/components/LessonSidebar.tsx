@@ -143,8 +143,8 @@ export const LessonSidebar = forwardRef<HTMLElement, LessonSidebarProps>(functio
         className={cn(
           SIDEBAR_BODY,
           clamped && "max-h-72 overflow-hidden",
-          scroll && "flex-1 overflow-y-auto",
-          fit && "aem-panel-fit-body lg:flex-1 lg:overflow-y-auto",
+          scroll && "overflow-y-auto",
+          fit && "aem-panel-fit-body lg:overflow-y-auto",
         )}
       >
         {children}
