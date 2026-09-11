@@ -85,7 +85,8 @@ export const LeaderboardCard = forwardRef<HTMLElement, LeaderboardCardProps>(
     const currentEntryIndex = currentEntry
       ? entries.findIndex(
           (entry) =>
-            (entry.current || entry.rank === currentEntry.rank) && entry.name === currentEntry.name,
+            entry.current ||
+            (entry.rank === currentEntry.rank && entry.name === currentEntry.name),
         )
       : -1;
     const visibleEntries = currentEntry
@@ -135,8 +136,6 @@ export const LeaderboardCard = forwardRef<HTMLElement, LeaderboardCardProps>(
             )}
           </div>
         )}
-
-
         {footer && <div className="border-t-2 border-border-line pt-4">{footer}</div>}
       </section>
     );
