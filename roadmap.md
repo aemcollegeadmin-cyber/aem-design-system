@@ -11,3 +11,4 @@
 - [ ] SubmissionRow: mobile wrap — title/subtitle first line, badge + date on next line
 - [x] LessonSidebar: mentor state (same tabs/info, single "Прийняти роботу" action; no return-for-rework)
 - [x] Panels: adaptive viewport-bound height (bottom gap on any screen, no page scroll)
+- [ ] Audit and add loading/skeleton states to all DS components so LMS pages don't jump
