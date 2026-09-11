@@ -45,6 +45,8 @@ export interface MediaPreviewProps
   onActivate?: () => void;
   /** Accessible name for the activate control. */
   actionLabel?: string;
+  /** Skeleton placeholder instead of the media plate. */
+  loading?: boolean;
 }
 
 /** Derives a thumbnail URL from a YouTube / Vimeo-style watch or embed link. */
@@ -60,9 +62,20 @@ function youTubeThumb(url: string): string | undefined {
  * an optional cover image or real video frame.
  */
 export const MediaPreview = forwardRef<HTMLDivElement, MediaPreviewProps>(function MediaPreview(
-  { kind = "video", src, videoSrc, alt, onActivate, actionLabel, size, className, ...props },
+  { kind = "video", src, videoSrc, alt, onActivate, actionLabel, loading = false, size, className, ...props },
   ref,
 ) {
+  if (loading) {
+    return (
+      <div
+        ref={ref}
+        aria-busy="true"
+        className={cn(preview({ size }), "bg-surface-muted", className)}
+        {...props}
+      />
+    );
+  }
+
   const embedThumb = videoSrc ? youTubeThumb(videoSrc) : undefined;
   const posterSrc = src ?? embedThumb;
   const showVideo = Boolean(videoSrc && !embedThumb && !src);

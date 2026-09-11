@@ -32,6 +32,8 @@ export interface ChatPanelProps extends React.HTMLAttributes<HTMLElement> {
   floatingComposerOnMobile?: boolean;
   /** Keep the thread scrolled to the newest message. */
   autoScroll?: boolean;
+  /** Skeleton placeholder instead of content. */
+  loading?: boolean;
 }
 
 /**

@@ -54,6 +54,8 @@ export interface LessonSidebarProps extends React.HTMLAttributes<HTMLElement> {
    * Set to `false` to keep them inline inside the panel.
    */
   floatingActionsOnMobile?: boolean;
+  /** Skeleton placeholder instead of content. */
+  loading?: boolean;
 }
 
 /**
@@ -72,6 +74,7 @@ export const LessonSidebar = forwardRef<HTMLElement, LessonSidebarProps>(functio
     contentState = "fit",
     actions,
     floatingActionsOnMobile = true,
+    loading = false,
     className,
     children,
     ...props
@@ -88,6 +91,34 @@ export const LessonSidebar = forwardRef<HTMLElement, LessonSidebarProps>(functio
     (tabs && value ? (
       <Tabs items={tabs} value={value} onValueChange={onValueChange} aria-controls={panelId} />
     ) : null);
+
+  if (loading) {
+    return (
+      <aside
+        ref={ref}
+        aria-busy="true"
+        className={cn(SIDEBAR_SHELL, fit && "aem-panel-fit", className)}
+        {...props}
+      >
+        <Skeleton radius="card" className="h-10 w-full" />
+        <div className={cn("flex flex-col gap-3", SIDEBAR_BODY)}>
+          <Skeleton radius="pill" className="h-4 w-3/4" />
+          <Skeleton radius="pill" className="h-4 w-full" />
+          <Skeleton radius="pill" className="h-4 w-5/6" />
+          <Skeleton radius="pill" className="h-4 w-2/3" />
+        </div>
+        <div className={SIDEBAR_CALLOUTS}>
+          <Skeleton radius="card" className="h-16 w-full" />
+        </div>
+        {actions !== undefined && (
+          <div className={cn(SIDEBAR_ACTIONS, floating && SIDEBAR_ACTIONS_MOBILE)}>
+            <Skeleton radius="pill" className="h-11 w-full" />
+          </div>
+        )}
+        {floating && <div aria-hidden="true" className="h-20 shrink-0 lg:hidden" />}
+      </aside>
+    );
+  }
 
   return (
     <aside
