@@ -1,7 +1,11 @@
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import { Avatar } from "./Avatar";
 import { Skeleton } from "./Skeleton";
 import { EmptyState } from "./EmptyState";
+import { Tabs, type TabItem } from "./Tabs";
+import { Dialog, DialogRoot } from "./Dialog";
+import { IconButton } from "./IconButton";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export interface ScoreboardRow {
