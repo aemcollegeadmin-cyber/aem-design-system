@@ -1146,6 +1146,10 @@
           "required": true
         },
         {
+          "name": "currentEntry",
+          "type": "any"
+        },
+        {
           "name": "footer",
           "type": "any"
         },

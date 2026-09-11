@@ -72,14 +72,18 @@ export const ChatPanel = forwardRef<HTMLElement, ChatPanelProps>(function ChatPa
   if (loading) {
     return (
       <section
-        ref={ref}
+        ref={(node) => {
+          (fitRef as React.MutableRefObject<HTMLElement | null>).current = node;
+          if (typeof ref === "function") ref(node);
+          else if (ref) (ref as React.MutableRefObject<HTMLElement | null>).current = node;
+        }}
         aria-busy="true"
         className={cn(PANEL_SHELL, fit && "aem-panel-fit", className)}
         {...props}
       >
         <Skeleton radius="card" className="h-10 w-full" />
         {callout !== undefined && <Skeleton radius="card" className="h-16 w-full" />}
-        <div className={cn("flex flex-col gap-3", PANEL_BODY)}>
+        <div className={cn("flex flex-col gap-3", PANEL_BODY, fit && "aem-panel-fit-body lg:overflow-y-hidden")}>
           <div className="flex items-end gap-2 self-start">
             <Skeleton radius="pill" className="h-10 w-48 rounded-br-none" />
           </div>

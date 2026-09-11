@@ -513,7 +513,7 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       node: (
         <Specimen
           label="рейтинг тижня · 1/3 сітки"
-          code={`<LeaderboardCard title="Рейтинг тижня" entries={entries} />`}
+          code={`<LeaderboardCard title="Рейтинг тижня" entries={topEntries} currentEntry={currentStudent} />`}
         >
           <div className="w-full max-w-sm">
             <LeaderboardCard
@@ -527,8 +527,8 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
                 { rank: 1, name: "Оля К.", score: "2 310" },
                 { rank: 2, name: "Іван Б.", score: "1 905" },
                 { rank: 3, name: "Ната Ш.", score: "1 780" },
-                { rank: 7, name: "Ти", score: "1 480", current: true },
               ]}
+              currentEntry={{ rank: 7, name: "Ти", score: "1 480" }}
               footer={
                 <Card variant="muted" radius="card">
                   <Text variant="h4">+40 балів до топ-5</Text>
