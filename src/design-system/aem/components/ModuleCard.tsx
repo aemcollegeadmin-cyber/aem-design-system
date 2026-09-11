@@ -53,7 +53,7 @@ export const ModuleCard = forwardRef<HTMLElement, ModuleCardProps>(function Modu
     );
   }
 
-  const complete = progress >= 100;
+  const complete = (progress ?? 0) >= 100;
   return (
     <section ref={ref} className={cn("flex flex-col gap-4 rounded-panel bg-surface-muted p-5", className)} {...props}>
       <div className="flex items-start gap-3">
@@ -70,7 +70,7 @@ export const ModuleCard = forwardRef<HTMLElement, ModuleCardProps>(function Modu
         </div>
         {meta ?? <Badge variant={complete ? "lime" : "neutral"}>{complete ? "Пройдено" : "Модуль"}</Badge>}
       </div>
-      <ProgressBar value={progress} />
+      <ProgressBar value={progress ?? 0} />
       <div className="flex flex-col gap-2">{children}</div>
     </section>
   );
