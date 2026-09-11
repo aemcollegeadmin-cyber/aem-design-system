@@ -27,7 +27,7 @@ export const CourseCard = forwardRef<HTMLElement, CourseCardProps>(function Cour
         className={cn("flex w-72 flex-col gap-4", className)}
         {...props}
       >
-        <Skeleton radius="panel" className="h-36 w-full" />
+        <Skeleton radius="card" className="h-36 w-full" />
         <div className="flex flex-col gap-2">
           <Skeleton radius="pill" className="h-5 w-40" />
           {description !== undefined && <Skeleton radius="pill" className="h-4 w-56" />}

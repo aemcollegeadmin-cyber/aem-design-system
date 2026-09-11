@@ -411,10 +411,10 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
               <LessonRow title="Урок 3. Сітки" description="Відкриється 14 березня" status="locked" />
             </div>
           </Specimen>
-          <Specimen label="loading" code={`<LessonRow loading />`}>
+          <Specimen label="loading" code={`<LessonRow loading title="" />`}>
             <div className="flex w-full flex-col gap-2">
-              <LessonRow loading />
-              <LessonRow loading />
+              <LessonRow loading title="" />
+              <LessonRow loading title="" />
             </div>
           </Specimen>
         </>
@@ -437,8 +437,8 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
               <LessonRow title="Урок 2. Grid" />
             </ModuleCard>
           </Specimen>
-          <Specimen label="loading" code={`<ModuleCard loading />`}>
-            <ModuleCard loading className="w-full" />
+          <Specimen label="loading" code={`<ModuleCard loading title="" progress={0} />`}>
+            <ModuleCard loading title="" progress={0} className="w-full" />
           </Specimen>
         </>
       ),
@@ -461,8 +461,8 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
               }
             />
           </Specimen>
-          <Specimen label="loading" code={`<CourseCard loading />`}>
-            <CourseCard loading />
+          <Specimen label="loading" code={`<CourseCard loading title="" progress={0} />`}>
+            <CourseCard loading title="" progress={0} />
           </Specimen>
         </>
       ),
@@ -685,9 +685,13 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
               />
             </div>
           </Specimen>
-          <Specimen label="loading" code={`<ContinueLessonCard loading />`}>
+          <Specimen label="loading" code={`<ContinueLessonCard loading title="" />`}>
             <div className="w-full">
-              <ContinueLessonCard loading actions={<Skeleton radius="pill" className="h-11 w-40" />} />
+              <ContinueLessonCard
+                loading
+                title=""
+                actions={<Skeleton radius="pill" className="h-11 w-40" />}
+              />
             </div>
           </Specimen>
           <Specimen label="MediaPreview: kind × size" code={`<MediaPreview kind="reading" size="lg" />`}>
