@@ -71,7 +71,7 @@ export const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function 
       defaultValue={defaultValue}
       onChange={onChange}
       className={cn(
-        "w-full border-2 border-border-strong bg-surface px-4 py-3 text-body text-ink placeholder:text-ink-muted shadow-card transition-colors hover:border-ink focus:border-ink focus:outline-none",
+        "w-full rounded-field border-2 border-border-strong bg-surface px-4 py-3 text-body text-ink placeholder:text-ink-muted shadow-card transition-colors hover:border-ink focus:border-ink focus:outline-none",
         resize === "vertical" ? "resize-y" : "resize-none",
         fill && "min-h-0 flex-1 h-full",
         className,
