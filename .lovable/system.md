@@ -137,6 +137,18 @@ generated token and component reference.
   внизу екрана (`floatingActionsOnMobile={false}` вимикає це).
 - Дії передаються в `actions` як `Button variant="secondary" block` — вони
   стають вертикальним стеком автоматично.
+- Поле здавання ДЗ в тілі панелі має розтягуватися до кінця картки. Використовуй
+  `<Field fill>` + `<Textarea fill>` всередині flex-контейнера в тілі:
+  ```tsx
+  <LessonSidebar contentState="fit" actions={<Button block>Відправити</Button>}>
+    <div className="flex min-h-0 flex-1 flex-col gap-3">
+      <Callout variant="neutral">…</Callout>
+      <Field label="Коментарі та посилання" fill>
+        {(control) => <Textarea {...control} fill placeholder="…" />}
+      </Field>
+    </div>
+  </LessonSidebar>
+  ```
 
 ## Оновлення (icons / LessonSidebar / dialogs)
 
