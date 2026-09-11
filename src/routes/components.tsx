@@ -1216,6 +1216,15 @@ function ScoreboardDemo() {
       ]}
       activePeriod={period}
       onPeriodChange={setPeriod}
+      overallRanking={
+        week
+          ? {
+              title: "Твоє місце в загальному рейтингу",
+              period: "за весь час",
+              row: { rank: 12, name: "Ти", score: "9 860", meta: "Інтерфейсник" },
+            }
+          : undefined
+      }
       infoTitle="Як рахуються бали"
       infoDescription={
         <p>
