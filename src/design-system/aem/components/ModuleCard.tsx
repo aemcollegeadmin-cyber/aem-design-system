@@ -37,17 +37,20 @@ export const ModuleCard = forwardRef<HTMLElement, ModuleCardProps>(function Modu
         {...props}
       >
         <div className="flex items-start gap-3">
-          <Skeleton radius="pill" className="size-8 shrink-0" />
+          <Skeleton radius="pill" className="size-8 shrink-0 bg-surface" />
           <div className="flex flex-1 flex-col gap-2">
-            <Skeleton radius="pill" className="h-5 w-40" />
-            {description !== undefined && <Skeleton radius="pill" className="h-4 w-56" />}
+            <Skeleton radius="pill" className="h-5 w-40 bg-surface" />
+            {description !== undefined && <Skeleton radius="pill" className="h-4 w-56 bg-surface" />}
           </div>
-          <Skeleton radius="pill" className="h-6 w-20" />
+          <Skeleton radius="pill" className="h-6 w-20 bg-surface" />
         </div>
-        <Skeleton radius="pill" className="h-2 w-full" />
+        <Skeleton radius="pill" className="h-2 w-full bg-surface" />
         <div className="flex flex-col gap-2">
           {Array.from({ length: loadingRows }).map((_, index) => (
-            <LessonRow key={index} loading />
+            <div key={index} className="flex items-center gap-3">
+              <Skeleton radius="pill" className="size-8 shrink-0 bg-surface" />
+              <Skeleton radius="card" className="h-14 flex-1 bg-surface" />
+            </div>
           ))}
         </div>
       </section>
