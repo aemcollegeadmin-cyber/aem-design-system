@@ -4,7 +4,6 @@ import { Badge } from "./Badge";
 import { ProgressBar } from "./ProgressBar";
 import { StatusIcon } from "./StatusIcon";
 import { Skeleton } from "./Skeleton";
-import { LessonRow } from "./LessonRow";
 import { cn } from "../lib/cn";
 
 export interface ModuleCardProps extends React.HTMLAttributes<HTMLElement> {
