@@ -23,6 +23,19 @@ export interface ScoreboardRow {
   current?: boolean;
 }
 
+export interface ScoreboardOverallRanking {
+  /** Block title shown alongside the weekly ranking. */
+  title?: string;
+  /** Secondary period label, e.g. "за весь час". */
+  period?: string;
+  /** Current student's all-time result. */
+  row?: ScoreboardRow;
+  /** Preserves the block geometry while the all-time result is loading. */
+  loading?: boolean;
+  /** Message shown when no all-time result exists yet. */
+  emptyLabel?: string;
+}
+
 export interface ScoreboardProps extends React.HTMLAttributes<HTMLElement> {
   /** Page-level title, e.g. "Рейтинг тижня". */
   title?: string;
@@ -46,6 +59,11 @@ export interface ScoreboardProps extends React.HTMLAttributes<HTMLElement> {
   rows: ScoreboardRow[];
   /** Own row pinned to the bottom when it is outside the visible range. */
   currentRow?: ScoreboardRow;
+  /**
+   * Current student's all-time ranking shown together with the weekly list.
+   * Pass this on the weekly view; switching the main list does not replace it.
+   */
+  overallRanking?: ScoreboardOverallRanking;
   /** Skeleton rows instead of content. */
   loading?: boolean;
   /** Number of skeleton rows while loading. */
@@ -120,6 +138,7 @@ export const Scoreboard = forwardRef<HTMLElement, ScoreboardProps>(function Scor
     infoDescription,
     rows,
     currentRow,
+    overallRanking,
     loading = false,
     loadingRows = 8,
     emptyTitle = "Рейтинг ще формується",
@@ -171,6 +190,29 @@ export const Scoreboard = forwardRef<HTMLElement, ScoreboardProps>(function Scor
         <Tabs items={periods} value={activePeriod} onValueChange={onPeriodChange} />
       )}
 
+      {overallRanking && (
+        <aside
+          aria-label={overallRanking.title ?? "Загальний рейтинг"}
+          className="flex flex-col gap-3 rounded-card bg-surface-muted p-4"
+        >
+          <div className="flex flex-wrap items-center justify-between gap-2">
+            <h3 className="text-h4 text-ink">{overallRanking.title ?? "Загальний рейтинг"}</h3>
+            {overallRanking.period && (
+              <span className="text-caption text-ink-muted">{overallRanking.period}</span>
+            )}
+          </div>
+          {overallRanking.loading ? (
+            <Skeleton radius="pill" className="h-14 w-full" />
+          ) : overallRanking.row ? (
+            <Row row={{ ...overallRanking.row, current: true }} />
+          ) : (
+            <p className="rounded-field bg-surface px-4 py-4 text-center text-caption text-ink-muted">
+              {overallRanking.emptyLabel ?? "Загальний рейтинг ще формується."}
+            </p>
+          )}
+        </aside>
+      )}
+
       {loading ? (
         <div className="flex flex-col gap-2">
           {Array.from({ length: loadingRows }).map((_, index) => (
@@ -192,9 +234,9 @@ export const Scoreboard = forwardRef<HTMLElement, ScoreboardProps>(function Scor
         </div>
       )}
 
-      {!loading && showPinned && (
+      {!loading && showPinned && currentRow && (
         <div className="flex flex-col gap-2 border-t-2 border-border-line pt-4">
-          <Row row={{ ...currentRow!, current: true }} pinned />
+          <Row row={{ ...currentRow, current: true }} pinned />
         </div>
       )}
 

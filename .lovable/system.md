@@ -208,7 +208,10 @@ generated token and component reference.
 - Окрема сторінка рейтингу — `Scoreboard` з `periods`, `activePeriod`,
   `onPeriodChange` для перемикання «Тиждень / Загальний» і `infoTitle` /
   `infoDescription` для пояснення балів. `rows` й `currentRow` передає LMS відповідно
-  до обраного періоду.
+  до обраного періоду. На тижневому перегляді ОБОВʼЯЗКОВО передавай
+  `overallRanking={{ title, period, row, loading }}`: цей окремий підсвічений блок
+  одночасно показує загальне місце та суму балів студента. Не замінюй його самим
+  табом «Загальний» і не приховуй через `rank = null`: передавай UI fallback-місце.
 - Нарахування балів показується тостом `toastPoints({ points, reason })`;
   потрібен один `<Toaster />` у корені. Не роби власних toast-стилів.
 - Підвищення місця в рейтингу — `RankUpDialog` у `DialogRoot` з керованим
