@@ -14,3 +14,4 @@
 - [x] Audit and add loading/skeleton states to all DS components so LMS pages don't jump
   - Added `loading` to: ModuleCard, CourseCard, LessonRow, ContinueLessonCard, MediaPreview, LessonSidebar, ChatPanel
   - Existing loading on: ScoreCard, LeaderboardCard, Scoreboard
+- [x] Diagnose missing current-student row in LMS weekly leaderboard and provide an exact consumer-side fix prompt
