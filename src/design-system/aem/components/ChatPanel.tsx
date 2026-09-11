@@ -1,4 +1,5 @@
 import { forwardRef, useEffect, useRef } from "react";
+import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 import { useFitViewport } from "../lib/useFitViewport";
 
@@ -49,6 +50,7 @@ export const ChatPanel = forwardRef<HTMLElement, ChatPanelProps>(function ChatPa
     contentState = "fit",
     floatingComposerOnMobile = true,
     autoScroll = true,
+    loading = false,
     className,
     children,
     ...props
@@ -62,10 +64,41 @@ export const ChatPanel = forwardRef<HTMLElement, ChatPanelProps>(function ChatPa
   const floating = Boolean(composer) && floatingComposerOnMobile;
 
   useEffect(() => {
-    if (!autoScroll) return;
+    if (!autoScroll || loading) return;
     const node = threadRef.current;
     if (node) node.scrollTop = node.scrollHeight;
-  }, [autoScroll, children]);
+  }, [autoScroll, loading, children]);
+
+  if (loading) {
+    return (
+      <section
+        ref={ref}
+        aria-busy="true"
+        className={cn(PANEL_SHELL, fit && "aem-panel-fit", className)}
+        {...props}
+      >
+        <Skeleton radius="card" className="h-10 w-full" />
+        {callout !== undefined && <Skeleton radius="card" className="h-16 w-full" />}
+        <div className={cn("flex flex-col gap-3", PANEL_BODY)}>
+          <div className="flex items-end gap-2 self-start">
+            <Skeleton radius="pill" className="h-10 w-48 rounded-br-none" />
+          </div>
+          <div className="flex items-end gap-2 self-end">
+            <Skeleton radius="pill" className="h-10 w-56 rounded-bl-none" />
+          </div>
+          <div className="flex items-end gap-2 self-start">
+            <Skeleton radius="pill" className="h-10 w-40 rounded-br-none" />
+          </div>
+        </div>
+        {composer !== undefined && (
+          <div className={cn(PANEL_FOOTER, floating && PANEL_FOOTER_MOBILE)}>
+            <Skeleton radius="pill" className="h-11 w-full" />
+          </div>
+        )}
+        {floating && <div aria-hidden="true" className="h-24 shrink-0 lg:hidden" />}
+      </section>
+    );
+  }
 
   return (
     <section

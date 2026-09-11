@@ -1,5 +1,6 @@
 import { forwardRef, useId } from "react";
 import { Tabs, type TabItem } from "./Tabs";
+import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 import { useFitViewport } from "../lib/useFitViewport";
 
