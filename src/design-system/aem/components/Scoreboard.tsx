@@ -113,6 +113,11 @@ export const Scoreboard = forwardRef<HTMLElement, ScoreboardProps>(function Scor
   {
     title,
     period,
+    periods,
+    activePeriod,
+    onPeriodChange,
+    infoTitle,
+    infoDescription,
     rows,
     currentRow,
     loading = false,
@@ -126,6 +131,8 @@ export const Scoreboard = forwardRef<HTMLElement, ScoreboardProps>(function Scor
   ref,
 ) {
   const showPinned = currentRow && !rows.some((row) => row.rank === currentRow.rank);
+  const [infoOpen, setInfoOpen] = useState(false);
+  const hasInfo = Boolean(infoTitle);
 
   return (
     <section
@@ -133,11 +140,35 @@ export const Scoreboard = forwardRef<HTMLElement, ScoreboardProps>(function Scor
       className={cn("flex flex-col gap-4 rounded-panel bg-surface p-6", className)}
       {...props}
     >
-      {(title || period) && (
-        <div className="flex flex-wrap items-baseline justify-between gap-2">
-          {title && <h2 className="text-h2 text-ink">{title}</h2>}
+      {(title || period || hasInfo) && (
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex min-w-0 items-center gap-2">
+            {title && <h2 className="text-h2 text-ink">{title}</h2>}
+            {hasInfo && (
+              <IconButton
+                label={infoTitle!}
+                variant="muted"
+                size="sm"
+                onClick={() => setInfoOpen(true)}
+              >
+                <Icon name="info" size="md" />
+              </IconButton>
+            )}
+          </div>
           {period && <span className="text-caption text-ink-muted">{period}</span>}
         </div>
+      )}
+
+      {hasInfo && (
+        <DialogRoot open={infoOpen} onOpenChange={setInfoOpen}>
+          <Dialog title={infoTitle!} size="sm">
+            {infoDescription && <div className="text-body text-ink">{infoDescription}</div>}
+          </Dialog>
+        </DialogRoot>
+      )}
+
+      {periods && activePeriod && (
+        <Tabs items={periods} value={activePeriod} onValueChange={onPeriodChange} />
       )}
 
       {loading ? (
