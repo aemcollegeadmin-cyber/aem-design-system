@@ -175,6 +175,7 @@ import { ChatPanel } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33a
 | `contentState` | fit · scroll · full | `fit` |
 | `floatingComposerOnMobile` | boolean | `true` |
 | `autoScroll` | boolean | `true` |
+| `loading` | boolean | `false` |
 
 ### Checkbox
 
@@ -216,6 +217,7 @@ import { ContinueLessonCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-
 | `progress` | number | `—` |
 | `progressLabel` | string | `—` |
 | `actions` | any | `—` |
+| `loading` | boolean | `false` |
 
 ### CourseCard
 
@@ -232,6 +234,7 @@ import { CourseCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 | `progress` | number | `—` |
 | `cover` | any | `—` |
 | `mentors` | any | `—` |
+| `loading` | boolean | `false` |
 
 ### Dialog
 
@@ -445,6 +448,7 @@ import { LessonRow } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33a
 | `trailing` | any | `—` |
 | `onOpen` | function | `—` |
 | `tone` | onSurface · onMuted | `onSurface` |
+| `loading` | boolean | `false` |
 
 ### LessonSidebar
 
@@ -464,6 +468,7 @@ import { LessonSidebar } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-
 | `contentState` | fit · clamped · full · scroll | `fit` |
 | `actions` | any | `—` |
 | `floatingActionsOnMobile` | boolean | `true` |
+| `loading` | boolean | `false` |
 
 ### MediaDialog
 
@@ -509,6 +514,7 @@ import { MediaPreview } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e
 | `alt` | string | `—` |
 | `onActivate` | function | `—` |
 | `actionLabel` | string | `—` |
+| `loading` | boolean | `false` |
 
 ### ModuleCard
 
@@ -525,6 +531,8 @@ import { ModuleCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 | `progress` | number | `—` |
 | `meta` | any | `—` |
 | `children` | any | `—` |
+| `loading` | boolean | `false` |
+| `loadingRows` | number | `3` |
 
 ### NavItem
 
