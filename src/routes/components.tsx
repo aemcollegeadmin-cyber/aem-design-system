@@ -559,22 +559,11 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       node: (
         <div className="flex w-full flex-col gap-4">
           <Specimen
-            label="повна сторінка рейтингу тижня"
-            code={`<Scoreboard title="Рейтинг тижня" rows={rows} currentRow={me} footer={<Pagination … />} />`}
+            label="повна сторінка рейтингу: тиждень / загальний + інфо про бали"
+            code={`<Scoreboard title="Рейтинг" periods={[{value:"week",label:"Тиждень"},{value:"all",label:"Загальний"}]} activePeriod={p} onPeriodChange={setP} infoTitle="Як рахуються бали" infoDescription={…} rows={rows} />`}
           >
             <div className="w-full">
-              <Scoreboard
-                title="Рейтинг тижня"
-                period="1–7 вересня"
-                rows={[
-                  { rank: 1, name: "Оля К.", score: "2 310", delta: "+320", meta: "Інтерфейсник" },
-                  { rank: 2, name: "Іван Б.", score: "1 905", delta: "+260", meta: "Інтерфейсник" },
-                  { rank: 3, name: "Ната Ш.", score: "1 780", delta: "+180", meta: "Дизайн-система" },
-                  { rank: 4, name: "Марта Г.", score: "1 640", delta: "+150", meta: "Інтерфейсник" },
-                ]}
-                currentRow={{ rank: 7, name: "Ти", score: "1 480", delta: "+120", meta: "Інтерфейсник" }}
-                footer={<Pagination page={1} pageCount={4} />}
-              />
+              <ScoreboardDemo />
             </div>
           </Specimen>
           <Specimen label="loading / empty" code={`<Scoreboard loading rows={[]} />`}>
