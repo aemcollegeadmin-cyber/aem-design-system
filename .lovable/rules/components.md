@@ -358,6 +358,7 @@ import { Field } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8b
 | `hint` | string | `—` |
 | `error` | string | `—` |
 | `required` | boolean | `—` |
+| `fill` | boolean | `false` |
 | `children` | function | `—` |
 
 ### Icon
@@ -581,6 +582,7 @@ import { PageHeader } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 | `description` | string | `—` |
 | `above` | any | `—` |
 | `actions` | any | `—` |
+| `loading` | boolean | `false` |
 
 ### PageNav
 
@@ -600,6 +602,7 @@ import { PageNav } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac
 | `onBack` | function | `—` |
 | `backLabel` | string | `Назад` |
 | `actions` | any | `—` |
+| `loading` | boolean | `false` |
 
 ### Pagination
 
@@ -967,6 +970,16 @@ import { TextLink } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aa
 ```ts
 import { Textarea } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
+
+**Props:**
+
+| Prop | Type | Default |
+|---|---|---|
+| `autoResize` | boolean | `false` |
+| `minRows` | number | `—` |
+| `maxRows` | number | `—` |
+| `resize` | none · vertical | `none` |
+| `fill` | boolean | `false` |
 
 ### Toaster
 
