@@ -7,13 +7,15 @@ export interface FieldProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "
   hint?: string;
   error?: string;
   required?: boolean;
+  /** Stretch to fill the available height of a flex parent. */
+  fill?: boolean;
   /** Receives the generated id and describedby wiring for the control. */
   children: (control: { id: string; "aria-describedby"?: string; "aria-invalid"?: boolean }) => React.ReactNode;
 }
 
 /** Label + control + hint/error wrapper that wires up accessible descriptions. */
 export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
-  { label, hint, error, required, children, className, ...props },
+  { label, hint, error, required, children, fill = false, className, ...props },
   ref,
 ) {
   const id = useId();
@@ -22,7 +24,11 @@ export const Field = forwardRef<HTMLDivElement, FieldProps>(function Field(
   const describedBy = [hint ? hintId : null, error ? errorId : null].filter(Boolean).join(" ");
 
   return (
-    <div ref={ref} className={cn("flex flex-col gap-1.5", className)} {...props}>
+    <div
+      ref={ref}
+      className={cn("flex flex-col gap-1.5", fill && "min-h-0 flex-1", className)}
+      {...props}
+    >
       <Label htmlFor={id} required={required}>
         {label}
       </Label>

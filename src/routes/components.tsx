@@ -1058,83 +1058,113 @@ function LessonSidebarDemo() {
   const [state, setState] = useState<"clamped" | "full">("clamped");
 
   return (
-    <div className="grid w-full gap-4 lg:grid-cols-2">
-    <div className="flex w-full max-w-sm flex-col gap-3">
+    <div className="grid w-full items-start gap-4 lg:grid-cols-3">
+      <div className="flex w-full max-w-sm flex-col gap-3">
+        <LessonSidebar
+          tabs={[
+            { value: "info", label: "Інформація" },
+            { value: "tips", label: "Рекомендації" },
+          ]}
+          value={tab}
+          onValueChange={setTab}
+          contentState={state}
+          callout={
+            <>
+              <Callout variant="done">Урок пройдено! 2 вересня 2026 р. о 23:36</Callout>
+              <Callout variant="neutral">
+                Це домашнє завдання приймається автоматично, але його виконання враховується для
+                отримання сертифікату.
+              </Callout>
+            </>
+          }
+          actions={
+            <>
+              <Button variant="secondary" block>
+                <Icon name="document" size="md" />
+                Матеріали до уроку
+              </Button>
+              <Button variant="secondary" block>
+                Наступний урок
+              </Button>
+            </>
+          }
+        >
+          {tab === "info" ? (
+            <div className="flex flex-col gap-3">
+              <Text variant="paragraph">
+                Розберемося з реєстрацією в Claude та варіантами підписок, щоб зрозуміти, який тариф
+                підійде під твої задачі. Тут глянемо на різницю між безкоштовною версією, Pro та Max.
+              </Text>
+              <Text variant="paragraph">
+                Окремо пройдемося по тому, як працює командний доступ та API, і чому для активних
+                агентів вигідніше брати фіксовану підписку, ніж платити за кожен запит.
+              </Text>
+            </div>
+          ) : (
+            <Text variant="paragraph">Почни з безкоштовного тарифу, щоб перевірити свої сценарії.</Text>
+          )}
+        </LessonSidebar>
+        <Button
+          size="sm"
+          variant="ghost"
+          onClick={() => setState(state === "clamped" ? "full" : "clamped")}
+        >
+          {state === "clamped" ? "contentState=\"full\"" : "contentState=\"clamped\""}
+        </Button>
+      </div>
 
       <LessonSidebar
-        tabs={[
-          { value: "info", label: "Інформація" },
-          { value: "tips", label: "Рекомендації" },
-        ]}
-        value={tab}
-        onValueChange={setTab}
-        contentState={state}
+        className="max-w-sm"
+        contentState="full"
+        floatingActionsOnMobile={false}
+        headerSlot={<Text variant="h3">Перевірка роботи</Text>}
         callout={
           <>
-            <Callout variant="done">Урок пройдено! 2 вересня 2026 р. о 23:36</Callout>
+            <Callout variant="pending">Здано 2 вересня — очікує на перевірку</Callout>
             <Callout variant="neutral">
-              Це домашнє завдання приймається автоматично, але його виконання враховується для
-              отримання сертифікату.
+              Перевір рекомендації та залиш фідбек у чаті перед прийняттям.
             </Callout>
           </>
         }
+        actions={<Button block>Прийняти роботу</Button>}
+      >
+        <Text variant="paragraph">
+          Вигляд ментора: ті самі вкладки «Інформація / Рекомендації», тіпси знизу і єдина дія —
+          «Прийняти роботу». Стану «повернути на доопрацювання» немає. Кнопки прийняття в чаті
+          не дублюються — вони живуть лише тут.
+        </Text>
+      </LessonSidebar>
+
+      <LessonSidebar
+        className="max-w-sm lg:h-[640px]"
+        contentState="scroll"
+        floatingActionsOnMobile={false}
+        headerSlot={<Text variant="h3">Здати домашнє завдання</Text>}
         actions={
           <>
-            <Button variant="secondary" block>
-              <Icon name="document" size="md" />
-              Матеріали до уроку
-            </Button>
-            <Button variant="secondary" block>
-              Наступний урок
+            <Button block>Відправити</Button>
+            <Button variant="ghost" block>
+              Скасувати
             </Button>
           </>
         }
       >
-        {tab === "info" ? (
-          <div className="flex flex-col gap-3">
-            <Text variant="paragraph">
-              Розберемося з реєстрацією в Claude та варіантами підписок, щоб зрозуміти, який тариф
-              підійде під твої задачі. Тут глянемо на різницю між безкоштовною версією, Pro та Max.
-            </Text>
-            <Text variant="paragraph">
-              Окремо пройдемося по тому, як працює командний доступ та API, і чому для активних
-              агентів вигідніше брати фіксовану підписку, ніж платити за кожен запит.
-            </Text>
-          </div>
-        ) : (
-          <Text variant="paragraph">Почни з безкоштовного тарифу, щоб перевірити свої сценарії.</Text>
-        )}
-      </LessonSidebar>
-      <Button
-        size="sm"
-        variant="ghost"
-        onClick={() => setState(state === "clamped" ? "full" : "clamped")}
-      >
-        {state === "clamped" ? "contentState=\"full\"" : "contentState=\"clamped\""}
-      </Button>
-    </div>
-
-    <LessonSidebar
-      className="max-w-sm"
-      contentState="full"
-      floatingActionsOnMobile={false}
-      headerSlot={<Text variant="h3">Перевірка роботи</Text>}
-      callout={
-        <>
-          <Callout variant="pending">Здано 2 вересня — очікує на перевірку</Callout>
+        <div className="flex min-h-0 flex-1 flex-col gap-3">
           <Callout variant="neutral">
-            Перевір рекомендації та залиш фідбек у чаті перед прийняттям.
+            Це домашнє завдання приймається автоматично, але його виконання враховується для
+            отримання сертифікату.
           </Callout>
-        </>
-      }
-      actions={<Button block>Прийняти роботу</Button>}
-    >
-      <Text variant="paragraph">
-        Вигляд ментора: ті самі вкладки «Інформація / Рекомендації», тіпси знизу і єдина дія —
-        «Прийняти роботу». Стану «повернути на доопрацювання» немає. Кнопки прийняття в чаті
-        не дублюються — вони живуть лише тут.
-      </Text>
-    </LessonSidebar>
+          <Field label="Коментарі та посилання до завдання" fill>
+            {(control) => (
+              <Textarea
+                {...control}
+                fill
+                placeholder="Додай коментарі та посилання на свою роботу…"
+              />
+            )}
+          </Field>
+        </div>
+      </LessonSidebar>
     </div>
   );
 }
