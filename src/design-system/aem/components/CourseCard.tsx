@@ -4,9 +4,11 @@ import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 
 export interface CourseCardProps extends React.HTMLAttributes<HTMLElement> {
-  title: string;
+  /** Required unless `loading` is true. */
+  title?: string;
   description?: string;
-  progress: number;
+  /** Required unless `loading` is true. */
+  progress?: number;
   cover?: React.ReactNode;
   /** Mentor chips rendered under the "Ментори навчання" label. */
   mentors?: React.ReactNode;

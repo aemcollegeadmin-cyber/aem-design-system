@@ -5,7 +5,8 @@ import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 
 export interface LessonRowProps extends React.HTMLAttributes<HTMLDivElement> {
-  title: string;
+  /** Required unless `loading` is true. */
+  title?: string;
   description?: string;
   status?: LessonStatus;
   trailing?: React.ReactNode;

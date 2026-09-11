@@ -7,9 +7,11 @@ import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 
 export interface ModuleCardProps extends React.HTMLAttributes<HTMLElement> {
-  title: string;
+  /** Required unless `loading` is true. */
+  title?: string;
   description?: string;
-  progress: number;
+  /** Required unless `loading` is true. */
+  progress?: number;
   /** Right-hand meta pill, e.g. "4 уроки" or "Пройдено". */
   meta?: React.ReactNode;
   /** LessonRow children. */

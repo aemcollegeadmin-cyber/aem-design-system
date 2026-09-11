@@ -6,7 +6,8 @@ import { cn } from "../lib/cn";
 export interface ContinueLessonCardProps extends React.HTMLAttributes<HTMLElement> {
   /** Breadcrumb-like meta line, e.g. "Інтерфейсник · Модуль 3 · Урок 12 з 90". */
   meta?: string;
-  title: string;
+  /** Required unless `loading` is true. */
+  title?: string;
   /** Kind of lesson content — drives the poster glyph. */
   kind?: MediaPreviewKind;
   /** Poster image URL. */
