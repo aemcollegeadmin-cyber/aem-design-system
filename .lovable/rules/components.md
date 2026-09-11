@@ -428,6 +428,7 @@ import { LeaderboardCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa8
 | `title` | string | `—` |
 | `action` | any | `—` |
 | `entries` | any | `—` |
+| `currentEntry` | any | `—` |
 | `footer` | any | `—` |
 | `loading` | boolean | `false` |
 | `loadingRows` | number | `5` |
