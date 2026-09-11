@@ -11,7 +11,7 @@ import { useFitViewport } from "../lib/useFitViewport";
  */
 const SIDEBAR_SHELL = "flex min-h-0 w-full flex-col gap-4 rounded-panel bg-surface p-4 shadow-card";
 const SIDEBAR_HEADER = "shrink-0";
-const SIDEBAR_BODY = "relative flex min-h-0 flex-col text-body text-ink";
+const SIDEBAR_BODY = "relative flex min-h-0 flex-1 flex-col text-body text-ink";
 /**
  * Status messages (Callout / Alert) always sit at the BOTTOM of the panel,
  * directly ABOVE the actions. They are one visual group: `gap-2`, no divider.
