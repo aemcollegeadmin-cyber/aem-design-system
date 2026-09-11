@@ -873,12 +873,24 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       id: "lesson-sidebar",
       title: "LessonSidebar",
       node: (
-        <Specimen
-          label="панель уроку: таби, статус, опис (clamped / full), стек дій"
-          code={`<LessonSidebar tabs={tabs} value={tab} onValueChange={setTab} callout={<Callout variant="done">…</Callout>} actions={<Button variant="secondary" block>Наступний урок</Button>} />`}
-        >
-          <LessonSidebarDemo />
-        </Specimen>
+        <>
+          <Specimen
+            label="панель уроку: таби, статус, опис (clamped / full), стек дій"
+            code={`<LessonSidebar tabs={tabs} value={tab} onValueChange={setTab} callout={<Callout variant="done">…</Callout>} actions={<Button variant="secondary" block>Наступний урок</Button>} />`}
+          >
+            <LessonSidebarDemo />
+          </Specimen>
+          <Specimen label="loading" code={`<LessonSidebar loading actions={<Button />} />`}>
+            <div className="w-full max-w-sm">
+              <LessonSidebar
+                loading
+                contentState="full"
+                floatingActionsOnMobile={false}
+                actions={<Button block>Наступний урок</Button>}
+              />
+            </div>
+          </Specimen>
+        </>
       ),
     },
     {
