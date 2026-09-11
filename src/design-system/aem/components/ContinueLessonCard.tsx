@@ -58,7 +58,7 @@ export const ContinueLessonCard = forwardRef<HTMLElement, ContinueLessonCardProp
           )}
           {...props}
         >
-          <Skeleton radius="card" className="h-20 w-32 shrink-0" />
+          <MediaPreview loading size="md" />
           <div className="flex min-w-0 flex-1 flex-col gap-3">
             <Skeleton radius="pill" className="h-4 w-40" />
             <Skeleton radius="pill" className="h-6 w-3/4" />

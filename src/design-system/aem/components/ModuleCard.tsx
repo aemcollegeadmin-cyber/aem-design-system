@@ -4,6 +4,7 @@ import { Badge } from "./Badge";
 import { ProgressBar } from "./ProgressBar";
 import { StatusIcon } from "./StatusIcon";
 import { Skeleton } from "./Skeleton";
+import { LessonRow } from "./LessonRow";
 import { cn } from "../lib/cn";
 
 export interface ModuleCardProps extends React.HTMLAttributes<HTMLElement> {
@@ -46,7 +47,7 @@ export const ModuleCard = forwardRef<HTMLElement, ModuleCardProps>(function Modu
         <Skeleton radius="pill" className="h-2 w-full" />
         <div className="flex flex-col gap-2">
           {Array.from({ length: loadingRows }).map((_, index) => (
-            <Skeleton key={index} radius="card" className="h-[52px] w-full" />
+            <LessonRow key={index} loading />
           ))}
         </div>
       </section>
