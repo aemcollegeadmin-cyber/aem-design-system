@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.6.3",
+    "version": "1.6.4",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -96,7 +96,7 @@
       "src/design-system/aem/components/Tabs.tsx": "af42921269b5824295aed52aede33872",
       "src/design-system/aem/components/Text.tsx": "760428b7ba0088ecdf15bdb1e8c5aae4",
       "src/design-system/aem/components/TextLink.tsx": "d5934f40ad23d25919d698700ec4b10e",
-      "src/design-system/aem/components/Textarea.tsx": "a0c53e0131e54503bcb0162e19e201e6",
+      "src/design-system/aem/components/Textarea.tsx": "2bc405ae874ac1af78153a9a9aad93d5",
       "src/design-system/aem/components/Toaster.tsx": "647eb0a1f3f4335bbcd7c069f778c293",
       "src/design-system/aem/components/Toolbar.tsx": "1586c628f3bf7f2517228cc149aa5dee",
       "src/design-system/aem/components/Tooltip.tsx": "dafb29ed748b0fdd266dadefb2efeeea",
