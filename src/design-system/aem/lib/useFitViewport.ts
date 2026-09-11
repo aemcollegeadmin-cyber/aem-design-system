@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useLayoutEffect, useRef } from "react";
 
 /**
  * Fixes an element's height so its bottom edge always sits `bottomGap` px
@@ -24,7 +24,7 @@ export function useFitViewport<T extends HTMLElement>(
 ) {
   const ref = useRef<T>(null);
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     if (!enabled) return;
     const el = ref.current;
     if (!el || typeof window === "undefined") return;

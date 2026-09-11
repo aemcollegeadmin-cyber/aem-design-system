@@ -96,13 +96,17 @@ export const LessonSidebar = forwardRef<HTMLElement, LessonSidebarProps>(functio
   if (loading) {
     return (
       <aside
-        ref={ref}
+        ref={(node) => {
+          (fitRef as React.MutableRefObject<HTMLElement | null>).current = node;
+          if (typeof ref === "function") ref(node);
+          else if (ref) (ref as React.MutableRefObject<HTMLElement | null>).current = node;
+        }}
         aria-busy="true"
         className={cn(SIDEBAR_SHELL, fit && "aem-panel-fit", className)}
         {...props}
       >
         <Skeleton radius="card" className="h-10 w-full" />
-        <div className={cn("flex flex-col gap-3", SIDEBAR_BODY)}>
+        <div className={cn("flex flex-col gap-3", SIDEBAR_BODY, fit && "aem-panel-fit-body lg:overflow-y-hidden")}>
           <Skeleton radius="pill" className="h-4 w-3/4" />
           <Skeleton radius="pill" className="h-4 w-full" />
           <Skeleton radius="pill" className="h-4 w-5/6" />
