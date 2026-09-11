@@ -1,7 +1,11 @@
-import { forwardRef } from "react";
+import { forwardRef, useState } from "react";
 import { Avatar } from "./Avatar";
 import { Skeleton } from "./Skeleton";
 import { EmptyState } from "./EmptyState";
+import { Tabs, type TabItem } from "./Tabs";
+import { Dialog, DialogRoot } from "./Dialog";
+import { IconButton } from "./IconButton";
+import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export interface ScoreboardRow {
@@ -24,6 +28,21 @@ export interface ScoreboardProps extends React.HTMLAttributes<HTMLElement> {
   title?: string;
   /** Period caption, e.g. "1–7 вересня". */
   period?: string;
+  /**
+   * Period switcher, e.g. Тиждень / Загальний. Rendered under the header.
+   * The parent re-fetches/re-computes `rows` on change — the component is
+   * purely presentational.
+   */
+  periods?: TabItem[];
+  /** Active period value. Required when `periods` is passed. */
+  activePeriod?: string;
+  onPeriodChange?: (value: string) => void;
+  /**
+   * Explainer about how points work, opened from the info icon in the header.
+   * Shown regardless of the active period (covers the all-time total too).
+   */
+  infoTitle?: string;
+  infoDescription?: React.ReactNode;
   rows: ScoreboardRow[];
   /** Own row pinned to the bottom when it is outside the visible range. */
   currentRow?: ScoreboardRow;
@@ -94,6 +113,11 @@ export const Scoreboard = forwardRef<HTMLElement, ScoreboardProps>(function Scor
   {
     title,
     period,
+    periods,
+    activePeriod,
+    onPeriodChange,
+    infoTitle,
+    infoDescription,
     rows,
     currentRow,
     loading = false,
@@ -107,6 +131,8 @@ export const Scoreboard = forwardRef<HTMLElement, ScoreboardProps>(function Scor
   ref,
 ) {
   const showPinned = currentRow && !rows.some((row) => row.rank === currentRow.rank);
+  const [infoOpen, setInfoOpen] = useState(false);
+  const hasInfo = Boolean(infoTitle);
 
   return (
     <section
@@ -114,11 +140,35 @@ export const Scoreboard = forwardRef<HTMLElement, ScoreboardProps>(function Scor
       className={cn("flex flex-col gap-4 rounded-panel bg-surface p-6", className)}
       {...props}
     >
-      {(title || period) && (
-        <div className="flex flex-wrap items-baseline justify-between gap-2">
-          {title && <h2 className="text-h2 text-ink">{title}</h2>}
+      {(title || period || hasInfo) && (
+        <div className="flex flex-wrap items-center justify-between gap-2">
+          <div className="flex min-w-0 items-center gap-2">
+            {title && <h2 className="text-h2 text-ink">{title}</h2>}
+            {hasInfo && (
+              <IconButton
+                label={infoTitle!}
+                variant="muted"
+                size="sm"
+                onClick={() => setInfoOpen(true)}
+              >
+                <Icon name="info" size="md" />
+              </IconButton>
+            )}
+          </div>
           {period && <span className="text-caption text-ink-muted">{period}</span>}
         </div>
+      )}
+
+      {hasInfo && (
+        <DialogRoot open={infoOpen} onOpenChange={setInfoOpen}>
+          <Dialog title={infoTitle!} size="sm">
+            {infoDescription && <div className="text-body text-ink">{infoDescription}</div>}
+          </Dialog>
+        </DialogRoot>
+      )}
+
+      {periods && activePeriod && (
+        <Tabs items={periods} value={activePeriod} onValueChange={onPeriodChange} />
       )}
 
       {loading ? (
