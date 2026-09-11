@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import { Icon } from "./Icon";
 import { Breadcrumbs, type BreadcrumbItem } from "./Breadcrumbs";
+import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 
 export interface PageNavProps extends React.HTMLAttributes<HTMLElement> {
