@@ -702,6 +702,11 @@ import { Scoreboard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 |---|---|---|
 | `title` | string | `—` |
 | `period` | string | `—` |
+| `periods` | any | `—` |
+| `activePeriod` | string | `—` |
+| `onPeriodChange` | function | `—` |
+| `infoTitle` | string | `—` |
+| `infoDescription` | any | `—` |
 | `rows` | any | `—` |
 | `currentRow` | any | `—` |
 | `loading` | boolean | `false` |

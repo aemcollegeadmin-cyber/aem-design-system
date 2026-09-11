@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.5.0",
+    "version": "1.5.1",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -79,7 +79,7 @@
       "src/design-system/aem/components/RankUpDialog.tsx": "868482d3729c9c1f47811ef09347be8a",
       "src/design-system/aem/components/ScoreCard.tsx": "34143a1a6c1f2aaf02fd64f0344515c6",
       "src/design-system/aem/components/ScoreToast.tsx": "32c003d32232589e3147dfaaaaa482b0",
-      "src/design-system/aem/components/Scoreboard.tsx": "c1a01c105f1cfe0e499ce393bec0238b",
+      "src/design-system/aem/components/Scoreboard.tsx": "95b0491d9bda414ea2d39352a4063f03",
       "src/design-system/aem/components/SearchInput.tsx": "8293be0b87fba65a7842b7b220a7b6e5",
       "src/design-system/aem/components/Select.tsx": "dff60a51e5de48b67935fedbe7a3c904",
       "src/design-system/aem/components/Separator.tsx": "9dfafbe798c75a657d690c52f749b339",
@@ -113,7 +113,7 @@
       "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
       "src/routes/__root.tsx": "fe9de980adb4a4867de6b31db4d4fbf9",
       "src/routes/colors.tsx": "fcee8aeb0fd5af838edc738476e1811c",
-      "src/routes/components.tsx": "149a47643950ec8f6ce53829c9d4c414",
+      "src/routes/components.tsx": "07d85c4c8c3792316700da58837fad60",
       "src/routes/index.tsx": "3913e960e9ffe2db34f533e48477d28e",
       "src/routes/typography.tsx": "92d62f0915b6284f6e9ad3b65fe0949f",
       "src/showcase/ShowcaseShell.tsx": "61ee35bb64c0c7befd38f492eb7236c9",
@@ -1158,6 +1158,26 @@
         {
           "name": "period",
           "type": "string"
+        },
+        {
+          "name": "periods",
+          "type": "any"
+        },
+        {
+          "name": "activePeriod",
+          "type": "string"
+        },
+        {
+          "name": "onPeriodChange",
+          "type": "function"
+        },
+        {
+          "name": "infoTitle",
+          "type": "string"
+        },
+        {
+          "name": "infoDescription",
+          "type": "any"
         },
         {
           "name": "rows",
