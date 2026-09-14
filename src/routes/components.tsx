@@ -1259,6 +1259,34 @@ function PodcastDemo() {
         />
       ))}
     </PodcastCard>
+    </div>
+  );
+}
+
+/** Single podcast with a single episode: no collapse control, episode shown at once. */
+function SinglePodcastDemo() {
+  const url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+  const [playing, setPlaying] = useState(false);
+  return (
+    <div className="w-full max-w-sm">
+      <PodcastCard
+        title="Один епізод"
+        description="Подкаст з одного посилання"
+        coverVideoSrc={url}
+        episodeCount={1}
+        progress={0}
+        onPlay={() => setPlaying(true)}
+        player={playing ? <YouTubePlayer url={url} playing /> : undefined}
+      >
+        <EpisodeRow
+          index={1}
+          title="Вступний епізод"
+          duration="18 хв"
+          playing={playing}
+          onToggle={() => setPlaying((value) => !value)}
+        />
+      </PodcastCard>
+    </div>
   );
 }
 
