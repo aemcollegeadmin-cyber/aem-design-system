@@ -559,11 +559,19 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
             <PodcastDemo />
           </Specimen>
           <Specimen
+            label="один подкаст · один епізод"
+            code={`<PodcastCard episodeCount={1}><EpisodeRow index={1} … /></PodcastCard>`}
+          >
+            <SinglePodcastDemo />
+          </Specimen>
+          <Specimen
             label="loading · недоступне відео"
             code={`<PodcastCard loading /> · <YouTubePlayer url="" />`}
           >
             <div className="flex w-full flex-wrap items-start gap-6">
-              <PodcastCard loading />
+              <div className="w-full max-w-sm">
+                <PodcastCard loading />
+              </div>
               <div className="w-72">
                 <YouTubePlayer url="" />
               </div>
