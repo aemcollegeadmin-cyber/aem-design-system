@@ -62,21 +62,26 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
     onExpandedChange?.(next);
   };
 
+  // A single episode has nothing to collapse — show it straight away.
+  const childCount = Children.toArray(children).length;
+  const collapsible = childCount > 1;
+
   if (loading) {
     return (
       <article
         ref={ref}
         aria-busy="true"
-        className={cn("flex w-72 flex-col gap-4", className)}
+        className={cn("flex w-full flex-col gap-4", className)}
         {...props}
       >
-        <Skeleton radius="card" className="h-36 w-full" />
+        <Skeleton radius="card" className="aspect-video w-full rounded-panel" />
         <div className="flex flex-col gap-2">
           <Skeleton radius="pill" className="h-5 w-40" />
           <Skeleton radius="pill" className="h-4 w-56" />
         </div>
         <Skeleton radius="pill" className="h-2 w-full" />
         <Skeleton radius="pill" className="h-8 w-32" />
+
       </article>
     );
   }
