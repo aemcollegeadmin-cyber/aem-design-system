@@ -117,20 +117,23 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
 
       {progress !== undefined && <ProgressBar value={progress} label={listened} />}
 
-      {children && (
+      {childCount > 0 && (
         <div className="flex flex-col gap-2">
-          <button
-            type="button"
-            onClick={toggle}
-            aria-expanded={isExpanded}
-            className="flex items-center gap-1.5 self-start text-caption text-ink-soft transition-colors hover:text-ink"
-          >
-            {isExpanded ? "Згорнути епізоди" : "Показати епізоди"}
-            <Icon name={isExpanded ? "chevronUp" : "chevronDown"} size="md" />
-          </button>
-          {isExpanded && <div className="flex flex-col gap-2">{children}</div>}
+          {collapsible && (
+            <button
+              type="button"
+              onClick={toggle}
+              aria-expanded={isExpanded}
+              className="flex items-center gap-1.5 self-start text-caption text-ink-soft transition-colors hover:text-ink"
+            >
+              {isExpanded ? "Згорнути епізоди" : "Показати епізоди"}
+              <Icon name={isExpanded ? "chevronUp" : "chevronDown"} size="md" />
+            </button>
+          )}
+          {(!collapsible || isExpanded) && <div className="flex flex-col gap-2">{children}</div>}
         </div>
       )}
+
     </article>
   );
 });
