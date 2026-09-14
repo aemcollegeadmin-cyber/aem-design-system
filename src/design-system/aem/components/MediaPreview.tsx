@@ -18,10 +18,11 @@ const preview = cva(
 );
 
 /** What the preview stands for. Drives the glyph shown on the poster. */
-export type MediaPreviewKind = "video" | "test" | "reading" | "task" | "image";
+export type MediaPreviewKind = "video" | "audio" | "test" | "reading" | "task" | "image";
 
 const kindIcon: Record<MediaPreviewKind, IconName> = {
   video: "play",
+  audio: "headphones",
   test: "clipboardCheck",
   reading: "bookOpen",
   task: "fileText",
@@ -85,7 +86,7 @@ export const MediaPreview = forwardRef<HTMLDivElement, MediaPreviewProps>(functi
     <span
       className={cn(
         "inline-flex items-center justify-center rounded-pill",
-        kind === "video"
+        kind === "video" || kind === "audio"
           ? "bg-accent-brand text-accent-brand-fg"
           : "bg-surface-inverse-muted text-on-inverse",
         size === "lg" ? "size-12" : "size-9",
@@ -116,7 +117,7 @@ export const MediaPreview = forwardRef<HTMLDivElement, MediaPreviewProps>(functi
           className="pointer-events-none absolute inset-0 size-full object-cover"
         />
       )}
-      {hasMedia && kind === "video" && (
+      {hasMedia && (kind === "video" || kind === "audio") && (
         <span aria-hidden="true" className="absolute inset-0 bg-surface-inverse/30" />
       )}
       {onActivate ? (

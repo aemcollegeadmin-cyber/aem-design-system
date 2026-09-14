@@ -37,6 +37,7 @@ import {
   FolderOpen,
   GraduationCap,
   GripVertical,
+  Headphones,
   Heading1,
   Heading2,
   Image,
@@ -58,6 +59,7 @@ import {
   MessageCircle,
   Minus,
   PartyPopper,
+  Pause,
   Pencil,
   Play,
   Plug,
@@ -123,6 +125,7 @@ export const icons = {
   document: File,
   review: SquareCheck,
   bookmark: Bookmark,
+  headphones: Headphones,
   star: Star,
 
   /* People & communication */
@@ -142,6 +145,7 @@ export const icons = {
   settings: Settings,
   send: ArrowUp,
   play: Play,
+  pause: Pause,
   show: Eye,
   hide: EyeOff,
 
@@ -237,6 +241,7 @@ export const filledIcons = {
   document: Ph.File,
   review: Ph.CheckSquare,
   bookmark: Ph.BookmarkSimple,
+  headphones: Ph.Headphones,
   star: Ph.Star,
 
   user: Ph.User,
@@ -254,6 +259,7 @@ export const filledIcons = {
   settings: Ph.Gear,
   send: Ph.ArrowUp,
   play: Ph.Play,
+  pause: Ph.Pause,
   show: Ph.Eye,
   hide: Ph.EyeSlash,
 
