@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.7.0",
+    "version": "1.6.5",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -11,7 +11,7 @@
     ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "21885234f061527922508a3d51449635d3dffdf3b1639ee85cc6697a6e890c5f",
+      "#enrichment": "8226e1725a65a3385dff1ebb21ccf43d00639ba85eec133f4d9897f9e6ca47da",
       ".dsignore": "a26f2e60b116f104046a9440907feb8e",
       ".gitignore": "6059213806e442947666752f3db6bfdc",
       ".lovable/meta.yaml": "8794970d6049858cc148d2b86f7a2b22",
@@ -19,7 +19,7 @@
       ".lovable/plan/fix-lms-panel-and-leaderboard-regressions-2026-09-11.md": "227bb5f07e984a3cd823d2ea6ca38bf7",
       ".lovable/plan/виправити-спільне-відображення-рейтингів-2026-09-11.md": "c763c6488287878d0681da2ccafc2bc4",
       ".lovable/sources.yaml": "8469455bacbb4c31f179c3bcc80a4e2e",
-      ".lovable/system.md": "a65ab2854746d0b3fcce585c2a0db8bc",
+      ".lovable/system.md": "3c63cb24bae98248ccf36d02204457da",
       "README.md": "d19675c449605f23c7cfa133c69b398b",
       "bunfig.toml": "25f4c8696b22b0943db7191e0cdf7942",
       "components_files.txt": "3634a1bc29711409cd1ada4e1f90247e",
@@ -59,9 +59,8 @@
       "src/design-system/aem/components/DropdownMenu.tsx": "2fdcee875788b2fdb5d2c07e33e285f0",
       "src/design-system/aem/components/EditHeader.tsx": "4e06b5df269c955f89d28f1cbb31cc58",
       "src/design-system/aem/components/EmptyState.tsx": "f54206c48162ab3bc179e7b245a6711d",
-      "src/design-system/aem/components/EpisodeRow.tsx": "d32f0b4ac2107ff3d3e33a018bf9cb30",
       "src/design-system/aem/components/Field.tsx": "00645ab52067a3fc025b07942c1cb7b5",
-      "src/design-system/aem/components/Icon.tsx": "492ded3a997a84ca6cd684042e887f7e",
+      "src/design-system/aem/components/Icon.tsx": "cf7bd777502a9a8b0c20188807d6c07b",
       "src/design-system/aem/components/IconButton.tsx": "5102b1718b7d296935960a6c4a385bff",
       "src/design-system/aem/components/Input.tsx": "d0eaf86e066d9be4e11685ef5b5022b0",
       "src/design-system/aem/components/Label.tsx": "aaa37837c438ae6b6e685a1eec4824c9",
@@ -69,7 +68,7 @@
       "src/design-system/aem/components/LessonRow.tsx": "4ceae38eb08600042ece54648351cfb7",
       "src/design-system/aem/components/LessonSidebar.tsx": "47939c17bb705bb5cb074a57ee689fdd",
       "src/design-system/aem/components/MediaDialog.tsx": "b2aa7cd3fa6c5cafb8bca881f819d4c4",
-      "src/design-system/aem/components/MediaPreview.tsx": "e35d995f84f0ecb9b86dcda9bcc22e83",
+      "src/design-system/aem/components/MediaPreview.tsx": "41d65b52f8a2dc92984ea4bd6056b0ab",
       "src/design-system/aem/components/ModuleCard.tsx": "4a9436f2c3370b697a07ea5b44049bb7",
       "src/design-system/aem/components/NavItem.tsx": "e0ce096c874e9f48d65441a5a405e6e5",
       "src/design-system/aem/components/OnboardingDialog.tsx": "5d15e0e513fbcc6fbd19db4c1213471b",
@@ -77,7 +76,6 @@
       "src/design-system/aem/components/PageNav.tsx": "c388c81b2bf62e3f1af9dae513be0e5a",
       "src/design-system/aem/components/Pagination.tsx": "cec2b76ec33f9b8802e70f8b739d1e6f",
       "src/design-system/aem/components/PasswordInput.tsx": "4a3f1540e9d464a64a553444ee8bdf4a",
-      "src/design-system/aem/components/PodcastCard.tsx": "47bef154eca47fbc9b11d5714c91930b",
       "src/design-system/aem/components/ProgressBar.tsx": "bcf319a3c23c2eb255878534656b4bc9",
       "src/design-system/aem/components/RadioGroup.tsx": "641eaa4dfe762c108d486ade24a554a8",
       "src/design-system/aem/components/RankUpDialog.tsx": "868482d3729c9c1f47811ef09347be8a",
@@ -104,8 +102,7 @@
       "src/design-system/aem/components/Toolbar.tsx": "1586c628f3bf7f2517228cc149aa5dee",
       "src/design-system/aem/components/Tooltip.tsx": "dafb29ed748b0fdd266dadefb2efeeea",
       "src/design-system/aem/components/UserChip.tsx": "347e5e99c875cef170828c3bfa536b41",
-      "src/design-system/aem/components/YouTubePlayer.tsx": "b43bdfcd491a2feb7bb47b9869dd7a4e",
-      "src/design-system/aem/index.ts": "3286a88a4d6116363a44ab5d7420b310",
+      "src/design-system/aem/index.ts": "e3dcf786fb8ab9b933db1e6b9670e483",
       "src/design-system/aem/lib/cn.ts": "f42d8fb0d920ae1cdb1cff4709b87d7f",
       "src/design-system/aem/lib/useFitViewport.ts": "7322abdcb4ca44bbc550fc92c19445e5",
       "src/design-system/aem/styles/theme-shadcn-v3.css": "184e19c2ba3d86d72fa13df017377fde",
@@ -118,7 +115,7 @@
       "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
       "src/routes/__root.tsx": "fe9de980adb4a4867de6b31db4d4fbf9",
       "src/routes/colors.tsx": "fcee8aeb0fd5af838edc738476e1811c",
-      "src/routes/components.tsx": "61ffceb54b6ce60fc4789d1295dbeeed",
+      "src/routes/components.tsx": "e1290444e0c8bee6f3e386f7645bb999",
       "src/routes/index.tsx": "3913e960e9ffe2db34f533e48477d28e",
       "src/routes/typography.tsx": "92d62f0915b6284f6e9ad3b65fe0949f",
       "src/showcase/ShowcaseShell.tsx": "61ee35bb64c0c7befd38f492eb7236c9",
@@ -606,7 +603,6 @@
             "document",
             "review",
             "bookmark",
-            "headphones",
             "star",
             "user",
             "users",
@@ -622,7 +618,6 @@
             "settings",
             "send",
             "play",
-            "pause",
             "show",
             "hide",
             "check",
@@ -1313,8 +1308,7 @@
           "values": [
             "sm",
             "md",
-            "lg",
-            "video"
+            "lg"
           ],
           "default": "md"
         },
@@ -1323,7 +1317,6 @@
           "type": "enum",
           "values": [
             "video",
-            "audio",
             "test",
             "reading",
             "task",
@@ -1405,200 +1398,6 @@
           "type": "boolean",
           "default": "false"
         }
-      ]
-    },
-    {
-      "name": "PodcastCard",
-      "file": "src/design-system/aem/components/PodcastCard",
-      "import_path": "",
-      "props": [
-        {
-          "name": "title",
-          "type": "string"
-        },
-        {
-          "name": "description",
-          "type": "string"
-        },
-        {
-          "name": "coverVideoSrc",
-          "type": "string"
-        },
-        {
-          "name": "coverSrc",
-          "type": "string"
-        },
-        {
-          "name": "cover",
-          "type": "any"
-        },
-        {
-          "name": "episodeCount",
-          "type": "number"
-        },
-        {
-          "name": "progress",
-          "type": "number"
-        },
-        {
-          "name": "onPlay",
-          "type": "function"
-        },
-        {
-          "name": "player",
-          "type": "any"
-        },
-        {
-          "name": "children",
-          "type": "any"
-        },
-        {
-          "name": "expanded",
-          "type": "boolean"
-        },
-        {
-          "name": "onExpandedChange",
-          "type": "function"
-        },
-        {
-          "name": "loading",
-          "type": "boolean",
-          "default": "false"
-        }
-      ],
-      "usage": "Картка подкасту в змішаній сітці «Всі матеріали»: обкладинка з YouTube-мініатюри, кількість епізодів, прогрес прослуховування, інлайн-плеєр і згортний список EpisodeRow.",
-      "examples": [
-        {
-          "label": "подкаст з епізодами",
-          "code": "\u003cPodcastCard title=\"Розмови про дизайн\" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? \u003cYouTubePlayer url={url} playing /\u003e : undefined}\u003e\u003cEpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" onToggle={play} /\u003e\u003c/PodcastCard\u003e"
-        }
-      ],
-      "antipatterns": [
-        "Локальна копія картки подкасту в LMS",
-        "Свій плеєр замість YouTubePlayer",
-        "Порожні стани замість loading до завершення запиту"
-      ]
-    },
-    {
-      "name": "EpisodeRow",
-      "file": "src/design-system/aem/components/EpisodeRow",
-      "import_path": "",
-      "props": [
-        {
-          "name": "index",
-          "type": "number"
-        },
-        {
-          "name": "title",
-          "type": "string"
-        },
-        {
-          "name": "duration",
-          "type": "string"
-        },
-        {
-          "name": "progress",
-          "type": "number"
-        },
-        {
-          "name": "completed",
-          "type": "boolean",
-          "default": "false"
-        },
-        {
-          "name": "playing",
-          "type": "boolean",
-          "default": "false"
-        },
-        {
-          "name": "onToggle",
-          "type": "function"
-        },
-        {
-          "name": "tone",
-          "type": "enum",
-          "values": [
-            "onSurface",
-            "onMuted"
-          ],
-          "default": "onSurface"
-        },
-        {
-          "name": "loading",
-          "type": "boolean",
-          "default": "false"
-        }
-      ],
-      "usage": "Рядок епізоду подкасту: номер або галочка «прослухано», назва, тривалість, підпис прогресу та play/pause контрол.",
-      "examples": [
-        {
-          "label": "епізод у процесі",
-          "code": "\u003cEpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" progress={40} playing={isPlaying} onToggle={toggle} /\u003e"
-        }
-      ],
-      "antipatterns": [
-        "Кілька епізодів у стані playing одночасно",
-        "Своя верстка рядка епізоду"
-      ]
-    },
-    {
-      "name": "YouTubePlayer",
-      "file": "src/design-system/aem/components/YouTubePlayer",
-      "import_path": "",
-      "props": [
-        {
-          "name": "url",
-          "type": "string",
-          "required": true
-        },
-        {
-          "name": "playing",
-          "type": "boolean",
-          "default": "false"
-        },
-        {
-          "name": "startSecond",
-          "type": "number",
-          "default": "0"
-        },
-        {
-          "name": "onTimeChange",
-          "type": "function"
-        },
-        {
-          "name": "onDuration",
-          "type": "function"
-        },
-        {
-          "name": "onEnded",
-          "type": "function"
-        },
-        {
-          "name": "onPlayingChange",
-          "type": "function"
-        },
-        {
-          "name": "audioOnly",
-          "type": "boolean",
-          "default": "false"
-        },
-        {
-          "name": "loading",
-          "type": "boolean",
-          "default": "false"
-        }
-      ],
-      "usage": "Інлайн-плеєр епізоду на базі YouTube IFrame API. Стан відтворення контролює сторінка (грає лише один епізод), а onTimeChange/onDuration/onEnded живлять збереження прогресу.",
-      "examples": [
-        {
-          "label": "контрольований плеєр",
-          "code": "\u003cYouTubePlayer url={episode.youtube_url} playing={activeId === episode.id} startSecond={progress.current_second} onTimeChange={saveDebounced} onDuration={saveDuration} onEnded={markCompleted} /\u003e"
-        }
-      ],
-      "antipatterns": [
-        "Прямий \u003ciframe\u003e YouTube в LMS",
-        "Свій skin поверх контролів YouTube",
-        "Збереження прогресу частіше ніж раз на кілька секунд без debounce"
       ]
     },
     {
@@ -2681,6 +2480,196 @@
           "name": "trailing",
           "type": "any"
         }
+      ]
+    },
+    {
+      "name": "PodcastCard",
+      "file": "src/design-system/aem/components/PodcastCard",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "coverVideoSrc",
+          "type": "string"
+        },
+        {
+          "name": "coverSrc",
+          "type": "string"
+        },
+        {
+          "name": "cover",
+          "type": "any"
+        },
+        {
+          "name": "episodeCount",
+          "type": "number"
+        },
+        {
+          "name": "progress",
+          "type": "number"
+        },
+        {
+          "name": "onPlay",
+          "type": "function"
+        },
+        {
+          "name": "player",
+          "type": "any"
+        },
+        {
+          "name": "expanded",
+          "type": "boolean"
+        },
+        {
+          "name": "onExpandedChange",
+          "type": "function"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "usage": "Самодостатня біла картка подкасту в змішаній сітці «Всі матеріали»: власна поверхня не залежить від фону сторінки; всередині — YouTube-мініатюра, кількість епізодів, прогрес, інлайн-плеєр і список EpisodeRow.",
+      "examples": [
+        {
+          "label": "подкаст з епізодами",
+          "code": "<PodcastCard title=\"Розмови про дизайн\" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? <YouTubePlayer url={url} playing /> : undefined}><EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" onToggle={play} /></PodcastCard>"
+        }
+      ],
+      "antipatterns": [
+        "Локальна копія картки подкасту в LMS",
+        "Свій плеєр замість YouTubePlayer",
+        "Порожні стани замість loading до завершення запиту"
+      ]
+    },
+    {
+      "name": "EpisodeRow",
+      "file": "src/design-system/aem/components/EpisodeRow",
+      "import_path": "",
+      "props": [
+        {
+          "name": "index",
+          "type": "number"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "duration",
+          "type": "string"
+        },
+        {
+          "name": "progress",
+          "type": "number"
+        },
+        {
+          "name": "completed",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "playing",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "onToggle",
+          "type": "function"
+        },
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "onSurface",
+            "onMuted"
+          ],
+          "default": "onSurface"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "usage": "Рядок епізоду подкасту: номер або галочка «прослухано», назва, тривалість, підпис прогресу та play/pause контрол.",
+      "examples": [
+        {
+          "label": "епізод у процесі",
+          "code": "<EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" progress={40} playing={isPlaying} onToggle={toggle} />"
+        }
+      ],
+      "antipatterns": [
+        "Кілька епізодів у стані playing одночасно",
+        "Своя верстка рядка епізоду"
+      ]
+    },
+    {
+      "name": "YouTubePlayer",
+      "file": "src/design-system/aem/components/YouTubePlayer",
+      "import_path": "",
+      "props": [
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "playing",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "startSecond",
+          "type": "number",
+          "default": "0"
+        },
+        {
+          "name": "onTimeChange",
+          "type": "function"
+        },
+        {
+          "name": "onDuration",
+          "type": "function"
+        },
+        {
+          "name": "onEnded",
+          "type": "function"
+        },
+        {
+          "name": "onPlayingChange",
+          "type": "function"
+        },
+        {
+          "name": "audioOnly",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "usage": "Мінімальний інлайн-плеєр епізоду на базі YouTube IFrame API: стандартні контролі та взаємодія з iframe вимкнені, окрім обов'язкового брендингу YouTube. Стан відтворення контролює сторінка через EpisodeRow, а onTimeChange/onDuration/onEnded живлять збереження прогресу.",
+      "examples": [
+        {
+          "label": "контрольований плеєр",
+          "code": "<YouTubePlayer url={episode.youtube_url} playing={activeId === episode.id} startSecond={progress.current_second} onTimeChange={saveDebounced} onDuration={saveDuration} onEnded={markCompleted} />"
+        }
+      ],
+      "antipatterns": [
+        "Прямий <iframe> YouTube в LMS",
+        "Власні кнопки чи підписи поверх відео замість EpisodeRow",
+        "CSS-маскування обов'язкового брендингу YouTube",
+        "Збереження прогресу частіше ніж раз на кілька секунд без debounce"
       ]
     }
   ]

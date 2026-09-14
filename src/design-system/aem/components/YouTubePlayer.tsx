@@ -118,7 +118,16 @@ export const YouTubePlayer = forwardRef<YouTubePlayerHandle, YouTubePlayerProps>
         const YT = (window as unknown as { YT: { Player: new (...args: unknown[]) => YTPlayer } }).YT;
         playerRef.current = new YT.Player(hostRef.current, {
           videoId,
-          playerVars: { playsinline: 1, rel: 0, modestbranding: 1, start: Math.floor(startSecond) },
+          playerVars: {
+            playsinline: 1,
+            rel: 0,
+            controls: 0,
+            disablekb: 1,
+            fs: 0,
+            iv_load_policy: 3,
+            cc_load_policy: 0,
+            start: Math.floor(startSecond),
+          },
           events: {
             onReady: () => {
               if (cancelled) return;
@@ -214,7 +223,7 @@ export const YouTubePlayer = forwardRef<YouTubePlayerHandle, YouTubePlayerProps>
             audioOnly ? "size-0 overflow-hidden opacity-0" : "size-full",
           )}
         >
-          <div ref={hostRef} className="size-full" />
+          <div ref={hostRef} className="pointer-events-none size-full" />
         </div>
         {audioOnly && (
           <span className="flex items-center gap-2 text-caption">

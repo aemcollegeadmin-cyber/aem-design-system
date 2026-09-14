@@ -71,7 +71,7 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
       <article
         ref={ref}
         aria-busy="true"
-        className={cn("flex w-full flex-col gap-4", className)}
+        className={cn("flex w-full flex-col gap-4 rounded-panel bg-surface p-4", className)}
         {...props}
       >
         <Skeleton radius="card" className="aspect-video w-full rounded-panel" />
@@ -89,7 +89,11 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
   const listened = (progress ?? 0) >= 100 ? "Прослухано" : `Прослухано ${Math.round(progress ?? 0)}%`;
 
   return (
-    <article ref={ref} className={cn("flex w-full flex-col gap-4", className)} {...props}>
+    <article
+      ref={ref}
+      className={cn("flex w-full flex-col gap-4 rounded-panel bg-surface p-4", className)}
+      {...props}
+    >
       {/* Fixed 16:9 stage: the cover and the inline player share it, so
           starting playback never changes the card's height. */}
       <div className="aspect-video w-full overflow-hidden rounded-panel [&>*]:size-full">

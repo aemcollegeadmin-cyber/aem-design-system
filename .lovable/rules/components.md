@@ -344,40 +344,6 @@ import { EmptyState } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 | `icon` | any | `—` |
 | `action` | any | `—` |
 
-### EpisodeRow
-
-```ts
-import { EpisodeRow } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
-```
-
-Рядок епізоду подкасту: номер або галочка «прослухано», назва, тривалість, підпис прогресу та play/pause контрол.
-
-**Props:**
-
-| Prop | Type | Default |
-|---|---|---|
-| `index` | number | `—` |
-| `title` | string | `—` |
-| `duration` | string | `—` |
-| `progress` | number | `—` |
-| `completed` | boolean | `false` |
-| `playing` | boolean | `false` |
-| `onToggle` | function | `—` |
-| `tone` | onSurface · onMuted | `onSurface` |
-| `loading` | boolean | `false` |
-
-**Examples:**
-
-_епізод у процесі_
-```tsx
-<EpisodeRow index={1} title="Пілот" duration="32 хв" progress={40} playing={isPlaying} onToggle={toggle} />
-```
-
-**Avoid:**
-
-- Кілька епізодів у стані playing одночасно
-- Своя верстка рядка епізоду
-
 ### Field
 
 ```ts
@@ -405,7 +371,7 @@ import { Icon } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bb
 
 | Prop | Type | Default |
 |---|---|---|
-| `name` | home · menu · more · back · forward · up · down · chevronLeft · chevronRight · chevronUp · chevronDown · external · close · logout · course · module · lesson · document · review · bookmark · headphones · star · user · users · chat · mail · bell · add · remove · edit · delete · copy · search · settings · send · play · pause · show · hide · check · done · alert · info · dot · clock · calendar · warning · locked · loader · flame · bold · italic · heading1 · heading2 · list · listOrdered · quote · link · unlink · gripVertical · save · bookOpen · fileText · fileImage · folderOpen · image · imagePlus · camera · upload · download · zoomIn · zoomOut · graduationCap · award · trophy · clipboardCheck · activity · megaphone · partyPopper · sparkles · wand · userCircle · userCog · userPlus · userMinus · logIn · keyRound · sliders · refresh · rotateCcw · plug · unplug | `—` |
+| `name` | home · menu · more · back · forward · up · down · chevronLeft · chevronRight · chevronUp · chevronDown · external · close · logout · course · module · lesson · document · review · bookmark · star · user · users · chat · mail · bell · add · remove · edit · delete · copy · search · settings · send · play · show · hide · check · done · alert · info · dot · clock · calendar · warning · locked · loader · flame · bold · italic · heading1 · heading2 · list · listOrdered · quote · link · unlink · gripVertical · save · bookOpen · fileText · fileImage · folderOpen · image · imagePlus · camera · upload · download · zoomIn · zoomOut · graduationCap · award · trophy · clipboardCheck · activity · megaphone · partyPopper · sparkles · wand · userCircle · userCog · userPlus · userMinus · logIn · keyRound · sliders · refresh · rotateCcw · plug · unplug | `—` |
 | `size` | md · lg · xl | `lg` |
 | `label` | string | `—` |
 
@@ -543,8 +509,8 @@ import { MediaPreview } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e
 
 | Prop | Type | Default |
 |---|---|---|
-| `size` | sm · md · lg · video | `md` |
-| `kind` | video · audio · test · reading · task · image | `video` |
+| `size` | sm · md · lg | `md` |
+| `kind` | video · test · reading · task · image | `video` |
 | `src` | string | `—` |
 | `videoSrc` | string | `—` |
 | `alt` | string | `—` |
@@ -668,45 +634,6 @@ import { PasswordInput } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-
 |---|---|---|
 | `showLabel` | string | `Показати пароль` |
 | `hideLabel` | string | `Сховати пароль` |
-
-### PodcastCard
-
-```ts
-import { PodcastCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
-```
-
-Картка подкасту в змішаній сітці «Всі матеріали»: обкладинка з YouTube-мініатюри, кількість епізодів, прогрес прослуховування, інлайн-плеєр і згортний список EpisodeRow.
-
-**Props:**
-
-| Prop | Type | Default |
-|---|---|---|
-| `title` | string | `—` |
-| `description` | string | `—` |
-| `coverVideoSrc` | string | `—` |
-| `coverSrc` | string | `—` |
-| `cover` | any | `—` |
-| `episodeCount` | number | `—` |
-| `progress` | number | `—` |
-| `onPlay` | function | `—` |
-| `player` | any | `—` |
-| `children` | any | `—` |
-| `expanded` | boolean | `—` |
-| `onExpandedChange` | function | `—` |
-| `loading` | boolean | `false` |
-
-**Examples:**
-
-_подкаст з епізодами_
-```tsx
-<PodcastCard title="Розмови про дизайн" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? <YouTubePlayer url={url} playing /> : undefined}><EpisodeRow index={1} title="Пілот" duration="32 хв" onToggle={play} /></PodcastCard>
-```
-
-**Avoid:**
-
-- Локальна копія картки подкасту в LMS
-- Свій плеєр замість YouTubePlayer
-- Порожні стани замість loading до завершення запиту
 
 ### ProgressBar
 
@@ -1114,39 +1041,4 @@ import { UserChip } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aa
 | `avatarSrc` | string | `—` |
 | `variant` | pill · row | `pill` |
 | `tone` | onSurface · onMuted | `onSurface` |
-
-### YouTubePlayer
-
-```ts
-import { YouTubePlayer } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
-```
-
-Інлайн-плеєр епізоду на базі YouTube IFrame API. Стан відтворення контролює сторінка (грає лише один епізод), а onTimeChange/onDuration/onEnded живлять збереження прогресу.
-
-**Props:**
-
-| Prop | Type | Default |
-|---|---|---|
-| `url` | string | `—` |
-| `playing` | boolean | `false` |
-| `startSecond` | number | `0` |
-| `onTimeChange` | function | `—` |
-| `onDuration` | function | `—` |
-| `onEnded` | function | `—` |
-| `onPlayingChange` | function | `—` |
-| `audioOnly` | boolean | `false` |
-| `loading` | boolean | `false` |
-
-**Examples:**
-
-_контрольований плеєр_
-```tsx
-<YouTubePlayer url={episode.youtube_url} playing={activeId === episode.id} startSecond={progress.current_second} onTimeChange={saveDebounced} onDuration={saveDuration} onEnded={markCompleted} />
-```
-
-**Avoid:**
-
-- Прямий <iframe> YouTube в LMS
-- Свій skin поверх контролів YouTube
-- Збереження прогресу частіше ніж раз на кілька секунд без debounce
 
