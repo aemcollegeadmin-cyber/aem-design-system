@@ -84,12 +84,14 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
   const listened = (progress ?? 0) >= 100 ? "Прослухано" : `Прослухано ${Math.round(progress ?? 0)}%`;
 
   return (
-    <article ref={ref} className={cn("flex w-72 flex-col gap-4", className)} {...props}>
-      {player ?? (
-        <>
-          {cover ?? (
+    <article ref={ref} className={cn("flex w-full flex-col gap-4", className)} {...props}>
+      {/* Fixed 16:9 stage: the cover and the inline player share it, so
+          starting playback never changes the card's height. */}
+      <div className="aspect-video w-full overflow-hidden rounded-panel [&>*]:size-full">
+        {player ??
+          cover ?? (
             <MediaPreview
-              size="lg"
+              size="video"
               kind="audio"
               src={coverSrc}
               videoSrc={coverVideoSrc}
@@ -98,8 +100,8 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
               actionLabel="Слухати"
             />
           )}
-        </>
-      )}
+      </div>
+
 
       <div className="flex items-start justify-between gap-3">
         <div className="flex flex-col gap-1">
