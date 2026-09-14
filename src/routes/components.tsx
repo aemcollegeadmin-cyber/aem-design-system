@@ -48,6 +48,9 @@ import {
   NavItem,
   PageHeader,
   PageNav,
+  PodcastCard,
+  EpisodeRow,
+  YouTubePlayer,
   Pagination,
   PasswordInput,
   ProgressBar,
@@ -1216,6 +1219,45 @@ function EditHeaderDemo() {
       controls={<Switch aria-label="Опублікувати" />}
       actions={<Button size="sm">Зберегти</Button>}
     />
+  );
+}
+
+function PodcastDemo() {
+  const url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+  const episodes = [
+    { title: "Пілот: чому дизайн-системи", duration: "32 хв", progress: 40 },
+    { title: "Токени на практиці", duration: "28 хв", completed: true },
+    { title: "Компоненти без хаосу", duration: "41 хв" },
+  ];
+  return (
+    <PodcastCard
+      title="Розмови про дизайн"
+      description="Щотижневі епізоди з менторами коледжу"
+      coverVideoSrc={url}
+      episodeCount={episodes.length}
+      progress={40}
+      expanded
+      onPlay={() => setPlayingIndex(0)}
+      player={
+        playingIndex !== null ? (
+          <YouTubePlayer url={url} playing startSecond={0} />
+        ) : undefined
+      }
+    >
+      {episodes.map((episode, index) => (
+        <EpisodeRow
+          key={episode.title}
+          index={index + 1}
+          title={episode.title}
+          duration={episode.duration}
+          progress={episode.progress}
+          completed={episode.completed}
+          playing={playingIndex === index}
+          onToggle={() => setPlayingIndex(playingIndex === index ? null : index)}
+        />
+      ))}
+    </PodcastCard>
   );
 }
 
