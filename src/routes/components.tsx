@@ -543,6 +543,34 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       ),
     },
     {
+      id: "podcast-card",
+      title: "PodcastCard + EpisodeRow + YouTubePlayer",
+      node: (
+        <div className="flex w-full flex-col gap-4">
+          <Specimen
+            label="картка подкасту · епізоди · інлайн-плеєр"
+            code={`<PodcastCard title="Розмови про дизайн" coverVideoSrc={url} episodeCount={3} progress={40} player={<YouTubePlayer url={url} playing />}>
+  <EpisodeRow index={1} title="Пілот" duration="32 хв" progress={40} onToggle={…} />
+</PodcastCard>`}
+          >
+            <PodcastDemo />
+          </Specimen>
+          <Specimen
+            label="loading · недоступне відео"
+            code={`<PodcastCard loading /> · <YouTubePlayer url="" />`}
+          >
+            <div className="flex w-full flex-wrap items-start gap-6">
+              <PodcastCard loading />
+              <div className="w-72">
+                <YouTubePlayer url="" />
+              </div>
+            </div>
+          </Specimen>
+        </div>
+      ),
+    },
+    {
+
       id: "gamification-states",
       title: "Гейміфікація: стани",
       node: (
