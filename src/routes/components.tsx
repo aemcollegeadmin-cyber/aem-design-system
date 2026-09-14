@@ -1231,6 +1231,7 @@ function PodcastDemo() {
     { title: "Компоненти без хаосу", duration: "41 хв" },
   ];
   return (
+    <div className="w-full max-w-sm">
     <PodcastCard
       title="Розмови про дизайн"
       description="Щотижневі епізоди з менторами коледжу"
