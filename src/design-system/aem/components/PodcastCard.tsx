@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import { Children, forwardRef, useState } from "react";
 import { Badge } from "./Badge";
 import { Icon } from "./Icon";
 import { MediaPreview } from "./MediaPreview";
