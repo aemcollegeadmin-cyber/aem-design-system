@@ -48,6 +48,9 @@ import {
   NavItem,
   PageHeader,
   PageNav,
+  PodcastCard,
+  EpisodeRow,
+  YouTubePlayer,
   Pagination,
   PasswordInput,
   ProgressBar,
@@ -543,6 +546,34 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       ),
     },
     {
+      id: "podcast-card",
+      title: "PodcastCard + EpisodeRow + YouTubePlayer",
+      node: (
+        <div className="flex w-full flex-col gap-4">
+          <Specimen
+            label="картка подкасту · епізоди · інлайн-плеєр"
+            code={`<PodcastCard title="Розмови про дизайн" coverVideoSrc={url} episodeCount={3} progress={40} player={<YouTubePlayer url={url} playing />}>
+  <EpisodeRow index={1} title="Пілот" duration="32 хв" progress={40} onToggle={…} />
+</PodcastCard>`}
+          >
+            <PodcastDemo />
+          </Specimen>
+          <Specimen
+            label="loading · недоступне відео"
+            code={`<PodcastCard loading /> · <YouTubePlayer url="" />`}
+          >
+            <div className="flex w-full flex-wrap items-start gap-6">
+              <PodcastCard loading />
+              <div className="w-72">
+                <YouTubePlayer url="" />
+              </div>
+            </div>
+          </Specimen>
+        </div>
+      ),
+    },
+    {
+
       id: "gamification-states",
       title: "Гейміфікація: стани",
       node: (
@@ -1188,6 +1219,45 @@ function EditHeaderDemo() {
       controls={<Switch aria-label="Опублікувати" />}
       actions={<Button size="sm">Зберегти</Button>}
     />
+  );
+}
+
+function PodcastDemo() {
+  const url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+  const [playingIndex, setPlayingIndex] = useState<number | null>(null);
+  const episodes = [
+    { title: "Пілот: чому дизайн-системи", duration: "32 хв", progress: 40 },
+    { title: "Токени на практиці", duration: "28 хв", completed: true },
+    { title: "Компоненти без хаосу", duration: "41 хв" },
+  ];
+  return (
+    <PodcastCard
+      title="Розмови про дизайн"
+      description="Щотижневі епізоди з менторами коледжу"
+      coverVideoSrc={url}
+      episodeCount={episodes.length}
+      progress={40}
+      expanded
+      onPlay={() => setPlayingIndex(0)}
+      player={
+        playingIndex !== null ? (
+          <YouTubePlayer url={url} playing startSecond={0} />
+        ) : undefined
+      }
+    >
+      {episodes.map((episode, index) => (
+        <EpisodeRow
+          key={episode.title}
+          index={index + 1}
+          title={episode.title}
+          duration={episode.duration}
+          progress={episode.progress}
+          completed={episode.completed}
+          playing={playingIndex === index}
+          onToggle={() => setPlayingIndex(playingIndex === index ? null : index)}
+        />
+      ))}
+    </PodcastCard>
   );
 }
 

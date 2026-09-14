@@ -2481,6 +2481,195 @@
           "type": "any"
         }
       ]
+    },
+    {
+      "name": "PodcastCard",
+      "file": "src/design-system/aem/components/PodcastCard",
+      "import_path": "",
+      "props": [
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "description",
+          "type": "string"
+        },
+        {
+          "name": "coverVideoSrc",
+          "type": "string"
+        },
+        {
+          "name": "coverSrc",
+          "type": "string"
+        },
+        {
+          "name": "cover",
+          "type": "any"
+        },
+        {
+          "name": "episodeCount",
+          "type": "number"
+        },
+        {
+          "name": "progress",
+          "type": "number"
+        },
+        {
+          "name": "onPlay",
+          "type": "function"
+        },
+        {
+          "name": "player",
+          "type": "any"
+        },
+        {
+          "name": "expanded",
+          "type": "boolean"
+        },
+        {
+          "name": "onExpandedChange",
+          "type": "function"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "usage": "Картка подкасту в змішаній сітці «Всі матеріали»: обкладинка з YouTube-мініатюри, кількість епізодів, прогрес прослуховування, інлайн-плеєр і згортний список EpisodeRow.",
+      "examples": [
+        {
+          "label": "подкаст з епізодами",
+          "code": "<PodcastCard title=\"Розмови про дизайн\" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? <YouTubePlayer url={url} playing /> : undefined}><EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" onToggle={play} /></PodcastCard>"
+        }
+      ],
+      "antipatterns": [
+        "Локальна копія картки подкасту в LMS",
+        "Свій плеєр замість YouTubePlayer",
+        "Порожні стани замість loading до завершення запиту"
+      ]
+    },
+    {
+      "name": "EpisodeRow",
+      "file": "src/design-system/aem/components/EpisodeRow",
+      "import_path": "",
+      "props": [
+        {
+          "name": "index",
+          "type": "number"
+        },
+        {
+          "name": "title",
+          "type": "string"
+        },
+        {
+          "name": "duration",
+          "type": "string"
+        },
+        {
+          "name": "progress",
+          "type": "number"
+        },
+        {
+          "name": "completed",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "playing",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "onToggle",
+          "type": "function"
+        },
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "onSurface",
+            "onMuted"
+          ],
+          "default": "onSurface"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "usage": "Рядок епізоду подкасту: номер або галочка «прослухано», назва, тривалість, підпис прогресу та play/pause контрол.",
+      "examples": [
+        {
+          "label": "епізод у процесі",
+          "code": "<EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" progress={40} playing={isPlaying} onToggle={toggle} />"
+        }
+      ],
+      "antipatterns": [
+        "Кілька епізодів у стані playing одночасно",
+        "Своя верстка рядка епізоду"
+      ]
+    },
+    {
+      "name": "YouTubePlayer",
+      "file": "src/design-system/aem/components/YouTubePlayer",
+      "import_path": "",
+      "props": [
+        {
+          "name": "url",
+          "type": "string"
+        },
+        {
+          "name": "playing",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "startSecond",
+          "type": "number",
+          "default": "0"
+        },
+        {
+          "name": "onTimeChange",
+          "type": "function"
+        },
+        {
+          "name": "onDuration",
+          "type": "function"
+        },
+        {
+          "name": "onEnded",
+          "type": "function"
+        },
+        {
+          "name": "onPlayingChange",
+          "type": "function"
+        },
+        {
+          "name": "audioOnly",
+          "type": "boolean",
+          "default": "false"
+        },
+        {
+          "name": "loading",
+          "type": "boolean",
+          "default": "false"
+        }
+      ],
+      "usage": "Інлайн-плеєр епізоду на базі YouTube IFrame API. Стан відтворення контролює сторінка (грає лише один епізод), а onTimeChange/onDuration/onEnded живлять збереження прогресу.",
+      "examples": [
+        {
+          "label": "контрольований плеєр",
+          "code": "<YouTubePlayer url={episode.youtube_url} playing={activeId === episode.id} startSecond={progress.current_second} onTimeChange={saveDebounced} onDuration={saveDuration} onEnded={markCompleted} />"
+        }
+      ],
+      "antipatterns": [
+        "Прямий <iframe> YouTube в LMS",
+        "Свій skin поверх контролів YouTube",
+        "Збереження прогресу частіше ніж раз на кілька секунд без debounce"
+      ]
     }
   ]
 }

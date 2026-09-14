@@ -51,6 +51,14 @@ export {
   ContinueLessonCard,
   type ContinueLessonCardProps,
 } from "./components/ContinueLessonCard";
+export { PodcastCard, type PodcastCardProps } from "./components/PodcastCard";
+export { EpisodeRow, type EpisodeRowProps } from "./components/EpisodeRow";
+export {
+  YouTubePlayer,
+  youTubeId,
+  type YouTubePlayerProps,
+  type YouTubePlayerHandle,
+} from "./components/YouTubePlayer";
 export { StreakChip, type StreakChipProps } from "./components/StreakChip";
 export {
   SubmissionRow,
