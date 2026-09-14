@@ -1,4 +1,4 @@
-import { forwardRef, useState } from "react";
+import { Children, forwardRef, useState } from "react";
 import { Badge } from "./Badge";
 import { Icon } from "./Icon";
 import { MediaPreview } from "./MediaPreview";
@@ -62,21 +62,26 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
     onExpandedChange?.(next);
   };
 
+  // A single episode has nothing to collapse — show it straight away.
+  const childCount = Children.toArray(children).length;
+  const collapsible = childCount > 1;
+
   if (loading) {
     return (
       <article
         ref={ref}
         aria-busy="true"
-        className={cn("flex w-72 flex-col gap-4", className)}
+        className={cn("flex w-full flex-col gap-4", className)}
         {...props}
       >
-        <Skeleton radius="card" className="h-36 w-full" />
+        <Skeleton radius="card" className="aspect-video w-full rounded-panel" />
         <div className="flex flex-col gap-2">
           <Skeleton radius="pill" className="h-5 w-40" />
           <Skeleton radius="pill" className="h-4 w-56" />
         </div>
         <Skeleton radius="pill" className="h-2 w-full" />
         <Skeleton radius="pill" className="h-8 w-32" />
+
       </article>
     );
   }
@@ -84,12 +89,14 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
   const listened = (progress ?? 0) >= 100 ? "Прослухано" : `Прослухано ${Math.round(progress ?? 0)}%`;
 
   return (
-    <article ref={ref} className={cn("flex w-72 flex-col gap-4", className)} {...props}>
-      {player ?? (
-        <>
-          {cover ?? (
+    <article ref={ref} className={cn("flex w-full flex-col gap-4", className)} {...props}>
+      {/* Fixed 16:9 stage: the cover and the inline player share it, so
+          starting playback never changes the card's height. */}
+      <div className="aspect-video w-full overflow-hidden rounded-panel [&>*]:size-full">
+        {player ??
+          cover ?? (
             <MediaPreview
-              size="lg"
+              size="video"
               kind="audio"
               src={coverSrc}
               videoSrc={coverVideoSrc}
@@ -98,8 +105,8 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
               actionLabel="Слухати"
             />
           )}
-        </>
-      )}
+      </div>
+
 
       <div className="flex items-start justify-between gap-3">
         <div className="flex flex-col gap-1">
@@ -115,20 +122,23 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
 
       {progress !== undefined && <ProgressBar value={progress} label={listened} />}
 
-      {children && (
+      {childCount > 0 && (
         <div className="flex flex-col gap-2">
-          <button
-            type="button"
-            onClick={toggle}
-            aria-expanded={isExpanded}
-            className="flex items-center gap-1.5 self-start text-caption text-ink-soft transition-colors hover:text-ink"
-          >
-            {isExpanded ? "Згорнути епізоди" : "Показати епізоди"}
-            <Icon name={isExpanded ? "chevronUp" : "chevronDown"} size="md" />
-          </button>
-          {isExpanded && <div className="flex flex-col gap-2">{children}</div>}
+          {collapsible && (
+            <button
+              type="button"
+              onClick={toggle}
+              aria-expanded={isExpanded}
+              className="flex items-center gap-1.5 self-start text-caption text-ink-soft transition-colors hover:text-ink"
+            >
+              {isExpanded ? "Згорнути епізоди" : "Показати епізоди"}
+              <Icon name={isExpanded ? "chevronUp" : "chevronDown"} size="md" />
+            </button>
+          )}
+          {(!collapsible || isExpanded) && <div className="flex flex-col gap-2">{children}</div>}
         </div>
       )}
+
     </article>
   );
 });

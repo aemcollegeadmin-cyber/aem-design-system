@@ -11,6 +11,8 @@ const preview = cva(
         sm: "h-16 w-24 rounded-field",
         md: "h-20 w-32 rounded-card",
         lg: "h-36 w-full rounded-panel",
+        /** Same geometry as an inline video player — no size jump on play. */
+        video: "aspect-video w-full rounded-panel",
       },
     },
     defaultVariants: { size: "md" },
@@ -89,10 +91,11 @@ export const MediaPreview = forwardRef<HTMLDivElement, MediaPreviewProps>(functi
         kind === "video" || kind === "audio"
           ? "bg-accent-brand text-accent-brand-fg"
           : "bg-surface-inverse-muted text-on-inverse",
-        size === "lg" ? "size-12" : "size-9",
+        size === "lg" || size === "video" ? "size-12" : "size-9",
       )}
     >
-      <Icon name={kindIcon[kind]} size={size === "lg" ? "xl" : "lg"} />
+      <Icon name={kindIcon[kind]} size={size === "lg" || size === "video" ? "xl" : "lg"} />
+
     </span>
   );
 

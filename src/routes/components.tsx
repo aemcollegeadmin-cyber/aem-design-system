@@ -559,11 +559,19 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
             <PodcastDemo />
           </Specimen>
           <Specimen
+            label="один подкаст · один епізод"
+            code={`<PodcastCard episodeCount={1}><EpisodeRow index={1} … /></PodcastCard>`}
+          >
+            <SinglePodcastDemo />
+          </Specimen>
+          <Specimen
             label="loading · недоступне відео"
             code={`<PodcastCard loading /> · <YouTubePlayer url="" />`}
           >
             <div className="flex w-full flex-wrap items-start gap-6">
-              <PodcastCard loading />
+              <div className="w-full max-w-sm">
+                <PodcastCard loading />
+              </div>
               <div className="w-72">
                 <YouTubePlayer url="" />
               </div>
@@ -1231,6 +1239,7 @@ function PodcastDemo() {
     { title: "Компоненти без хаосу", duration: "41 хв" },
   ];
   return (
+    <div className="w-full max-w-sm">
     <PodcastCard
       title="Розмови про дизайн"
       description="Щотижневі епізоди з менторами коледжу"
@@ -1258,6 +1267,34 @@ function PodcastDemo() {
         />
       ))}
     </PodcastCard>
+    </div>
+  );
+}
+
+/** Single podcast with a single episode: no collapse control, episode shown at once. */
+function SinglePodcastDemo() {
+  const url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+  const [playing, setPlaying] = useState(false);
+  return (
+    <div className="w-full max-w-sm">
+      <PodcastCard
+        title="Один епізод"
+        description="Подкаст з одного посилання"
+        coverVideoSrc={url}
+        episodeCount={1}
+        progress={0}
+        onPlay={() => setPlaying(true)}
+        player={playing ? <YouTubePlayer url={url} playing /> : undefined}
+      >
+        <EpisodeRow
+          index={1}
+          title="Вступний епізод"
+          duration="18 хв"
+          playing={playing}
+          onToggle={() => setPlaying((value) => !value)}
+        />
+      </PodcastCard>
+    </div>
   );
 }
 
