@@ -16,3 +16,5 @@
   - Existing loading on: ScoreCard, LeaderboardCard, Scoreboard
 - [x] Diagnose missing current-student row in LMS weekly leaderboard and provide an exact consumer-side fix prompt
 - [x] Scoreboard: show the student's all-time ranking alongside the weekly view
+- [x] PodcastCard: own white surface independent of page background
+- [x] YouTubePlayer: remove native controls and leave playback to EpisodeRow
