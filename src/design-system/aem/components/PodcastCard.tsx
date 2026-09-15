@@ -51,6 +51,8 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
     episodeCount,
     progress,
     onPlay,
+    playing = false,
+    onTogglePlay,
     player,
     children,
     expanded,
@@ -71,15 +73,10 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
 
   const childArray = Children.toArray(children);
   const childCount = childArray.length;
-  const singleEpisode = childCount === 1;
-  const collapsible = childCount > 1;
-
-  // A single episode already uses the podcast title as the card heading,
-  // so its row is rendered without the duplicated episode title.
-  const renderedChildren =
-    singleEpisode && isValidElement(childArray[0]) && (childArray[0].type as unknown) === EpisodeRow
-      ? cloneElement(childArray[0] as React.ReactElement<{ title?: string }>, { title: undefined })
-      : children;
+  // Compact single-episode mode: no EpisodeRow, no expand control —
+  // play/pause lives next to the progress bar instead.
+  const singleEpisode = episodeCount === 1 || childCount === 1;
+  const collapsible = childCount > 1 && !singleEpisode;
 
   if (loading) {
     return (
