@@ -1,7 +1,7 @@
-import { Children, cloneElement, forwardRef, isValidElement, useState } from "react";
+import { Children, forwardRef, useState } from "react";
 import { Badge } from "./Badge";
-import { EpisodeRow } from "./EpisodeRow";
 import { Icon } from "./Icon";
+import { IconButton } from "./IconButton";
 import { MediaPreview } from "./MediaPreview";
 import { ProgressBar } from "./ProgressBar";
 import { Skeleton } from "./Skeleton";
@@ -23,6 +23,12 @@ export interface PodcastCardProps extends React.HTMLAttributes<HTMLElement> {
   progress?: number;
   /** Starts the featured episode from the cover. */
   onPlay?: () => void;
+  /** Single-episode mode: whether the episode is playing. Synced with the `player` slot. */
+  playing?: boolean;
+  /** Single-episode mode: toggles play/pause from the progress row. */
+  onTogglePlay?: () => void;
+  /** Single-episode mode: resume position in seconds, passed through to the host's YouTubePlayer. */
+  startSecond?: number;
   /** Inline player node (YouTubePlayer). Rendered above the episode list when present. */
   player?: React.ReactNode;
   /** EpisodeRow children — collapsible. */
@@ -45,6 +51,8 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
     episodeCount,
     progress,
     onPlay,
+    playing = false,
+    onTogglePlay,
     player,
     children,
     expanded,
@@ -65,15 +73,10 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
 
   const childArray = Children.toArray(children);
   const childCount = childArray.length;
-  const singleEpisode = childCount === 1;
-  const collapsible = childCount > 1;
-
-  // A single episode already uses the podcast title as the card heading,
-  // so its row is rendered without the duplicated episode title.
-  const renderedChildren =
-    singleEpisode && isValidElement(childArray[0]) && (childArray[0].type as unknown) === EpisodeRow
-      ? cloneElement(childArray[0] as React.ReactElement<{ title?: string }>, { title: undefined })
-      : children;
+  // Compact single-episode mode: no EpisodeRow, no expand control —
+  // play/pause lives next to the progress bar instead.
+  const singleEpisode = episodeCount === 1 || childCount === 1;
+  const collapsible = childCount > 1 && !singleEpisode;
 
   if (loading) {
     return (
@@ -144,9 +147,24 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
         )}
       </div>
 
-      {progress !== undefined && <ProgressBar value={progress} label={listened} />}
+      {progress !== undefined &&
+        (singleEpisode && onTogglePlay ? (
+          <div className="flex items-center gap-3">
+            <IconButton
+              variant="muted"
+              label={playing ? "Пауза" : "Слухати"}
+              onClick={onTogglePlay}
+              className="shrink-0"
+            >
+              <Icon name={playing ? "pause" : "play"} size="md" />
+            </IconButton>
+            <ProgressBar value={progress} label={listened} className="flex-1" />
+          </div>
+        ) : (
+          <ProgressBar value={progress} label={listened} />
+        ))}
 
-      {childCount > 0 && (
+      {!singleEpisode && childCount > 0 && (
         <div className="flex flex-col gap-2">
           {collapsible && (
             <button
@@ -159,7 +177,7 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
               <Icon name={isExpanded ? "chevronUp" : "chevronDown"} size="md" />
             </button>
           )}
-          {(!collapsible || isExpanded) && <div className="flex flex-col gap-2">{renderedChildren}</div>}
+          {(!collapsible || isExpanded) && <div className="flex flex-col gap-2">{children}</div>}
         </div>
       )}
 
