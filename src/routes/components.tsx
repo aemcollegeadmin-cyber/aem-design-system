@@ -451,11 +451,26 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       title: "CourseCard",
       node: (
         <>
-          <Specimen label="cover + progress + mentors" code={`<CourseCard title="Веб-дизайн" progress={64} />`}>
+          <Specimen label="surface + cover status + course facts + mentors" code={`<CourseCard title="Веб-дизайн" progress={64} coverStatus="Доступ завершено" />`}>
             <CourseCard
               title="Веб-дизайн з нуля"
               description="6 модулів · 32 уроки"
               progress={64}
+              coverStatus="Доступ завершено"
+              meta={
+                <>
+                  <span>6 модулів</span>
+                  <span>32 уроки</span>
+                  <span>4 тести</span>
+                </>
+              }
+              action={<Button block>Продовжити навчання</Button>}
+              details={
+                <>
+                  <span>Пожиттєвий доступ</span>
+                  <span>Супровід ментора</span>
+                </>
+              }
               mentors={
                 <>
                   <UserChip name="Олена Ковальчук" />

@@ -21,3 +21,4 @@
 - [x] CourseCard: keep only the reference cover proportion, with fluid container width on every device
 
 - [ ] Надати готовий промпт для заміни локальних карток курсів у LMS на CourseCard з пропорцією 26:15.
+- [x] CourseCard: own white surface, grouped mentors, and access status over a dimmed cover

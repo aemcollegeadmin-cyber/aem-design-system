@@ -1077,6 +1077,22 @@
           "type": "any"
         },
         {
+          "name": "coverStatus",
+          "type": "ReactNode"
+        },
+        {
+          "name": "meta",
+          "type": "ReactNode"
+        },
+        {
+          "name": "action",
+          "type": "ReactNode"
+        },
+        {
+          "name": "details",
+          "type": "ReactNode"
+        },
+        {
           "name": "mentors",
           "type": "any"
         },
@@ -1085,6 +1101,18 @@
           "type": "boolean",
           "default": "false"
         }
+      ],
+      "usage": "Самодостатня біла картка курсу для сітки матеріалів: кавер 26:15, прогрес, факти курсу, дія, деталі доступу й окрема група менторів. Недоступний курс передає статус через coverStatus — картка сама затемнює кавер і накладає статус.",
+      "examples": [
+        {
+          "label": "Курс із завершеним доступом",
+          "code": "<CourseCard title=\"Framer експерт\" progress={0} coverStatus=\"Доступ завершено\" meta={courseFacts} details={accessDetails} mentors={mentorChips} />"
+        }
+      ],
+      "antipatterns": [
+        "Не ставити статус доступу в meta або details: він належить тільки coverStatus поверх затемненого каверу.",
+        "Не рендерити UserChip поза mentors і не збирати локальну обгортку картки.",
+        "Не задавати каверу фіксовану ширину чи висоту — система тримає лише пропорцію 26:15."
       ]
     },
     {
@@ -1470,7 +1498,7 @@
       "examples": [
         {
           "label": "подкаст з епізодами",
-          "code": "\u003cPodcastCard title=\"Розмови про дизайн\" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? \u003cYouTubePlayer url={url} playing /\u003e : undefined}\u003e\u003cEpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" onToggle={play} /\u003e\u003c/PodcastCard\u003e"
+          "code": "<PodcastCard title=\"Розмови про дизайн\" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? <YouTubePlayer url={url} playing /> : undefined}><EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" onToggle={play} /></PodcastCard>"
         }
       ],
       "antipatterns": [
@@ -1533,7 +1561,7 @@
       "examples": [
         {
           "label": "епізод у процесі",
-          "code": "\u003cEpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" progress={40} playing={isPlaying} onToggle={toggle} /\u003e"
+          "code": "<EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" progress={40} playing={isPlaying} onToggle={toggle} />"
         }
       ],
       "antipatterns": [
@@ -1592,11 +1620,11 @@
       "examples": [
         {
           "label": "контрольований плеєр",
-          "code": "\u003cYouTubePlayer url={episode.youtube_url} playing={activeId === episode.id} startSecond={progress.current_second} onTimeChange={saveDebounced} onDuration={saveDuration} onEnded={markCompleted} /\u003e"
+          "code": "<YouTubePlayer url={episode.youtube_url} playing={activeId === episode.id} startSecond={progress.current_second} onTimeChange={saveDebounced} onDuration={saveDuration} onEnded={markCompleted} />"
         }
       ],
       "antipatterns": [
-        "Прямий \u003ciframe\u003e YouTube в LMS",
+        "Прямий <iframe> YouTube в LMS",
         "Власні кнопки чи підписи поверх відео замість EpisodeRow",
         "CSS-маскування обов'язкового брендингу YouTube",
         "Збереження прогресу частіше ніж раз на кілька секунд без debounce"
