@@ -156,7 +156,7 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
               onClick={onTogglePlay}
               className="shrink-0"
             >
-              <Icon name={playing ? "pause" : "play"} size="lg" />
+              <Icon name={playing ? "pause" : "play"} size="md" />
             </IconButton>
             <ProgressBar value={progress} label={listened} className="flex-1" />
           </div>
