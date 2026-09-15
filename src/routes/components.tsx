@@ -473,8 +473,8 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
               action={<Button block>Продовжити навчання</Button>}
               details={
                 <>
-                  <span>Онлайн</span>
-                  <span>У власному темпі</span>
+                  <span>Доступ до 12 бер. 27'</span>
+                  <span>Онлайн · У власному темпі</span>
                 </>
               }
               mentors={
