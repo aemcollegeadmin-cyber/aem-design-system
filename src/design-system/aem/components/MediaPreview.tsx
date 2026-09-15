@@ -48,6 +48,8 @@ export interface MediaPreviewProps
   onActivate?: () => void;
   /** Accessible name for the activate control. */
   actionLabel?: string;
+  /** Hides the centered kind glyph. The caller renders its own indicator (e.g. a corner badge). */
+  hideGlyph?: boolean;
   /** Skeleton placeholder instead of the media plate. */
   loading?: boolean;
 }
