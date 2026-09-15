@@ -574,10 +574,9 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
             <PodcastDemo />
           </Specimen>
           <Specimen
-            label="один подкаст · один епізод — заголовок не дублюється"
-            code={`<PodcastCard title="Один епізод" episodeCount={1}>
-  <EpisodeRow index={1} duration="18 хв" onToggle={toggle} />
-</PodcastCard>`}
+            label="один подкаст · один епізод — компактний режим, play біля прогресу"
+            code={`<PodcastCard title="Один епізод" episodeCount={1} progress={0}
+  playing={playing} onTogglePlay={toggle} />`}
           >
             <SinglePodcastDemo />
           </Specimen>
@@ -1288,8 +1287,8 @@ function PodcastDemo() {
   );
 }
 
-/** Single podcast with a single episode: no collapse control, episode shown at once.
- *  Omit the EpisodeRow title so the podcast title is not duplicated. */
+/** Single-episode podcast: compact mode — no EpisodeRow, play/pause lives
+ *  next to the progress bar and drives the same player slot. */
 function SinglePodcastDemo() {
   const url = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
   const [playing, setPlaying] = useState(false);
