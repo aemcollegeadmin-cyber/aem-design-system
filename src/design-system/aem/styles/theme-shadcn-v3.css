@@ -230,14 +230,11 @@ input[type="search"]::-webkit-search-results-decoration {
   aspect-ratio: 343 / 198;
 }
 
-.aem-course-cover > * {
-  width: 100%;
-  height: 100%;
-}
-
 .aem-course-cover img,
 .aem-course-cover video {
   display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
