@@ -214,6 +214,28 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
+/* Course artwork follows the canonical 343 × 198 cover from the LMS.
+   The card scales down with its container but never changes proportions. */
+.aem-course-card {
+  width: min(100%, 343px);
+}
+
+.aem-course-cover {
+  width: 100%;
+  aspect-ratio: 343 / 198;
+}
+
+.aem-course-cover > * {
+  width: 100%;
+  height: 100%;
+}
+
+.aem-course-cover img,
+.aem-course-cover video {
+  display: block;
+  object-fit: cover;
+}
+
 /* Panel geometry (framework-independent) — LessonSidebar / ChatPanel `fit`. */
 .aem-panel-fit {
   display: flex;
