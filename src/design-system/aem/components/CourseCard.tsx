@@ -22,7 +22,7 @@ export interface CourseCardProps extends React.HTMLAttributes<HTMLElement> {
   meta?: React.ReactNode;
   /** Primary course action. */
   action?: React.ReactNode;
-  /** Additional course details (access, format, etc.), rendered outside the mentor group. */
+  /** Optional non-access details. Never duplicate access or mentorship tags here. */
   details?: React.ReactNode;
   /** Mentor chips rendered under the "Ментори навчання" label. */
   mentors?: React.ReactNode;

@@ -471,12 +471,6 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
                 </>
               }
               action={<Button block>Продовжити навчання</Button>}
-              details={
-                <>
-                  <span>Доступ до 12 бер. 27'</span>
-                  <span>Онлайн · У власному темпі</span>
-                </>
-              }
               mentors={
                 <>
                   <UserChip name="Олена Ковальчук" />
