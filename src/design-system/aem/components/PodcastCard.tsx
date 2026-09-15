@@ -105,7 +105,7 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
     >
       {/* Fixed 16:9 stage: the cover and the inline player share it, so
           starting playback never changes the card's height. */}
-      <div className="aspect-video w-full overflow-hidden rounded-panel [&>*]:size-full">
+      <div className="relative aspect-video w-full overflow-hidden rounded-panel [&>*]:size-full">
         {player ??
           cover ?? (
             <MediaPreview
@@ -116,8 +116,17 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
               alt={title}
               onActivate={onPlay}
               actionLabel="Слухати"
+              hideGlyph
             />
           )}
+        {!player && !cover && (
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute right-4 top-4 inline-flex size-12 items-center justify-center rounded-pill bg-accent-brand text-accent-brand-fg"
+          >
+            <Icon name="headphones" size="xl" />
+          </span>
+        )}
       </div>
 
 
