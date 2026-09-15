@@ -234,8 +234,8 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .aem-course-cover-scrim {
-  background-color: rgba(26, 26, 26, 0.62);
-  background-color: color-mix(in srgb, var(--aem-ink) 62%, transparent);
+  background-color: var(--aem-ink);
+  opacity: 0.62;
 }
 
 /* Panel geometry (framework-independent) — LessonSidebar / ChatPanel `fit`. */
