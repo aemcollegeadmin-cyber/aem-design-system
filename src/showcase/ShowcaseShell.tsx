@@ -29,7 +29,7 @@ function ThemeToggle() {
 
 export function ShowcaseShell({ children }: { children: React.ReactNode }) {
   return (
-      <div className="min-h-screen bg-surface-muted">
+      <div className="min-h-screen bg-surface-muted font-sans text-ink">
         <header className="sticky top-0 z-30 flex flex-wrap items-center justify-between gap-4 bg-surface px-6 py-4 shadow-card">
           <div className="flex items-center gap-3">
             <span className="inline-flex size-9 items-center justify-center rounded-pill bg-accent-lime text-accent-lime-fg text-body font-semibold">

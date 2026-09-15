@@ -4,6 +4,8 @@ import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
 export const AccordionRoot = Root;
+export const AccordionTrigger = Trigger;
+export const AccordionContent = Content;
 
 export interface AccordionItemProps extends React.ComponentPropsWithoutRef<typeof Item> {
   title: string;

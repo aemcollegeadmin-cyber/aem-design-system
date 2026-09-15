@@ -131,7 +131,7 @@ export { Pagination, type PaginationProps } from "./components/Pagination";
 export { Skeleton, type SkeletonProps } from "./components/Skeleton";
 export { EmptyState, type EmptyStateProps } from "./components/EmptyState";
 export { Separator, type SeparatorProps } from "./components/Separator";
-export { AccordionRoot, AccordionItem, type AccordionItemProps } from "./components/Accordion";
+export { AccordionRoot, AccordionItem, AccordionTrigger, AccordionContent, type AccordionItemProps } from "./components/Accordion";
 
 /* Navigation & layout */
 export { Breadcrumbs, type BreadcrumbsProps, type BreadcrumbItem } from "./components/Breadcrumbs";
