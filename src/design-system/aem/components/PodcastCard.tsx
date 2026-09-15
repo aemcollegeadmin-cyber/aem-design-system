@@ -157,7 +157,7 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
               <Icon name={isExpanded ? "chevronUp" : "chevronDown"} size="md" />
             </button>
           )}
-          {(!collapsible || isExpanded) && <div className="flex flex-col gap-2">{children}</div>}
+          {(!collapsible || isExpanded) && <div className="flex flex-col gap-2">{renderedChildren}</div>}
         </div>
       )}
 
