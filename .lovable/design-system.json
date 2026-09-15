@@ -1380,6 +1380,12 @@
           "type": "string"
         },
         {
+          "name": "hideGlyph",
+          "type": "boolean",
+          "default": "false",
+          "description": "Hides the centered kind glyph so the caller can render its own indicator (e.g. a corner badge)."
+        },
+        {
           "name": "loading",
           "type": "boolean",
           "default": "false"
