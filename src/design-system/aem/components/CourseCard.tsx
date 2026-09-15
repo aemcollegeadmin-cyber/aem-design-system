@@ -12,6 +12,12 @@ export interface CourseCardProps extends React.HTMLAttributes<HTMLElement> {
   cover?: React.ReactNode;
   /** Access state shown over a dimmed cover, e.g. "Доступ завершено". */
   coverStatus?: React.ReactNode;
+  /**
+   * Access / mentorship tags pinned to the top of the cover, e.g.
+   * "Доступ до 12 бер. 27'", "Супровід закінчився". Pass `Badge`s.
+   * The LMS computes which tags apply; the card only positions them.
+   */
+  coverTags?: React.ReactNode;
   /** Course facts such as module, lesson and test counts. */
   meta?: React.ReactNode;
   /** Primary course action. */
