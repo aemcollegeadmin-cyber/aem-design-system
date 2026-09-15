@@ -457,6 +457,12 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
               description="6 модулів · 32 уроки"
               progress={64}
               coverStatus="Доступ завершено"
+              coverTags={
+                <>
+                  <Badge tone="onMuted">Доступ до 12 бер. 27'</Badge>
+                  <Badge tone="onMuted">Ментор до 12 бер. 26'</Badge>
+                </>
+              }
               meta={
                 <>
                   <span>6 модулів</span>
@@ -467,8 +473,8 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
               action={<Button block>Продовжити навчання</Button>}
               details={
                 <>
-                  <span>Пожиттєвий доступ</span>
-                  <span>Супровід ментора</span>
+                  <span>Онлайн</span>
+                  <span>У власному темпі</span>
                 </>
               }
               mentors={
