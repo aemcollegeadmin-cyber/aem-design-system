@@ -225,8 +225,6 @@ import { ContinueLessonCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-
 import { CourseCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
-Самодостатня біла картка курсу для сітки матеріалів: кавер 26:15, прогрес, факти курсу, дія, деталі доступу й окрема група менторів. Недоступний курс передає статус через coverStatus — картка сама затемнює кавер і накладає статус.
-
 **Props:**
 
 | Prop | Type | Default |
@@ -235,25 +233,8 @@ import { CourseCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 | `description` | string | `—` |
 | `progress` | number | `—` |
 | `cover` | any | `—` |
-| `coverStatus` | any | `—` |
-| `meta` | any | `—` |
-| `action` | any | `—` |
-| `details` | any | `—` |
 | `mentors` | any | `—` |
 | `loading` | boolean | `false` |
-
-**Examples:**
-
-_Курс із завершеним доступом_
-```tsx
-<CourseCard title="Framer експерт" progress={0} coverStatus="Доступ завершено" meta={courseFacts} details={accessDetails} mentors={mentorChips} />
-```
-
-**Avoid:**
-
-- Не ставити статус доступу в meta або details: він належить тільки coverStatus поверх затемненого каверу.
-- Не рендерити UserChip поза mentors і не збирати локальну обгортку картки.
-- Не задавати каверу фіксовану ширину чи висоту — система тримає лише пропорцію 26:15.
 
 ### Dialog
 

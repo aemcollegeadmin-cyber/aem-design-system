@@ -1,5 +1,6 @@
-import { Children, forwardRef, useState } from "react";
+import { Children, cloneElement, forwardRef, isValidElement, useState } from "react";
 import { Badge } from "./Badge";
+import { EpisodeRow } from "./EpisodeRow";
 import { Icon } from "./Icon";
 import { MediaPreview } from "./MediaPreview";
 import { ProgressBar } from "./ProgressBar";
@@ -62,9 +63,17 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
     onExpandedChange?.(next);
   };
 
-  // A single episode has nothing to collapse — show it straight away.
-  const childCount = Children.toArray(children).length;
+  const childArray = Children.toArray(children);
+  const childCount = childArray.length;
+  const singleEpisode = childCount === 1;
   const collapsible = childCount > 1;
+
+  // A single episode already uses the podcast title as the card heading,
+  // so its row is rendered without the duplicated episode title.
+  const renderedChildren =
+    singleEpisode && isValidElement(childArray[0]) && (childArray[0].type as unknown) === EpisodeRow
+      ? cloneElement(childArray[0] as React.ReactElement<{ title?: string }>, { title: undefined })
+      : children;
 
   if (loading) {
     return (
@@ -96,19 +105,30 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
     >
       {/* Fixed 16:9 stage: the cover and the inline player share it, so
           starting playback never changes the card's height. */}
-      <div className="aspect-video w-full overflow-hidden rounded-panel [&>*]:size-full">
-        {player ??
-          cover ?? (
-            <MediaPreview
-              size="video"
-              kind="audio"
-              src={coverSrc}
-              videoSrc={coverVideoSrc}
-              alt={title}
-              onActivate={onPlay}
-              actionLabel="Слухати"
-            />
-          )}
+      <div className="relative aspect-video w-full overflow-hidden rounded-panel">
+        <div className="size-full [&>*]:size-full">
+          {player ??
+            cover ?? (
+              <MediaPreview
+                size="video"
+                kind="audio"
+                src={coverSrc}
+                videoSrc={coverVideoSrc}
+                alt={title}
+                onActivate={onPlay}
+                actionLabel="Слухати"
+                hideGlyph
+              />
+            )}
+        </div>
+        {!player && !cover && (
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute right-4 top-4 inline-flex size-12 items-center justify-center rounded-pill bg-accent-brand text-accent-brand-fg"
+          >
+            <Icon name="headphones" size="xl" />
+          </span>
+        )}
       </div>
 
 
@@ -139,7 +159,7 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
               <Icon name={isExpanded ? "chevronUp" : "chevronDown"} size="md" />
             </button>
           )}
-          {(!collapsible || isExpanded) && <div className="flex flex-col gap-2">{children}</div>}
+          {(!collapsible || isExpanded) && <div className="flex flex-col gap-2">{renderedChildren}</div>}
         </div>
       )}
 
