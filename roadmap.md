@@ -18,3 +18,4 @@
 - [x] Scoreboard: show the student's all-time ranking alongside the weekly view
 - [x] PodcastCard: own white surface independent of page background
 - [x] YouTubePlayer: remove native controls and leave playback to EpisodeRow
+- [x] CourseCard: keep only the reference cover proportion, with fluid container width on every device

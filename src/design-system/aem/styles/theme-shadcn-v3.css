@@ -219,15 +219,15 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
-/* Course artwork follows the canonical 343 × 198 cover from the LMS.
-   Framework-independent so v3 consumers keep the exact same geometry. */
+/* Course artwork follows the reference's wide 26:15 proportion.
+   Width comes from the consumer layout; only the ratio is fixed. */
 .aem-course-card {
-  width: min(100%, 343px);
+  width: 100%;
 }
 
 .aem-course-cover {
   width: 100%;
-  aspect-ratio: 343 / 198;
+  aspect-ratio: 26 / 15;
 }
 
 .aem-course-cover img,
