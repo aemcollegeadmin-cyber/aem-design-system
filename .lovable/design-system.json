@@ -1479,6 +1479,18 @@
           "type": "function"
         },
         {
+          "name": "playing",
+          "type": "boolean"
+        },
+        {
+          "name": "onTogglePlay",
+          "type": "function"
+        },
+        {
+          "name": "startSecond",
+          "type": "number"
+        },
+        {
           "name": "player",
           "type": "any"
         },
