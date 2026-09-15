@@ -225,6 +225,8 @@ import { ContinueLessonCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-
 import { CourseCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
+Самодостатня біла картка курсу для сітки матеріалів: кавер 26:15, прогрес, факти курсу, дія, деталі формату й окрема група менторів. Теги доступу й супроводу («Доступ до 12 бер. 27'», «Пожиттєвий доступ», «Ментор до 12 бер. 26'», «Супровід закінчився», «Самостійне навчання») передаються через coverTags як Badge tone="onMuted" зверху на кавері; недоступний курс передає статус через coverStatus — картка сама затемнює кавер і накладає статус.
+
 **Props:**
 
 | Prop | Type | Default |
@@ -233,8 +235,27 @@ import { CourseCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 | `description` | string | `—` |
 | `progress` | number | `—` |
 | `cover` | any | `—` |
+| `coverStatus` | any | `—` |
+| `coverTags` | any | `—` |
+| `meta` | any | `—` |
+| `action` | any | `—` |
+| `details` | any | `—` |
 | `mentors` | any | `—` |
 | `loading` | boolean | `false` |
+
+**Examples:**
+
+_Курс із тегами доступу на кавері_
+```tsx
+<CourseCard title="Framer експерт" progress={0} coverStatus="Доступ завершено" coverTags={<><Badge tone="onMuted">Доступ до 12 бер. 27'</Badge><Badge tone="onMuted">Супровід закінчився</Badge></>} meta={courseFacts} details={formatDetails} mentors={mentorChips} />
+```
+
+**Avoid:**
+
+- Не ставити статус доступу в meta або details: він належить тільки coverStatus поверх затемненого каверу.
+- Не передавати теги доступу чи супроводу в details — вони живуть тільки в coverTags зверху на кавері; details лишається для формату навчання.
+- Не рендерити UserChip поза mentors і не збирати локальну обгортку картки.
+- Не задавати каверу фіксовану ширину чи висоту — система тримає лише пропорцію 26:15.
 
 ### Dialog
 
@@ -350,7 +371,7 @@ import { EmptyState } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33
 import { EpisodeRow } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
-Рядок епізоду подкасту: номер або галочка «прослухано», назва, тривалість, підпис прогресу та play/pause контрол.
+Рядок епізоду подкасту: номер або галочка «прослухано», назва, тривалість, підпис прогресу та play/pause контрол. У подкасті з одним епізодом title можна опустити, щоб не дублювати назву картки.
 
 **Props:**
 
@@ -373,10 +394,16 @@ _епізод у процесі_
 <EpisodeRow index={1} title="Пілот" duration="32 хв" progress={40} playing={isPlaying} onToggle={toggle} />
 ```
 
+_один епізод — без назви_
+```tsx
+<EpisodeRow index={1} duration="18 хв" playing={isPlaying} onToggle={toggle} />
+```
+
 **Avoid:**
 
 - Кілька епізодів у стані playing одночасно
 - Своя верстка рядка епізоду
+- Дублювати назву подкасту в title одного епізоду
 
 ### Field
 
@@ -550,6 +577,7 @@ import { MediaPreview } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e
 | `alt` | string | `—` |
 | `onActivate` | function | `—` |
 | `actionLabel` | string | `—` |
+| `hideGlyph` | boolean | `false` |
 | `loading` | boolean | `false` |
 
 ### ModuleCard
@@ -675,7 +703,7 @@ import { PasswordInput } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-
 import { PodcastCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
-Самодостатня біла картка подкасту в змішаній сітці «Всі матеріали»: власна поверхня не залежить від фону сторінки; всередині — YouTube-мініатюра, кількість епізодів, прогрес, інлайн-плеєр і список EpisodeRow.
+Самодостатня біла картка подкасту в змішаній сітці «Всі матеріали»: власна поверхня не залежить від фону сторінки; всередині — YouTube-мініатюра, кількість епізодів, прогрес, інлайн-плеєр і список EpisodeRow. Іконка подкасту за замовчуванням у правому верхньому кутку обкладинки. З одним епізодом (episodeCount === 1) — компактний режим: EpisodeRow не рендериться, а play/pause — кругла кнопка ліворуч від прогрес-бару, синхронізована зі слотом player через playing/onTogglePlay.
 
 **Props:**
 
@@ -689,6 +717,9 @@ import { PodcastCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e3
 | `episodeCount` | number | `—` |
 | `progress` | number | `—` |
 | `onPlay` | function | `—` |
+| `playing` | boolean | `false` |
+| `onTogglePlay` | function | `—` |
+| `startSecond` | number | `—` |
 | `player` | any | `—` |
 | `children` | any | `—` |
 | `expanded` | boolean | `—` |
@@ -702,11 +733,17 @@ _подкаст з епізодами_
 <PodcastCard title="Розмови про дизайн" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? <YouTubePlayer url={url} playing /> : undefined}><EpisodeRow index={1} title="Пілот" duration="32 хв" onToggle={play} /></PodcastCard>
 ```
 
+_один епізод — компактний режим_
+```tsx
+<PodcastCard title="Один епізод" coverVideoSrc={url} episodeCount={1} progress={progress} playing={playing} onTogglePlay={toggle} player={started ? <YouTubePlayer url={url} playing={playing} startSecond={startSecond} /> : undefined} />
+```
+
 **Avoid:**
 
 - Локальна копія картки подкасту в LMS
 - Свій плеєр замість YouTubePlayer
 - Порожні стани замість loading до завершення запиту
+- Рендерити EpisodeRow або власну play-кнопку в одноепізодному подкасті
 
 ### ProgressBar
 
