@@ -38,6 +38,7 @@ export const CourseCard = forwardRef<HTMLElement, CourseCardProps>(function Cour
     progress,
     cover,
     coverStatus,
+    coverTags,
     meta,
     action,
     details,
@@ -56,7 +57,14 @@ export const CourseCard = forwardRef<HTMLElement, CourseCardProps>(function Cour
         className={cn("aem-course-card flex flex-col gap-4 rounded-panel bg-surface p-4", className)}
         {...props}
       >
-        <Skeleton radius="card" className="aem-course-cover" />
+        <div className="aem-course-cover relative">
+          <Skeleton radius="card" className="absolute inset-0" />
+          {coverTags !== undefined && (
+            <div className="absolute inset-x-3 top-3 flex flex-wrap gap-1.5">
+              <Skeleton radius="pill" className="h-6 w-28" />
+            </div>
+          )}
+        </div>
         <div className="flex flex-col gap-2">
           <Skeleton radius="pill" className="h-5 w-40" />
           {description !== undefined && <Skeleton radius="pill" className="h-4 w-56" />}
@@ -86,6 +94,9 @@ export const CourseCard = forwardRef<HTMLElement, CourseCardProps>(function Cour
     >
       <div className="aem-course-cover relative flex items-center justify-center overflow-hidden rounded-panel bg-ink text-accent-lime">
         <div className="size-full">{cover ?? <span className="flex size-full items-center justify-center text-h2">aem</span>}</div>
+        {coverTags && (
+          <div className="absolute inset-x-3 top-3 z-10 flex flex-wrap gap-1.5">{coverTags}</div>
+        )}
         {coverStatus && (
           <>
             <div className="aem-course-cover-scrim absolute inset-0" aria-hidden="true" />
