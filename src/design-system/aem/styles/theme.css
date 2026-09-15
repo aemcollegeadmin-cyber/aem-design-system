@@ -214,6 +214,25 @@ input[type="search"]::-webkit-search-results-decoration {
   display: none;
 }
 
+/* Course artwork follows the reference's wide 26:15 proportion.
+   Width always comes from the consumer layout; only the ratio is fixed. */
+.aem-course-card {
+  width: 100%;
+}
+
+.aem-course-cover {
+  width: 100%;
+  aspect-ratio: 26 / 15;
+}
+
+.aem-course-cover img,
+.aem-course-cover video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 /* Panel geometry (framework-independent) — LessonSidebar / ChatPanel `fit`. */
 .aem-panel-fit {
   display: flex;
