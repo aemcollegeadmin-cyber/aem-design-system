@@ -1494,17 +1494,22 @@
           "default": "false"
         }
       ],
-      "usage": "Самодостатня біла картка подкасту в змішаній сітці «Всі матеріали»: власна поверхня не залежить від фону сторінки; всередині — YouTube-мініатюра, кількість епізодів, прогрес, інлайн-плеєр і список EpisodeRow.",
+      "usage": "Самодостатня біла картка подкасту в змішаній сітці «Всі матеріали»: власна поверхня не залежить від фону сторінки; всередині — YouTube-мініатюра, кількість епізодів, прогрес, інлайн-плеєр і список EpisodeRow. Іконка подкасту за замовчуванням у правому верхньому кутку обкладинки; з одним епізодом PodcastCard автоматично прибирає заголовок рядка, щоб не дублювати назву подкасту.",
       "examples": [
         {
           "label": "подкаст з епізодами",
           "code": "<PodcastCard title=\"Розмови про дизайн\" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? <YouTubePlayer url={url} playing /> : undefined}><EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" onToggle={play} /></PodcastCard>"
+        },
+        {
+          "label": "один епізод — без дублювання назви",
+          "code": "<PodcastCard title=\"Один епізод\" coverVideoSrc={url} episodeCount={1}><EpisodeRow index={1} duration=\"18 хв\" onToggle={toggle} /></PodcastCard>"
         }
       ],
       "antipatterns": [
         "Локальна копія картки подкасту в LMS",
         "Свій плеєр замість YouTubePlayer",
-        "Порожні стани замість loading до завершення запиту"
+        "Порожні стани замість loading до завершення запиту",
+        "Передавати title в EpisodeRow при одному епізоді"
       ]
     },
     {
