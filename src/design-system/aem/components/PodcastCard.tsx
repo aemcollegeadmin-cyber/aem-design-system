@@ -147,9 +147,24 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
         )}
       </div>
 
-      {progress !== undefined && <ProgressBar value={progress} label={listened} />}
+      {progress !== undefined &&
+        (singleEpisode && onTogglePlay ? (
+          <div className="flex items-center gap-3">
+            <IconButton
+              variant="muted"
+              label={playing ? "Пауза" : "Слухати"}
+              onClick={onTogglePlay}
+              className="shrink-0"
+            >
+              <Icon name={playing ? "pause" : "play"} size="lg" />
+            </IconButton>
+            <ProgressBar value={progress} label={listened} className="flex-1" />
+          </div>
+        ) : (
+          <ProgressBar value={progress} label={listened} />
+        ))}
 
-      {childCount > 0 && (
+      {!singleEpisode && childCount > 0 && (
         <div className="flex flex-col gap-2">
           {collapsible && (
             <button
@@ -162,7 +177,7 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
               <Icon name={isExpanded ? "chevronUp" : "chevronDown"} size="md" />
             </button>
           )}
-          {(!collapsible || isExpanded) && <div className="flex flex-col gap-2">{renderedChildren}</div>}
+          {(!collapsible || isExpanded) && <div className="flex flex-col gap-2">{children}</div>}
         </div>
       )}
 
