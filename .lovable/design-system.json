@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.6.7",
+    "version": "1.6.8",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -11,7 +11,7 @@
     ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "cd2c19c8944c599debd112ed81940570b2082064858643c0af4b9a4f29ef76f9",
+      "#enrichment": "17fe1889a210925f6c004db4455179531f8eccdc36e5b4dfc57159f384d8bfd8",
       ".dsignore": "a26f2e60b116f104046a9440907feb8e",
       ".gitignore": "6059213806e442947666752f3db6bfdc",
       ".lovable/meta.yaml": "8794970d6049858cc148d2b86f7a2b22",
@@ -19,7 +19,7 @@
       ".lovable/plan/fix-lms-panel-and-leaderboard-regressions-2026-09-11.md": "227bb5f07e984a3cd823d2ea6ca38bf7",
       ".lovable/plan/виправити-спільне-відображення-рейтингів-2026-09-11.md": "c763c6488287878d0681da2ccafc2bc4",
       ".lovable/sources.yaml": "8469455bacbb4c31f179c3bcc80a4e2e",
-      ".lovable/system.md": "92eb9f6e8116ec1e7c6b4d0e55707ac1",
+      ".lovable/system.md": "6f6549a7cd65744cfa16c47d0b8465d0",
       "README.md": "d19675c449605f23c7cfa133c69b398b",
       "bunfig.toml": "25f4c8696b22b0943db7191e0cdf7942",
       "components_files.txt": "3634a1bc29711409cd1ada4e1f90247e",
@@ -39,7 +39,7 @@
       "src/design-system/aem/assets/fonts/FixelDisplay-Medium.woff2": "8281af068dfe4cb7cdc22f68d10b738c",
       "src/design-system/aem/assets/fonts/FixelDisplay-Regular.woff2": "5e55b8f54359c099a607992e9553fd48",
       "src/design-system/aem/assets/fonts/FixelDisplay-SemiBold.woff2": "901193ce10a48acf7bfc6c98b73ad990",
-      "src/design-system/aem/components/Accordion.tsx": "2aac1cffa8a477f86dda90986e05fd5a",
+      "src/design-system/aem/components/Accordion.tsx": "60eb3acbf341a671c8a679aadf159414",
       "src/design-system/aem/components/Alert.tsx": "e940b82469b1d97450216ccdca6a1838",
       "src/design-system/aem/components/AppHeader.tsx": "10d86eb7a4f8e4f7b37a31f7944601d0",
       "src/design-system/aem/components/Avatar.tsx": "990312fdac13d1f8f473af9eb52d300a",
@@ -54,7 +54,7 @@
       "src/design-system/aem/components/Checkbox.tsx": "b98c0fa42b5279d75cb1810b4bcc9f01",
       "src/design-system/aem/components/ConfirmDialog.tsx": "7389221bcfb7f76aae1edbf3a2a0a971",
       "src/design-system/aem/components/ContinueLessonCard.tsx": "dae50406a78f2404694b106b47442854",
-      "src/design-system/aem/components/CourseCard.tsx": "04e7ab2cbe4b40d23e73ddbb629eb6b2",
+      "src/design-system/aem/components/CourseCard.tsx": "29aebf5444f99fe1ad42c836d8c36c4a",
       "src/design-system/aem/components/Dialog.tsx": "e6825e0f1150668f6e63101acfd019b0",
       "src/design-system/aem/components/DropdownMenu.tsx": "2fdcee875788b2fdb5d2c07e33e285f0",
       "src/design-system/aem/components/EditHeader.tsx": "4e06b5df269c955f89d28f1cbb31cc58",
@@ -105,7 +105,7 @@
       "src/design-system/aem/components/Tooltip.tsx": "dafb29ed748b0fdd266dadefb2efeeea",
       "src/design-system/aem/components/UserChip.tsx": "347e5e99c875cef170828c3bfa536b41",
       "src/design-system/aem/components/YouTubePlayer.tsx": "f6a20adec426ac5717e546629bc47733",
-      "src/design-system/aem/index.ts": "3286a88a4d6116363a44ab5d7420b310",
+      "src/design-system/aem/index.ts": "f683e378c79201a95d41e6d3dfca86de",
       "src/design-system/aem/lib/cn.ts": "f42d8fb0d920ae1cdb1cff4709b87d7f",
       "src/design-system/aem/lib/useFitViewport.ts": "7322abdcb4ca44bbc550fc92c19445e5",
       "src/design-system/aem/styles/theme-shadcn-v3.css": "867c51d126d9a7f92d28b0d8dfbb57ce",
@@ -118,10 +118,10 @@
       "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
       "src/routes/__root.tsx": "fe9de980adb4a4867de6b31db4d4fbf9",
       "src/routes/colors.tsx": "fcee8aeb0fd5af838edc738476e1811c",
-      "src/routes/components.tsx": "7c25c95ab95c252f4f3767386e62f684",
+      "src/routes/components.tsx": "4b025de1bd9c6c1527d0fc9c70cf2cfb",
       "src/routes/index.tsx": "3913e960e9ffe2db34f533e48477d28e",
       "src/routes/typography.tsx": "92d62f0915b6284f6e9ad3b65fe0949f",
-      "src/showcase/ShowcaseShell.tsx": "61ee35bb64c0c7befd38f492eb7236c9",
+      "src/showcase/ShowcaseShell.tsx": "9681207624f6106e061e24f5f6637188",
       "src/styles.css": "5cf5c478933bc96bd3fab2aa39bfd706",
       "tsconfig.json": "994abf64c2b9f78b568879f80ed0170e",
       "vite.config.ts": "94fd08fb73a33f8d2c51992ff209a0c2",
@@ -2508,6 +2508,16 @@
           "required": true
         }
       ]
+    },
+    {
+      "name": "AccordionTrigger",
+      "file": "src/design-system/aem/components/Accordion",
+      "import_path": ""
+    },
+    {
+      "name": "AccordionContent",
+      "file": "src/design-system/aem/components/Accordion",
+      "import_path": ""
     },
     {
       "name": "Breadcrumbs",

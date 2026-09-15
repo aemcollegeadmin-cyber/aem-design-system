@@ -2,6 +2,12 @@
 
 Component catalog for **aem-design-system**. Import all components from `@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa`.
 
+### AccordionContent
+
+```ts
+import { AccordionContent } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
 ### AccordionItem
 
 ```ts
@@ -18,6 +24,12 @@ import { AccordionItem } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-
 
 ```ts
 import { AccordionRoot } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
+```
+
+### AccordionTrigger
+
+```ts
+import { AccordionTrigger } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
 ### Alert
@@ -225,7 +237,7 @@ import { ContinueLessonCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-
 import { CourseCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
-Самодостатня біла картка курсу для сітки матеріалів: кавер 26:15, прогрес, факти курсу, дія, деталі формату й окрема група менторів. Теги доступу й супроводу («Доступ до 12 бер. 27'», «Пожиттєвий доступ», «Ментор до 12 бер. 26'», «Супровід закінчився», «Самостійне навчання») передаються через coverTags як Badge tone="onMuted" зверху на кавері; недоступний курс передає статус через coverStatus — картка сама затемнює кавер і накладає статус.
+Самодостатня біла картка курсу для сітки матеріалів: кавер 26:15, прогрес, факти курсу, дія, додаткові деталі й окрема група менторів. Теги доступу й супроводу («Доступ до 12 бер. 27'», «Пожиттєвий доступ», «Ментор до 12 бер. 26'», «Супровід закінчився», «Самостійне навчання») передаються через coverTags як Badge tone="onMuted" зверху на кавері; недоступний курс передає статус через coverStatus — картка сама затемнює кавер і накладає статус.
 
 **Props:**
 
@@ -253,7 +265,7 @@ _Курс із тегами доступу на кавері_
 **Avoid:**
 
 - Не ставити статус доступу в meta або details: він належить тільки coverStatus поверх затемненого каверу.
-- Не передавати теги доступу чи супроводу в details — вони живуть тільки в coverTags зверху на кавері; details лишається для формату навчання.
+- Не дублювати теги доступу чи супроводу в details — вони живуть тільки в coverTags зверху на кавері.
 - Не рендерити UserChip поза mentors і не збирати локальну обгортку картки.
 - Не задавати каверу фіксовану ширину чи висоту — система тримає лише пропорцію 26:15.
 
