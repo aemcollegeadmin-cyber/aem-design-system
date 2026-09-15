@@ -1,7 +1,7 @@
-import { Children, cloneElement, forwardRef, isValidElement, useState } from "react";
+import { Children, forwardRef, useState } from "react";
 import { Badge } from "./Badge";
-import { EpisodeRow } from "./EpisodeRow";
 import { Icon } from "./Icon";
+import { IconButton } from "./IconButton";
 import { MediaPreview } from "./MediaPreview";
 import { ProgressBar } from "./ProgressBar";
 import { Skeleton } from "./Skeleton";
@@ -23,6 +23,12 @@ export interface PodcastCardProps extends React.HTMLAttributes<HTMLElement> {
   progress?: number;
   /** Starts the featured episode from the cover. */
   onPlay?: () => void;
+  /** Single-episode mode: whether the episode is playing. Synced with the `player` slot. */
+  playing?: boolean;
+  /** Single-episode mode: toggles play/pause from the progress row. */
+  onTogglePlay?: () => void;
+  /** Single-episode mode: resume position in seconds, passed through to the host's YouTubePlayer. */
+  startSecond?: number;
   /** Inline player node (YouTubePlayer). Rendered above the episode list when present. */
   player?: React.ReactNode;
   /** EpisodeRow children — collapsible. */
