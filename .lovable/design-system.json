@@ -1523,7 +1523,8 @@
         },
         {
           "name": "title",
-          "type": "string"
+          "type": "string",
+          "description": "Optional. Omit in single-episode podcasts where the row should not duplicate the podcast title."
         },
         {
           "name": "duration",
