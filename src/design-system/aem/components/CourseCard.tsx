@@ -10,14 +10,19 @@ export interface CourseCardProps extends React.HTMLAttributes<HTMLElement> {
   /** Required unless `loading` is true. */
   progress?: number;
   cover?: React.ReactNode;
-  /** Access state shown over a dimmed cover, e.g. "Доступ завершено". */
+  /**
+   * Access state that dims the cover, e.g. "Доступ завершено". Rendered as the
+   * first pill in the top tag row — never duplicated elsewhere on the card.
+   */
   coverStatus?: React.ReactNode;
   /**
    * Access / mentorship tags pinned to the top of the cover, e.g.
-   * "Доступ до 12 бер. 27'", "Супровід закінчився". Pass `Badge`s.
-   * The LMS computes which tags apply; the card only positions them.
+   * "Доступ до 12 бер. 27'", "Пожиттєвий доступ", "Ментор до 12 бер. 26'",
+   * "Пожиттєвий супровід", "Супровід закінчився", "Самостійне навчання".
+   * Pass `Badge`s. The LMS computes which tags apply; the card only positions them.
    */
   coverTags?: React.ReactNode;
+
   /** Course facts such as module, lesson and test counts. */
   meta?: React.ReactNode;
   /** Primary course action. */
@@ -94,20 +99,19 @@ export const CourseCard = forwardRef<HTMLElement, CourseCardProps>(function Cour
     >
       <div className="aem-course-cover relative flex items-center justify-center overflow-hidden rounded-panel bg-ink text-accent-lime">
         <div className="size-full">{cover ?? <span className="flex size-full items-center justify-center text-h2">aem</span>}</div>
-        {coverTags && (
-          <div className="absolute inset-x-3 top-3 z-10 flex flex-wrap gap-1.5">{coverTags}</div>
-        )}
-        {coverStatus && (
-          <>
-            <div className="aem-course-cover-scrim absolute inset-0" aria-hidden="true" />
-            <div className="absolute inset-x-3 bottom-3 z-10 flex justify-start">
+        {coverStatus && <div className="aem-course-cover-scrim absolute inset-0" aria-hidden="true" />}
+        {(coverStatus || coverTags) && (
+          <div className="absolute inset-x-3 top-3 z-10 flex flex-wrap gap-1.5">
+            {coverStatus && (
               <span className="inline-flex items-center rounded-pill bg-surface px-3 py-1 text-caption text-ink">
                 {coverStatus}
               </span>
-            </div>
-          </>
+            )}
+            {coverTags}
+          </div>
         )}
       </div>
+
       <div className="flex flex-col gap-1">
         <h3 className="text-h4 text-ink">{title}</h3>
         {description && <p className="text-caption text-ink-muted">{description}</p>}
