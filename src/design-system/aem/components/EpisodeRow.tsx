@@ -57,6 +57,8 @@ export const EpisodeRow = forwardRef<HTMLDivElement, EpisodeRowProps>(function E
       ? `Прослухано ${Math.min(99, Math.round(progress))}%`
       : undefined;
 
+  const meta = [duration, listened].filter(Boolean).join(" · ");
+
   return (
     <div ref={ref} className={cn("flex items-center gap-3", className)} {...props}>
       <span
@@ -76,10 +78,17 @@ export const EpisodeRow = forwardRef<HTMLDivElement, EpisodeRowProps>(function E
         )}
       >
         <span className="flex flex-col text-left">
-          <span className="text-body text-ink">{title}</span>
-          <span className="text-caption text-ink-muted">
-            {[duration, listened].filter(Boolean).join(" · ")}
-          </span>
+          {title && <span className="text-body text-ink">{title}</span>}
+          {meta && (
+            <span
+              className={cn(
+                "text-ink-muted",
+                title ? "text-caption" : "text-body",
+              )}
+            >
+              {meta}
+            </span>
+          )}
         </span>
         {onToggle && (
           <IconButton
