@@ -574,8 +574,10 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
             <PodcastDemo />
           </Specimen>
           <Specimen
-            label="один подкаст · один епізод"
-            code={`<PodcastCard episodeCount={1}><EpisodeRow index={1} … /></PodcastCard>`}
+            label="один подкаст · один епізод — заголовок не дублюється"
+            code={`<PodcastCard title="Один епізод" episodeCount={1}>
+  <EpisodeRow index={1} duration="18 хв" onToggle={toggle} />
+</PodcastCard>`}
           >
             <SinglePodcastDemo />
           </Specimen>
