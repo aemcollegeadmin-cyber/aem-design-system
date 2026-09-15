@@ -1301,16 +1301,11 @@ function SinglePodcastDemo() {
         coverVideoSrc={url}
         episodeCount={1}
         progress={0}
+        playing={playing}
+        onTogglePlay={() => setPlaying((value) => !value)}
         onPlay={() => setPlaying(true)}
         player={playing ? <YouTubePlayer url={url} playing /> : undefined}
-      >
-        <EpisodeRow
-          index={1}
-          duration="18 хв"
-          playing={playing}
-          onToggle={() => setPlaying((value) => !value)}
-        />
-      </PodcastCard>
+      />
     </div>
   );
 }
