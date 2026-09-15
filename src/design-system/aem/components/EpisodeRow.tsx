@@ -79,16 +79,7 @@ export const EpisodeRow = forwardRef<HTMLDivElement, EpisodeRowProps>(function E
       >
         <span className="flex flex-col text-left">
           {title && <span className="text-body text-ink">{title}</span>}
-          {meta && (
-            <span
-              className={cn(
-                "text-ink-muted",
-                title ? "text-caption" : "text-body",
-              )}
-            >
-              {meta}
-            </span>
-          )}
+          {meta && <span className="text-caption text-ink-muted">{meta}</span>}
         </span>
         {onToggle && (
           <IconButton
