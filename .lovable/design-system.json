@@ -1081,6 +1081,10 @@
           "type": "ReactNode"
         },
         {
+          "name": "coverTags",
+          "type": "ReactNode"
+        },
+        {
           "name": "meta",
           "type": "ReactNode"
         },
