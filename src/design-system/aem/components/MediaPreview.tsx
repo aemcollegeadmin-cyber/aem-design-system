@@ -67,7 +67,7 @@ function youTubeThumb(url: string): string | undefined {
  * an optional cover image or real video frame.
  */
 export const MediaPreview = forwardRef<HTMLDivElement, MediaPreviewProps>(function MediaPreview(
-  { kind = "video", src, videoSrc, alt, onActivate, actionLabel, loading = false, size, className, ...props },
+  { kind = "video", src, videoSrc, alt, onActivate, actionLabel, hideGlyph = false, loading = false, size, className, ...props },
   ref,
 ) {
   if (loading) {
@@ -97,12 +97,11 @@ export const MediaPreview = forwardRef<HTMLDivElement, MediaPreviewProps>(functi
       )}
     >
       <Icon name={kindIcon[kind]} size={size === "lg" || size === "video" ? "xl" : "lg"} />
-
     </span>
   );
 
-  return (
-    <div ref={ref} className={cn(preview({ size }), className)} {...props}>
+  const media = (
+    <>
       {posterSrc && (
         <img
           src={posterSrc}
@@ -125,6 +124,28 @@ export const MediaPreview = forwardRef<HTMLDivElement, MediaPreviewProps>(functi
       {hasMedia && (kind === "video" || kind === "audio") && (
         <span aria-hidden="true" className="absolute inset-0 bg-surface-inverse/30" />
       )}
+    </>
+  );
+
+  if (hideGlyph) {
+    return (
+      <div ref={ref} className={cn(preview({ size }), className)} {...props}>
+        {media}
+        {onActivate && (
+          <button
+            type="button"
+            onClick={onActivate}
+            aria-label={actionLabel ?? "Відкрити"}
+            className="absolute inset-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ink/70"
+          />
+        )}
+      </div>
+    );
+  }
+
+  return (
+    <div ref={ref} className={cn(preview({ size }), className)} {...props}>
+      {media}
       {onActivate ? (
         <button
           type="button"
