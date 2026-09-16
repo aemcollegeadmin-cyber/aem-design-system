@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.6.9",
+    "version": "1.6.10",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -104,7 +104,7 @@
       "src/design-system/aem/components/Toolbar.tsx": "1586c628f3bf7f2517228cc149aa5dee",
       "src/design-system/aem/components/Tooltip.tsx": "dafb29ed748b0fdd266dadefb2efeeea",
       "src/design-system/aem/components/UserChip.tsx": "347e5e99c875cef170828c3bfa536b41",
-      "src/design-system/aem/components/YouTubePlayer.tsx": "f6a20adec426ac5717e546629bc47733",
+      "src/design-system/aem/components/YouTubePlayer.tsx": "7c6587f118370a1f0a01537e5bcbf0b7",
       "src/design-system/aem/index.ts": "f683e378c79201a95d41e6d3dfca86de",
       "src/design-system/aem/lib/cn.ts": "f42d8fb0d920ae1cdb1cff4709b87d7f",
       "src/design-system/aem/lib/useFitViewport.ts": "7322abdcb4ca44bbc550fc92c19445e5",
