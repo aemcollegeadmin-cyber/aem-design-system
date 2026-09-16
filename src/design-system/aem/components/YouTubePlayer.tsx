@@ -223,7 +223,7 @@ export const YouTubePlayer = forwardRef<YouTubePlayerHandle, YouTubePlayerProps>
             audioOnly ? "size-0 overflow-hidden opacity-0" : "size-full",
           )}
         >
-          <div ref={hostRef} className="pointer-events-none size-full" />
+          <div ref={hostRef} className="size-full" />
         </div>
         {audioOnly && (
           <span className="flex items-center gap-2 text-caption">
