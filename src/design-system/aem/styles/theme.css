@@ -263,6 +263,21 @@ input[type="search"]::-webkit-search-results-decoration {
   }
 }
 
+/* Modal geometry (framework-independent) — width constraints must survive in
+   consumers that do not generate Tailwind utilities from attached DS files. */
+.aem-modal-content {
+  box-sizing: border-box;
+  width: calc(100vw - 2rem);
+  width: calc(100dvw - 2rem);
+  max-width: calc(100vw - 2rem);
+  max-width: calc(100dvw - 2rem);
+}
+
+.aem-modal-size-sm { max-width: min(24rem, calc(100dvw - 2rem)); }
+.aem-modal-size-md { max-width: min(32rem, calc(100dvw - 2rem)); }
+.aem-modal-size-lg { max-width: min(42rem, calc(100dvw - 2rem)); }
+.aem-modal-size-rank { max-width: min(28rem, calc(100dvw - 2rem)); }
+
 /* Modal scrim (framework-independent) — used by all dialog overlays so
    consumers get the dim + subtle blur without Tailwind color utilities. */
 .aem-modal-overlay {

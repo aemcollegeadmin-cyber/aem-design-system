@@ -26,7 +26,11 @@ export interface DialogProps extends React.ComponentPropsWithoutRef<typeof Conte
   size?: "sm" | "md" | "lg";
 }
 
-const sizes = { sm: "max-w-sm", md: "max-w-lg", lg: "max-w-2xl" } as const;
+const sizes = {
+  sm: "aem-modal-size-sm max-w-sm",
+  md: "aem-modal-size-md max-w-lg",
+  lg: "aem-modal-size-lg max-w-2xl",
+} as const;
 
 /** Modal dialog body. Wrap in `DialogRoot` and open with `DialogTrigger`. */
 export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog(
@@ -39,7 +43,7 @@ export const Dialog = forwardRef<HTMLDivElement, DialogProps>(function Dialog(
       <Content
         ref={ref}
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 flex w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-panel bg-surface p-6 shadow-overlay",
+          "aem-modal-content fixed top-1/2 left-1/2 z-50 flex w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-panel bg-surface p-6 shadow-overlay",
           sizes[size],
           className,
         )}

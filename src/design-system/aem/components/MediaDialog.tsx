@@ -78,7 +78,11 @@ const mediaSurfaces: Record<MediaSurface, string> = {
   transparent: "bg-transparent",
 };
 
-const sizes = { sm: "max-w-sm", md: "max-w-lg", lg: "max-w-2xl" } as const;
+const sizes = {
+  sm: "aem-modal-size-sm max-w-sm",
+  md: "aem-modal-size-md max-w-lg",
+  lg: "aem-modal-size-lg max-w-2xl",
+} as const;
 const aspects = { video: "aspect-video", square: "aspect-square", wide: "aspect-[21/9]" } as const;
 
 function MediaFrame({ media, aspect, surface }: { media: MediaDialogMedia; aspect: keyof typeof aspects; surface: MediaSurface }) {
@@ -214,7 +218,7 @@ export const MediaDialog = forwardRef<HTMLDivElement, MediaDialogProps>(function
       <Content
         ref={ref}
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 flex max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 flex-col gap-4 overflow-y-auto rounded-panel bg-surface p-6",
+          "aem-modal-content fixed top-1/2 left-1/2 z-50 flex max-h-[calc(100dvh-2rem)] w-[calc(100%-2rem)] -translate-x-1/2 -translate-y-1/2 flex-col gap-4 overflow-y-auto rounded-panel bg-surface p-6",
           sizes[size],
           className,
         )}
