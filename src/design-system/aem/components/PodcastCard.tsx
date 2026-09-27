@@ -52,6 +52,8 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
     coverVideoSrc,
     coverSrc,
     cover,
+    meta,
+    action,
     episodeCount,
     progress,
     onPlay,
