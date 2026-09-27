@@ -726,6 +726,8 @@ import { PodcastCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e3
 | `coverVideoSrc` | string | `—` |
 | `coverSrc` | string | `—` |
 | `cover` | any | `—` |
+| `meta` | any | `—` |
+| `action` | any | `—` |
 | `episodeCount` | number | `—` |
 | `progress` | number | `—` |
 | `onPlay` | function | `—` |
