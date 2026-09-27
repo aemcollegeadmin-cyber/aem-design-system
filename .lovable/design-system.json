@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.6.12",
+    "version": "1.6.13",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -55,7 +55,7 @@
       "src/design-system/aem/components/Checkbox.tsx": "b98c0fa42b5279d75cb1810b4bcc9f01",
       "src/design-system/aem/components/ConfirmDialog.tsx": "7389221bcfb7f76aae1edbf3a2a0a971",
       "src/design-system/aem/components/ContinueLessonCard.tsx": "dae50406a78f2404694b106b47442854",
-      "src/design-system/aem/components/CourseCard.tsx": "1086daa783099560261aa17af5b3ac9f",
+      "src/design-system/aem/components/CourseCard.tsx": "7b4b38c85d85d12e51d1e36a85360c6c",
       "src/design-system/aem/components/Dialog.tsx": "835b31e085ad8d451e2fb1586791bafb",
       "src/design-system/aem/components/DropdownMenu.tsx": "2fdcee875788b2fdb5d2c07e33e285f0",
       "src/design-system/aem/components/EditHeader.tsx": "4e06b5df269c955f89d28f1cbb31cc58",
