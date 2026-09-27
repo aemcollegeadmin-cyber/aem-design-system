@@ -54,7 +54,7 @@ export const RankUpDialog = forwardRef<HTMLDivElement, RankUpDialogProps>(functi
       <Content
         ref={ref}
         className={cn(
-          "fixed top-1/2 left-1/2 z-50 flex w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-panel bg-surface p-6",
+          "aem-modal-content aem-modal-size-rank fixed top-1/2 left-1/2 z-50 flex w-[calc(100%-2rem)] max-w-md -translate-x-1/2 -translate-y-1/2 flex-col gap-4 rounded-panel bg-surface p-6",
           className,
         )}
         {...props}
