@@ -190,6 +190,8 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
         </div>
       )}
 
+      {action && <div className="flex flex-col">{action}</div>}
+
     </article>
   );
 });
