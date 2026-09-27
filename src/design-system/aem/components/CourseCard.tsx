@@ -74,7 +74,7 @@ export const CourseCard = forwardRef<HTMLElement, CourseCardProps>(function Cour
           <Skeleton radius="pill" className="h-5 w-40" />
           {description !== undefined && <Skeleton radius="pill" className="h-4 w-56" />}
         </div>
-        <Skeleton radius="pill" className="h-2 w-full" />
+        {progress !== undefined && progress !== null && <Skeleton radius="pill" className="h-2 w-full" />}
         {meta !== undefined && <Skeleton radius="pill" className="h-8 w-full" />}
         {action !== undefined && <Skeleton radius="pill" className="h-11 w-full" />}
         {details !== undefined && <Skeleton radius="pill" className="h-10 w-full" />}
@@ -116,7 +116,7 @@ export const CourseCard = forwardRef<HTMLElement, CourseCardProps>(function Cour
         <h3 className="text-h4 text-ink">{title}</h3>
         {description && <p className="text-caption text-ink-muted">{description}</p>}
       </div>
-      <ProgressBar value={progress ?? 0} />
+      {progress !== undefined && progress !== null && <ProgressBar value={progress} />}
       {meta && <div className="flex flex-wrap items-center gap-3 text-caption text-ink-soft">{meta}</div>}
       {action && <div className="flex flex-col">{action}</div>}
       {details && <div className="flex flex-col gap-2 text-caption text-ink-soft">{details}</div>}

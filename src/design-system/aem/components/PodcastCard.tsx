@@ -17,6 +17,10 @@ export interface PodcastCardProps extends React.HTMLAttributes<HTMLElement> {
   coverSrc?: string;
   /** Custom cover node instead of the MediaPreview plate. */
   cover?: React.ReactNode;
+  /** Moderator/admin stats such as listener badges, rendered in the description row. */
+  meta?: React.ReactNode;
+  /** Primary podcast action (e.g. edit controls for moderators). Rendered at the bottom of the card. */
+  action?: React.ReactNode;
   /** Episode count shown as a pill, e.g. 6 → "6 епізодів". */
   episodeCount?: number;
   /** Listening progress across the podcast, 0–100. */
@@ -48,6 +52,8 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
     coverVideoSrc,
     coverSrc,
     cover,
+    meta,
+    action,
     episodeCount,
     progress,
     onPlay,
@@ -93,6 +99,8 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
         </div>
         <Skeleton radius="pill" className="h-2 w-full" />
         <Skeleton radius="pill" className="h-8 w-32" />
+        {meta !== undefined && <Skeleton radius="pill" className="h-6 w-40" />}
+        {action !== undefined && <Skeleton radius="pill" className="h-11 w-full" />}
 
       </article>
     );
@@ -139,6 +147,7 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
         <div className="flex flex-col gap-1">
           <h3 className="text-h4 text-ink">{title}</h3>
           {description && <p className="text-caption text-ink-muted">{description}</p>}
+          {meta && <div className="flex flex-wrap items-center gap-2 text-caption text-ink-soft">{meta}</div>}
         </div>
         {episodeCount !== undefined && (
           <Badge className="shrink-0">
@@ -180,6 +189,8 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
           {(!collapsible || isExpanded) && <div className="flex flex-col gap-2">{children}</div>}
         </div>
       )}
+
+      {action && <div className="flex flex-col">{action}</div>}
 
     </article>
   );
