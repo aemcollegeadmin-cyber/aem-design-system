@@ -17,6 +17,10 @@ export interface PodcastCardProps extends React.HTMLAttributes<HTMLElement> {
   coverSrc?: string;
   /** Custom cover node instead of the MediaPreview plate. */
   cover?: React.ReactNode;
+  /** Moderator/admin stats such as listener badges, rendered in the description row. */
+  meta?: React.ReactNode;
+  /** Primary podcast action (e.g. edit controls for moderators). Rendered at the bottom of the card. */
+  action?: React.ReactNode;
   /** Episode count shown as a pill, e.g. 6 → "6 епізодів". */
   episodeCount?: number;
   /** Listening progress across the podcast, 0–100. */
