@@ -99,6 +99,8 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
         </div>
         <Skeleton radius="pill" className="h-2 w-full" />
         <Skeleton radius="pill" className="h-8 w-32" />
+        {meta !== undefined && <Skeleton radius="pill" className="h-6 w-40" />}
+        {action !== undefined && <Skeleton radius="pill" className="h-11 w-full" />}
 
       </article>
     );
@@ -145,6 +147,7 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
         <div className="flex flex-col gap-1">
           <h3 className="text-h4 text-ink">{title}</h3>
           {description && <p className="text-caption text-ink-muted">{description}</p>}
+          {meta && <div className="flex flex-wrap items-center gap-2 text-caption text-ink-soft">{meta}</div>}
         </div>
         {episodeCount !== undefined && (
           <Badge className="shrink-0">
