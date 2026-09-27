@@ -117,7 +117,7 @@ export const CourseCard = forwardRef<HTMLElement, CourseCardProps>(function Cour
         {description && <p className="text-caption text-ink-muted">{description}</p>}
       </div>
       {progress !== undefined && progress !== null && <ProgressBar value={progress} />}
-      {meta && <div className="flex flex-wrap items-center gap-3 text-caption text-ink-soft">{meta}</div>}
+      {meta && <div className="flex flex-wrap items-center gap-1.5 text-caption text-ink-soft">{meta}</div>}
       {action && <div className="flex flex-col">{action}</div>}
       {details && <div className="flex flex-col gap-2 text-caption text-ink-soft">{details}</div>}
       {mentors && (
