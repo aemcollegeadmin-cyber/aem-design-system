@@ -39,15 +39,15 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
             aria-selected={active}
             onClick={() => onValueChange?.(item.value)}
             className={cn(
-              "inline-flex h-full items-center rounded-pill px-4 text-body transition-colors",
+              cn("inline-flex h-full items-center rounded-pill px-4 text-body transition-colors", item.badge && "gap-3 pr-1.5"),
               active
                 ? "bg-surface text-ink shadow-card"
                 : "text-ink-muted hover:bg-surface hover:text-ink-soft",
             )}
           >
-            <span className="inline-flex items-center gap-2">
-              <span>{item.label}</span>
-              {item.badge}
+            <span className="contents">
+              <span className="flex-1 text-left">{item.label}</span>
+              {item.badge && <span className="ml-auto inline-flex">{item.badge}</span>}
             </span>
           </button>
         );
