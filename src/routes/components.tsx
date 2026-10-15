@@ -1378,7 +1378,7 @@ function TabsDemo() {
           {
             value: "podcasts",
             label: "Подкасти",
-            badge: <Badge variant="danger">New</Badge>,
+            badge: <Badge variant="brand">New</Badge>,
           },
         ]}
       />
