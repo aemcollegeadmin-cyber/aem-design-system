@@ -17,6 +17,8 @@ export interface PodcastCardProps extends React.HTMLAttributes<HTMLElement> {
   coverSrc?: string;
   /** Custom cover node instead of the MediaPreview plate. */
   cover?: React.ReactNode;
+  /** Badge children rendered over the cover's top-left corner (access / "new" tags). */
+  coverTags?: React.ReactNode;
   /** Moderator/admin stats such as listener badges, rendered in the description row. */
   meta?: React.ReactNode;
   /** Primary podcast action (e.g. edit controls for moderators). Rendered at the bottom of the card. */
@@ -52,6 +54,7 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
     coverVideoSrc,
     coverSrc,
     cover,
+    coverTags,
     meta,
     action,
     episodeCount,
@@ -92,7 +95,14 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
         className={cn("flex w-full flex-col gap-4 rounded-panel bg-surface p-4", className)}
         {...props}
       >
-        <Skeleton radius="card" className="aspect-video w-full rounded-panel" />
+        <div className="relative aspect-video w-full overflow-hidden rounded-panel">
+          <Skeleton radius="card" className="size-full rounded-panel" />
+          {coverTags !== undefined && (
+            <div className="pointer-events-none absolute left-3 top-3 z-10 flex flex-wrap gap-1.5">
+              <Skeleton radius="pill" className="h-5 w-24" />
+            </div>
+          )}
+        </div>
         <div className="flex flex-col gap-2">
           <Skeleton radius="pill" className="h-5 w-40" />
           <Skeleton radius="pill" className="h-4 w-56" />
