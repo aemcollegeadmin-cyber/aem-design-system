@@ -47,7 +47,7 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
           >
             <span className="contents">
               <span className="flex-1 text-left">{item.label}</span>
-              {item.badge && <span className="ml-auto inline-flex [&>*]:py-0.5">{item.badge}</span>}
+              {item.badge && <span className="ml-auto inline-flex [&>*]:h-7 [&>*]:py-0">{item.badge}</span>}
             </span>
           </button>
         );
