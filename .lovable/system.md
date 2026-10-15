@@ -255,7 +255,7 @@ generated token and component reference.
 
 ## Бейджі та таби
 
-- `Badge` має варіанти `neutral` (дефолт), `peach`, `lime`, `danger`, `solid`.
+- `Badge` має варіанти `neutral` (дефолт), `peach`, `lime`, `brand`, `danger`, `solid`. У `Tabs.badge` використовуй `variant="brand"` — бейдж завжди притиснутий до правого краю таба.
   `danger` (`bg-danger` + `text-danger-fg`) — для «Новинка», термінових і
   негативних статусів. Власний червоний у продуктовому коді не вводь.
 - На кавері картки (`coverTags`) `Badge` передавай з `tone="onMuted"` — біла
