@@ -723,6 +723,22 @@
           ],
           "default": "onSurface"
         }
+      ],
+      "usage": "Статусна пігулка: «На перевірці», «Прийнято», «4 уроки», «Новинка». variant neutral (дефолт) — сіра на світлій поверхні, peach/lime — статусні, danger — термінові та негативні статуси («Новинка», «Доступ завершено»), solid — інверсована. tone onMuted — біла пігулка для темного/сірого кавера, onSurface — для світлої поверхні.",
+      "examples": [
+        {
+          "label": "статус на світлій поверхні",
+          "code": "<Badge variant=\"lime\">Прийнято</Badge>"
+        },
+        {
+          "label": "новинка на кавері",
+          "code": "<Badge variant=\"danger\" tone=\"onMuted\">Новинка</Badge>"
+        }
+      ],
+      "antipatterns": [
+        "Власний червоний/рожевий фон замість variant=\"danger\"",
+        "Дублювати ті самі теги доступу під кавером — лише coverTags на кавері",
+        "tone=\"onMuted\" на білій поверхні (біла пігулка зникне)"
       ]
     },
     {
@@ -803,6 +819,17 @@
           "name": "onValueChange",
           "type": "function"
         }
+      ],
+      "usage": "Сегментований перемикач розділів (трек h-11, pill). Кожному itemi можна додати badge — пігулку праворуч від назви, напр. «New» чи кількість.",
+      "examples": [
+        {
+          "label": "таб з бейджем",
+          "code": "<Tabs items={[{ value: \"lessons\", label: \"Уроки\" }, { value: \"podcasts\", label: \"Подкасти\", badge: <Badge variant=\"danger\">New</Badge> }]} value={tab} onValueChange={setTab} />"
+        }
+      ],
+      "antipatterns": [
+        "Власна обгортка бейджа біля назви таба замість поля badge",
+        "Фіксована ширина табів — трек підлаштовується під кількість кнопок"
       ]
     },
     {
@@ -1111,7 +1138,7 @@
       "examples": [
         {
           "label": "Курс із тегами доступу на кавері",
-          "code": "\u003cCourseCard title=\"Framer експерт\" progress={0} coverStatus=\"Доступ завершено\" coverTags={\u003c\u003e\u003cBadge tone=\"onMuted\"\u003eДоступ до 12 бер. 27'\u003c/Badge\u003e\u003cBadge tone=\"onMuted\"\u003eСупровід закінчився\u003c/Badge\u003e\u003c/\u003e} meta={courseFacts} mentors={mentorChips} /\u003e"
+          "code": "<CourseCard title=\"Framer експерт\" progress={0} coverStatus=\"Доступ завершено\" coverTags={<><Badge tone=\"onMuted\">Доступ до 12 бер. 27'</Badge><Badge tone=\"onMuted\">Супровід закінчився</Badge></>} meta={courseFacts} mentors={mentorChips} />"
         }
       ],
       "antipatterns": [
@@ -1526,22 +1553,27 @@
           "default": "false"
         }
       ],
-      "usage": "Самодостатня біла картка подкасту в змішаній сітці «Всі матеріали»: власна поверхня не залежить від фону сторінки; всередині — YouTube-мініатюра, кількість епізодів, прогрес, інлайн-плеєр і список EpisodeRow. Іконка подкасту за замовчуванням у правому верхньому кутку обкладинки. З одним епізодом (episodeCount === 1) — компактний режим: EpisodeRow не рендериться, а play/pause — кругла кнопка ліворуч від прогрес-бару, синхронізована зі слотом player через playing/onTogglePlay.",
+      "usage": "Самодостатня біла картка подкасту в змішаній сітці «Всі матеріали»: власна поверхня не залежить від фону сторінки; всередині — YouTube-мініатюра, кількість епізодів, прогрес, інлайн-плеєр і список EpisodeRow. Теги («Новинка», доступ) — у coverTags зліва вгорі кавера; іконка подкасту — праворуч, вони не перетинаються. З одним епізодом (episodeCount === 1) — компактний режим: EpisodeRow не рендериться, а play/pause — кругла кнопка ліворуч від прогрес-бару, синхронізована зі слотом player через playing/onTogglePlay.",
       "examples": [
         {
           "label": "подкаст з епізодами",
-          "code": "\u003cPodcastCard title=\"Розмови про дизайн\" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? \u003cYouTubePlayer url={url} playing /\u003e : undefined}\u003e\u003cEpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" onToggle={play} /\u003e\u003c/PodcastCard\u003e"
+          "code": "<PodcastCard title=\"Розмови про дизайн\" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? <YouTubePlayer url={url} playing /> : undefined}><EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" onToggle={play} /></PodcastCard>"
         },
         {
           "label": "один епізод — компактний режим",
-          "code": "\u003cPodcastCard title=\"Один епізод\" coverVideoSrc={url} episodeCount={1} progress={progress} playing={playing} onTogglePlay={toggle} player={started ? \u003cYouTubePlayer url={url} playing={playing} startSecond={startSecond} /\u003e : undefined} /\u003e"
+          "code": "<PodcastCard title=\"Один епізод\" coverVideoSrc={url} episodeCount={1} progress={progress} playing={playing} onTogglePlay={toggle} player={started ? <YouTubePlayer url={url} playing={playing} startSecond={startSecond} /> : undefined} />"
+        },
+        {
+          "label": "теги на кавері",
+          "code": "<PodcastCard title=\"Розмови про дизайн\" coverVideoSrc={url} coverTags={<Badge variant=\"danger\" tone=\"onMuted\">Новинка</Badge>} episodeCount={3} progress={40} />"
         }
       ],
       "antipatterns": [
         "Локальна копія картки подкасту в LMS",
         "Свій плеєр замість YouTubePlayer",
         "Порожні стани замість loading до завершення запиту",
-        "Рендерити EpisodeRow або власну play-кнопку в одноепізодному подкасті"
+        "Рендерити EpisodeRow або власну play-кнопку в одноепізодному подкасті",
+        "Локальний absolute-оверлей тегів поверх кавера — використовуй coverTags"
       ]
     },
     {
@@ -1598,11 +1630,11 @@
       "examples": [
         {
           "label": "епізод у процесі",
-          "code": "\u003cEpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" progress={40} playing={isPlaying} onToggle={toggle} /\u003e"
+          "code": "<EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" progress={40} playing={isPlaying} onToggle={toggle} />"
         },
         {
           "label": "один епізод — без назви",
-          "code": "\u003cEpisodeRow index={1} duration=\"18 хв\" playing={isPlaying} onToggle={toggle} /\u003e"
+          "code": "<EpisodeRow index={1} duration=\"18 хв\" playing={isPlaying} onToggle={toggle} />"
         }
       ],
       "antipatterns": [
@@ -1662,11 +1694,11 @@
       "examples": [
         {
           "label": "контрольований плеєр",
-          "code": "\u003cYouTubePlayer url={episode.youtube_url} playing={activeId === episode.id} startSecond={progress.current_second} onTimeChange={saveDebounced} onDuration={saveDuration} onEnded={markCompleted} /\u003e"
+          "code": "<YouTubePlayer url={episode.youtube_url} playing={activeId === episode.id} startSecond={progress.current_second} onTimeChange={saveDebounced} onDuration={saveDuration} onEnded={markCompleted} />"
         }
       ],
       "antipatterns": [
-        "Прямий \u003ciframe\u003e YouTube в LMS",
+        "Прямий <iframe> YouTube в LMS",
         "Власні кнопки чи підписи поверх відео замість EpisodeRow",
         "CSS-маскування обов'язкового брендингу YouTube",
         "Збереження прогресу частіше ніж раз на кілька секунд без debounce"
