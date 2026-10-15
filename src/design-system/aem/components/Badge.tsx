@@ -10,6 +10,7 @@ const badge = cva(
         neutral: "text-ink-soft",
         peach: "bg-accent-peach text-accent-peach-fg",
         lime: "bg-accent-lime text-accent-lime-fg",
+        danger: "bg-danger text-danger-fg",
         solid: "bg-ink text-surface",
       },
       /**

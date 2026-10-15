@@ -4,6 +4,8 @@ import { cn } from "../lib/cn";
 export interface TabItem {
   value: string;
   label: string;
+  /** Optional badge rendered next to the tab label, e.g. a "New" pill. */
+  badge?: React.ReactNode;
 }
 
 export interface TabsProps extends Omit<React.HTMLAttributes<HTMLDivElement>, "onChange"> {
@@ -43,7 +45,10 @@ export const Tabs = forwardRef<HTMLDivElement, TabsProps>(function Tabs(
                 : "text-ink-muted hover:bg-surface hover:text-ink-soft",
             )}
           >
-            {item.label}
+            <span className="inline-flex items-center gap-2">
+              <span>{item.label}</span>
+              {item.badge}
+            </span>
           </button>
         );
       })}
