@@ -81,12 +81,32 @@ import { Avatar } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8
 import { Badge } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
+Статусна пігулка: «На перевірці», «Прийнято», «4 уроки», «Новинка». variant neutral (дефолт) — сіра на світлій поверхні, peach/lime — статусні, danger — термінові та негативні статуси («Новинка», «Доступ завершено»), solid — інверсована. tone onMuted — біла пігулка для темного/сірого кавера, onSurface — для світлої поверхні.
+
 **Props:**
 
 | Prop | Type | Default |
 |---|---|---|
-| `variant` | neutral · peach · lime · solid | `neutral` |
+| `variant` | neutral · peach · lime · danger · solid | `neutral` |
 | `tone` | onSurface · onMuted | `onSurface` |
+
+**Examples:**
+
+_статус на світлій поверхні_
+```tsx
+<Badge variant="lime">Прийнято</Badge>
+```
+
+_новинка на кавері_
+```tsx
+<Badge variant="danger" tone="onMuted">Новинка</Badge>
+```
+
+**Avoid:**
+
+- Власний червоний/рожевий фон замість variant="danger"
+- Дублювати ті самі теги доступу під кавером — лише coverTags на кавері
+- tone="onMuted" на білій поверхні (біла пігулка зникне)
 
 ### Breadcrumbs
 
@@ -715,7 +735,7 @@ import { PasswordInput } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-
 import { PodcastCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
-Самодостатня біла картка подкасту в змішаній сітці «Всі матеріали»: власна поверхня не залежить від фону сторінки; всередині — YouTube-мініатюра, кількість епізодів, прогрес, інлайн-плеєр і список EpisodeRow. Іконка подкасту за замовчуванням у правому верхньому кутку обкладинки. З одним епізодом (episodeCount === 1) — компактний режим: EpisodeRow не рендериться, а play/pause — кругла кнопка ліворуч від прогрес-бару, синхронізована зі слотом player через playing/onTogglePlay.
+Самодостатня біла картка подкасту в змішаній сітці «Всі матеріали»: власна поверхня не залежить від фону сторінки; всередині — YouTube-мініатюра, кількість епізодів, прогрес, інлайн-плеєр і список EpisodeRow. Теги («Новинка», доступ) — у coverTags зліва вгорі кавера; іконка подкасту — праворуч, вони не перетинаються. З одним епізодом (episodeCount === 1) — компактний режим: EpisodeRow не рендериться, а play/pause — кругла кнопка ліворуч від прогрес-бару, синхронізована зі слотом player через playing/onTogglePlay.
 
 **Props:**
 
@@ -726,6 +746,7 @@ import { PodcastCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e3
 | `coverVideoSrc` | string | `—` |
 | `coverSrc` | string | `—` |
 | `cover` | any | `—` |
+| `coverTags` | any | `—` |
 | `meta` | any | `—` |
 | `action` | any | `—` |
 | `episodeCount` | number | `—` |
@@ -752,12 +773,18 @@ _один епізод — компактний режим_
 <PodcastCard title="Один епізод" coverVideoSrc={url} episodeCount={1} progress={progress} playing={playing} onTogglePlay={toggle} player={started ? <YouTubePlayer url={url} playing={playing} startSecond={startSecond} /> : undefined} />
 ```
 
+_теги на кавері_
+```tsx
+<PodcastCard title="Розмови про дизайн" coverVideoSrc={url} coverTags={<Badge variant="danger" tone="onMuted">Новинка</Badge>} episodeCount={3} progress={40} />
+```
+
 **Avoid:**
 
 - Локальна копія картки подкасту в LMS
 - Свій плеєр замість YouTubePlayer
 - Порожні стани замість loading до завершення запиту
 - Рендерити EpisodeRow або власну play-кнопку в одноепізодному подкасті
+- Локальний absolute-оверлей тегів поверх кавера — використовуй coverTags
 
 ### ProgressBar
 
@@ -1056,6 +1083,8 @@ import { TableRow } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aa
 import { Tabs } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
+Сегментований перемикач розділів (трек h-11, pill). Кожному itemi можна додати badge — пігулку праворуч від назви, напр. «New» чи кількість.
+
 **Props:**
 
 | Prop | Type | Default |
@@ -1063,6 +1092,18 @@ import { Tabs } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bb
 | `items` | any | `—` |
 | `value` | string | `—` |
 | `onValueChange` | function | `—` |
+
+**Examples:**
+
+_таб з бейджем_
+```tsx
+<Tabs items={[{ value: "lessons", label: "Уроки" }, { value: "podcasts", label: "Подкасти", badge: <Badge variant="danger">New</Badge> }]} value={tab} onValueChange={setTab} />
+```
+
+**Avoid:**
+
+- Власна обгортка бейджа біля назви таба замість поля badge
+- Фіксована ширина табів — трек підлаштовується під кількість кнопок
 
 ### Text
 
