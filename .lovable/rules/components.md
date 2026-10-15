@@ -87,7 +87,7 @@ import { Badge } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8b
 
 | Prop | Type | Default |
 |---|---|---|
-| `variant` | neutral · peach · lime · danger · solid | `neutral` |
+| `variant` | neutral · peach · lime · danger · brand · solid | `neutral` |
 | `tone` | onSurface · onMuted | `onSurface` |
 
 **Examples:**
