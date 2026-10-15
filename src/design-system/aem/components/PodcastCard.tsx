@@ -142,6 +142,11 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
               />
             )}
         </div>
+        {coverTags && (
+          <div className="pointer-events-none absolute left-3 top-3 z-10 flex flex-wrap gap-1.5">
+            {coverTags}
+          </div>
+        )}
         {!player && !cover && (
           <span
             aria-hidden="true"
