@@ -23,3 +23,4 @@
 - [ ] Надати готовий промпт для заміни локальних карток курсів у LMS на CourseCard з пропорцією 26:15.
 - [x] CourseCard: own white surface, grouped mentors, and access status over a dimmed cover
 - [x] CourseCard: keep access and mentorship tags only on the cover without lower duplicates
+- [x] Badge: danger variant; Tabs: per-item badge; PodcastCard: coverTags over the cover

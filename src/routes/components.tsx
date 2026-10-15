@@ -246,10 +246,11 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       id: "badge",
       title: "Badge",
       node: (
-        <Specimen label="variant: neutral / peach / lime / solid" code={`<Badge variant="peach">На перевірці</Badge>`}>
+        <Specimen label="variant: neutral / peach / lime / danger / solid" code={`<Badge variant="danger">Новинка</Badge>`}>
           <Badge>4 уроки</Badge>
           <Badge variant="peach">На перевірці</Badge>
           <Badge variant="lime">Прийнято</Badge>
+          <Badge variant="danger">Новинка</Badge>
           <Badge variant="solid">Новий</Badge>
         </Specimen>
       ),
@@ -1260,6 +1261,7 @@ function PodcastDemo() {
       title="Розмови про дизайн"
       description="Щотижневі епізоди з менторами коледжу"
       coverVideoSrc={url}
+      coverTags={<Badge tone="onMuted" variant="danger">Новинка</Badge>}
       episodeCount={episodes.length}
       progress={40}
       expanded
@@ -1373,7 +1375,11 @@ function TabsDemo() {
         items={[
           { value: "lessons", label: "Уроки" },
           { value: "homework", label: "Домашні" },
-          { value: "chat", label: "Чат" },
+          {
+            value: "podcasts",
+            label: "Подкасти",
+            badge: <Badge variant="danger">New</Badge>,
+          },
         ]}
       />
     </Specimen>
