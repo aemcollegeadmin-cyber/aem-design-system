@@ -150,9 +150,9 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
         {!player && !cover && (
           <span
             aria-hidden="true"
-            className="pointer-events-none absolute right-4 top-4 inline-flex size-12 items-center justify-center rounded-pill bg-accent-brand text-accent-brand-fg"
+            className="pointer-events-none absolute right-3 top-3 inline-flex size-11 items-center justify-center rounded-pill bg-accent-brand text-accent-brand-fg"
           >
-            <Icon name="headphones" size="xl" />
+            <Icon name="headphones" size="lg" />
           </span>
         )}
       </div>
