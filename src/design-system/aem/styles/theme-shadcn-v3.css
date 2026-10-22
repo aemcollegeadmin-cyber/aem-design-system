@@ -584,6 +584,10 @@ input[type="search"]::-webkit-search-results-decoration {
   background-color: rgba(61, 61, 61, 0.4);
   background-color: color-mix(in srgb, var(--aem-on-inverse-track) 40%, transparent);
 }
+/* TextLink tones (framework-independent): link colours must survive a v3
+   consumer whose Tailwind never scans the design-system folder. */
+.hover\:text-ink-soft:hover { color: var(--aem-ink-soft); }
+.hover\:text-on-inverse-soft:hover { color: var(--aem-on-inverse-soft); }
 
 
 /* ScoreCard articles action (framework-independent) — light underlined link
