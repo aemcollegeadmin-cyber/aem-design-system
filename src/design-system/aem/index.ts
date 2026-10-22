@@ -25,7 +25,7 @@ export { CourseCard, type CourseCardProps } from "./components/CourseCard";
 export {
   ScoreCard,
   type ScoreCardProps,
-  type ScoreCardBar,
+  type ScoreCardSparkline,
   type ScoreCardComparison,
   type ScoreCardArticle,
 } from "./components/ScoreCard";

@@ -493,33 +493,20 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
         <div className="flex w-full flex-col gap-4">
         <Specimen
           label="бал у коледжі · 2/3 сітки"
-          code={`<ScoreCard label="Бал у коледжі" score="1 480" rank="#7" />`}
+          code={`<ScoreCard label="Бал у коледжі" score="510" rank="#32" delta="+30 за тиждень" sparkline={{ points, todayIndex }} comparison={{ value, target: { name, avatarUrl, score }, hint }} />`}
         >
           <div className="w-full">
             <ScoreCard
               label="Бал у коледжі"
-              score="1 480"
-              delta="+120 за тиждень"
-              rank="#7"
+              score="510"
+              rank="#32"
               rankDelta="↑ 2 місця"
+              delta="+30 за тиждень"
+              sparkline={{ points: [4, 8, 3, 10, 6, 12, 9], todayIndex: 6 }}
               comparison={{
-                value: 78,
-                leftLabel: "ти · 1 480",
-                rightLabel: "#6 Ната Ш. · 1 520",
-                hint: "40 балів — і ти обходиш шосте місце",
-              }}
-              chart={{
-                title: "Бали за 8 тижнів",
-                bars: [
-                  { value: 18 },
-                  { value: 34 },
-                  { value: 28 },
-                  { value: 52 },
-                  { value: 10 },
-                  { value: 44 },
-                  { value: 62 },
-                  { value: 100, highlight: true },
-                ],
+                value: 80,
+                target: { name: "Ната Ш.", score: "40 балів" },
+                hint: "10 балів — і ти обходиш 14 місце",
               }}
               footnote="Найкращий тиждень. Серія 12 днів тримає темп."
             />
