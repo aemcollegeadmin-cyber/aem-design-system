@@ -7,7 +7,8 @@
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
     "theme_files": [
-      "src/design-system/aem/styles/theme.css"
+      "src/design-system/aem/styles/theme.css",
+      "src/design-system/aem/styles/theme-shadcn-v3.css"
     ],
     "source_type": "local",
     "source_manifest": {
@@ -759,11 +760,11 @@
       "examples": [
         {
           "label": "статус на світлій поверхні",
-          "code": "\u003cBadge variant=\"lime\"\u003eПрийнято\u003c/Badge\u003e"
+          "code": "<Badge variant=\"lime\">Прийнято</Badge>"
         },
         {
           "label": "новинка на кавері",
-          "code": "\u003cBadge variant=\"danger\" tone=\"onMuted\"\u003eНовинка\u003c/Badge\u003e"
+          "code": "<Badge variant=\"danger\" tone=\"onMuted\">Новинка</Badge>"
         }
       ],
       "antipatterns": [
@@ -855,7 +856,7 @@
       "examples": [
         {
           "label": "таб з бейджем",
-          "code": "\u003cTabs items={[{ value: \"lessons\", label: \"Уроки\" }, { value: \"podcasts\", label: \"Подкасти\", badge: \u003cBadge variant=\"danger\"\u003eNew\u003c/Badge\u003e }]} value={tab} onValueChange={setTab} /\u003e"
+          "code": "<Tabs items={[{ value: \"lessons\", label: \"Уроки\" }, { value: \"podcasts\", label: \"Подкасти\", badge: <Badge variant=\"danger\">New</Badge> }]} value={tab} onValueChange={setTab} />"
         }
       ],
       "antipatterns": [
@@ -1169,7 +1170,7 @@
       "examples": [
         {
           "label": "Курс із тегами доступу на кавері",
-          "code": "\u003cCourseCard title=\"Framer експерт\" progress={0} coverStatus=\"Доступ завершено\" coverTags={\u003c\u003e\u003cBadge tone=\"onMuted\"\u003eДоступ до 12 бер. 27'\u003c/Badge\u003e\u003cBadge tone=\"onMuted\"\u003eСупровід закінчився\u003c/Badge\u003e\u003c/\u003e} meta={courseFacts} mentors={mentorChips} /\u003e"
+          "code": "<CourseCard title=\"Framer експерт\" progress={0} coverStatus=\"Доступ завершено\" coverTags={<><Badge tone=\"onMuted\">Доступ до 12 бер. 27'</Badge><Badge tone=\"onMuted\">Супровід закінчився</Badge></>} meta={courseFacts} mentors={mentorChips} />"
         }
       ],
       "antipatterns": [
@@ -1597,15 +1598,15 @@
       "examples": [
         {
           "label": "подкаст з епізодами",
-          "code": "\u003cPodcastCard title=\"Розмови про дизайн\" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? \u003cYouTubePlayer url={url} playing /\u003e : undefined}\u003e\u003cEpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" onToggle={play} /\u003e\u003c/PodcastCard\u003e"
+          "code": "<PodcastCard title=\"Розмови про дизайн\" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? <YouTubePlayer url={url} playing /> : undefined}><EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" onToggle={play} /></PodcastCard>"
         },
         {
           "label": "один епізод — компактний режим",
-          "code": "\u003cPodcastCard title=\"Один епізод\" coverVideoSrc={url} episodeCount={1} progress={progress} playing={playing} onTogglePlay={toggle} player={started ? \u003cYouTubePlayer url={url} playing={playing} startSecond={startSecond} /\u003e : undefined} /\u003e"
+          "code": "<PodcastCard title=\"Один епізод\" coverVideoSrc={url} episodeCount={1} progress={progress} playing={playing} onTogglePlay={toggle} player={started ? <YouTubePlayer url={url} playing={playing} startSecond={startSecond} /> : undefined} />"
         },
         {
           "label": "теги на кавері",
-          "code": "\u003cPodcastCard title=\"Розмови про дизайн\" coverVideoSrc={url} coverTags={\u003cBadge variant=\"danger\" tone=\"onMuted\"\u003eНовинка\u003c/Badge\u003e} episodeCount={3} progress={40} /\u003e"
+          "code": "<PodcastCard title=\"Розмови про дизайн\" coverVideoSrc={url} coverTags={<Badge variant=\"danger\" tone=\"onMuted\">Новинка</Badge>} episodeCount={3} progress={40} />"
         }
       ],
       "antipatterns": [
@@ -1670,11 +1671,11 @@
       "examples": [
         {
           "label": "епізод у процесі",
-          "code": "\u003cEpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" progress={40} playing={isPlaying} onToggle={toggle} /\u003e"
+          "code": "<EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" progress={40} playing={isPlaying} onToggle={toggle} />"
         },
         {
           "label": "один епізод — без назви",
-          "code": "\u003cEpisodeRow index={1} duration=\"18 хв\" playing={isPlaying} onToggle={toggle} /\u003e"
+          "code": "<EpisodeRow index={1} duration=\"18 хв\" playing={isPlaying} onToggle={toggle} />"
         }
       ],
       "antipatterns": [
@@ -1734,11 +1735,11 @@
       "examples": [
         {
           "label": "контрольований плеєр",
-          "code": "\u003cYouTubePlayer url={episode.youtube_url} playing={activeId === episode.id} startSecond={progress.current_second} onTimeChange={saveDebounced} onDuration={saveDuration} onEnded={markCompleted} /\u003e"
+          "code": "<YouTubePlayer url={episode.youtube_url} playing={activeId === episode.id} startSecond={progress.current_second} onTimeChange={saveDebounced} onDuration={saveDuration} onEnded={markCompleted} />"
         }
       ],
       "antipatterns": [
-        "Прямий \u003ciframe\u003e YouTube в LMS",
+        "Прямий <iframe> YouTube в LMS",
         "Власні кнопки чи підписи поверх відео замість EpisodeRow",
         "CSS-маскування обов'язкового брендингу YouTube",
         "Збереження прогресу частіше ніж раз на кілька секунд без debounce"
