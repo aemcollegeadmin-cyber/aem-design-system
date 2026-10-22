@@ -639,14 +639,13 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
           </Specimen>
           <Specimen
             label="перший тиждень / порожній рейтинг / серія 0"
-            code={`<LeaderboardCard entries={[]} /> · <ScoreCard chart={{ title, bars: [] }} />`}
+            code={`<LeaderboardCard entries={[]} /> · <ScoreCard score="0" footnote="…" />`}
           >
             <div className="grid w-full gap-4 lg:grid-cols-3">
               <ScoreCard
                 className="lg:col-span-2"
                 label="Бал у коледжі"
                 score="0"
-                chart={{ title: "Бали по тижнях", bars: [] }}
                 footnote="Перший бал зʼявиться після першого уроку."
               />
               <LeaderboardCard title="Рейтинг тижня" entries={[]} />
