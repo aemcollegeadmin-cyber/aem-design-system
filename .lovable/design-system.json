@@ -496,12 +496,44 @@
       "props": [
         {
           "name": "as",
-          "type": "any"
+          "type": "React.ElementType",
+          "default": "a"
         },
         {
           "name": "href",
-          "type": "string"
+          "type": "string",
+          "description": "Only used when the rendered element is an anchor."
+        },
+        {
+          "name": "tone",
+          "type": "enum",
+          "values": [
+            "default",
+            "onInverse"
+          ],
+          "default": "default",
+          "description": "default — text-ink / hover text-ink-soft for light surfaces; onInverse — text-on-inverse / hover text-on-inverse-soft for dark surfaces (ScoreCard, dark hero panels)."
         }
+      ],
+      "usage": "Допоміжне посилання-дія: та сама вага й розмір, що в тексту кнопки, завжди з підкресленням. tone=\"default\" (типово) — для світлих поверхонь; tone=\"onInverse\" — для темних (ScoreCard, темні hero-панелі).",
+      "examples": [
+        {
+          "label": "світла поверхня (типово)",
+          "code": "<TextLink href=\"/forgot\">Забули пароль?</TextLink>"
+        },
+        {
+          "label": "темна поверхня",
+          "code": "<TextLink tone=\"onInverse\" href=\"/blog\">Читати блог</TextLink>"
+        },
+        {
+          "label": "як кнопка",
+          "code": "<TextLink as=\"button\" onClick={openRegister}>Зареєструватися</TextLink>"
+        }
+      ],
+      "antipatterns": [
+        "Не ставити tone=\"onInverse\" на світлих картках і навпаки — колір береся з тону поверхні, а не з локального класу.",
+        "Не перекривати колір локальним className=\"text-*\" — для темної поверхні існує tone=\"onInverse\".",
+        "Не вживати як первинну дію — для неї є Button; TextLink лишається другорядним."
       ]
     },
     {

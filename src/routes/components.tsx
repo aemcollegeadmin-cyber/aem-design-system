@@ -275,8 +275,9 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       title: "TextLink",
       node: (
         <Specimen
-          label="second action link: button text weight + underline"
-          code={`<TextLink href=\"/forgot\">Забули пароль?</TextLink>`}
+          label="second action link: button text weight + underline · tone default / onInverse"
+          code={`<TextLink href="/forgot">Забули пароль?</TextLink>
+<TextLink tone="onInverse" href="/blog">Читати блог</TextLink>`}
         >
           <div className="flex flex-col gap-2">
             <TextLink href="#">Забули пароль?</TextLink>
@@ -286,6 +287,11 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
                 Зареєструватися
               </TextLink>
             </Text>
+            <div className="mt-1 rounded-card bg-surface-inverse p-4">
+              <TextLink tone="onInverse" href="#">
+                Читати блог
+              </TextLink>
+            </div>
           </div>
         </Specimen>
       ),
