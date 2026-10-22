@@ -292,3 +292,13 @@ input[type="search"]::-webkit-search-results-decoration {
   backdrop-filter: blur(2px);
 }
 
+
+/* ScoreCard blog preview (framework-independent) — two-line clamp for article
+   headlines and standfirsts, so cards keep one height in every consumer. */
+.aem-article-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}

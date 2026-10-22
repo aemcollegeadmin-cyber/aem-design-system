@@ -25,3 +25,4 @@
 - [x] CourseCard: keep access and mentorship tags only on the cover without lower duplicates
 - [x] Badge: danger variant; Tabs: per-item badge; PodcastCard: coverTags over the cover
 - [x] Tabs badge equal insets; PodcastCard headphones badge 44px aligned with cover tags
+- [x] ScoreCard: blog article preview grid under the chart with loading placeholders

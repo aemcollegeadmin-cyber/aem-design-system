@@ -569,3 +569,18 @@ input[type="search"]::-webkit-search-results-decoration {
   backdrop-filter: blur(2px);
 }
 
+
+/* ScoreCard blog preview (framework-independent). */
+.aem-article-clamp {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  overflow: hidden;
+}
+
+/* Token hover state the v3 utility layer must supply itself. */
+.hover\:bg-on-inverse-track\/40:hover {
+  background-color: rgba(61, 61, 61, 0.4);
+  background-color: color-mix(in srgb, var(--aem-on-inverse-track) 40%, transparent);
+}

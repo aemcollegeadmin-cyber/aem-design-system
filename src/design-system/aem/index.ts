@@ -27,6 +27,7 @@ export {
   type ScoreCardProps,
   type ScoreCardBar,
   type ScoreCardComparison,
+  type ScoreCardArticle,
 } from "./components/ScoreCard";
 export {
   LeaderboardCard,

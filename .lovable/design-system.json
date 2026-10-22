@@ -1190,6 +1190,10 @@
           "type": "string"
         },
         {
+          "name": "articles",
+          "type": "object"
+        },
+        {
           "name": "loading",
           "type": "boolean",
           "default": "false"
