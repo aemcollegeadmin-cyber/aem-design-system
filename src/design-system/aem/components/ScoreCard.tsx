@@ -22,6 +22,17 @@ export interface ScoreCardComparison {
   hint?: string;
 }
 
+export interface ScoreCardArticle {
+  /** Article headline, shown under the cover. */
+  title: string;
+  /** Absolute link to the blog post. Opens in a new tab. */
+  href: string;
+  /** Cover image URL. Omit for a text-only card. */
+  coverUrl?: string;
+  /** Short standfirst under the headline. */
+  description?: string;
+}
+
 export interface ScoreCardProps extends React.HTMLAttributes<HTMLElement> {
   /** Small uppercase label, e.g. "Бал у коледжі". */
   label: string;
@@ -38,6 +49,12 @@ export interface ScoreCardProps extends React.HTMLAttributes<HTMLElement> {
   chart?: { title: string; bars: ScoreCardBar[]; emptyLabel?: string };
   /** Muted closing line, e.g. "Найкращий тиждень. Серія 12 днів тримає темп." */
   footnote?: string;
+  /** Blog preview block under the chart. `items` drives the card grid. */
+  articles?: {
+    title?: string;
+    items: ScoreCardArticle[];
+    action?: React.ReactNode;
+  };
   /** Skeleton placeholder instead of content. */
   loading?: boolean;
 }
@@ -55,6 +72,7 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
     rankDelta,
     comparison,
     chart,
+    articles,
     footnote,
     loading = false,
     className,
