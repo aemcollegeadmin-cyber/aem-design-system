@@ -97,6 +97,20 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
         </div>
         <Skeleton radius="pill" className="h-2 w-full bg-surface-inverse-muted" />
         <Skeleton radius="card" className="h-28 w-full bg-surface-inverse-muted" />
+        <div className="flex flex-col gap-3 border-t-2 border-on-inverse-track pt-5">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            {[0, 1, 2].map((index) => (
+              <div
+                key={index}
+                className="flex flex-col gap-2.5 rounded-card bg-surface-inverse-muted p-3"
+              >
+                <Skeleton radius="field" className="aspect-video w-full bg-surface-inverse" />
+                <Skeleton radius="pill" className="h-3 w-full bg-surface-inverse" />
+                <Skeleton radius="pill" className="h-3 w-2/3 bg-surface-inverse" />
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
     );
   }
@@ -180,7 +194,48 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
         </div>
       )}
 
-      {footnote && <p className="text-caption text-on-inverse-soft">{footnote}</p>}
+      {articles && (
+        <div className="flex flex-col gap-3 border-t-2 border-on-inverse-track pt-5">
+          {(articles.title || articles.action) && (
+            <div className="flex items-center justify-between gap-3">
+              {articles.title && (
+                <span className="text-body text-on-inverse">{articles.title}</span>
+              )}
+              {articles.action}
+            </div>
+          )}
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
+            {articles.items.map((article, index) => (
+              <a
+                key={`${article.href}-${index}`}
+                href={article.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex flex-col gap-2.5 rounded-card bg-surface-inverse-muted p-3 hover:bg-on-inverse-track/40"
+              >
+                {article.coverUrl && (
+                  <img
+                    src={article.coverUrl}
+                    alt=""
+                    loading="lazy"
+                    className="aspect-video w-full rounded-field bg-surface-inverse object-cover"
+                  />
+                )}
+                <span className="aem-article-clamp text-caption font-bold text-on-inverse line-clamp-2">
+                  {article.title}
+                </span>
+                {article.description && (
+                  <span className="aem-article-clamp text-caption text-on-inverse-soft line-clamp-2">
+                    {article.description}
+                  </span>
+                )}
+              </a>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {footnote && !articles && <p className="text-caption text-on-inverse-soft">{footnote}</p>}
     </section>
   );
 });
