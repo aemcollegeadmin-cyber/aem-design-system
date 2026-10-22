@@ -851,6 +851,7 @@ import { ScoreCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33a
 | `comparison` | any | `—` |
 | `chart` | object | `—` |
 | `footnote` | string | `—` |
+| `articles` | object | `—` |
 | `loading` | boolean | `false` |
 
 ### Scoreboard
