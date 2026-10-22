@@ -839,6 +839,8 @@ import { RankUpDialog } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e
 import { ScoreCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
+Темна hero-картка балу студента: загальні показники зверху, вкладена секція тижня (delta + sparkline + прогрес до суперника) та опційний блок прев'ю статей з блогу.
+
 **Props:**
 
 | Prop | Type | Default |
@@ -848,8 +850,8 @@ import { ScoreCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33a
 | `delta` | string | `—` |
 | `rank` | string | `—` |
 | `rankDelta` | string | `—` |
+| `sparkline` | any | `—` |
 | `comparison` | any | `—` |
-| `chart` | object | `—` |
 | `footnote` | string | `—` |
 | `articles` | object | `—` |
 | `loading` | boolean | `false` |
