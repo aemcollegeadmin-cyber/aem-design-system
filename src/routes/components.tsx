@@ -513,23 +513,19 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
           </div>
         </Specimen>
         <Specimen
-          label="прев'ю статей з блогу під графіком"
-          code={`<ScoreCard articles={{ title: "З блогу коледжу", action: <TextLink href="/blog">усі →</TextLink>, items: [{ title, href, coverUrl, description }] }} />`}
+          label="прев'ю статей з блогу · дія притиснута вправо"
+          code={`<ScoreCard articles={{ title: "З блогу коледжу", action: <a href="/blog">усі статті →</a>, items: [{ title, href, coverUrl, description }] }} />`}
         >
           <div className="w-full">
             <ScoreCard
               label="Бал у коледжі"
               score="1 480"
               rank="#7"
-              chart={{
-                title: "Бали за 8 тижнів",
-                bars: [{ value: 34 }, { value: 62 }, { value: 100, highlight: true }],
-              }}
+              delta="+120 за тиждень"
+              sparkline={{ points: [34, 62, 40, 80, 55, 90, 100], todayIndex: 6 }}
               articles={{
                 title: "З блогу коледжу",
-                action: (
-                  <TextLink href="https://example.com/blog">усі статті →</TextLink>
-                ),
+                action: <a href="https://example.com/blog">усі статті →</a>,
                 items: [
                   {
                     title: "Як влаштований тиждень у коледжі",
