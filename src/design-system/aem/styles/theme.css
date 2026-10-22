@@ -302,3 +302,22 @@ input[type="search"]::-webkit-search-results-decoration {
   line-clamp: 2;
   overflow: hidden;
 }
+
+
+/* ScoreCard articles action (framework-independent) — a plain link or button
+   passed as articles.action renders as a light underlined link on the dark
+   card, never as a black TextLink or a white Button. */
+.aem-score-action a,
+.aem-score-action button {
+  font-size: var(--text-caption);
+  line-height: var(--text-caption--line-height);
+  font-weight: 600;
+  color: var(--aem-on-inverse);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 150ms var(--ease-standard, ease);
+}
+.aem-score-action a:hover,
+.aem-score-action button:hover {
+  color: var(--aem-accent-brand);
+}

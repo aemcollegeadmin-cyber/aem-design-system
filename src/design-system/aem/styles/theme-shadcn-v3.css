@@ -584,3 +584,21 @@ input[type="search"]::-webkit-search-results-decoration {
   background-color: rgba(61, 61, 61, 0.4);
   background-color: color-mix(in srgb, var(--aem-on-inverse-track) 40%, transparent);
 }
+
+
+/* ScoreCard articles action (framework-independent) — light underlined link
+   on the dark card; works without the v4 utility layer. */
+.aem-score-action a,
+.aem-score-action button {
+  font-size: var(--text-caption);
+  line-height: var(--text-caption--line-height);
+  font-weight: 600;
+  color: var(--aem-on-inverse);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  transition: color 150ms var(--ease-standard, ease);
+}
+.aem-score-action a:hover,
+.aem-score-action button:hover {
+  color: var(--aem-accent-brand);
+}

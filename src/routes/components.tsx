@@ -493,56 +493,39 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
         <div className="flex w-full flex-col gap-4">
         <Specimen
           label="бал у коледжі · 2/3 сітки"
-          code={`<ScoreCard label="Бал у коледжі" score="1 480" rank="#7" />`}
+          code={`<ScoreCard label="Бал у коледжі" score="510" rank="#32" delta="+30 за тиждень" sparkline={{ points, todayIndex }} comparison={{ value, target: { name, avatarUrl, score }, hint }} />`}
         >
           <div className="w-full">
             <ScoreCard
               label="Бал у коледжі"
-              score="1 480"
-              delta="+120 за тиждень"
-              rank="#7"
+              score="510"
+              rank="#32"
               rankDelta="↑ 2 місця"
+              delta="+30 за тиждень"
+              sparkline={{ points: [4, 8, 3, 10, 6, 12, 9], todayIndex: 6 }}
               comparison={{
-                value: 78,
-                leftLabel: "ти · 1 480",
-                rightLabel: "#6 Ната Ш. · 1 520",
-                hint: "40 балів — і ти обходиш шосте місце",
-              }}
-              chart={{
-                title: "Бали за 8 тижнів",
-                bars: [
-                  { value: 18 },
-                  { value: 34 },
-                  { value: 28 },
-                  { value: 52 },
-                  { value: 10 },
-                  { value: 44 },
-                  { value: 62 },
-                  { value: 100, highlight: true },
-                ],
+                value: 80,
+                target: { name: "Ната Ш.", score: "40 балів" },
+                hint: "10 балів — і ти обходиш 14 місце",
               }}
               footnote="Найкращий тиждень. Серія 12 днів тримає темп."
             />
           </div>
         </Specimen>
         <Specimen
-          label="прев'ю статей з блогу під графіком"
-          code={`<ScoreCard articles={{ title: "З блогу коледжу", action: <TextLink href="/blog">усі →</TextLink>, items: [{ title, href, coverUrl, description }] }} />`}
+          label="прев'ю статей з блогу · дія притиснута вправо"
+          code={`<ScoreCard articles={{ title: "З блогу коледжу", action: <a href="/blog">усі статті →</a>, items: [{ title, href, coverUrl, description }] }} />`}
         >
           <div className="w-full">
             <ScoreCard
               label="Бал у коледжі"
               score="1 480"
               rank="#7"
-              chart={{
-                title: "Бали за 8 тижнів",
-                bars: [{ value: 34 }, { value: 62 }, { value: 100, highlight: true }],
-              }}
+              delta="+120 за тиждень"
+              sparkline={{ points: [34, 62, 40, 80, 55, 90, 100], todayIndex: 6 }}
               articles={{
                 title: "З блогу коледжу",
-                action: (
-                  <TextLink href="https://example.com/blog">усі статті →</TextLink>
-                ),
+                action: <a href="https://example.com/blog">усі статті →</a>,
                 items: [
                   {
                     title: "Як влаштований тиждень у коледжі",
@@ -656,14 +639,13 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
           </Specimen>
           <Specimen
             label="перший тиждень / порожній рейтинг / серія 0"
-            code={`<LeaderboardCard entries={[]} /> · <ScoreCard chart={{ title, bars: [] }} />`}
+            code={`<LeaderboardCard entries={[]} /> · <ScoreCard score="0" footnote="…" />`}
           >
             <div className="grid w-full gap-4 lg:grid-cols-3">
               <ScoreCard
                 className="lg:col-span-2"
                 label="Бал у коледжі"
                 score="0"
-                chart={{ title: "Бали по тижнях", bars: [] }}
                 footnote="Перший бал зʼявиться після першого уроку."
               />
               <LeaderboardCard title="Рейтинг тижня" entries={[]} />

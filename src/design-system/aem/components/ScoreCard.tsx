@@ -1,25 +1,30 @@
 import { forwardRef } from "react";
+import { Avatar } from "./Avatar";
 import { Skeleton } from "./Skeleton";
 import { cn } from "../lib/cn";
 
-export interface ScoreCardBar {
-  /** Optional axis label, e.g. a week number. */
-  label?: string;
-  /** Relative height, 0–100. */
-  value: number;
-  /** Highlights the bar with the brand accent (usually the current week). */
-  highlight?: boolean;
+export interface ScoreCardSparkline {
+  /** Weekly points, one value per day (usually 7). */
+  points: number[];
+  /** Index of the current day — its bar is highlighted with the brand accent. */
+  todayIndex?: number;
 }
 
 export interface ScoreCardComparison {
-  /** Own progress toward the next place, 0–100. */
+  /** Прогрес 0–100 */
   value: number;
-  /** Left caption, e.g. "ти · 1 480". */
-  leftLabel: string;
-  /** Right caption, e.g. "#6 Ната Ш. · 1 520". */
-  rightLabel?: string;
-  /** Line under the bar, e.g. "40 балів — і ти обходиш шосте місце". */
+  /** Цільовий суперник для обгону */
+  target?: {
+    name: string;
+    avatarUrl?: string;
+    /** Попередньо відформатовані бали, напр. "40 балів". */
+    score: string;
+  };
+  /** Текст під баром, наприклад "10 балів — і ти обходиш 14 місце" */
   hint?: string;
+  /** Застарілі поля для сумісності */
+  leftLabel?: string;
+  rightLabel?: string;
 }
 
 export interface ScoreCardArticle {
@@ -38,18 +43,18 @@ export interface ScoreCardProps extends React.HTMLAttributes<HTMLElement> {
   label: string;
   /** Main figure, pre-formatted, e.g. "1 480". */
   score: string;
-  /** Change since last period, e.g. "+120 за тиждень". */
+  /** Change since last period, e.g. "+120 за тиждень". Shown in the week section. */
   delta?: string;
   /** Place in the ranking, e.g. "#7". */
   rank?: string;
   /** Place change, e.g. "↑ 2 місця". */
   rankDelta?: string;
+  /** Compact weekly sparkline next to the weekly delta. */
+  sparkline?: ScoreCardSparkline;
   comparison?: ScoreCardComparison;
-  /** Bar history block. An empty `bars` array renders `emptyLabel` instead. */
-  chart?: { title: string; bars: ScoreCardBar[]; emptyLabel?: string };
   /** Muted closing line, e.g. "Найкращий тиждень. Серія 12 днів тримає темп." */
   footnote?: string;
-  /** Blog preview block under the chart. `items` drives the card grid. */
+  /** Blog preview block. `items` drives the card grid. */
   articles?: {
     title?: string;
     items: ScoreCardArticle[];
@@ -59,9 +64,29 @@ export interface ScoreCardProps extends React.HTMLAttributes<HTMLElement> {
   loading?: boolean;
 }
 
+/** Seven thin 24px bars; the current day is highlighted with the brand accent. */
+function Sparkline({ points, todayIndex }: ScoreCardSparkline) {
+  const max = Math.max(1, ...points);
+  return (
+    <div className="flex h-6 items-end gap-1" aria-hidden="true">
+      {points.map((value, index) => (
+        <div
+          key={index}
+          className={cn(
+            "w-1 rounded-pill",
+            index === todayIndex ? "bg-accent-brand" : "bg-on-inverse-track",
+          )}
+          style={{ height: `${Math.max(12, Math.round((value / max) * 100))}%` }}
+        />
+      ))}
+    </div>
+  );
+}
+
 /**
  * Dark hero card with the student's college score, place in the ranking,
- * distance to the next place and a short history of weekly points.
+ * a compact weekly section (delta + sparkline + progress to the next place)
+ * and an optional blog preview.
  */
 export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreCard(
   {
@@ -70,8 +95,8 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
     delta,
     rank,
     rankDelta,
+    sparkline,
     comparison,
-    chart,
     articles,
     footnote,
     loading = false,
@@ -91,12 +116,21 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
         )}
         {...props}
       >
-        <div className="flex flex-col gap-3">
-          <Skeleton radius="pill" className="h-4 w-32 bg-surface-inverse-muted" />
-          <Skeleton radius="pill" className="h-10 w-48 bg-surface-inverse-muted" />
+        <div className="flex items-start justify-between gap-4">
+          <div className="flex flex-col gap-3">
+            <Skeleton radius="pill" className="h-4 w-32 bg-surface-inverse-muted" />
+            <Skeleton radius="pill" className="h-10 w-48 bg-surface-inverse-muted" />
+          </div>
+          <Skeleton radius="pill" className="h-8 w-16 bg-surface-inverse-muted" />
         </div>
-        <Skeleton radius="pill" className="h-2 w-full bg-surface-inverse-muted" />
-        <Skeleton radius="card" className="h-28 w-full bg-surface-inverse-muted" />
+        <div className="flex flex-col gap-3 rounded-card bg-surface-inverse-muted p-4">
+          <div className="flex items-center justify-between gap-4">
+            <Skeleton radius="pill" className="h-4 w-28 bg-on-inverse-track" />
+            <Skeleton radius="pill" className="h-6 w-16 bg-on-inverse-track" />
+          </div>
+          <Skeleton radius="pill" className="h-2 w-full bg-on-inverse-track" />
+          <Skeleton radius="pill" className="h-3 w-2/3 bg-on-inverse-track" />
+        </div>
         <div className="flex flex-col gap-3 border-t-2 border-on-inverse-track pt-5">
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             {[0, 1, 2].map((index) => (
@@ -124,16 +158,12 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
       )}
       {...props}
     >
-
       <div className="flex items-start justify-between gap-4">
         <div className="flex flex-col gap-2">
           <span className="text-caption tracking-widest text-on-inverse-soft uppercase">
             {label}
           </span>
-          <div className="flex flex-wrap items-baseline gap-3">
-            <span className="text-h1 text-on-inverse">{score}</span>
-            {delta && <span className="text-body text-accent-brand">{delta}</span>}
-          </div>
+          <span className="text-h1 text-on-inverse">{score}</span>
         </div>
         {(rank || rankDelta) && (
           <div className="flex flex-col items-end gap-1">
@@ -143,65 +173,80 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
         )}
       </div>
 
-      {comparison && (
-        <div className="flex flex-col gap-3">
-          <div className="flex items-center justify-between gap-4 text-caption text-on-inverse-soft">
-            <span>{comparison.leftLabel}</span>
-            {comparison.rightLabel && <span>{comparison.rightLabel}</span>}
-          </div>
-          <div
-            role="progressbar"
-            aria-valuenow={Math.min(100, Math.max(0, comparison.value))}
-            aria-valuemin={0}
-            aria-valuemax={100}
-            className="h-2 w-full overflow-hidden rounded-pill bg-on-inverse-track"
-          >
-            <div
-              className="h-full rounded-pill bg-accent-brand"
-              style={{ width: `${Math.min(100, Math.max(0, comparison.value))}%` }}
-            />
-          </div>
-          {comparison.hint && <p className="text-body text-on-inverse">{comparison.hint}</p>}
-        </div>
-      )}
-
-      {chart && (
-        <div className="flex flex-col gap-3 border-t-2 border-on-inverse-track pt-5">
-          <span className="text-body text-on-inverse">{chart.title}</span>
-          {chart.bars.length === 0 ? (
-            <p className="rounded-card bg-surface-inverse-muted px-4 py-6 text-center text-caption text-on-inverse-soft">
-              {chart.emptyLabel ?? "Це твій перший тиждень — історія балів з'явиться далі."}
-            </p>
-          ) : (
-          <div className="flex h-28 items-end gap-2">
-            {chart.bars.map((bar, index) => (
-              <div key={bar.label ?? index} className="flex h-full flex-1 flex-col items-center justify-end gap-2">
-                <div
-                  className={cn(
-                    "w-full rounded-field",
-                    bar.highlight ? "bg-accent-brand" : "bg-surface-inverse-muted",
-                  )}
-                  style={{ height: `${Math.min(100, Math.max(4, bar.value))}%` }}
-                />
-                {bar.label && (
-                  <span className="text-caption text-on-inverse-soft">{bar.label}</span>
-                )}
-              </div>
-            ))}
-          </div>
+      {(delta || sparkline || comparison) && (
+        <div className="flex flex-col gap-3 rounded-card bg-surface-inverse-muted p-4">
+          {(delta || sparkline) && (
+            <div className="flex items-center justify-between gap-4">
+              {delta && (
+                <span className="text-body font-semibold text-accent-brand">{delta}</span>
+              )}
+              {sparkline && <Sparkline {...sparkline} />}
+            </div>
           )}
-
+          {comparison && (
+            <div className="flex flex-col gap-2">
+              {comparison.target ? (
+                <div className="flex items-center justify-end gap-2">
+                  <Avatar
+                    name={comparison.target.name}
+                    src={comparison.target.avatarUrl}
+                    size="sm"
+                  />
+                  <span className="text-caption text-on-inverse">
+                    {comparison.target.score}
+                  </span>
+                </div>
+              ) : (
+                (comparison.leftLabel || comparison.rightLabel) && (
+                  <div className="flex items-center justify-between gap-4 text-caption text-on-inverse-soft">
+                    <span>{comparison.leftLabel}</span>
+                    {comparison.rightLabel && <span>{comparison.rightLabel}</span>}
+                  </div>
+                )
+              )}
+              <div
+                role="progressbar"
+                aria-valuenow={Math.min(100, Math.max(0, comparison.value))}
+                aria-valuemin={0}
+                aria-valuemax={100}
+                className="h-2 w-full overflow-hidden rounded-pill bg-on-inverse-track"
+              >
+                <div
+                  className="h-full rounded-pill bg-accent-brand"
+                  style={{ width: `${Math.min(100, Math.max(0, comparison.value))}%` }}
+                />
+              </div>
+              {comparison.hint && (
+                <p className="text-caption text-on-inverse-soft">{comparison.hint}</p>
+              )}
+            </div>
+          )}
         </div>
       )}
 
       {articles && (
         <div className="flex flex-col gap-3 border-t-2 border-on-inverse-track pt-5">
           {(articles.title || articles.action) && (
-            <div className="flex items-center justify-between gap-3">
+            <div
+              className={cn(
+                "flex items-center gap-3",
+                articles.title ? "justify-between" : "justify-end",
+              )}
+            >
               {articles.title && (
                 <span className="text-body text-on-inverse">{articles.title}</span>
               )}
-              {articles.action}
+              {articles.action && (
+                <div className="aem-score-action">
+                  {typeof articles.action === "string" ? (
+                    <span className="text-caption font-semibold text-on-inverse underline underline-offset-4">
+                      {articles.action}
+                    </span>
+                  ) : (
+                    articles.action
+                  )}
+                </div>
+              )}
             </div>
           )}
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
