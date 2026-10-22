@@ -1128,12 +1128,38 @@ import { Text } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bb
 import { TextLink } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
+Допоміжне посилання-дія: та сама вага й розмір, що в тексту кнопки, завжди з підкресленням. tone="default" (типово) — для світлих поверхонь; tone="onInverse" — для темних (ScoreCard, темні hero-панелі).
+
 **Props:**
 
 | Prop | Type | Default |
 |---|---|---|
+| `tone` | default · onInverse | `default` |
 | `as` | any | `—` |
 | `href` | string | `—` |
+
+**Examples:**
+
+_світла поверхня (типово)_
+```tsx
+<TextLink href="/forgot">Забули пароль?</TextLink>
+```
+
+_темна поверхня_
+```tsx
+<TextLink tone="onInverse" href="/blog">Читати блог</TextLink>
+```
+
+_як кнопка_
+```tsx
+<TextLink as="button" onClick={openRegister}>Зареєструватися</TextLink>
+```
+
+**Avoid:**
+
+- Не ставити tone="onInverse" на світлих картках і навпаки — колір береся з тону поверхні, а не з локального класу.
+- Не перекривати колір локальним className="text-*" — для темної поверхні існує tone="onInverse".
+- Не вживати як первинну дію — для неї є Button; TextLink лишається другорядним.
 
 ### Textarea
 

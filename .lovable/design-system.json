@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.9.0",
+    "version": "1.9.1",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -11,7 +11,7 @@
     ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "f86030b355238afdb9bcee7f5d9a0454756db16711e3d50edb2e1a03c6685bf5",
+      "#enrichment": "3bca81397b4af1e394592643692880e0a72d31a58833e7bbabdd75c52d976213",
       ".dsignore": "a26f2e60b116f104046a9440907feb8e",
       ".gitignore": "6059213806e442947666752f3db6bfdc",
       ".lovable/meta.yaml": "8794970d6049858cc148d2b86f7a2b22",
@@ -35,7 +35,7 @@
       "public/fonts/FixelDisplay-Medium.woff2": "8281af068dfe4cb7cdc22f68d10b738c",
       "public/fonts/FixelDisplay-Regular.woff2": "5e55b8f54359c099a607992e9553fd48",
       "public/fonts/FixelDisplay-SemiBold.woff2": "901193ce10a48acf7bfc6c98b73ad990",
-      "roadmap.md": "46e06ceb34615b0d0f66f846256ad304",
+      "roadmap.md": "12ff028d427685aca535c2865ad88148",
       "src/design-system/aem/assets/fonts/FixelDisplay-Bold.woff2": "2ba7f4744422895e87e8be300485cb04",
       "src/design-system/aem/assets/fonts/FixelDisplay-Medium.woff2": "8281af068dfe4cb7cdc22f68d10b738c",
       "src/design-system/aem/assets/fonts/FixelDisplay-Regular.woff2": "5e55b8f54359c099a607992e9553fd48",
@@ -99,7 +99,7 @@
       "src/design-system/aem/components/Table.tsx": "673d53100baf35c255ffd3cce1eb45fa",
       "src/design-system/aem/components/Tabs.tsx": "bc27408d1afcc6158acff1a0fe671f91",
       "src/design-system/aem/components/Text.tsx": "760428b7ba0088ecdf15bdb1e8c5aae4",
-      "src/design-system/aem/components/TextLink.tsx": "d5934f40ad23d25919d698700ec4b10e",
+      "src/design-system/aem/components/TextLink.tsx": "e433e5178985fb612077fb926b82751c",
       "src/design-system/aem/components/Textarea.tsx": "2bc405ae874ac1af78153a9a9aad93d5",
       "src/design-system/aem/components/Toaster.tsx": "647eb0a1f3f4335bbcd7c069f778c293",
       "src/design-system/aem/components/Toolbar.tsx": "1586c628f3bf7f2517228cc149aa5dee",
@@ -109,7 +109,7 @@
       "src/design-system/aem/index.ts": "36c06a5c73a10b8023203788b887a98d",
       "src/design-system/aem/lib/cn.ts": "f42d8fb0d920ae1cdb1cff4709b87d7f",
       "src/design-system/aem/lib/useFitViewport.ts": "7322abdcb4ca44bbc550fc92c19445e5",
-      "src/design-system/aem/styles/theme-shadcn-v3.css": "150d4df1381bcfc15a0997b7c7c841fd",
+      "src/design-system/aem/styles/theme-shadcn-v3.css": "a72d85adb6f500cfd0f8b97fda8b301b",
       "src/design-system/aem/styles/theme.css": "d22e35bf565adb1e300e75109915eb75",
       "src/index.ts": "b5130dc1deb409f8e2340570266c816a",
       "src/mockup-preview.d.ts": "38969839f35ce2966e32a9f01a5c09ea",
@@ -119,7 +119,7 @@
       "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
       "src/routes/__root.tsx": "fe9de980adb4a4867de6b31db4d4fbf9",
       "src/routes/colors.tsx": "fcee8aeb0fd5af838edc738476e1811c",
-      "src/routes/components.tsx": "e9e8963fae8d87cfd983d034b22ad12c",
+      "src/routes/components.tsx": "c2cc5a76280cf945ea1345cf27b12922",
       "src/routes/index.tsx": "3913e960e9ffe2db34f533e48477d28e",
       "src/routes/typography.tsx": "92d62f0915b6284f6e9ad3b65fe0949f",
       "src/showcase/ShowcaseShell.tsx": "9681207624f6106e061e24f5f6637188",
@@ -495,39 +495,36 @@
       "import_path": "",
       "props": [
         {
-          "name": "as",
-          "type": "React.ElementType",
-          "default": "a"
-        },
-        {
-          "name": "href",
-          "type": "string",
-          "description": "Only used when the rendered element is an anchor."
-        },
-        {
           "name": "tone",
           "type": "enum",
           "values": [
             "default",
             "onInverse"
           ],
-          "default": "default",
-          "description": "default — text-ink / hover text-ink-soft for light surfaces; onInverse — text-on-inverse / hover text-on-inverse-soft for dark surfaces (ScoreCard, dark hero panels)."
+          "default": "default"
+        },
+        {
+          "name": "as",
+          "type": "any"
+        },
+        {
+          "name": "href",
+          "type": "string"
         }
       ],
       "usage": "Допоміжне посилання-дія: та сама вага й розмір, що в тексту кнопки, завжди з підкресленням. tone=\"default\" (типово) — для світлих поверхонь; tone=\"onInverse\" — для темних (ScoreCard, темні hero-панелі).",
       "examples": [
         {
           "label": "світла поверхня (типово)",
-          "code": "<TextLink href=\"/forgot\">Забули пароль?</TextLink>"
+          "code": "\u003cTextLink href=\"/forgot\"\u003eЗабули пароль?\u003c/TextLink\u003e"
         },
         {
           "label": "темна поверхня",
-          "code": "<TextLink tone=\"onInverse\" href=\"/blog\">Читати блог</TextLink>"
+          "code": "\u003cTextLink tone=\"onInverse\" href=\"/blog\"\u003eЧитати блог\u003c/TextLink\u003e"
         },
         {
           "label": "як кнопка",
-          "code": "<TextLink as=\"button\" onClick={openRegister}>Зареєструватися</TextLink>"
+          "code": "\u003cTextLink as=\"button\" onClick={openRegister}\u003eЗареєструватися\u003c/TextLink\u003e"
         }
       ],
       "antipatterns": [
