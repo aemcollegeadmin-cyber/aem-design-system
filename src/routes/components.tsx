@@ -490,6 +490,7 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       id: "score-card",
       title: "ScoreCard",
       node: (
+        <div className="flex w-full flex-col gap-4">
         <Specimen
           label="бал у коледжі · 2/3 сітки"
           code={`<ScoreCard label="Бал у коледжі" score="1 480" rank="#7" />`}
@@ -524,6 +525,50 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
             />
           </div>
         </Specimen>
+        <Specimen
+          label="прев'ю статей з блогу під графіком"
+          code={`<ScoreCard articles={{ title: "З блогу коледжу", action: <TextLink href="/blog">усі →</TextLink>, items: [{ title, href, coverUrl, description }] }} />`}
+        >
+          <div className="w-full">
+            <ScoreCard
+              label="Бал у коледжі"
+              score="1 480"
+              rank="#7"
+              chart={{
+                title: "Бали за 8 тижнів",
+                bars: [{ value: 34 }, { value: 62 }, { value: 100, highlight: true }],
+              }}
+              articles={{
+                title: "З блогу коледжу",
+                action: (
+                  <TextLink href="https://example.com/blog">усі статті →</TextLink>
+                ),
+                items: [
+                  {
+                    title: "Як влаштований тиждень у коледжі",
+                    href: "https://example.com/blog/week",
+                    coverUrl:
+                      "https://images.unsplash.com/photo-1523726491229-6df1ce2eb52b?auto=format&fit=crop&w=1200&q=60",
+                    description: "Ритуали, дедлайни і що робити, коли не встигаєш.",
+                  },
+                  {
+                    title: "Пʼять помилок у перших проєктах",
+                    href: "https://example.com/blog/mistakes",
+                    coverUrl:
+                      "https://images.unsplash.com/photo-1517245386807-bb43389510dd?auto=format&fit=crop&w=1200&q=60",
+                    description: "Розбираємо реальні роботи студентів і виправляємо їх.",
+                  },
+                  {
+                    title: "Менторська сесія: як готуватися",
+                    href: "https://example.com/blog/mentor-session",
+                    description: "Три питання, з якими варто приходити на розмову з ментором.",
+                  },
+                ],
+              }}
+            />
+          </div>
+        </Specimen>
+        </div>
       ),
     },
     {
