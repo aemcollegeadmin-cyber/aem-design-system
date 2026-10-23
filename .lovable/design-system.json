@@ -517,15 +517,15 @@
       "examples": [
         {
           "label": "світла поверхня (типово)",
-          "code": "\u003cTextLink href=\"/forgot\"\u003eЗабули пароль?\u003c/TextLink\u003e"
+          "code": "<TextLink href=\"/forgot\">Забули пароль?</TextLink>"
         },
         {
           "label": "темна поверхня",
-          "code": "\u003cTextLink tone=\"onInverse\" href=\"/blog\"\u003eЧитати блог\u003c/TextLink\u003e"
+          "code": "<TextLink tone=\"onInverse\" href=\"/blog\">Читати блог</TextLink>"
         },
         {
           "label": "як кнопка",
-          "code": "\u003cTextLink as=\"button\" onClick={openRegister}\u003eЗареєструватися\u003c/TextLink\u003e"
+          "code": "<TextLink as=\"button\" onClick={openRegister}>Зареєструватися</TextLink>"
         }
       ],
       "antipatterns": [
@@ -1188,7 +1188,7 @@
         {
           "name": "label",
           "type": "string",
-          "required": true
+          "default": "Загальний бал"
         },
         {
           "name": "score",
@@ -1196,11 +1196,20 @@
           "required": true
         },
         {
-          "name": "delta",
+          "name": "rank",
           "type": "string"
         },
         {
-          "name": "rank",
+          "name": "rankEmoji",
+          "type": "string"
+        },
+        {
+          "name": "rankLabel",
+          "type": "string",
+          "default": "Місце в рейтингу"
+        },
+        {
+          "name": "rankContext",
           "type": "string"
         },
         {
@@ -1208,20 +1217,33 @@
           "type": "string"
         },
         {
+          "name": "delta",
+          "type": "string"
+        },
+        {
+          "name": "weekLabel",
+          "type": "string",
+          "default": "Бал за тиждень"
+        },
+        {
+          "name": "weekContext",
+          "type": "string"
+        },
+        {
           "name": "sparkline",
-          "type": "any"
+          "type": "ScoreCardSparkline"
         },
         {
           "name": "comparison",
-          "type": "any"
+          "type": "ScoreCardComparison"
+        },
+        {
+          "name": "articles",
+          "type": "{ title?: string; items: ScoreCardArticle[]; action?: React.ReactNode }"
         },
         {
           "name": "footnote",
           "type": "string"
-        },
-        {
-          "name": "articles",
-          "type": "object"
         },
         {
           "name": "loading",
@@ -1229,7 +1251,19 @@
           "default": "false"
         }
       ],
-      "usage": "Темна hero-картка балу студента: загальні показники зверху, вкладена секція тижня (delta + sparkline + прогрес до суперника) та опційний блок прев'ю статей з блогу."
+      "usage": "Картка прогресу студента з трьома рівними колонками: місце, загальний бал та бали за тиждень; під ними опційний блок статей. Дані передаються відформатованими, loading показує вбудований скелетон.",
+      "examples": [
+        {
+          "label": "Показники студента",
+          "code": "<ScoreCard score=\"12 343\" rank=\"#35\" rankEmoji=\"🥳\" rankContext=\"серед 287 студентів\" delta=\"+3 345\" weekContext=\"Серія 5 днів\" sparkline={{ points: [4, 8, 3, 10, 6, 12, 9], todayIndex: 6 }} comparison={{ value: 80, hint: \"До наступного місця\", target: { name: \"Яна\", score: \"180 балів\" } }} />"
+        }
+      ],
+      "antipatterns": [
+        "Не збирати локальні колонки показників або скелетон замість ScoreCard.",
+        "Не передавати тижневий контекст усередині delta — використовувати weekContext.",
+        "Не використовувати chart або довільні розміри тексту; sparkline замінює старий графік.",
+        "Не дублювати footnote під articles і не додавати місцеві токени."
+      ]
     },
     {
       "name": "LeaderboardCard",
