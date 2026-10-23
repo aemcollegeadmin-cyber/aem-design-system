@@ -1,3 +1,20 @@
+/*
+ * Public entry of the AEM design system: components and types only.
+ *
+ * The theme stylesheet is deliberately NOT imported here. `styles/theme.css`
+ * starts with `@import "tailwindcss"` and declares `@theme`, so a side-effect
+ * import in this barrel would inject a second Tailwind v4 style layer into
+ * every consuming app — including Tailwind v3 / shadcn consumers, whose build
+ * breaks on it.
+ *
+ * Consumers connect the theme explicitly, one file per stack, in their own
+ * stylesheet:
+ *   - Tailwind v4 projects:            `styles/theme.css`
+ *   - Tailwind v3 / shadcn projects:   `styles/theme-shadcn-v3.css` (imported
+ *     before `@tailwind` directives)
+ * Both carry the complete token set and the Fixel Display @font-face blocks,
+ * so no consumer is left without tokens or the brand typeface.
+ */
 export { Text, type TextProps, type TextVariant } from "./components/Text";
 export { TextLink, type TextLinkProps } from "./components/TextLink";
 export { Button, type ButtonProps } from "./components/Button";
