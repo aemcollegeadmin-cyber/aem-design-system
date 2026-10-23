@@ -115,7 +115,7 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
   return (
     <section ref={ref} aria-busy={loading || undefined}
       className={cn("flex flex-col gap-6 rounded-panel bg-surface-inverse p-6 text-on-inverse", className)} {...props}>
-      <div className="aem-score-grid grid grid-cols-1 items-stretch gap-3">
+      <div className="aem-score-grid items-stretch gap-3">
         {loading ? [0, 1, 2].map((index) => (
           <div key={index} className={cn(tile, index === 0 ? "bg-surface text-ink" : "bg-surface-inverse-muted text-on-inverse")}>
             <Skeleton radius="pill" className={cn("h-10 w-1/2 md:h-12", index === 0 ? "bg-surface-muted" : "bg-on-inverse-track")} />
