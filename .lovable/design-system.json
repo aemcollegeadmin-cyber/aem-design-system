@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.10.2",
+    "version": "1.10.3",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -82,7 +82,7 @@
       "src/design-system/aem/components/ProgressBar.tsx": "bcf319a3c23c2eb255878534656b4bc9",
       "src/design-system/aem/components/RadioGroup.tsx": "641eaa4dfe762c108d486ade24a554a8",
       "src/design-system/aem/components/RankUpDialog.tsx": "9f6673c32e7e564ed1f62e2aff9bc955",
-      "src/design-system/aem/components/ScoreCard.tsx": "8b535b8696e7ad12d9076c0abecb4860",
+      "src/design-system/aem/components/ScoreCard.tsx": "e8439e350aa089534f840cc54fd9fbe4",
       "src/design-system/aem/components/ScoreToast.tsx": "32c003d32232589e3147dfaaaaa482b0",
       "src/design-system/aem/components/Scoreboard.tsx": "0f7174d6c443c9c0fd4db79305c18dad",
       "src/design-system/aem/components/SearchInput.tsx": "8293be0b87fba65a7842b7b220a7b6e5",
