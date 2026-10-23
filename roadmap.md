@@ -28,3 +28,5 @@
 - [x] ScoreCard: blog article preview grid under the chart with loading placeholders
 - [x] ScoreCard: прибрано chart, додано sparkline тижня, target-аватарку в comparison, світлий лінк для articles.action, новий скелетон
 - [x] TextLink: tone="default" | "onInverse" для темних поверхонь (+ hover-утиліти в v3-шарі)
+
+- [ ] ScoreCard: три рівні колонки за новим референсом, контекстні пропси, статті та скелетон.
