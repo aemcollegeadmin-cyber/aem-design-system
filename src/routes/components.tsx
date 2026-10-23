@@ -95,6 +95,8 @@ import {
 export const Route = createFileRoute("/components")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Компоненти — дизайн-система AEM" },
       {
         name: "description",
@@ -498,16 +500,22 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
       node: (
         <div className="flex w-full flex-col gap-4">
         <Specimen
-          label="бал у коледжі · 2/3 сітки"
-          code={`<ScoreCard label="Бал у коледжі" score="510" rank="#32" delta="+30 за тиждень" sparkline={{ points, todayIndex }} comparison={{ value, target: { name, avatarUrl, score }, hint }} />`}
+          label="місце · загальний бал · бал за тиждень"
+          code={`<ScoreCard label="Бал у коледжі" score="510" rank="#32" delta="+30"
+              rankEmoji="🔥"
+              rankContext="серед 148 студентів"
+              weekContext="Серія 12 днів" sparkline={{ points, todayIndex }} comparison={{ value, target: { name, avatarUrl, score }, hint }} />`}
         >
           <div className="w-full">
             <ScoreCard
-              label="Бал у коледжі"
+              label="Загальний бал"
               score="510"
               rank="#32"
               rankDelta="↑ 2 місця"
-              delta="+30 за тиждень"
+              delta="+30"
+              rankEmoji="🔥"
+              rankContext="серед 148 студентів"
+              weekContext="Серія 12 днів"
               sparkline={{ points: [4, 8, 3, 10, 6, 12, 9], todayIndex: 6 }}
               comparison={{
                 value: 80,
@@ -524,13 +532,17 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
         >
           <div className="w-full">
             <ScoreCard
-              label="Бал у коледжі"
-              score="1 480"
-              rank="#7"
-              delta="+120 за тиждень"
+              label="Загальний бал"
+              score="12 343"
+              rank="#35"
+              delta="+3 345"
+              rankEmoji="🥳"
+              rankContext="серед 287 студентів"
+              weekContext="Результат цього тижня"
               sparkline={{ points: [34, 62, 40, 80, 55, 90, 100], todayIndex: 6 }}
+              comparison={{ value: 80, target: { name: "Yana", score: "180 балів" }, hint: "До наступного місця" }}
               articles={{
-                title: "З блогу коледжу",
+                title: "Пишемо про спільноту та айті:",
                 action: <a href="https://example.com/blog">усі статті →</a>,
                 items: [
                   {

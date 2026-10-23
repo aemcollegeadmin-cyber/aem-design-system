@@ -311,7 +311,7 @@ input[type="search"]::-webkit-search-results-decoration {
 .aem-score-action button {
   font-size: var(--text-caption);
   line-height: var(--text-caption--line-height);
-  font-weight: 600;
+  font-weight: var(--text-caption--font-weight);
   color: var(--aem-on-inverse);
   text-decoration: underline;
   text-underline-offset: 4px;
@@ -320,4 +320,17 @@ input[type="search"]::-webkit-search-results-decoration {
 .aem-score-action a:hover,
 .aem-score-action button:hover {
   color: var(--aem-accent-brand);
+}
+
+/* Statistic grid is part of ScoreCard, even when a v3 consumer does not scan library source. */
+.aem-score-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-items: stretch;
+  gap: calc(var(--spacing, 0.25rem) * 3);
+}
+.aem-score-grid > * { min-width: 0; }
+.aem-score-grid .wrap-anywhere { overflow-wrap: anywhere; }
+@media (min-width: 768px) {
+  .aem-score-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 }

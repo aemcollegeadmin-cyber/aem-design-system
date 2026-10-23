@@ -5,6 +5,8 @@ import { Text } from "@/design-system/aem";
 export const Route = createFileRoute("/typography")({
   head: () => ({
     meta: [
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
       { title: "Типографіка — дизайн-система AEM" },
       {
         name: "description",
