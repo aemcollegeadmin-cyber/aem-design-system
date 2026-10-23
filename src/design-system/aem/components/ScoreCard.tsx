@@ -10,17 +10,24 @@ export interface ScoreCardSparkline {
   todayIndex?: number;
 }
 
-export interface ScoreCardComparison {
-  /** Прогрес 0–100 */
+export interface ScoreCardRankProgress {
+  /** Прогрес 0–100 до наступного місця в загальному рейтингу коледжу. */
   value: number;
-  /** Цільовий суперник для обгону */
+  /** Місце, яке стоїть перед нами, напр. «#34». */
+  nextRank?: string;
+}
+
+export interface ScoreCardComparison {
+  /** Тижневий прогрес 0–100 до суперника. */
+  value: number;
+  /** Суперник, який у тижневому рейтингу стоїть перед нами. */
   target?: {
     name: string;
     avatarUrl?: string;
-    /** Попередньо відформатовані бали, напр. "40 балів". */
+    /** Попередньо відформатовані бали, напр. "180 балів". */
     score: string;
   };
-  /** Підказка над баром зліва, наприклад "10 балів — і ти обходиш 14 місце" */
+  /** Доступна назва бару. */
   hint?: string;
   /** Застарілі поля для сумісності */
   leftLabel?: string;
@@ -39,21 +46,27 @@ export interface ScoreCardArticle {
 }
 
 export interface ScoreCardProps extends React.HTMLAttributes<HTMLElement> {
-  /** Caption for the total score. Defaults to «Загальний бал». */
+  /** Caption under the total score. Defaults to «Твій загальний бал». */
   label?: string;
   /** Pre-formatted total score. */
   score: string;
   rank?: string;
+  /** Emoji shown in the top-right corner of the rank tile. */
   rankEmoji?: string;
+  /** Caption under the rank, used when rankContext is not supplied. */
   rankLabel?: string;
   rankContext?: string;
-  /** Used when rankContext is not supplied. */
+  /** Used when neither rankContext nor rankLabel is supplied. */
   rankDelta?: string;
+  /** Overall college ranking bar under the total score. */
+  rankProgress?: ScoreCardRankProgress;
   /** Pre-formatted weekly points, e.g. «+120». */
   delta?: string;
+  /** Caption under the weekly score. Defaults to «Результат цього тижня». */
   weekLabel?: string;
   weekContext?: string;
   sparkline?: ScoreCardSparkline;
+  /** Weekly ranking bar with the student ahead of us this week. */
   comparison?: ScoreCardComparison;
   articles?: {
     title?: string;
@@ -79,81 +92,87 @@ function Sparkline({ points, todayIndex }: ScoreCardSparkline) {
   );
 }
 
-/** Three equal statistic tiles (rank, total, week), followed by optional blog previews. */
+function Bar({ value, label }: { value: number; label: string }) {
+  const v = Math.min(100, Math.max(0, value));
+  return (
+    <div role="progressbar" aria-label={label} aria-valuenow={v} aria-valuemin={0} aria-valuemax={100}
+      className="h-2 min-w-0 flex-1 overflow-hidden rounded-pill bg-on-inverse-track">
+      <div className="h-full rounded-pill bg-accent-brand" style={{ width: `${v}%` }} />
+    </div>
+  );
+}
+
+const tile = "relative flex min-w-0 flex-col gap-4 rounded-card p-4";
+
+/** Three statistic tiles (rank, total, wider week tile) with numbers on top and captions at the bottom, followed by optional blog previews. */
 export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreCard(
   {
-    label = "Загальний бал", score, rank, rankEmoji, rankLabel = "Місце в рейтингу",
-    rankContext, rankDelta, delta, weekLabel = "Бал за тиждень", weekContext,
+    label = "Твій загальний бал", score, rank, rankEmoji, rankLabel,
+    rankContext, rankDelta, rankProgress, delta, weekLabel = "Результат цього тижня", weekContext,
     sparkline, comparison, articles, footnote, loading = false, className, ...props
   }, ref,
 ) {
-  const progress = comparison ? Math.min(100, Math.max(0, comparison.value)) : 0;
   return (
     <section ref={ref} aria-busy={loading || undefined}
       className={cn("flex flex-col gap-6 rounded-panel bg-surface-inverse p-6 text-on-inverse", className)} {...props}>
-      <div className="aem-score-grid grid grid-cols-1 items-stretch gap-3 md:grid-cols-3">
+      <div className="aem-score-grid grid grid-cols-1 items-stretch gap-3">
         {loading ? [0, 1, 2].map((index) => (
-          <div key={index} className={cn("flex min-w-0 flex-col gap-4 rounded-card p-4", index === 0 ? "bg-surface text-ink" : "bg-surface-inverse-muted text-on-inverse")}>
-            <div className="flex flex-col gap-2">
-              <Skeleton radius="pill" className={cn("h-4 w-2/3", index === 0 ? "bg-surface-muted" : "bg-on-inverse-track")} />
-              <Skeleton radius="pill" className={cn("h-10 w-3/4 md:h-12", index === 0 ? "bg-surface-muted" : "bg-on-inverse-track")} />
+          <div key={index} className={cn(tile, index === 0 ? "bg-surface text-ink" : "bg-surface-inverse-muted text-on-inverse")}>
+            <Skeleton radius="pill" className={cn("h-10 w-1/2 md:h-12", index === 0 ? "bg-surface-muted" : "bg-on-inverse-track")} />
+            <div className="flex min-h-8 items-center gap-3">
+              {index > 0 && <Skeleton radius="pill" className="h-2 flex-1 bg-on-inverse-track" />}
+              {index === 1 && <Skeleton radius="pill" className="h-4 w-8 bg-on-inverse-track" />}
+              {index === 2 && <><Skeleton radius="pill" className="size-8 bg-on-inverse-track" /><Skeleton radius="pill" className="h-4 w-16 bg-on-inverse-track" /></>}
             </div>
-            <div className="mt-auto flex min-h-8 items-center gap-2">
-              {index === 1 ? (
-                <>
-                  <Skeleton radius="pill" className="h-2 flex-1 bg-on-inverse-track" />
-                  <Skeleton radius="pill" className="size-8 bg-on-inverse-track" />
-                  <Skeleton radius="pill" className="h-4 w-12 bg-on-inverse-track" />
-                </>
-              ) : <Skeleton radius="pill" className={cn("h-4 w-2/3", index === 0 ? "bg-surface-muted" : "bg-on-inverse-track")} />}
-            </div>
+            <Skeleton radius="pill" className={cn("mt-auto h-4 w-2/3", index === 0 ? "bg-surface-muted" : "bg-on-inverse-track")} />
           </div>
         )) : (
           <>
-            <div className="flex min-w-0 flex-col gap-4 rounded-card bg-surface p-4 text-ink">
-              <div className="flex flex-col gap-2">
-                <span className="text-caption uppercase tracking-widest text-ink-muted">{rankLabel || "Місце в рейтингу"}</span>
-                <span className="text-h1 wrap-anywhere">{rankEmoji && <span className="mr-2">{rankEmoji}</span>}{rank || "—"}</span>
+            <div className={cn(tile, "bg-surface text-ink")}>
+              <div className="flex items-start justify-between gap-2">
+                <span className="text-h1 wrap-anywhere">{rank || "—"}</span>
+                {rankEmoji && <span className="shrink-0 text-h2" aria-hidden="true">{rankEmoji}</span>}
               </div>
-              <span className="mt-auto flex min-h-8 items-center text-caption text-ink-soft">{rankContext || rankDelta}</span>
+              <div className="min-h-8" aria-hidden="true" />
+              <span className="mt-auto text-body text-ink-soft">{rankContext || rankLabel || rankDelta}</span>
             </div>
-            <div className="flex min-w-0 flex-col gap-4 rounded-card bg-surface-inverse-muted p-4 text-on-inverse">
-              <div className="flex flex-col gap-2">
-                <span className="text-caption uppercase tracking-widest text-on-inverse-soft">{label || "Загальний бал"}</span>
-                <span className="text-h1 text-on-inverse wrap-anywhere">{score}</span>
-              </div>
-              <div className="mt-auto flex min-h-8 items-center gap-3">
-                {comparison && (
+            <div className={cn(tile, "bg-surface-inverse-muted text-on-inverse")}>
+              <span className="text-h1 text-on-inverse wrap-anywhere">{score}</span>
+              <div className="flex min-h-8 items-center gap-3">
+                {rankProgress && (
                   <>
-                    <div role="progressbar" aria-label={comparison.hint || comparison.leftLabel || label || "Загальний бал"} aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}
-                      className="h-2 min-w-0 flex-1 overflow-hidden rounded-pill bg-on-inverse-track">
-                      <div className="h-full rounded-pill bg-accent-brand" style={{ width: `${progress}%` }} />
-                    </div>
-                    {comparison.target ? (
-                      <div className="flex shrink-0 items-center gap-2">
-                        <Avatar name={comparison.target.name} src={comparison.target.avatarUrl} size="sm" />
-                        <span className="text-caption text-on-inverse">{comparison.target.score}</span>
-                      </div>
-                    ) : comparison.rightLabel && <span className="shrink-0 text-caption text-on-inverse-soft">{comparison.rightLabel}</span>}
+                    <Bar value={rankProgress.value} label={label} />
+                    {rankProgress.nextRank && <span className="shrink-0 text-body text-on-inverse">{rankProgress.nextRank}</span>}
                   </>
                 )}
               </div>
+              <span className="mt-auto text-body text-on-inverse-soft">{label}</span>
             </div>
-            <div className="flex min-w-0 flex-col gap-4 rounded-card bg-surface-inverse-muted p-4 text-on-inverse">
-              <div className="flex flex-col gap-2">
-                <span className="text-caption uppercase tracking-widest text-on-inverse-soft">{weekLabel || "Бал за тиждень"}</span>
-                <span className="text-h1 text-accent-brand wrap-anywhere">{delta || "—"}</span>
-              </div>
-              <div className="mt-auto flex min-h-8 flex-wrap items-center justify-between gap-2">
+            <div className={cn(tile, "bg-surface-inverse-muted text-on-inverse")}>
+              <div className="flex items-start justify-between gap-3">
+                <span className="text-h1 text-on-inverse wrap-anywhere">{delta || "—"}</span>
                 {sparkline && <Sparkline {...sparkline} />}
-                {weekContext && <span className="text-caption text-on-inverse-soft">{weekContext}</span>}
               </div>
+              <div className="flex min-h-8 items-center gap-3">
+                {comparison && (
+                  <>
+                    <Bar value={comparison.value} label={comparison.hint || comparison.leftLabel || weekLabel} />
+                    {comparison.target ? (
+                      <div className="flex shrink-0 items-center gap-2">
+                        <Avatar name={comparison.target.name} src={comparison.target.avatarUrl} size="md" />
+                        <span className="text-body text-on-inverse-soft">{comparison.target.score}</span>
+                      </div>
+                    ) : comparison.rightLabel && <span className="shrink-0 text-body text-on-inverse-soft">{comparison.rightLabel}</span>}
+                  </>
+                )}
+              </div>
+              <span className="mt-auto text-body text-on-inverse-soft">{weekContext || weekLabel}</span>
             </div>
           </>
         )}
       </div>
       {loading ? (
-        <div className="flex flex-col gap-3 border-t-2 border-on-inverse-track pt-5">
+        <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between gap-3">
             <Skeleton radius="pill" className="h-5 w-1/2 bg-surface-inverse-muted" />
             <Skeleton radius="pill" className="h-4 w-16 bg-surface-inverse-muted" />
@@ -169,7 +188,7 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
           </div>
         </div>
       ) : articles ? (
-        <div className="flex flex-col gap-3 border-t-2 border-on-inverse-track pt-5">
+        <div className="flex flex-col gap-3">
           <div className="flex items-center justify-between gap-3">
             <span className="text-body text-on-inverse">{articles.title || "Пишемо про спільноту та айті:"}</span>
             {articles.action && (

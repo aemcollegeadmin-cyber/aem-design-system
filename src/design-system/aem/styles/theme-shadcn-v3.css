@@ -617,5 +617,5 @@ input[type="search"]::-webkit-search-results-decoration {
 .aem-score-grid > * { min-width: 0; }
 .aem-score-grid .wrap-anywhere { overflow-wrap: anywhere; }
 @media (min-width: 768px) {
-  .aem-score-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .aem-score-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 6fr) minmax(0, 10fr); }
 }
