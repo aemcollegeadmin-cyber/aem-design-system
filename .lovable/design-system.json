@@ -2,7 +2,7 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.10.1",
+    "version": "1.10.2",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
@@ -82,7 +82,7 @@
       "src/design-system/aem/components/ProgressBar.tsx": "bcf319a3c23c2eb255878534656b4bc9",
       "src/design-system/aem/components/RadioGroup.tsx": "641eaa4dfe762c108d486ade24a554a8",
       "src/design-system/aem/components/RankUpDialog.tsx": "9f6673c32e7e564ed1f62e2aff9bc955",
-      "src/design-system/aem/components/ScoreCard.tsx": "a8f356ad3dfe28cdc9ffcdc1f563a22a",
+      "src/design-system/aem/components/ScoreCard.tsx": "8b535b8696e7ad12d9076c0abecb4860",
       "src/design-system/aem/components/ScoreToast.tsx": "32c003d32232589e3147dfaaaaa482b0",
       "src/design-system/aem/components/Scoreboard.tsx": "0f7174d6c443c9c0fd4db79305c18dad",
       "src/design-system/aem/components/SearchInput.tsx": "8293be0b87fba65a7842b7b220a7b6e5",
@@ -106,11 +106,11 @@
       "src/design-system/aem/components/Tooltip.tsx": "dafb29ed748b0fdd266dadefb2efeeea",
       "src/design-system/aem/components/UserChip.tsx": "347e5e99c875cef170828c3bfa536b41",
       "src/design-system/aem/components/YouTubePlayer.tsx": "7c6587f118370a1f0a01537e5bcbf0b7",
-      "src/design-system/aem/index.ts": "bc418ff04aacd378109c96a2094903e2",
+      "src/design-system/aem/index.ts": "26c9d140dc4d213d7dfe11aff39ca1bf",
       "src/design-system/aem/lib/cn.ts": "f42d8fb0d920ae1cdb1cff4709b87d7f",
       "src/design-system/aem/lib/useFitViewport.ts": "7322abdcb4ca44bbc550fc92c19445e5",
-      "src/design-system/aem/styles/theme-shadcn-v3.css": "096898ec6dfb3bafeac208952ab3e928",
-      "src/design-system/aem/styles/theme.css": "d5f26c6e04f911c1a376cbbc4349ba0c",
+      "src/design-system/aem/styles/theme-shadcn-v3.css": "4966567503c274284ec316bdbf68d692",
+      "src/design-system/aem/styles/theme.css": "3072f1ea06f004e60121c86193d8bc34",
       "src/index.ts": "b5130dc1deb409f8e2340570266c816a",
       "src/mockup-preview.d.ts": "38969839f35ce2966e32a9f01a5c09ea",
       "src/routeTree.gen.ts": "6f67a8aebc2c09c9c5ed77ffc35e30e7",
@@ -119,7 +119,7 @@
       "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
       "src/routes/__root.tsx": "fe9de980adb4a4867de6b31db4d4fbf9",
       "src/routes/colors.tsx": "22f4ab465539c7dc20bf68e423676170",
-      "src/routes/components.tsx": "e248dceb651659b3c4046db211667c4e",
+      "src/routes/components.tsx": "3665540a69500de05a49c7aa36eae2dd",
       "src/routes/index.tsx": "eb2e8dc2c35d3f319a745d011af255d2",
       "src/routes/typography.tsx": "aba129c827ab9a3d985d1da7a2bc49ab",
       "src/showcase/ShowcaseShell.tsx": "9681207624f6106e061e24f5f6637188",
@@ -1187,7 +1187,7 @@
         {
           "name": "label",
           "type": "string",
-          "default": "Загальний бал"
+          "default": "Твій загальний бал"
         },
         {
           "name": "score",
@@ -1204,8 +1204,7 @@
         },
         {
           "name": "rankLabel",
-          "type": "string",
-          "default": "Місце в рейтингу"
+          "type": "string"
         },
         {
           "name": "rankContext",
@@ -1216,13 +1215,17 @@
           "type": "string"
         },
         {
+          "name": "rankProgress",
+          "type": "any"
+        },
+        {
           "name": "delta",
           "type": "string"
         },
         {
           "name": "weekLabel",
           "type": "string",
-          "default": "Бал за тиждень"
+          "default": "Результат цього тижня"
         },
         {
           "name": "weekContext",

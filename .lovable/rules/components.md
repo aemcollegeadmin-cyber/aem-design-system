@@ -845,15 +845,16 @@ import { ScoreCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33a
 
 | Prop | Type | Default |
 |---|---|---|
-| `label` | string | `Загальний бал` |
+| `label` | string | `Твій загальний бал` |
 | `score` | string | `—` |
 | `rank` | string | `—` |
 | `rankEmoji` | string | `—` |
-| `rankLabel` | string | `Місце в рейтингу` |
+| `rankLabel` | string | `—` |
 | `rankContext` | string | `—` |
 | `rankDelta` | string | `—` |
+| `rankProgress` | any | `—` |
 | `delta` | string | `—` |
-| `weekLabel` | string | `Бал за тиждень` |
+| `weekLabel` | string | `Результат цього тижня` |
 | `weekContext` | string | `—` |
 | `sparkline` | any | `—` |
 | `comparison` | any | `—` |
