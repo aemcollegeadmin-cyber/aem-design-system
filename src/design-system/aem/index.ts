@@ -43,6 +43,7 @@ export {
   ScoreCard,
   type ScoreCardProps,
   type ScoreCardSparkline,
+  type ScoreCardRankProgress,
   type ScoreCardComparison,
   type ScoreCardArticle,
 } from "./components/ScoreCard";

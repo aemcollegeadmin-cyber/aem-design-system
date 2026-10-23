@@ -511,7 +511,7 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
               label="Загальний бал"
               score="510"
               rank="#32"
-              rankDelta="↑ 2 місця"
+              rankProgress={{ value: 60, nextRank: "#31" }}
               delta="+30"
               rankEmoji="🔥"
               rankContext="серед 148 студентів"
@@ -532,15 +532,15 @@ function sections(): { id: string; title: string; node: React.ReactNode }[] {
         >
           <div className="w-full">
             <ScoreCard
-              label="Загальний бал"
               score="12 343"
+              rankProgress={{ value: 78, nextRank: "#34" }}
               rank="#35"
               delta="+3 345"
               rankEmoji="🥳"
               rankContext="серед 287 студентів"
               weekContext="Результат цього тижня"
               sparkline={{ points: [34, 62, 40, 80, 55, 90, 100], todayIndex: 6 }}
-              comparison={{ value: 80, target: { name: "Yana", score: "180 балів" }, hint: "До наступного місця" }}
+              comparison={{ value: 78, target: { name: "Yana", score: "180 балів" }, hint: "Тижневий рейтинг" }}
               articles={{
                 title: "Пишемо про спільноту та айті:",
                 action: <a href="https://example.com/blog">усі статті →</a>,
