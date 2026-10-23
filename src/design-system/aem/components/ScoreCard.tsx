@@ -93,51 +93,58 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
       className={cn("flex flex-col gap-6 rounded-panel bg-surface-inverse p-6 text-on-inverse", className)} {...props}>
       <div className="aem-score-grid grid grid-cols-1 items-stretch gap-3 md:grid-cols-3">
         {loading ? [0, 1, 2].map((index) => (
-          <div key={index} className={cn("flex min-w-0 flex-col justify-between gap-4 rounded-card p-4", index === 0 ? "bg-surface text-ink" : "bg-surface-inverse-muted text-on-inverse")}>
-            <Skeleton radius="pill" className={cn("h-4 w-2/3", index === 0 ? "bg-surface-muted" : "bg-on-inverse-track")} />
-            <Skeleton radius="pill" className={cn("h-10 w-3/4 md:h-12", index === 0 ? "bg-surface-muted" : "bg-on-inverse-track")} />
-            <div className="flex min-h-6 flex-col justify-end gap-2">
-              {index === 1 && <Skeleton radius="pill" className="h-2 w-full bg-on-inverse-track" />}
+          <div key={index} className={cn("flex min-w-0 flex-col gap-4 rounded-card p-4", index === 0 ? "bg-surface text-ink" : "bg-surface-inverse-muted text-on-inverse")}>
+            <div className="flex flex-col gap-2">
               <Skeleton radius="pill" className={cn("h-4 w-2/3", index === 0 ? "bg-surface-muted" : "bg-on-inverse-track")} />
+              <Skeleton radius="pill" className={cn("h-10 w-3/4 md:h-12", index === 0 ? "bg-surface-muted" : "bg-on-inverse-track")} />
+            </div>
+            <div className="mt-auto flex min-h-8 items-center gap-2">
+              {index === 1 ? (
+                <>
+                  <Skeleton radius="pill" className="h-2 flex-1 bg-on-inverse-track" />
+                  <Skeleton radius="pill" className="size-8 bg-on-inverse-track" />
+                  <Skeleton radius="pill" className="h-4 w-12 bg-on-inverse-track" />
+                </>
+              ) : <Skeleton radius="pill" className={cn("h-4 w-2/3", index === 0 ? "bg-surface-muted" : "bg-on-inverse-track")} />}
             </div>
           </div>
         )) : (
           <>
-            <div className="flex min-w-0 flex-col justify-between gap-4 rounded-card bg-surface p-4 text-ink">
-              <span className="text-caption uppercase tracking-widest text-ink-muted">{rankLabel || "Місце в рейтингу"}</span>
-              <div className="flex flex-wrap items-center gap-2">
-                {rankEmoji && <span className="text-h1">{rankEmoji}</span>}
-                <span className="text-h1 wrap-anywhere">{rank || "—"}</span>
+            <div className="flex min-w-0 flex-col gap-4 rounded-card bg-surface p-4 text-ink">
+              <div className="flex flex-col gap-2">
+                <span className="text-caption uppercase tracking-widest text-ink-muted">{rankLabel || "Місце в рейтингу"}</span>
+                <span className="text-h1 wrap-anywhere">{rankEmoji && <span className="mr-2">{rankEmoji}</span>}{rank || "—"}</span>
               </div>
-              <span className="min-h-6 text-caption text-ink-soft">{rankContext || rankDelta}</span>
+              <span className="mt-auto flex min-h-8 items-center text-caption text-ink-soft">{rankContext || rankDelta}</span>
             </div>
-            <div className="flex min-w-0 flex-col justify-between gap-4 rounded-card bg-surface-inverse-muted p-4 text-on-inverse">
-              <span className="text-caption uppercase tracking-widest text-on-inverse-soft">{label || "Загальний бал"}</span>
-              <span className="text-h1 text-on-inverse wrap-anywhere">{score}</span>
-              <div className="flex min-h-6 flex-col justify-end gap-2">
+            <div className="flex min-w-0 flex-col gap-4 rounded-card bg-surface-inverse-muted p-4 text-on-inverse">
+              <div className="flex flex-col gap-2">
+                <span className="text-caption uppercase tracking-widest text-on-inverse-soft">{label || "Загальний бал"}</span>
+                <span className="text-h1 text-on-inverse wrap-anywhere">{score}</span>
+              </div>
+              <div className="mt-auto flex min-h-8 items-center gap-3">
                 {comparison && (
                   <>
-                    <div className="flex flex-wrap items-center justify-between gap-2">
-                      <span className="min-w-0 text-caption text-on-inverse-soft">{comparison.hint || comparison.leftLabel}</span>
-                      {comparison.target ? (
-                        <div className="ml-auto flex items-center gap-2">
-                          <Avatar name={comparison.target.name} src={comparison.target.avatarUrl} size="sm" />
-                          <span className="text-caption text-on-inverse">{comparison.target.score}</span>
-                        </div>
-                      ) : comparison.rightLabel && <span className="ml-auto text-caption text-on-inverse-soft">{comparison.rightLabel}</span>}
-                    </div>
-                    <div role="progressbar" aria-label={label || "Загальний бал"} aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}
-                      className="h-2 w-full overflow-hidden rounded-pill bg-on-inverse-track">
+                    <div role="progressbar" aria-label={comparison.hint || comparison.leftLabel || label || "Загальний бал"} aria-valuenow={progress} aria-valuemin={0} aria-valuemax={100}
+                      className="h-2 min-w-0 flex-1 overflow-hidden rounded-pill bg-on-inverse-track">
                       <div className="h-full rounded-pill bg-accent-brand" style={{ width: `${progress}%` }} />
                     </div>
+                    {comparison.target ? (
+                      <div className="flex shrink-0 items-center gap-2">
+                        <Avatar name={comparison.target.name} src={comparison.target.avatarUrl} size="sm" />
+                        <span className="text-caption text-on-inverse">{comparison.target.score}</span>
+                      </div>
+                    ) : comparison.rightLabel && <span className="shrink-0 text-caption text-on-inverse-soft">{comparison.rightLabel}</span>}
                   </>
                 )}
               </div>
             </div>
-            <div className="flex min-w-0 flex-col justify-between gap-4 rounded-card bg-surface-inverse-muted p-4 text-on-inverse">
-              <span className="text-caption uppercase tracking-widest text-on-inverse-soft">{weekLabel || "Бал за тиждень"}</span>
-              <span className="text-h1 text-accent-brand wrap-anywhere">{delta || "—"}</span>
-              <div className="flex min-h-6 flex-wrap items-center justify-between gap-2">
+            <div className="flex min-w-0 flex-col gap-4 rounded-card bg-surface-inverse-muted p-4 text-on-inverse">
+              <div className="flex flex-col gap-2">
+                <span className="text-caption uppercase tracking-widest text-on-inverse-soft">{weekLabel || "Бал за тиждень"}</span>
+                <span className="text-h1 text-accent-brand wrap-anywhere">{delta || "—"}</span>
+              </div>
+              <div className="mt-auto flex min-h-8 flex-wrap items-center justify-between gap-2">
                 {sparkline && <Sparkline {...sparkline} />}
                 {weekContext && <span className="text-caption text-on-inverse-soft">{weekContext}</span>}
               </div>
