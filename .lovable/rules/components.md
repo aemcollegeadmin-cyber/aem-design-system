@@ -839,22 +839,41 @@ import { RankUpDialog } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e
 import { ScoreCard } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa"
 ```
 
-Темна hero-картка балу студента: загальні показники зверху, вкладена секція тижня (delta + sparkline + прогрес до суперника) та опційний блок прев'ю статей з блогу.
+Картка прогресу студента з трьома рівними колонками: місце, загальний бал та бали за тиждень; під ними опційний блок статей. Дані передаються відформатованими, loading показує вбудований скелетон.
 
 **Props:**
 
 | Prop | Type | Default |
 |---|---|---|
-| `label` | string | `—` |
+| `label` | string | `Загальний бал` |
 | `score` | string | `—` |
-| `delta` | string | `—` |
 | `rank` | string | `—` |
+| `rankEmoji` | string | `—` |
+| `rankLabel` | string | `Місце в рейтингу` |
+| `rankContext` | string | `—` |
 | `rankDelta` | string | `—` |
+| `delta` | string | `—` |
+| `weekLabel` | string | `Бал за тиждень` |
+| `weekContext` | string | `—` |
 | `sparkline` | any | `—` |
 | `comparison` | any | `—` |
-| `footnote` | string | `—` |
 | `articles` | object | `—` |
+| `footnote` | string | `—` |
 | `loading` | boolean | `false` |
+
+**Examples:**
+
+_Показники студента_
+```tsx
+<ScoreCard score="12 343" rank="#35" rankEmoji="🥳" rankContext="серед 287 студентів" delta="+3 345" weekContext="Серія 5 днів" sparkline={{ points: [4, 8, 3, 10, 6, 12, 9], todayIndex: 6 }} comparison={{ value: 80, hint: "До наступного місця", target: { name: "Яна", score: "180 балів" } }} />
+```
+
+**Avoid:**
+
+- Не збирати локальні колонки показників або скелетон замість ScoreCard.
+- Не передавати тижневий контекст усередині delta — використовувати weekContext.
+- Не використовувати chart або довільні розміри тексту; sparkline замінює старий графік.
+- Не дублювати footnote під articles і не додавати місцеві токени.
 
 ### Scoreboard
 

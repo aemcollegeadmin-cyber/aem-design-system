@@ -2,17 +2,16 @@
   "meta": {
     "name": "aem-design-system",
     "package": "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bbbfa",
-    "version": "1.9.1",
+    "version": "1.10.0",
     "framework": "react",
     "css_framework": "tailwind",
     "starter_template": "custom_design_system",
     "theme_files": [
-      "src/design-system/aem/styles/theme.css",
-      "src/design-system/aem/styles/theme-shadcn-v3.css"
+      "src/design-system/aem/styles/theme.css"
     ],
     "source_type": "local",
     "source_manifest": {
-      "#enrichment": "3bca81397b4af1e394592643692880e0a72d31a58833e7bbabdd75c52d976213",
+      "#enrichment": "3937ecbe5d4bcf2de8464b0f8efb6e6a84caf18f9916b68f86d194f0ea6a1dcc",
       ".dsignore": "a26f2e60b116f104046a9440907feb8e",
       ".gitignore": "6059213806e442947666752f3db6bfdc",
       ".lovable/meta.yaml": "8794970d6049858cc148d2b86f7a2b22",
@@ -20,8 +19,8 @@
       ".lovable/plan/fix-lms-panel-and-leaderboard-regressions-2026-09-11.md": "227bb5f07e984a3cd823d2ea6ca38bf7",
       ".lovable/plan/виправити-спільне-відображення-рейтингів-2026-09-11.md": "c763c6488287878d0681da2ccafc2bc4",
       ".lovable/sources.yaml": "8469455bacbb4c31f179c3bcc80a4e2e",
-      ".lovable/system.md": "74980e2cc48ae946515c51e9e4d984fd",
-      "AGENTS.md": "7f52d62977f91dd7c5b6c06203dc541f",
+      ".lovable/system.md": "7cbdc68ac28ddefc08cad8f42ded4c85",
+      "AGENTS.md": "4b11efd4a50f300b63f34d1a7aae00ef",
       "README.md": "d19675c449605f23c7cfa133c69b398b",
       "bunfig.toml": "25f4c8696b22b0943db7191e0cdf7942",
       "components_files.txt": "3634a1bc29711409cd1ada4e1f90247e",
@@ -36,7 +35,7 @@
       "public/fonts/FixelDisplay-Medium.woff2": "8281af068dfe4cb7cdc22f68d10b738c",
       "public/fonts/FixelDisplay-Regular.woff2": "5e55b8f54359c099a607992e9553fd48",
       "public/fonts/FixelDisplay-SemiBold.woff2": "901193ce10a48acf7bfc6c98b73ad990",
-      "roadmap.md": "12ff028d427685aca535c2865ad88148",
+      "roadmap.md": "6685c8f25bac5d10e99b40473e3a79e1",
       "src/design-system/aem/assets/fonts/FixelDisplay-Bold.woff2": "2ba7f4744422895e87e8be300485cb04",
       "src/design-system/aem/assets/fonts/FixelDisplay-Medium.woff2": "8281af068dfe4cb7cdc22f68d10b738c",
       "src/design-system/aem/assets/fonts/FixelDisplay-Regular.woff2": "5e55b8f54359c099a607992e9553fd48",
@@ -83,7 +82,7 @@
       "src/design-system/aem/components/ProgressBar.tsx": "bcf319a3c23c2eb255878534656b4bc9",
       "src/design-system/aem/components/RadioGroup.tsx": "641eaa4dfe762c108d486ade24a554a8",
       "src/design-system/aem/components/RankUpDialog.tsx": "9f6673c32e7e564ed1f62e2aff9bc955",
-      "src/design-system/aem/components/ScoreCard.tsx": "16c6b5ae8f6ff13c918a0c1b499c58d9",
+      "src/design-system/aem/components/ScoreCard.tsx": "47e0fc49ce0724e3f91dcc5c44333405",
       "src/design-system/aem/components/ScoreToast.tsx": "32c003d32232589e3147dfaaaaa482b0",
       "src/design-system/aem/components/Scoreboard.tsx": "0f7174d6c443c9c0fd4db79305c18dad",
       "src/design-system/aem/components/SearchInput.tsx": "8293be0b87fba65a7842b7b220a7b6e5",
@@ -107,11 +106,11 @@
       "src/design-system/aem/components/Tooltip.tsx": "dafb29ed748b0fdd266dadefb2efeeea",
       "src/design-system/aem/components/UserChip.tsx": "347e5e99c875cef170828c3bfa536b41",
       "src/design-system/aem/components/YouTubePlayer.tsx": "7c6587f118370a1f0a01537e5bcbf0b7",
-      "src/design-system/aem/index.ts": "36c06a5c73a10b8023203788b887a98d",
+      "src/design-system/aem/index.ts": "bc418ff04aacd378109c96a2094903e2",
       "src/design-system/aem/lib/cn.ts": "f42d8fb0d920ae1cdb1cff4709b87d7f",
       "src/design-system/aem/lib/useFitViewport.ts": "7322abdcb4ca44bbc550fc92c19445e5",
-      "src/design-system/aem/styles/theme-shadcn-v3.css": "a72d85adb6f500cfd0f8b97fda8b301b",
-      "src/design-system/aem/styles/theme.css": "d22e35bf565adb1e300e75109915eb75",
+      "src/design-system/aem/styles/theme-shadcn-v3.css": "096898ec6dfb3bafeac208952ab3e928",
+      "src/design-system/aem/styles/theme.css": "d5f26c6e04f911c1a376cbbc4349ba0c",
       "src/index.ts": "b5130dc1deb409f8e2340570266c816a",
       "src/mockup-preview.d.ts": "38969839f35ce2966e32a9f01a5c09ea",
       "src/routeTree.gen.ts": "6f67a8aebc2c09c9c5ed77ffc35e30e7",
@@ -119,10 +118,10 @@
       "src/routes/[__component].preview.$.tsx": "06d671f4774ac83355e59ad69a350bab",
       "src/routes/[__mockup].preview.$.tsx": "5d9f42470848aa60148f20f9580e240e",
       "src/routes/__root.tsx": "fe9de980adb4a4867de6b31db4d4fbf9",
-      "src/routes/colors.tsx": "fcee8aeb0fd5af838edc738476e1811c",
-      "src/routes/components.tsx": "c2cc5a76280cf945ea1345cf27b12922",
-      "src/routes/index.tsx": "3913e960e9ffe2db34f533e48477d28e",
-      "src/routes/typography.tsx": "92d62f0915b6284f6e9ad3b65fe0949f",
+      "src/routes/colors.tsx": "22f4ab465539c7dc20bf68e423676170",
+      "src/routes/components.tsx": "e248dceb651659b3c4046db211667c4e",
+      "src/routes/index.tsx": "eb2e8dc2c35d3f319a745d011af255d2",
+      "src/routes/typography.tsx": "aba129c827ab9a3d985d1da7a2bc49ab",
       "src/showcase/ShowcaseShell.tsx": "9681207624f6106e061e24f5f6637188",
       "src/styles.css": "5cf5c478933bc96bd3fab2aa39bfd706",
       "tsconfig.json": "994abf64c2b9f78b568879f80ed0170e",
@@ -517,15 +516,15 @@
       "examples": [
         {
           "label": "світла поверхня (типово)",
-          "code": "<TextLink href=\"/forgot\">Забули пароль?</TextLink>"
+          "code": "\u003cTextLink href=\"/forgot\"\u003eЗабули пароль?\u003c/TextLink\u003e"
         },
         {
           "label": "темна поверхня",
-          "code": "<TextLink tone=\"onInverse\" href=\"/blog\">Читати блог</TextLink>"
+          "code": "\u003cTextLink tone=\"onInverse\" href=\"/blog\"\u003eЧитати блог\u003c/TextLink\u003e"
         },
         {
           "label": "як кнопка",
-          "code": "<TextLink as=\"button\" onClick={openRegister}>Зареєструватися</TextLink>"
+          "code": "\u003cTextLink as=\"button\" onClick={openRegister}\u003eЗареєструватися\u003c/TextLink\u003e"
         }
       ],
       "antipatterns": [
@@ -760,11 +759,11 @@
       "examples": [
         {
           "label": "статус на світлій поверхні",
-          "code": "<Badge variant=\"lime\">Прийнято</Badge>"
+          "code": "\u003cBadge variant=\"lime\"\u003eПрийнято\u003c/Badge\u003e"
         },
         {
           "label": "новинка на кавері",
-          "code": "<Badge variant=\"danger\" tone=\"onMuted\">Новинка</Badge>"
+          "code": "\u003cBadge variant=\"danger\" tone=\"onMuted\"\u003eНовинка\u003c/Badge\u003e"
         }
       ],
       "antipatterns": [
@@ -856,7 +855,7 @@
       "examples": [
         {
           "label": "таб з бейджем",
-          "code": "<Tabs items={[{ value: \"lessons\", label: \"Уроки\" }, { value: \"podcasts\", label: \"Подкасти\", badge: <Badge variant=\"danger\">New</Badge> }]} value={tab} onValueChange={setTab} />"
+          "code": "\u003cTabs items={[{ value: \"lessons\", label: \"Уроки\" }, { value: \"podcasts\", label: \"Подкасти\", badge: \u003cBadge variant=\"danger\"\u003eNew\u003c/Badge\u003e }]} value={tab} onValueChange={setTab} /\u003e"
         }
       ],
       "antipatterns": [
@@ -1170,7 +1169,7 @@
       "examples": [
         {
           "label": "Курс із тегами доступу на кавері",
-          "code": "<CourseCard title=\"Framer експерт\" progress={0} coverStatus=\"Доступ завершено\" coverTags={<><Badge tone=\"onMuted\">Доступ до 12 бер. 27'</Badge><Badge tone=\"onMuted\">Супровід закінчився</Badge></>} meta={courseFacts} mentors={mentorChips} />"
+          "code": "\u003cCourseCard title=\"Framer експерт\" progress={0} coverStatus=\"Доступ завершено\" coverTags={\u003c\u003e\u003cBadge tone=\"onMuted\"\u003eДоступ до 12 бер. 27'\u003c/Badge\u003e\u003cBadge tone=\"onMuted\"\u003eСупровід закінчився\u003c/Badge\u003e\u003c/\u003e} meta={courseFacts} mentors={mentorChips} /\u003e"
         }
       ],
       "antipatterns": [
@@ -1231,15 +1230,15 @@
         },
         {
           "name": "sparkline",
-          "type": "ScoreCardSparkline"
+          "type": "any"
         },
         {
           "name": "comparison",
-          "type": "ScoreCardComparison"
+          "type": "any"
         },
         {
           "name": "articles",
-          "type": "{ title?: string; items: ScoreCardArticle[]; action?: React.ReactNode }"
+          "type": "object"
         },
         {
           "name": "footnote",
@@ -1255,7 +1254,7 @@
       "examples": [
         {
           "label": "Показники студента",
-          "code": "<ScoreCard score=\"12 343\" rank=\"#35\" rankEmoji=\"🥳\" rankContext=\"серед 287 студентів\" delta=\"+3 345\" weekContext=\"Серія 5 днів\" sparkline={{ points: [4, 8, 3, 10, 6, 12, 9], todayIndex: 6 }} comparison={{ value: 80, hint: \"До наступного місця\", target: { name: \"Яна\", score: \"180 балів\" } }} />"
+          "code": "\u003cScoreCard score=\"12 343\" rank=\"#35\" rankEmoji=\"🥳\" rankContext=\"серед 287 студентів\" delta=\"+3 345\" weekContext=\"Серія 5 днів\" sparkline={{ points: [4, 8, 3, 10, 6, 12, 9], todayIndex: 6 }} comparison={{ value: 80, hint: \"До наступного місця\", target: { name: \"Яна\", score: \"180 балів\" } }} /\u003e"
         }
       ],
       "antipatterns": [
@@ -1632,15 +1631,15 @@
       "examples": [
         {
           "label": "подкаст з епізодами",
-          "code": "<PodcastCard title=\"Розмови про дизайн\" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? <YouTubePlayer url={url} playing /> : undefined}><EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" onToggle={play} /></PodcastCard>"
+          "code": "\u003cPodcastCard title=\"Розмови про дизайн\" coverVideoSrc={firstEpisodeUrl} episodeCount={3} progress={40} player={playing ? \u003cYouTubePlayer url={url} playing /\u003e : undefined}\u003e\u003cEpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" onToggle={play} /\u003e\u003c/PodcastCard\u003e"
         },
         {
           "label": "один епізод — компактний режим",
-          "code": "<PodcastCard title=\"Один епізод\" coverVideoSrc={url} episodeCount={1} progress={progress} playing={playing} onTogglePlay={toggle} player={started ? <YouTubePlayer url={url} playing={playing} startSecond={startSecond} /> : undefined} />"
+          "code": "\u003cPodcastCard title=\"Один епізод\" coverVideoSrc={url} episodeCount={1} progress={progress} playing={playing} onTogglePlay={toggle} player={started ? \u003cYouTubePlayer url={url} playing={playing} startSecond={startSecond} /\u003e : undefined} /\u003e"
         },
         {
           "label": "теги на кавері",
-          "code": "<PodcastCard title=\"Розмови про дизайн\" coverVideoSrc={url} coverTags={<Badge variant=\"danger\" tone=\"onMuted\">Новинка</Badge>} episodeCount={3} progress={40} />"
+          "code": "\u003cPodcastCard title=\"Розмови про дизайн\" coverVideoSrc={url} coverTags={\u003cBadge variant=\"danger\" tone=\"onMuted\"\u003eНовинка\u003c/Badge\u003e} episodeCount={3} progress={40} /\u003e"
         }
       ],
       "antipatterns": [
@@ -1705,11 +1704,11 @@
       "examples": [
         {
           "label": "епізод у процесі",
-          "code": "<EpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" progress={40} playing={isPlaying} onToggle={toggle} />"
+          "code": "\u003cEpisodeRow index={1} title=\"Пілот\" duration=\"32 хв\" progress={40} playing={isPlaying} onToggle={toggle} /\u003e"
         },
         {
           "label": "один епізод — без назви",
-          "code": "<EpisodeRow index={1} duration=\"18 хв\" playing={isPlaying} onToggle={toggle} />"
+          "code": "\u003cEpisodeRow index={1} duration=\"18 хв\" playing={isPlaying} onToggle={toggle} /\u003e"
         }
       ],
       "antipatterns": [
@@ -1769,11 +1768,11 @@
       "examples": [
         {
           "label": "контрольований плеєр",
-          "code": "<YouTubePlayer url={episode.youtube_url} playing={activeId === episode.id} startSecond={progress.current_second} onTimeChange={saveDebounced} onDuration={saveDuration} onEnded={markCompleted} />"
+          "code": "\u003cYouTubePlayer url={episode.youtube_url} playing={activeId === episode.id} startSecond={progress.current_second} onTimeChange={saveDebounced} onDuration={saveDuration} onEnded={markCompleted} /\u003e"
         }
       ],
       "antipatterns": [
-        "Прямий <iframe> YouTube в LMS",
+        "Прямий \u003ciframe\u003e YouTube в LMS",
         "Власні кнопки чи підписи поверх відео замість EpisodeRow",
         "CSS-маскування обов'язкового брендингу YouTube",
         "Збереження прогресу частіше ніж раз на кілька секунд без debounce"
