@@ -161,7 +161,7 @@ import { Card } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aac8bb
 |---|---|---|
 | `variant` | surface · muted · panel | `surface` |
 | `padding` | none · sm · md · lg | `md` |
-| `radius` | card · panel · field | `card` |
+| `radius` | inset · card · panel · field | `card` |
 
 ### ChatBubble
 
@@ -997,7 +997,7 @@ import { Skeleton } from "@ws-z801ffmckajwusxnf7ux/9a8bdf79-0a95-4e2b-aa82-e33aa
 
 | Prop | Type | Default |
 |---|---|---|
-| `radius` | field · card · pill | `field` |
+| `radius` | inset · field · card · pill | `field` |
 
 ### StatCard
 
