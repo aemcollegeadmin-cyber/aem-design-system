@@ -36,7 +36,7 @@ export const DropdownMenuItem = forwardRef<HTMLDivElement, DropdownMenuItemProps
       <Item
         ref={ref}
         className={cn(
-          "flex cursor-pointer items-center gap-2 rounded-field px-3 py-2 text-body outline-hidden select-none data-[disabled]:opacity-50 data-[highlighted]:bg-surface-muted",
+          "flex cursor-pointer items-center gap-2 rounded-inset px-3 py-2 text-body outline-hidden select-none data-[disabled]:opacity-50 data-[highlighted]:bg-surface-muted",
           tone === "danger" ? "text-danger-fg" : "text-ink",
           className,
         )}

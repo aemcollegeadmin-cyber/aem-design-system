@@ -325,3 +325,11 @@ generated token and component reference.
 ## Концентричні кути
 
 - Вкладений елемент у картці з відступом має менший радіус: `rounded-inset` (10px) для каверів, плеєрів, плиток і прев'ю всередині `rounded-panel` карток. Ніколи не став той самий `rounded-panel` всередину `rounded-panel`.
+
+## Шкала скруглень (4 рівні)
+
+- `rounded-panel` 24px — зовнішні панелі (ScoreCard, CourseCard, PodcastCard, сайдбари, діалоги).
+- `rounded-card` 16px — картки всередині панелі (плитки показників, картки статей, ModuleCard).
+- `rounded-inset` 10px — медіа й дрібні елементи всередині картки (фото, кавери, плеєр, textarea, тултіпи, меню).
+- `rounded-pill` — усі контроли (кнопки, інпути, таби, бейджі, прогрес-бари).
+- `rounded-field` / `rounded-composer` — застарілі аліаси (= inset / card), не використовуй їх у новому коді.

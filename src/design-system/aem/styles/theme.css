@@ -124,12 +124,13 @@
 }
 
 @theme {
-  /* Radius. A single-`--radius` consumer maps it to --radius-card (20px);
-     field = 18px, panel = 24px, pill = fully round. */
+  /* Radius. A single-`--radius` consumer maps it to --radius-card.
+     Four tiers: panel 24 > card 16 > inset 10, plus pill for controls. */
   --radius-inset: 10px; /* nested inside a padded card: outer radius minus padding */
-  --radius-field: 18px;
-  --radius-card: 20px;
-  --radius-composer: 22px;
+  --radius-card: 16px; /* standalone or nested cards inside a panel */
+  /* Deprecated aliases kept so older consumer markup keeps rendering. */
+  --radius-field: var(--radius-inset);
+  --radius-composer: var(--radius-card);
   --radius-panel: 24px;
   --radius-pill: 999px;
 

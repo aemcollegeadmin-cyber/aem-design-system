@@ -8,7 +8,7 @@ const preview = cva(
   {
     variants: {
       size: {
-        sm: "h-16 w-24 rounded-field",
+        sm: "h-16 w-24 rounded-inset",
         md: "h-20 w-32 rounded-card",
         lg: "h-36 w-full rounded-inset",
         /** Same geometry as an inline video player — no size jump on play. */

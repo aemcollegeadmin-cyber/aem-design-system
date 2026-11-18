@@ -67,7 +67,7 @@ export const Select = forwardRef<HTMLButtonElement, SelectProps>(function Select
                 key={option.value}
                 value={option.value}
                 disabled={option.disabled}
-                className="flex cursor-pointer items-center justify-between gap-2 rounded-field px-3 py-2 text-body text-ink outline-hidden select-none data-[disabled]:opacity-50 data-[highlighted]:bg-surface-muted"
+                className="flex cursor-pointer items-center justify-between gap-2 rounded-inset px-3 py-2 text-body text-ink outline-hidden select-none data-[disabled]:opacity-50 data-[highlighted]:bg-surface-muted"
               >
                 <ItemText>{option.label}</ItemText>
                 <ItemIndicator>

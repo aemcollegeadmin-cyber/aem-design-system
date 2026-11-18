@@ -18,7 +18,7 @@ export const Tooltip = forwardRef<HTMLDivElement, TooltipProps>(function Tooltip
       <Content
         ref={ref}
         sideOffset={sideOffset}
-        className={cn("z-50 rounded-field bg-ink px-3 py-1.5 text-caption text-surface", className)}
+        className={cn("z-50 rounded-inset bg-ink px-3 py-1.5 text-caption text-surface", className)}
         {...props}
       />
     </Portal>

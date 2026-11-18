@@ -122,9 +122,10 @@
 
   /* Radius */
   --radius-inset: 10px; /* nested inside a padded card: outer radius minus padding */
-  --radius-field: 18px;
-  --radius-card: 20px;
-  --radius-composer: 22px;
+  --radius-card: 16px; /* standalone or nested cards inside a panel */
+  /* Deprecated aliases kept so older consumer markup keeps rendering. */
+  --radius-field: var(--radius-inset);
+  --radius-composer: var(--radius-card);
   --radius-panel: 24px;
   --radius-pill: 999px;
 
@@ -171,7 +172,7 @@
   --input: 0 0% 90%;
   --ring: 71 91% 50%; /* aem focus — brand acid lime */
 
-  --radius: 20px; /* aem radius-card; field = 18px, panel = 24px */
+  --radius: 16px; /* aem radius-card; inset = 10px, panel = 24px */
 
   --sidebar-background: 0 0% 10%;
   --sidebar-foreground: 0 0% 71%;

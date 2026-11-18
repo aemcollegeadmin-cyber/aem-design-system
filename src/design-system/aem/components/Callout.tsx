@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { Icon } from "./Icon";
 import { cn } from "../lib/cn";
 
-const callout = cva("flex items-start gap-2 rounded-field px-3 py-2.5 text-caption", {
+const callout = cva("flex items-start gap-2 rounded-inset px-3 py-2.5 text-caption", {
   variants: {
     variant: {
       pending: "bg-accent-peach text-accent-peach-fg",

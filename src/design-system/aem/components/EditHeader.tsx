@@ -62,7 +62,7 @@ export const EditHeader = forwardRef<HTMLElement, EditHeaderProps>(function Edit
           disabled={titleDisabled}
           data-aem-input-control
           className={cn(
-            "min-w-0 flex-1 truncate rounded-field border-2 border-transparent bg-transparent px-3 py-1 -mx-3",
+            "min-w-0 flex-1 truncate rounded-inset border-2 border-transparent bg-transparent px-3 py-1 -mx-3",
             "text-h2 text-ink placeholder:text-ink-muted transition-colors",
             "hover:border-border-strong focus:border-ink focus:outline-none",
             "disabled:cursor-not-allowed disabled:opacity-60",

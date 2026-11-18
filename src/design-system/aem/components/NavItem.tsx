@@ -3,7 +3,7 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../lib/cn";
 
 const navItem = cva(
-  "flex items-center gap-3 rounded-field px-3 py-2 text-body no-underline transition-colors",
+  "flex items-center gap-3 rounded-inset px-3 py-2 text-body no-underline transition-colors",
   {
     variants: {
       active: {

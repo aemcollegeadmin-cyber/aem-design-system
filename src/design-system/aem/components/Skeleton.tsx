@@ -4,7 +4,7 @@ import { cn } from "../lib/cn";
 
 const skeleton = cva("animate-pulse bg-surface-muted", {
   variants: {
-    radius: { inset: "rounded-inset", field: "rounded-field", card: "rounded-card", pill: "rounded-pill" },
+    radius: { inset: "rounded-inset", field: "rounded-inset", card: "rounded-card", pill: "rounded-pill" },
   },
   defaultVariants: { radius: "field" },
 });
