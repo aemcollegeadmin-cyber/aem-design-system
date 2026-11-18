@@ -84,9 +84,7 @@ Border-radius classes:
 | Class | CSS variable |
 |---|---|
 | `rounded-inset` | `--radius-inset` |
-| `rounded-field` | `--radius-field` |
 | `rounded-card` | `--radius-card` |
-| `rounded-composer` | `--radius-composer` |
 | `rounded-panel` | `--radius-panel` |
 | `rounded-pill` | `--radius-pill` |
 
