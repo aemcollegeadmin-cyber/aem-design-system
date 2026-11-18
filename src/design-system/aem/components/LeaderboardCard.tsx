@@ -117,7 +117,7 @@ export const LeaderboardCard = forwardRef<HTMLElement, LeaderboardCardProps>(
             ))}
           </div>
         ) : !hasEntries ? (
-          <p className="rounded-card bg-surface-muted px-4 py-6 text-center text-caption text-ink-muted">
+          <p className="rounded-inset bg-surface-muted px-4 py-6 text-center text-caption text-ink-muted">
             {emptyLabel}
           </p>
         ) : (

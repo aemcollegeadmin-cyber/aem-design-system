@@ -95,8 +95,8 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
         className={cn("flex w-full flex-col gap-4 rounded-panel bg-surface p-4", className)}
         {...props}
       >
-        <div className="relative aspect-video w-full overflow-hidden rounded-panel">
-          <Skeleton radius="card" className="size-full rounded-panel" />
+        <div className="relative aspect-video w-full overflow-hidden rounded-inset">
+          <Skeleton radius="card" className="size-full rounded-inset" />
           {coverTags !== undefined && (
             <div className="pointer-events-none absolute left-3 top-3 z-10 flex flex-wrap gap-1.5">
               <Skeleton radius="pill" className="h-5 w-24" />
@@ -126,7 +126,7 @@ export const PodcastCard = forwardRef<HTMLElement, PodcastCardProps>(function Po
     >
       {/* Fixed 16:9 stage: the cover and the inline player share it, so
           starting playback never changes the card's height. */}
-      <div className="relative aspect-video w-full overflow-hidden rounded-panel">
+      <div className="relative aspect-video w-full overflow-hidden rounded-inset">
         <div className="size-full [&>*]:size-full">
           {player ??
             cover ?? (

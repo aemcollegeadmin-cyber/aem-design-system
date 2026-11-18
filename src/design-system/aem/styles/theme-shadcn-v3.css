@@ -121,6 +121,7 @@
   --text-caption--font-weight: 500;
 
   /* Radius */
+  --radius-inset: 10px; /* nested inside a padded card: outer radius minus padding */
   --radius-field: 18px;
   --radius-card: 20px;
   --radius-composer: 22px;
@@ -502,6 +503,7 @@ input[type="search"]::-webkit-search-results-decoration {
   font-weight: var(--text-caption--font-weight);
 }
 
+.rounded-inset { border-radius: var(--radius-inset); }
 .rounded-field { border-radius: var(--radius-field); }
 .rounded-card { border-radius: var(--radius-card); }
 .rounded-composer { border-radius: var(--radius-composer); }

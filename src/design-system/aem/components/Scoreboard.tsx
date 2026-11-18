@@ -193,7 +193,7 @@ export const Scoreboard = forwardRef<HTMLElement, ScoreboardProps>(function Scor
       {overallRanking && (
         <aside
           aria-label={overallRanking.title ?? "Загальний рейтинг"}
-          className="flex flex-col gap-3 rounded-card bg-surface-muted p-4"
+          className="flex flex-col gap-3 rounded-inset bg-surface-muted p-4"
         >
           <div className="flex flex-wrap items-center justify-between gap-2">
             <h3 className="text-h4 text-ink">{overallRanking.title ?? "Загальний рейтинг"}</h3>
@@ -206,7 +206,7 @@ export const Scoreboard = forwardRef<HTMLElement, ScoreboardProps>(function Scor
           ) : overallRanking.row ? (
             <Row row={{ ...overallRanking.row, current: true }} />
           ) : (
-            <p className="rounded-field bg-surface px-4 py-4 text-center text-caption text-ink-muted">
+            <p className="rounded-inset bg-surface px-4 py-4 text-center text-caption text-ink-muted">
               {overallRanking.emptyLabel ?? "Загальний рейтинг ще формується."}
             </p>
           )}

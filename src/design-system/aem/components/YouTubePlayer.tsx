@@ -180,14 +180,14 @@ export const YouTubePlayer = forwardRef<YouTubePlayerHandle, YouTubePlayerProps>
     }, []);
     void seek;
 
-    const frame = "overflow-hidden rounded-panel bg-surface-inverse text-on-inverse";
+    const frame = "overflow-hidden rounded-inset bg-surface-inverse text-on-inverse";
 
     if (loading) {
       return (
         <Skeleton
           radius="card"
           aria-busy="true"
-          className={cn("aspect-video w-full rounded-panel", className)}
+          className={cn("aspect-video w-full rounded-inset", className)}
         />
       );
     }

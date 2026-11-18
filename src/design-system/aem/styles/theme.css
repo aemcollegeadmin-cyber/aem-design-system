@@ -126,6 +126,7 @@
 @theme {
   /* Radius. A single-`--radius` consumer maps it to --radius-card (20px);
      field = 18px, panel = 24px, pill = fully round. */
+  --radius-inset: 10px; /* nested inside a padded card: outer radius minus padding */
   --radius-field: 18px;
   --radius-card: 20px;
   --radius-composer: 22px;

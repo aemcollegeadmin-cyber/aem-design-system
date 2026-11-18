@@ -97,7 +97,7 @@ export const CourseCard = forwardRef<HTMLElement, CourseCardProps>(function Cour
       className={cn("aem-course-card flex flex-col gap-4 rounded-panel bg-surface p-4", className)}
       {...props}
     >
-      <div className="aem-course-cover relative flex items-center justify-center overflow-hidden rounded-panel bg-ink text-accent-lime">
+      <div className="aem-course-cover relative flex items-center justify-center overflow-hidden rounded-inset bg-ink text-accent-lime">
         <div className="size-full">{cover ?? <span className="flex size-full items-center justify-center text-h2">aem</span>}</div>
         {coverStatus && <div className="aem-course-cover-scrim absolute inset-0" aria-hidden="true" />}
         {(coverStatus || coverTags) && (

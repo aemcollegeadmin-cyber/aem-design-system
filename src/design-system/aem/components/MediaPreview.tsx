@@ -10,9 +10,9 @@ const preview = cva(
       size: {
         sm: "h-16 w-24 rounded-field",
         md: "h-20 w-32 rounded-card",
-        lg: "h-36 w-full rounded-panel",
+        lg: "h-36 w-full rounded-inset",
         /** Same geometry as an inline video player — no size jump on play. */
-        video: "aspect-video w-full rounded-panel",
+        video: "aspect-video w-full rounded-inset",
       },
     },
     defaultVariants: { size: "md" },

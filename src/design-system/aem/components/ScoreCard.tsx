@@ -102,7 +102,7 @@ function Bar({ value, label }: { value: number; label: string }) {
   );
 }
 
-const tile = "relative flex min-w-0 flex-col gap-4 rounded-card p-4";
+const tile = "relative flex min-w-0 flex-col gap-4 rounded-inset p-4";
 
 /** Three statistic tiles (rank, total, wider week tile) with numbers on top and captions at the bottom, followed by optional blog previews. */
 export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreCard(
@@ -179,7 +179,7 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
           </div>
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             {[0, 1, 2].map((index) => (
-              <div key={index} className="flex min-w-0 flex-col gap-2.5 rounded-card bg-surface-inverse-muted p-3">
+              <div key={index} className="flex min-w-0 flex-col gap-2.5 rounded-inset bg-surface-inverse-muted p-3">
                 <Skeleton radius="field" className="aspect-video w-full bg-surface-inverse" />
                 <Skeleton radius="pill" className="h-4 w-full bg-surface-inverse" />
                 <Skeleton radius="pill" className="h-4 w-2/3 bg-surface-inverse" />
@@ -200,8 +200,8 @@ export const ScoreCard = forwardRef<HTMLElement, ScoreCardProps>(function ScoreC
           <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
             {articles.items.map((article, index) => (
               <a key={`${article.href}-${index}`} href={article.href} target="_blank" rel="noopener noreferrer"
-                className="flex min-w-0 flex-col gap-2.5 rounded-card bg-surface-inverse-muted p-3 hover:bg-on-inverse-track/40">
-                {article.coverUrl && <img src={article.coverUrl} alt="" loading="lazy" className="aspect-video w-full rounded-field bg-surface-inverse object-cover" />}
+                className="flex min-w-0 flex-col gap-2.5 rounded-inset bg-surface-inverse-muted p-3 hover:bg-on-inverse-track/40">
+                {article.coverUrl && <img src={article.coverUrl} alt="" loading="lazy" className="aspect-video w-full rounded-inset bg-surface-inverse object-cover" />}
                 <span className="aem-article-clamp text-caption font-bold text-on-inverse line-clamp-2">{article.title}</span>
                 {article.description && <span className="aem-article-clamp text-caption text-on-inverse-soft line-clamp-2">{article.description}</span>}
               </a>

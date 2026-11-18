@@ -10,7 +10,7 @@ const card = cva("", {
       panel: "bg-surface-muted",
     },
     padding: { none: "", sm: "p-3", md: "p-4", lg: "p-6" },
-    radius: { card: "rounded-card", panel: "rounded-panel", field: "rounded-field" },
+    radius: { inset: "rounded-inset", card: "rounded-card", panel: "rounded-panel", field: "rounded-field" },
   },
   defaultVariants: { variant: "surface", padding: "md", radius: "card" },
 });
